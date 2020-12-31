@@ -13,9 +13,7 @@ Steemitアカウントの登録手続きが改善されていた [🔗](https://
 
 Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-steemit)
 
-* ログインは、ポスティングキーで
-
-[https://steemit.com/](https://steemit.com/)
+[https://steemit.com/](https://steemit.com/) ログインは、ポスティングキーで
 
 * 私の投稿ページです [🔗](https://steemit.com/@yasu) 
 
@@ -23,9 +21,7 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 # Steemit wallet
 
-[https://steemitwallet.com/](https://steemitwallet.com/)
-
-* ログインは、アクセスキーで
+[https://steemitwallet.com/](https://steemitwallet.com/) ログインは、アクセスキーで
 
 # Steem Keychain
 
