@@ -17,15 +17,15 @@ Steemitは、世界で最初にブロックチェーンによるブログを実�
 
 (https://steemit.com/)[https://steemit.com/]
 
-* 私の投稿ページです [🚀](https://steemit.com/@yasu) 
+* 私の投稿ページです [🔗](https://steemit.com/@yasu) 
 
-* 日本コミュニティのページです [🚀](https://steemit.com/created/japanese)
+* 日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
 
 # Steem Keychain
 
 * Chrome 拡張機能
 
-ログインなどの操作を便利にするツール。(デスクトップのみ) [🚀](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
+ログインなどの操作を便利にするツール。(デスクトップのみ) [🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 # Steem Engine
 
