@@ -15,7 +15,7 @@ Steemitは、世界で最初にブロックチェーンによるブログを実�
 
 ログインは、ポスティングキーで
 
-https://steemit.com/
+(https://steemit.com/)[https://steemit.com/]
 
 * 私の投稿ページです
 
