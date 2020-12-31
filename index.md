@@ -25,7 +25,7 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 # Steemit wallet
 
-https://steemitwallet.com/@yasu
+[https://steemitwallet.com/](https://steemitwallet.com/)
 
 * ログイン
 
