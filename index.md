@@ -24,7 +24,7 @@ Steemitは、世界で最初にブロックチェーンによるブログを実�
 * Chrome 拡張機能
  ログインなどの操作を便利にするツール。(デスクトップのみ)
 
- [https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
+ [https://chrome.google.com/.../jhgnbkkipaallpehbohjmkbjofjdmeid](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 # Steem Engine
 
