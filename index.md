@@ -10,3 +10,6 @@
 
 * Steem Engine
 [https://steem-engine.net/](https://steem-engine.net/)
+
+* Chrome ウェブストアのページ
+[https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
