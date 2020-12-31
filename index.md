@@ -34,3 +34,4 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 # Reward Summary 
 
 ![SmartSelect_20201231-231021_Chrome.jpg](https://cdn.steemitimages.com/DQmcQe52UdHbc4x4iK9efPLGwMhtaNabFTjMbbYTWRt3JsG/SmartSelect_20201231-231021_Chrome.jpg)
+2020.12.31現在
