@@ -30,3 +30,7 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 # Steem Engine
 
 STEEMベースのトークンを売買する取引所。 [🔗](https://steem-engine.net/)
+
+# Reward Summary 
+
+![SmartSelect_20201231-231021_Chrome.jpg](https://cdn.steemitimages.com/DQmcQe52UdHbc4x4iK9efPLGwMhtaNabFTjMbbYTWRt3JsG/SmartSelect_20201231-231021_Chrome.jpg)
