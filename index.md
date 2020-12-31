@@ -25,9 +25,7 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 # Steem Keychain
 
-* Chrome 拡張機能
-
-ログインなどの操作を便利にするツール。(デスクトップのみ) [🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
+ログインなどの操作を便利にするChrome 拡張機能です。(デスクトップのみ) [🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 # Steem Engine
 
