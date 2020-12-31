@@ -20,6 +20,3 @@ STEEMベースのトークンを売買する取引所。
 
 ログインなどの操作を便利にするツール。
 [https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
-
-
-
