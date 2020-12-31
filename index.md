@@ -1,5 +1,5 @@
 # Steemit 
-Steemitは、ブロックチェーンベースのブログおよびソーシャルメディアWebサイトです。コンテンツの公開とキュレーションに対して暗号通貨STEEMをユーザーに提供する。
+Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアWebサイトです。コンテンツの公開とキュレーションに対して暗号通貨STEEMがユーザーに提供されます。
 
 * 私の投稿ページです
 
@@ -13,10 +13,12 @@ Steemitは、ブロックチェーンベースのブログおよびソーシャ�
 
 * Steem Engine
 
+STEEMベースのトークンを売買する取引所。
 [https://steem-engine.net/](https://steem-engine.net/)
 
-* Chrome 拡張機能
+* Chrome 拡張機能(デスクトップのみ)
 
+ログインなどの操作を便利にするツール。
 [https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 
