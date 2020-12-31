@@ -5,15 +5,18 @@ title: steemit
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
 
-* サインアップはこちら 公式サイト
+* サインアップはこちら 
  
-[https://signup.steemit.com/](https://signup.steemit.com/) Chrome推奨
- 
-* 私の投稿ページです
-
+[https://signup.steemit.com/](https://signup.steemit.com/) 公式サイト Chrome推奨
 [Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit)
 
-[https://steemit.com/@yasu](https://steemit.com/@yasu) ログインは、ポスティングキーで
+* ログイン
+
+ログインは、ポスティングキーで
+
+* 私の投稿ページです
+
+[https://steemit.com/@yasu](https://steemit.com/@yasu) 
 
 * 日本コミュニティのページです
 
