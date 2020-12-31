@@ -15,9 +15,9 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 [https://steemit.com/](https://steemit.com/) ログインは、ポスティングキーで
 
-* 私の投稿ページです [🔗](https://steemit.com/@yasu) 
+私の投稿ページです [🔗](https://steemit.com/@yasu) 
 
-* 日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
+日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
 
 # Steemit wallet
 
@@ -28,7 +28,5 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 ログインなどの操作を便利にするChrome 拡張機能です。(デスクトップのみ) [🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 # Steem Engine
-
-* Steem Engine
 
 STEEMベースのトークンを売買する取引所。 [🔗](https://steem-engine.net/)
