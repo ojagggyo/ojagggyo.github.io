@@ -1,7 +1,7 @@
 # Hello 
 
-* Steemit my profile 
+* Steemit my profile
 https://steemit.com/@yasu
 
-* Steemit Japanese community 
+* Steemit Japanese community
 https://steemit.com/created/japanese
