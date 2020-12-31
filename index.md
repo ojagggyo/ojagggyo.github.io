@@ -34,7 +34,10 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 # Reward Summary 
 
 最近の一週間の報酬は、142ドル
-![SmartSelect_20201231-231021_Chrome.jpg](https://cdn.steemitimages.com/DQmcQe52UdHbc4x4iK9efPLGwMhtaNabFTjMbbYTWRt3JsG/SmartSelect_20201231-231021_Chrome.jpg)
+|Rewards|Curation SP|Author SP|STEEM|SBD|Total USD*|
+|---|---:|---:|---:|---:|---:|
+|Last 7 Days	|28.19	|250.96	|9.86	|38.32	|143.35|
+
 2020.12.31現在
 
 (保有資産価値、14000ドル)
