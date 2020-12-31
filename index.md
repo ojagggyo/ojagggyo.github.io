@@ -23,6 +23,15 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 * 日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
 
+# Steemit wallet
+
+https://steemitwallet.com/@yasu
+
+* ログイン
+
+ログインは、アクセスキーで
+
+
 # Steem Keychain
 
 * Chrome 拡張機能
