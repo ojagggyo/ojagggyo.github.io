@@ -4,16 +4,19 @@ title: steemit
 
 
 # Steemit 
-Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアWebサイトです。コンテンツの公開とキュレーションに対して暗号通貨STEEMがユーザーに提供されます。
+Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
 
 * サインアップはこちら
 
 [https://signup.steemit.com/](https://signup.steemit.com/)
 
+`Chrome推奨`
 
 * 私の投稿ページです
 
 [https://steemit.com/@yasu](https://steemit.com/@yasu)
+
+`ログインは、ポスティングキー`
 
 * 日本コミュニティのページです
 
