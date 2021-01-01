@@ -1,3 +1,5 @@
+[散策フォトギャラリー](./photogarally.html)| [Python学習](./python.hrml)
+
 # 散策フォトギャラリー
 
 |登校日|タイトル|
