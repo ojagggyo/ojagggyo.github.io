@@ -1,4 +1,4 @@
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html)
+[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemit.html)
 
 # 散策フォトギャラリー
 
