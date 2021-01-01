@@ -15,10 +15,6 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 [https://steemit.com/](https://steemit.com/) ログインは、ポスティングキーで
 
-私の投稿ページです [🔗](https://steemit.com/@yasu) 
-
-日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
-
 # Steemit wallet
 
 [https://steemitwallet.com/](https://steemitwallet.com/) ログインは、アクセスキーで
@@ -45,9 +41,12 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 
 # Archive
 
-散策フォトギャラリー[🔗](https://ojagggyo.github.io/photogarally.html)
+散策フォトギャラリー [🔗](https://ojagggyo.github.io/photogarally.html)
 
-Python学習[🔗](https://ojagggyo.github.io/python.html)
+Python学習 [🔗](https://ojagggyo.github.io/python.html)
 
+私の投稿ページです [🔗](https://steemit.com/@yasu) 
+
+日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
 
 
