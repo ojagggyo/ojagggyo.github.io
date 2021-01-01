@@ -33,7 +33,8 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 
 # Reward Summary 
 
-最近の一週間の報酬は、143ドル  
+最近の一週間の報酬は、143ドル
+
 |Rewards|Curation SP|Author SP|STEEM|SBD|Total USD*|
 |---|---:|---:|---:|---:|---:|
 |Last 7 Days	|28.19	|250.96	|9.86	|38.32	|143.35|  
