@@ -1,6 +1,6 @@
-# Python学習
+[散策フォトギャラリー](./photogarally.html)| [Python学習](./python.hrml)
 
-[散策フォトギャラリー](./photogarally.html)| Python学習
+# Python学習
 
 |登校日|タイトル|
 |---|---|
