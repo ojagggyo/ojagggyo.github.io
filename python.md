@@ -1,4 +1,4 @@
-[散策フォトギャラリー](./photogarally.html)| [Python学習](./python.html)
+[散策フォトギャラリー](./photogarally.html) [Python学習](./python.html)
 
 # Python学習
 
