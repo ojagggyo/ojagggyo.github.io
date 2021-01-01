@@ -9,9 +9,9 @@ Steemitは、世界で最初にブロックチェーンによるブログを実�
 
 [https://signup.steemit.com/](https://signup.steemit.com/) 公式サイト Chrome推奨
 
-Steemitアカウントの登録手続きが改善されていた [🔗](https://steemit.com/japanese/@yasu/4t27l6-steemit)
+Steemitアカウントの登録手続きが改善されていた[🔗](https://steemit.com/japanese/@yasu/4t27l6-steemit)
 
-Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-steemit)
+Steemitはじめの一歩！[🔗](https://steemit.com/japanese/@yasu/7fuxcn-steemit)
 
 [https://steemit.com/](https://steemit.com/) ログインは、ポスティングキーで
 
@@ -21,11 +21,11 @@ Steemitはじめの一歩！ [🔗](https://steemit.com/japanese/@yasu/7fuxcn-st
 
 # Steem Keychain
 
-ログインなどの操作を便利にするChrome 拡張機能です。(デスクトップのみ) [🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
+ログインなどの操作を便利にするChrome 拡張機能です。(デスクトップのみ)[🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
 # Steem Engine
 
-STEEMベースのトークンを売買する取引所。 [🔗](https://steem-engine.net/)
+STEEMベースのトークンを売買する取引所。[🔗](https://steem-engine.net/)
 
 # Reward Summary 
 
@@ -41,12 +41,12 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 
 # Archive
 
-散策フォトギャラリー [🔗](https://ojagggyo.github.io/photogarally.html)
+散策フォトギャラリー[🔗](https://ojagggyo.github.io/photogarally.html)
 
-Python学習 [🔗](https://ojagggyo.github.io/python.html)
+Python学習[🔗](https://ojagggyo.github.io/python.html)
 
-私の投稿ページです [🔗](https://steemit.com/@yasu) 
+私の投稿ページです[🔗](https://steemit.com/@yasu) 
 
-日本コミュニティのページです [🔗](https://steemit.com/created/japanese)
+日本コミュニティのページです[🔗](https://steemit.com/created/japanese)
 
 
