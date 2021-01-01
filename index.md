@@ -42,3 +42,8 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 2021.1.1現在
 
 (保有資産価値、14000ドル)
+
+# Archive
+
+過去に投稿した記事。 [🔗](https://ojagggyo.github.io/archive.md)
+
