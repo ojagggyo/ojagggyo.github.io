@@ -45,5 +45,9 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 
 # Archive
 
-過去に投稿した記事。 [🔗](https://ojagggyo.github.io/archive.html)
+散策フォトギャラリー[🔗](https://ojagggyo.github.io/photogarally.html)
+
+Python学習[🔗](https://ojagggyo.github.io/python.html)
+
+
 
