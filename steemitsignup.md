@@ -1,6 +1,6 @@
 [ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html)
 
-# steemitサインアップ
+# steemit サインアップ
 
 |投稿日|タイトル|
 |--|---|
