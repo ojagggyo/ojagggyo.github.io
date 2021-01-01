@@ -38,6 +38,7 @@ STEEMベースのトークンを売買する取引所。 [🔗](https://steem-en
 |Rewards|Curation SP|Author SP|STEEM|SBD|Total USD*|
 |---|---:|---:|---:|---:|---:|
 |Last 7 Days	|28.19	|250.96	|9.86	|38.32	|143.35|  
+
 2021.1.1現在
 
 (保有資産価値、14000ドル)
