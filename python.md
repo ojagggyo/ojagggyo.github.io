@@ -1,5 +1,5 @@
 ---
-title: Python学習
+title: Python 学習
 ---
 
 [ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html)
