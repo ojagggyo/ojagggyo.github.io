@@ -29,6 +29,8 @@ Steemitはじめの一歩！[🔗](https://steemit.com/japanese/@yasu/7fuxcn-ste
 
 STEEMベースのトークンを売買する取引所。[🔗](https://steem-engine.net/)
 
+私が所有しているトークンは、JJM, KRWP, STEEMP, JCAR, SCT, ZZAN, AAA, MARLIANS
+
 # Steem Auto
 
 あなたの代理となって自動的にVotingするツールです。[🔗](https://auto.steemdb.online/)
