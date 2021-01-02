@@ -11,3 +11,6 @@
 |2020/10/20|[[Python] カレントディレクトリを変更する](https://steemit.com/hive-101145/@yasu/5cuqmg-python)|
 |2020/09/08|[pythonをはじめてみる](https://steemit.com/hive-101145/@yasu/python)|
 
+
+20202/09/10
+[Steem Developer Portal - TutorialsでPYTHONを学ぶ](https://steemit.com/hive-101145/@yasu/steem-developer-portal-tutorials-python)
