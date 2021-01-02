@@ -1,3 +1,7 @@
+---
+title: Python学習
+---
+
 [ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html)
 
 # Python学習
