@@ -29,6 +29,8 @@ Steemitはじめの一歩！[🔗](https://steemit.com/japanese/@yasu/7fuxcn-ste
 
 STEEMベースのトークンを売買する取引所。[🔗](https://steem-engine.net/)
 
+売買に手数料はかかりませんが、入出金に1%ずつ手数料がかかります。
+
 私が所有しているトークンは、JJM, KRWP, STEEMP, JCAR, SCT, ZZAN, AAA, MARLIANS
 
 # Steem Auto
