@@ -43,6 +43,6 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 # Archive
 
-散策フォトギャラリー[🔗](https://ojagggyo.github.io/photogarally.html) Python学習[🔗](https://ojagggyo.github.io/python.html) Steemitサインアップ[🔗](./steemitsignup.html)
+散策フォトギャラリー[🔗](./photogarally.html) Python学習[🔗](./python.html) Steemitサインアップ[🔗](./steemitsignup.html)
 
 
