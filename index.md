@@ -29,6 +29,10 @@ Steemitはじめの一歩！[🔗](https://steemit.com/japanese/@yasu/7fuxcn-ste
 
 STEEMベースのトークンを売買する取引所。[🔗](https://steem-engine.net/)
 
+# Steem Auto
+
+自動的にVotingしてくれるツールです。[🔗](https://auto.steemdb.online/)
+
 # Reward Summary 
 
 最近の一週間の報酬は、143ドル
