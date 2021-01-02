@@ -11,6 +11,8 @@
 |2020/10/26|[[散策フォトギャラリー] 江村の九谷滝 구곡폭포](https://steemit.com/hive-101145/@yasu/5offbx-or)|
 |2020/10/17|[[散策フォトギャラリー] ソラク山の飛仙台 비선대](https://steemit.com/hive-101145/@yasu/3nuza7-or)|
 |2020/10/04|[[散策フォトギャラリー] ソラク山の五色薬水 오색약수터](https://steemit.com/hive-101145/@yasu/vzgd3)|
+|2020/07/13|[[散策フォトギャラリー] ある日曜日](https://steemit.com/hive-101145/@yasu/3wsk6e)|
+|2020/07/09|[[散策フォトギャラリー] 八峰山 팔봉산](https://steemit.com/hive-101145/@yasu/2lgxa1-or)|
 |2020/06/08|[[散策フォトギャラリー] スタサ農村テーマ公園 스타사농촌테마공원](https://steemit.com/hive-101145/@yasu/5ryuel-steemit-or)|
 |2020/05/18|[[散策フォトギャラリー] ジプダリゴル自然休養林編 집다리골자연휴양림](https://steemit.com/hive-101145/@yasu/steemit-or)|
 |2020/05/11|[[散策フォトギャラリー] チョギャ山編](https://steemit.com/hive-101145/@yasu/5antz8-steemit)|
