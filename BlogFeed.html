@@ -4,11 +4,6 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> 
         <script>
             window.onload = function() {
-                //steem.api.setOptions({url: 'https://api.steemit.com'});
-                //getAccountCount();
-                //getSteemPrice();
-                
-                //const { Client } = require('dsteem');
                 const client = new Client('https://api.steemit.com');
                 var query = {
                     tag: 'steemitblog', // This tag is used to filter the results by a specific post tag
