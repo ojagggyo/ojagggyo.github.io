@@ -14,42 +14,13 @@
         <script>
             let username;
             let storage_username;
-            let defaultHtml = '<div style="height:150px; padding-top:55px;padding-bottom:55px;"><button type="button" class="btn btn-success" style="margin:3px;">followers: 0</button><button type="button" class="btn btn-warning" style="margin:3px;">unfollowers: 0</button></div>';
            
             window.onload = function() {
-                storage_username = localStorage.getItem("username");
-                let previous_count = localStorage.getItem("follower_count");
-                previous_count = previous_count === null ? 0 : previous_count;
-                $("#text_username").val(storage_username);
-                $("#past_sub").text("number of followers: " + previous_count);
+
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 getAccountCount();
                 getSteemPrice();
-                getVotingPowerPercent();
-                loadSelectBox();
             };
-            function loadSelectBox(){
-                username = $("#text_username").val();
-                if(username === ""){
-                    return;
-                }
-                steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
-                    let text = "";
-                    for(let i = 0; i < result.length; i++){
-                        if(result[i].author === username){
-                            text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
-                        }
-                    }
-                    if(result.length == 0) {
-                        $("#selectPerm").html("");
-                        $("#votingListButton").text("");
-                        $("#votingListButton").val("");
-                        return;
-                    }
-                    $("#selectPerm").html(text);
-                    getVoting("SBD");
-                });
-            }
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
                     $("#steemitUser").text(result);
@@ -76,15 +47,8 @@
                     <span class="p-2" id="steemitUser" onclick="getAccountCount();"></span>
                     <span class="" id="steemPrice" onclick="getSteemPrice();"></span>
                 </div>
-                <div class="p-2" onclick="getVotingPowerPercent();">
-                    <span class="p-2" id="userSP"></span>
-                    <span id="votingSBD"></span>
-                    <span class="p-2" id="votingPowerP"></span>
-                    <span id="timeLeft"></span>
-                </div>
             </div>
-          
-
+         
         </div>
     </body>
 </html>
