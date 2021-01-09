@@ -45,8 +45,12 @@
                         
                         posts.push(
                             `<div class="list-group-item">
-                                <img src="https://steemitimages.com/6400x480/${image}" style-"display: inline-block; vertical-align: middle; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic;"/>
-                                <div style="float:right; width=100%;"><h4 class="list-group-item-heading">${title}</h4></div>
+                                <table>
+                                <tr>
+                                <td><img src="https://steemitimages.com/6400x480/${image}" style="display:inline-block; vertical-align:middle; max-width:100%; height:auto; -ms-interpolation-mode:bicubic;"/></td>
+                                <td><div style="float:right; width=100%;"><h4 class="list-group-item-heading">${title}</h4></div></td>
+                                </tr>
+                                </table>
                             </div>`
                         );
                     }
