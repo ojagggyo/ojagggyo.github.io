@@ -40,17 +40,11 @@
                         
                         const title = result[i].title;
                         const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
-                        
-               
-                     
+       
                         posts.push(
                             `<div class="list-group-item">
-                                <table>
-                                <tr>
-                                <td><img src="${image}" /></td>
-                                <td><h4>${title}</h4></td>
-                                </tr>
-                                </table>
+                                <h4>${title}</h4>
+                                <img src="${image}" />
                             </div>`
                         );
                     }
