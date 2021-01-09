@@ -35,7 +35,20 @@
                         //if(result[i].author === username){
                         //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
                         //}
-                         console.log("★result[i].title["+result[i].title+"]");
+                        console.log("★result[i].title["+result[i].title+"]");
+                        
+                        const title = result[i].title+"];
+                        
+                        posts.push(
+                            `<div class="list-group-item">
+                                <h4 class="list-group-item-heading">${title}</h4>
+                                //<p>by ${author}</p>
+                                //<center>
+                                //    <img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
+                                //</center>
+                                //<p class="list-group-item-text text-right text-nowrap">${created}</p>
+                            </div>`
+                        );
                     }
                     
                     
@@ -44,26 +57,17 @@
                         //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
                         //}
                     
-                    <!--
-                    for(let i = 0; i < result.length; i++){
-                        const json = JSON.parse(post.json_metadata);
-                        const image = json.image ? json.image[0] : '';
-                        const title = post.title;
-                        const author = post.author;
-                        const created = new Date(post.created).toDateString();
-                        posts.push(
-                            `<div class="list-group-item">
-                                <h4 class="list-group-item-heading">${title}</h4>
-                                <p>by ${author}</p>
-                                <center>
-                                    <img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
-                                </center>
-                                <p class="list-group-item-text text-right text-nowrap">${created}</p>
-                            </div>`
-                        );
-                    }
+              
+                    //for(let i = 0; i < result.length; i++){
+                    //    const json = JSON.parse(post.json_metadata);
+                    //    const image = json.image ? json.image[0] : '';
+                    //    const title = post.title;
+                    //    const author = post.author;
+                    //    const created = new Date(post.created).toDateString();
+                    //}
+                
+                    
                     $("#postList").html = posts.join('');
-                    -->
                 });
             }
             window.onload = function() {
