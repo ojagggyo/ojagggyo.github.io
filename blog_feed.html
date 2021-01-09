@@ -7,7 +7,7 @@
         if (username){
             username = username.substr(1);//#を取る
         }
-        console.log("★"+username);
+        console.log("★["+username+"]");
        
         
 
@@ -18,7 +18,7 @@
         const client = new dsteem.Client('https://api.steemit.com');
         function fetchBlog() {
             const query = {
-                tag: 'yasu',
+                tag: username,
                 limit: 20,
             };
             client.database
