@@ -7,11 +7,10 @@
         console.log("★["+username+"]");
         if (username == null || username.trim().length == 0){
             username = "#steemitblog";
-        //} else if (usernamer.trim().length == 0){
-        //    username = "steemitblog";
         }
         username = username.substr(1);//#を取る
-       
+        console.log("★["+username+"]");
+        
         //import { Client } from 'dsteem';
         //const client = new Client('https://api.steemit.com');
         const client = new dsteem.Client('https://api.steemit.com');
