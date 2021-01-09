@@ -28,7 +28,22 @@
                     return;
                 }
                 steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
+                    
+                     console.log("★result.length["+result.length+"]");
                     var posts = [];
+                    for(let i = 0; i < result.length; i++){
+                        //if(result[i].author === username){
+                        //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
+                        //}
+                    }
+                    
+                    
+                    
+                              if(result[i].author === username){
+                            text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
+                        }
+                    
+                    <!--
                     for(let i = 0; i < result.length; i++){
                         const json = JSON.parse(post.json_metadata);
                         const image = json.image ? json.image[0] : '';
@@ -47,6 +62,7 @@
                         );
                     }
                     $("#postList").html = posts.join('');
+                    -->
                 });
             }
             window.onload = function() {
