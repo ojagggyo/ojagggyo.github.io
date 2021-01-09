@@ -13,71 +13,11 @@
         <!-- <script src="fff.js"></script> -->
     </head>
     <body>
+        <div>
+            こんいちは、
+        </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-        <div class="container">
-            <div class="d-flex" style="font-size:small;">
-                <div class="mr-auto p-2">
-                    <span class="p-2" id="steemitUser" onclick="getAccountCount();"></span>
-                    <span class="" id="steemPrice" onclick="getSteemPrice();"></span>
-                </div>
-                <div class="p-2" onclick="getVotingPowerPercent();">
-                    <span class="p-2" id="userSP"></span>
-                    <span id="votingSBD"></span>
-                    <span class="p-2" id="votingPowerP"></span>
-                    <span id="timeLeft"></span>
-                </div>
-            </div>
-          
-           <div class="card text-center">
-                <div class="card-header">
-                    Follower Change Checker
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Make sure your friends have increased or decreased</h5>
-                    <p id="past_sub"  class="card-text">number of followers</p>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" onclick='getVoting("SBD");'>Username</span>
-                        </div> 
-                        <input type="text" id="text_username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" style="width:95px;" for="inputGroupSelect01" onclick='getVoting("TIME");'>Post</label>
-                        </div>
-                        <select class="custom-select" id="selectPerm" onchange='getVoting("SBD");'>
-                        </select>
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary" onclick="moveToPost();">Go</button>
-                        </div>
-                    <button type="button" id="btn_check" class="btn btn-primary btn-lg btn-block" style="background-color:#205894; border-color:#205894; margin-top:10px;" onclick="getSteemData();">Check Now</button>
-                    </div>
-
-                    <h5 class="card-title">Follower Result</h5>
-                    <div id="result" class="alert alert-primary" role="alert">
-                        <div style="height:150px; padding-top:55px;padding-bottom:55px;">
-                            <button type="button" class="btn btn-success">followers</button>
-                            <button type="button" class="btn btn-warning">unfollowers</button>
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <button class="custom-select" style="text-align:left; overflow:hidden;" type="button" id="votingListButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"></button>
-                        <div id="dropdownList" class="dropdown-menu" aria-labelledby="votingListButton" style="overflow:auto; max-height:30em; width:100%"></div>
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary" onclick="moveToBlog();">Go!</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-footer text-muted">
-                    follower checker by <a style="margin:3px;" href="https://steemit.com/@supergiant" target="_blank">@supergiant</a>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
