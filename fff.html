@@ -39,7 +39,7 @@
                         console.log("★result[i].image["+JSON.parse(result[i].json_metadata).image+"]");
                         
                         const title = result[i].title;
-                        const image = JSON.parse(result[i].json_metadata).image;
+                        const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
                         
                         posts.push(
                             `<div class="list-group-item">
