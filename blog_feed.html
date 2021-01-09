@@ -5,7 +5,9 @@
     <script>
         var username = window.location.hash;// #username
         console.log("★["+username+"]");
-        if (usernamer == null || usernamer.trim().length == 0){
+        if (usernamer == null || ){
+            username = "steemitblog";
+        } if(usernamer.trim().length == 0){
             username = "steemitblog";
         }
         username = username.substr(1);//#を取る
