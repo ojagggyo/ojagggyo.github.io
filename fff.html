@@ -11,11 +11,53 @@
 
         <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> 
         <!-- <script src="fff.js"></script> -->
+        
+        <script>
+            var username;
+            function saveUserName(){
+                username = window.location.hash;// #username
+                console.log("★["+username+"]");
+                if (username == null || username.trim().length == 0){
+                    username = "#steemitblog";
+                }
+                username = username.substr(1);//#を取る
+                console.log("★["+username+"]");
+            }
+            function load(){
+                if(username === ""){
+                    return;
+                }
+                steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
+                    var posts = [];
+                    for(let i = 0; i < result.length; i++){
+                        const json = JSON.parse(post.json_metadata);
+                        const image = json.image ? json.image[0] : '';
+                        const title = post.title;
+                        const author = post.author;
+                        const created = new Date(post.created).toDateString();
+                        posts.push(
+                            `<div class="list-group-item">
+                                <h4 class="list-group-item-heading">${title}</h4>
+                                <p>by ${author}</p>
+                                <center>
+                                    <img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
+                                </center>
+                                <p class="list-group-item-text text-right text-nowrap">${created}</p>
+                            </div>`
+                        );
+                    }
+                    $("#postList").html = posts.join('');
+                });
+            }
+            window.onload = saveUserName();
+        </script>
     </head>
     <body>
         <div>
-            こんいちは、
+            こんにちは、
         </div>
+         <div class="list-group" id="postList"></div>
+        
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
