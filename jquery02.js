@@ -1,7 +1,6 @@
-//import { Client } from 'dsteem';
-
+import { Client } from 'dsteem';
 const client = new Client('https://api.steemit.com');
-
+ 
 function fetchBlog() {
     const query = {
         tag: 'jsj1215',
