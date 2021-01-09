@@ -42,9 +42,10 @@
                                          
                         const title = result[i].title;
                         const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
-       
+                        const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
+                        
                         posts.push(
-                            `<div class="list-group-item">
+                            `<div class="list-group-item" href=${permlink}>
                                 <h4>${title}</h4>
                                 <img src="${image}" />
                             </div>`
