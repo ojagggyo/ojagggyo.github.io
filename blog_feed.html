@@ -4,12 +4,11 @@
     <script src="https://unpkg.com/dsteem@latest/dist/dsteem.js"></script>
     <script>
         var username = window.location.hash;// #username
+        console.log("★["+username+"]");
         if (!username){
-            alert('Error occured' + err);
-            return;
+            username = "steemitblog";
         }
         username = username.substr(1);//#を取る
-        console.log("★["+username+"]");
        
         //import { Client } from 'dsteem';
         //const client = new Client('https://api.steemit.com');
