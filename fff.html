@@ -49,7 +49,10 @@
                     $("#postList").html = posts.join('');
                 });
             }
-            window.onload = saveUserName();
+            window.onload = function() {
+                saveUserName();
+                load();
+            };
         </script>
     </head>
     <body>
