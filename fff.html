@@ -41,9 +41,11 @@
                         const title = result[i].title;
                         const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
                         
+               
+                        
                         posts.push(
                             `<div class="list-group-item">
-                                <img src="https://steemitimages.com/160x120/${image}" />
+                                <img src="https://steemitimages.com/6400x480/${image}" style-"display: inline-block; vertical-align: middle; max-width: 100%; height: auto; -ms-interpolation-mode: bicubic;"/>
                                 <div style="float:right; width=100%;"><h4 class="list-group-item-heading">${title}</h4></div>
                             </div>`
                         );
