@@ -5,10 +5,11 @@
     <script>
       window.onload = function() {
         $("h1").css("color","brown");
-        $("#title").text("OMG!!");
+        text = $("#title").text();
+        $("#title").text(text + ", world!");
       }
     </script>
-    <title>Hello, world!</title>
+    <title>Hello</title>
   </head>
   <body>
     <h1 id=title>Hello, world!</h1>
