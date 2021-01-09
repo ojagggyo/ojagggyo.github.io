@@ -3,7 +3,37 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!-- <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> -->
     <script src="https://unpkg.com/dsteem@latest/dist/dsteem.js"></script>
-    <script src="jquery02.js"></script>
+    <script>
+        //import { Client } from 'dsteem';
+        //const client = new Client('https://api.steemit.com');
+        const client = new dsteem.Client('https://api.steemit.com');
+        function fetchBlog() {
+            const query = {
+                tag: 'yasu',
+                limit: 100,
+            };
+            client.database
+                .getDiscussions('blog', query)
+                .then(result => {
+                    var posts = [];
+                    result.forEach(post => {
+                        const json = JSON.parse(post.json_metadata);
+                        const image = json.image ? json.image[0] : '';
+                        const title = post.title;
+                        const author = post.author;
+                        const created = new Date(post.created).toDateString();
+                        posts.push(
+                            `<div class="list-group-item"><h4 class="list-group-item-heading">${title}</h4><p>by ${author}</p><center><img src="${image}" class="img-responsive center-block" style="max-width: 450px"/></center><p class="list-group-item-text text-right text-nowrap">${created}</p></div>`
+                        );
+                    });
+                    document.getElementById('postList').innerHTML = posts.join('');
+                })
+                .catch(err => {
+                    alert('Error occured' + err);
+                });
+        }
+        window.onload = fetchBlog();
+    </script>
 </head>
 <body>
 <div class="container">
