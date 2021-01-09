@@ -32,22 +32,23 @@
                     console.log("★result.length["+result.length+"]");
                     var posts = [];
                     for(let i = 0; i < result.length; i++){
-                        //if(result[i].author === username){
-                        //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
-                        //}
-                        console.log("★result[i].title["+result[i].title+"]");
-                        console.log("★result[i].permlink["+"https://steemit.com/@"+username+"/"+result[i].permlink+"]");
-                        console.log("★result[i].image["+JSON.parse(result[i].json_metadata).image+"]");
+
+                        //console.log("★result[i].title["+result[i].title+"]");
+                        //console.log("★result[i].permlink["+"https://steemit.com/@"+username+"/"+result[i].permlink+"]");
+                        //console.log("★result[i].image["+JSON.parse(result[i].json_metadata).image+"]");
                         
-                                         
+                             
                         const title = result[i].title;
                         const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
                         const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
                         
+                        <div class="list-group-item"><h4 class="list-group-item-heading">${title}</h4><p>by ${author}</p><center><img src="${image}" class="img-responsive center-block" style="max-width: 450px"/></center><p class="list-group-item-text text-right text-nowrap">${created}</p></div>`
+                        
+                        
                         posts.push(
                             `<div class="list-group-item" onclick=location.href="${permlink}">
-                                <h4>${title}</h4>
-                                <img src="${image}" />
+                                <h4 class="list-group-item-heading">${title}</h4>
+                                <img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
                             </div>`
                         );
                     }
