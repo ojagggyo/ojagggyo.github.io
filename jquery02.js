@@ -1,6 +1,6 @@
 //import { Client } from 'dsteem';
 //const client = new Client('https://api.steemit.com');
-const client = new Client('https://api.steemit.com');
+const client = new dsteem.Client('https://api.steemit.com');
 
 function fetchBlog() {
     const query = {
