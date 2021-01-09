@@ -6,7 +6,7 @@
         var username = window.location.hash;// #username
         if (!username){
             alert('Error occured' + err);
-            return false;
+            return;
         }
         username = username.substr(1);//#を取る
         console.log("★["+username+"]");
