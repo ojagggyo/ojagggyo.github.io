@@ -4,7 +4,7 @@ const client = new dsteem.Client('https://api.steemit.com');
 
 function fetchBlog() {
     const query = {
-        tag: 'jsj1215',
+        tag: 'yasu',
         limit: 100,
     };
     client.database
