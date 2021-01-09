@@ -29,19 +29,20 @@
                 }
                 steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
                     
-                     console.log("★result.length["+result.length+"]");
+                    console.log("★result.length["+result.length+"]");
                     var posts = [];
                     for(let i = 0; i < result.length; i++){
                         //if(result[i].author === username){
                         //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
                         //}
+                         console.log("★result[i].title["+result[i].title+"]");
                     }
                     
                     
                     
-                              if(result[i].author === username){
-                            text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
-                        }
+                        //if(result[i].author === username){
+                        //    text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
+                        //}
                     
                     <!--
                     for(let i = 0; i < result.length; i++){
