@@ -1,3 +1,5 @@
+<script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> 
+
 //import { Client } from 'dsteem';
 
 const client = new Client('https://api.steemit.com');
