@@ -45,7 +45,7 @@
                             </div>`
                         );
 
-                        //try {
+                        try {
                             if(json.image){
                                 for(let j = 0; j < json.image.length; j++){
                                     posts.push(
@@ -53,10 +53,10 @@
                                     );
                                 }
                             }
-                        //}
-                        //catch (err) {
-                        //   console.log("例外"+err);
-                        //}
+                        }
+                        catch (err) {
+                           console.log("例外"+err);
+                        }
                     }
                     $("#postList").html(posts.join(''));//合体                    
                 });
