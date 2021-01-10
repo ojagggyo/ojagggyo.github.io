@@ -24,10 +24,14 @@
             
             function load(){
                 steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
-                    console.log("★result.length["+result.length+"]");
+                    
+                    console.log("★start");
+                    console.log(result);
+                    
                     if(result.length == 0){
                        return;
                     }
+                    console.log("★result.length["+result.length+"]");
                     var posts = [];
                     for(let i = 0; i < result.length; i++){ 
                         const json = JSON.parse(result[i].json_metadata);
