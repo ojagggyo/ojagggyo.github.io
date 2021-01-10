@@ -33,10 +33,10 @@
                         const created = new Date(result[i].created).toDateString();
                         //const image = json.image ? json.image[0] : '';
                         var images = [];
-                        for(let j = 0; j < json.image.length; i++){
-                            images.push{
+                        for(let j = 0; j < json.image.length; j++){
+                            images.push(
                                 `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
-                            }
+                            );
                         }
                         posts.push(
                             `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
