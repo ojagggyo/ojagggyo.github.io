@@ -32,12 +32,16 @@
                         const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
                         const created = new Date(result[i].created).toDateString();
                         //const image = json.image ? json.image[0] : '';
+                        
+                        console.log("★json.image.length["+json.image.length+"]");
+                        
                         var images = [];
                         for(let j = 0; j < json.image.length; j++){
                             images.push(
                                 `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
                             );
                         }
+                        
                         console.log("★images["+images+"]");
                         
                         posts.push(
