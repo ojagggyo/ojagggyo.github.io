@@ -16,45 +16,37 @@
             var username;
             function saveUserName(){
                 username = window.location.hash;// #username
-                console.log("★["+username+"]");
                 if (username == null || username.trim().length == 0){
                     username = "#steemitblog";
                 }
                 username = username.substr(1);//#を取る
-                console.log("★["+username+"]");
             }
+            
             function load(){
                 if(username === ""){
                     return;
                 }
                 steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
-                    
                     console.log("★result.length["+result.length+"]");
                     var posts = [];
-                    for(let i = 0; i < result.length; i++){
-
-                        //console.log("★result[i].title["+result[i].title+"]");
-                        //console.log("★result[i].permlink["+"https://steemit.com/@"+username+"/"+result[i].permlink+"]");
-                        //console.log("★result[i].image["+JSON.parse(result[i].json_metadata).image+"]");
-                        
-                             
+                    for(let i = 0; i < result.length; i++){                             
                         const title = result[i].title;
-                        const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
                         const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
-                        
-                                           
+                        const created = new Date(result[i].created).toDateString();
+                        const image = JSON.parse(result[i].json_metadata).image ? JSON.parse(result[i].json_metadata).image[0] : '';
+
                         posts.push(
                             `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
                                 <h4 class="list-group-item-heading" style="width: 100%">${title}</h4>
+                                <div>${created}</div>
                                 <img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
                             </div>`
                         );
                     }
-                    
-                    $("#postList").html(posts.join(''));
-
+                    $("#postList").html(posts.join(''));//合体
                 });
             }
+            
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
