@@ -11,17 +11,7 @@
 
         <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> 
         <!-- <script src="fff.js"></script> -->
-        
-        <style>
-            img {
-              border: 0px solid #343a40;
-              border-radius: 0px;
-              padding: 2px;
-              width: 300px;
-            }
-        </style>
-        
-        
+                
         <script>
             var username;
             function saveUserName(){
@@ -56,10 +46,10 @@
                         );
 
                         if(json.image){
-                            posts.push(`<div style="float: left; display: inline; background-color:#f8f9fa;">`);
+                            posts.push(`<div style="float: left; display: inline; background-color:#fff;">`);
                             for(let j = 0; j < json.image.length; j++){
                                 posts.push(  
-                                    `<img src="${json.image[j]}"/>`
+                                    `<img src="${json.image[j]}" style="padding: 2px; width: 300px;"/>`
                                 );
                             }
                             posts.push(`</div>`);
