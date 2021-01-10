@@ -34,23 +34,22 @@
                         const title = result[i].title;
                         const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
                         const created = new Date(result[i].created).toDateString();
-                        //const image = json.image ? json.image[0] : '';
+                        const image = json.image ? json.image[0] : '';
+                       
                         
-                        //console.log("★json.image.length["+json.image.length+"]");
-                        
-                        var images = [];
-                        for(let j = 0; j < json.image.length; j++){
-                            images.push(
-                                `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
-                            );
-                        }
+                        //var images = [];
+                        //for(let j = 0; j < json.image.length; j++){
+                        //    images.push(
+                        //        `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
+                        //    );
+                        //}
                         
                         posts.push(
-                            `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
-                                <h4 class="list-group-item-heading" style="width: 100%">${title}</h4>
-                                <div>${created}</div>`
-                                +　images.join('') +
-                            `</div>`
+`<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
+<h4 class="list-group-item-heading" style="width: 100%">${title}</h4>
+<div>${created}</div>
+<img src="${image}" class="img-responsive center-block" style="max-width: 450px"/>
+</div>`
                         );
                     }
                     $("#postList").html(posts.join(''));//合体
