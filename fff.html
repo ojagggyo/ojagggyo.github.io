@@ -24,21 +24,19 @@
             
             function load(){
                 steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
-                    
-                    console.log("★start");
-                    console.log(result);
-                    
+                   
+                    console.log("★result.length["+result.length+"]");
                     if(result.length == 0){
                        return;
                     }
-                    console.log("★result.length["+result.length+"]");
+                    
                     var posts = [];
                     for(let i = 0; i < result.length; i++){ 
                         const json = JSON.parse(result[i].json_metadata);
                         const title = result[i].title;
                         const permlink = "https://steemit.com/@"+username+"/"+result[i].permlink;
                         const created = new Date(result[i].created).toDateString();
-                        const image = json.image ? json.image[0] : '';
+                        //const image = json.image ? json.image[0] : '';
                        
                         posts.push(
                             `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
@@ -47,26 +45,20 @@
                             </div>`
                         );
 
-                        
-try {
-    for(let j = 0; j < json.image.length; j++){
-    console.log(j);
-    posts.push("<a>aaa</a>");
-    //posts.push(
-    //    `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
-    //);
-    }
-}
-catch (err) {
-   console.log("例外"+err);
-}
-
+                        //try {
+                            if(!json.image){
+                                for(let j = 0; j < json.image.length; j++){
+                                    posts.push(
+                                        `<img src="${json.image[j]}" class="img-responsive center-block" style="max-width: 450px"/>`
+                                    );
+                                }
+                            }
+                        //}
+                        //catch (err) {
+                        //   console.log("例外"+err);
+                        //}
                     }
-                    console.log("前");
-                    $("#postList").html(posts.join(''));//合体
-                    console.log("後");
-                    console.log($("#postList").html());
-                    
+                    $("#postList").html(posts.join(''));//合体                    
                 });
             }
             
