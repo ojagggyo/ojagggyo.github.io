@@ -14,6 +14,7 @@
             var username;
             function saveUserName(){
                 username = window.location.hash;// #username
+                console.log("username["+username+"]");
                 if (username == null || username.trim().length == 0){
                     username = "#steemitblog";
                 }
