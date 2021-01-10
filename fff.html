@@ -33,7 +33,7 @@
                         const created = new Date(result[i].created).toDateString();
                         //const image = json.image ? json.image[0] : '';
                         
-                        console.log("★json.image.length["+json.image.length+"]");
+                        //console.log("★json.image.length["+json.image.length+"]");
                         
                         var images = [];
                         for(let j = 0; j < json.image.length; j++){
@@ -42,7 +42,7 @@
                             );
                         }
                         
-                        console.log("★images["+images+"]");
+                        console.log("★images.join('')["+images.join('')+"]");
                         
                         posts.push(
                             `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%">
@@ -51,6 +51,9 @@
                                 +　images.join('') +
                             `</div>`
                         );
+                        
+                        
+                        
                     }
                     $("#postList").html(posts.join(''));//合体
                 });
