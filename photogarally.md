@@ -2,7 +2,7 @@
 title: 散策フォトギャラリー
 ---
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html)
+[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html)
 
 # 散策フォトギャラリー
 
