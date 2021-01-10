@@ -50,14 +50,14 @@
                         //const image = json.image ? json.image[0] : '';
                        
                         posts.push(
-                            `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%; background-color:#343a40;">
+                            `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%;">
                             <h4 class="list-group-item-heading" style="width: 100%">${title}</h4>
                             <div>${created}</div>
                             </div>`
                         );
 
                         if(json.image){
-                            posts.push(`<div style="float: left; display: inline:">`);
+                            posts.push(`<div style="float: left; display: inline; background-color:#343a40;">`);
                             for(let j = 0; j < json.image.length; j++){
                                 posts.push(  
                                     `<img src="${json.image[j]}"/>`
