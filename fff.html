@@ -39,14 +39,14 @@
                         //const image = json.image ? json.image[0] : '';
                        
                         posts.push(
-                            `<div class="list-group-item" onclick=location.href="${permlink}" style="width: 100%;">
+                            `<div class="list-group-item" style="width: 100%;" onclick=location.href="${permlink}">
                             <h4 class="list-group-item-heading" style="width: 100%">${title}</h4>
                             <div>${created}</div>
                             </div>`
                         );
 
                         if(json.image){
-                            posts.push(`<div style="float: left; display: inline; background-color:#fff;">`);
+                            posts.push(`<div style="float: left; display: inline; background-color:#fff;" onclick=location.href="${permlink}">`);
                             for(let j = 0; j < json.image.length; j++){
                                 posts.push(  
                                     `<img src="${json.image[j]}" style="padding: 2px; width: 300px;"/>`
@@ -72,7 +72,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <div>
-            こんにちは、12345678
+            こんにちは、123456789
         </div>
          <div class="list-group" id="postList"></div>
     </body>
