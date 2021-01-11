@@ -51,6 +51,9 @@
                 
                 // RSHARE
                 let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+                
+                console.log(globalProperties);
+                
                 let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
                 let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
                 
@@ -62,6 +65,9 @@
                 let voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50;
                 let rshare = power * voting;
                 let fund = await steem.api.getRewardFundAsync('post');
+                
+                console.log(fund);
+                
                 let sbd = rshare * (parseFloat(fund.reward_balance.replace(" STEEM","")) / fund.recent_claims) * steemPrice;
                 
                 $("#userSP").text(sp.toFixed(2) + " SP");
