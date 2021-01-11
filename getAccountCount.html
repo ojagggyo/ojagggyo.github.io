@@ -26,12 +26,9 @@
             
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
-                    
-                    //console.log("username["+(result===)+"]");
-                    
-                    let count = result.toLocaleString();
-                    //nu.toLocaleString()
-                    $("#steemitUser").text("Steemit 登録者数は、" + count + " アカウント");
+                    console.log(err, result);
+                    let steemitUser = "Steemit 登録者数は、" + result.toLocaleString() + " アカウント";
+                    $("#steemitUser").text(steemitUser);
                 });
             }
             
