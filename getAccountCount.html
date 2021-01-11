@@ -24,12 +24,16 @@
                 getAccountCount();
                 
                 
-                steem.api.getAccounts(["@yasu"], function(e1, accounts) {
-                  var accountValueInUSD = steem.formatter.estimateAccountValue(accounts[0])
-                    .catch(function (err) { console.log(err); })
-                    .then(function (data) { console.log(data); });
+                steem.api.getAccounts(["yasu"], function(e1, accounts) {
+                    console.log(e1); 
+                    console.log(accounts); 
                     
-                  console.log(accountValueInUSD);
+                    
+                //  var accountValueInUSD = steem.formatter.estimateAccountValue(accounts[0])
+                //    .catch(function (err) { console.log(err); })
+                //    .then(function (data) { console.log(data); });
+                //    
+                //  console.log(accountValueInUSD);
                 });
             };
         </script>
