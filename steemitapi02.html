@@ -27,28 +27,3 @@
         <h1 id="steemitUserCount"></h1>
     </body>
 </html>
-
-        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>        
-        <script>
-            function getSteemPrice() {
-                steem.api.getCurrentMedianHistoryPrice(function(err, result) {
-                    console.log(result);
-                    let steemPrice = parseFloat(result.base.replace(" SBD"));
-                    var text = "1STEEMは、" + steemPrice + "ドルです。"
-                    $("#steemPrice").text(text);
-                });
-            }
-            
-            window.onload = function() {
-                steem.api.setOptions({url: 'https://api.steemit.com'});
-                getSteemPrice();
-            };
-        </script>
-    </head>
-    <body>
-        <div>
-            こんにちは、
-        </div>
-        <h1 id="steemPrice"></h1>
-    </body>
-</html>
