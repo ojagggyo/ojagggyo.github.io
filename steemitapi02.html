@@ -15,9 +15,7 @@
             
             function getSteemPrice() {
                 steem.api.getCurrentMedianHistoryPrice(function(err, result) {
-
                     console.log(result);
-                                        
                     let steemPrice = parseFloat(result.base.replace(" SBD"));
                     var text = "1STEEMは、" + steemPrice + "ドルです。"
                     $("#steemPrice").text(text);
@@ -37,7 +35,6 @@
         <div>
             こんにちは、
         </div>
-        <h1 id="base"></h1>
         <h1 id="steemPrice"></h1>
     </body>
 </html>
