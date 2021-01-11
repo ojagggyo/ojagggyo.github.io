@@ -40,22 +40,22 @@
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
                 console.log(steemPrice);
                 steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
-                $("#steemPrice").text(steemPrice);
+                $("#steemPrice").text(steemPrice+"ドル");
                 
                 let accounts = await steem.api.getAccountsAsync([username]);
-                
                 console.log(accounts);
-                
                 if(accounts.length == 0) {return;}
                 let item = accounts[0];
                 
                 // RSHARE
                 let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-                
                 console.log(globalProperties);
                 
                 let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
                 let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+                 $("#total_vesting_shares").text(total_vesting_shares);
+                 $("#total_vesting_fund_steem").text(total_vesting_fund_steem);
+                
                 
                 let sumVestingShare = parseFloat(item.vesting_shares.replace(" VESTS", "")) + parseFloat(item.received_vesting_shares.replace(" VESTS", "") - parseFloat(item.delegated_vesting_shares.replace(" VESTS", "")));
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
@@ -89,7 +89,10 @@
             こんにちは、
         </div>
         <a>UPVOTE額を求めます。</a>
-        <a>STEEM価格は、</a><a id=steemPrice></a>
+        <a>STEEM価格は、</a><a id=steemPrice></a><br/>
+        <a>total_vesting_sharesは、</a><a id=total_vesting_shares></a><br/><br/>
+        <a>total_vesting_fund_steemは、</a><a id=total_vesting_fund_steem></a><br/><br/>
+        
         
         <h1 id="userSP"></h1>
         <h1 id="votingSBD"></h1>
