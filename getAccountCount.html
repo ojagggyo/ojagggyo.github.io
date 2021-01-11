@@ -10,31 +10,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script>                
-        <script>
-            var username;
-            function saveUserName(){
-                username = window.location.hash;// #username
-                //console.log("username["+username+"]");
-                if (username == null || username.trim().length == 0){
-                    username = "#steemitblog";
-                }
-                
-                username = username.substr(1);//#を取る
-                username = decodeURI(username).trim();//デコード、トリム
-                //console.log("username["+username+"]");
-            }
-            
+        <script>            
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
-                    console.log(err, result);
-                    let steemitUser = "Steemit 登録者数は、" + result.toLocaleString() + " アカウント";
-                    $("#steemitUser").text(steemitUser);
+                    val text = "Steemit 登録者数は、" + result.toLocaleString() + " アカウント";
+                    $("#steemitUser").text(text);
                 });
             }
             
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
-                saveUserName();
                 getAccountCount();
             };
         </script>
