@@ -71,10 +71,13 @@
                 let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
                 $("#vp").text(vp);
                 
-                
-                
                 let votingWeight = 100;
                 let power = sp / (total_vesting_fund_steem / total_vesting_shares);
+                $("#power").text(power);
+                
+                
+                
+                
                 let voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50;
                 let rshare = power * voting;
                 let fund = await steem.api.getRewardFundAsync('post');
@@ -112,7 +115,8 @@
         <br/>
         <a>sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</a><h4 id=sp></h4><br/>
         <a>vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</a><h4 id=vp></h4><br/>
-         
+        <br/>
+        <a>powerは、</a><h4 id=power></h4><br/>
         
         
         <h1 id="userSP"></h1>
