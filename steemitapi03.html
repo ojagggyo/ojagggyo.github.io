@@ -68,13 +68,7 @@
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
                 $("#sp").text(sp + " SP");
                 
-                let w = new Date - new Date(item.last_vote_time + "Z")
-                 console.log(item.voting_power);
-                console.log((10000 * ((w) / 1000) / 432000));
-         
- 
-                
-                let vp = item.voting_power + (10000 * ((w) / 1000) / 432000);
+                let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
                 $("#vp").text(vp);
                 
                 
