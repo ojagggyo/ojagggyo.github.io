@@ -7,11 +7,6 @@
         </style>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>        
         <script>            
 
@@ -106,8 +101,6 @@
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <div>
             こんにちは、
         </div>
@@ -116,10 +109,10 @@
         <a>total_vesting_sharesは、</a><a id=total_vesting_shares class="vvv"></a><br/>
         <a>total_vesting_fund_steemは、</a><a id=total_vesting_fund_steem class="vvv"></a><br/>
         <hr/>
-        <a>vesting_sharesは、</a><a id=vesting_shares class="vvv"></h4><br/>
-        <a>received_vesting_sharesは、</a><a id=received_vesting_shares class="vvv"></h4><br/>
-        <a>delegated_vesting_sharesは、</a><a id=delegated_vesting_shares class="vvv"></h4><br/>
-        <a>sumVestingShare = vesting + received - delegatedは、</a><a id=sumVestingShare class="vvv"></h4><br/>
+        <a>vesting_sharesは、</a><a id=vesting_shares class="vvv"></a><br/>
+        <a>received_vesting_sharesは、</a><a id=received_vesting_shares class="vvv"></a><br/>
+        <a>delegated_vesting_sharesは、</a><a id=delegated_vesting_shares class="vvv"></a><br/>
+        <a>sumVestingShare = vesting + received - delegatedは、</a><a id=sumVestingShare class="vvv"></a><br/>
         <hr/>
         <a>sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</a><h4 id=sp></h4>
         <a>vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</a><h4 id=vp></h4>
