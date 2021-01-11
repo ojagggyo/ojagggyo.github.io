@@ -56,23 +56,24 @@
                 $("#total_vesting_fund_steem").text(total_vesting_fund_steem);
                 
                 //let sumVestingShare = parseFloat(item.vesting_shares.replace(" VESTS", "")) + parseFloat(item.received_vesting_shares.replace(" VESTS", "") - parseFloat(item.delegated_vesting_shares.replace(" VESTS", "")));              
-                vesting_shares = parseFloat(item.vesting_shares.replace(" VESTS", ""));
-                received_vesting_shares = parseFloat(item.received_vesting_shares.replace(" VESTS", ""));
-                delegated_vesting_shares = parseFloat(item.delegated_vesting_shares.replace(" VESTS", ""));
-                sumVestingShare = vesting_shares + received_vesting_shares - delegated_vesting_shares;
+                let vesting_shares = parseFloat(item.vesting_shares.replace(" VESTS", ""));
+                let received_vesting_shares = parseFloat(item.received_vesting_shares.replace(" VESTS", ""));
+                let delegated_vesting_shares = parseFloat(item.delegated_vesting_shares.replace(" VESTS", ""));
+                let sumVestingShare = vesting_shares + received_vesting_shares - delegated_vesting_shares;
                 $("#vesting_shares").text(vesting_shares);
                 $("#received_vesting_shares").text(received_vesting_shares);
                 $("#delegated_vesting_shares").text(delegated_vesting_shares);
                 $("#sumVestingShare").text(sumVestingShare);
                 
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
+                $("#sp").text(sp);
+                
                 let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
                 let votingWeight = 100;
                 let power = sp / (total_vesting_fund_steem / total_vesting_shares);
                 let voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50;
                 let rshare = power * voting;
                 let fund = await steem.api.getRewardFundAsync('post');
-                
                 console.log(fund);
                 
                 let sbd = rshare * (parseFloat(fund.reward_balance.replace(" STEEM","")) / fund.recent_claims) * steemPrice;
@@ -104,8 +105,8 @@
         <a>received_vesting_sharesは、</a><h4 id=received_vesting_shares></h4><br/>
         <a>delegated_vesting_sharesは、</a><h4 id=delegated_vesting_shares></h4><br/>
         <a>sumVestingShare = vesting + received - delegatedは、</a><h4 id=sumVestingShare></h4><br/>
-        
-
+        <br/>
+        <a>sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem)は、</a><h4 id=sp></h4><br/>
         
         
         
