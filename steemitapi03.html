@@ -92,6 +92,7 @@
                 
                 $("#userSP").text(sp.toFixed(2) + " SP");
                 $("#votingSBD").text("$" + sbd.toFixed(2));
+                $("#votingpower").text((votingpower/100).toFixed(2) + " %");
             }
             
             window.onload = function() {
@@ -131,5 +132,6 @@
        
         <a class="big" id="userSP"></a>
         <a class="big" id="votingSBD"></a>
+        <a class="big" id="votingpower"></a>
     </body>
 </html>
