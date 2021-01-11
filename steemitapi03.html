@@ -76,9 +76,13 @@
                 $("#power").text(power);
                 
                 let voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50;
-                 $("#voting").text(voting);
+                $("#voting").text(voting);
                 
                 let rshare = power * voting;
+                $("#rshare").text(rshare);
+                
+                
+                
                 let fund = await steem.api.getRewardFundAsync('post');
                 console.log(fund);
                 
@@ -117,8 +121,8 @@
         <br/>
         <a>power = sp / (total_vesting_fund_steem / total_vesting_shares)は、</a><h4 id=power></h4><br/>
         <a>voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50は、</a><h4 id=voting></h4><br/>
-        
-          
+        <a>rshare = power * votingは、</a><h4 id=rshare></h4><br/>
+           
         
         <h1 id="userSP"></h1>
         <h1 id="votingSBD"></h1>
