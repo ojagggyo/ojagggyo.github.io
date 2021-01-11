@@ -12,6 +12,16 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>        
         <script>            
 
+            let username;
+            function saveUserName(){
+                username = window.location.hash;// #username
+                if (username == null || username.trim().length == 0){
+                    username = "#steemitblog";
+                }
+                
+                username = username.substr(1);//#を取る
+                username = decodeURI(username).trim();//デコード、トリム
+            }
             
             function getSteemPrice() {
                 steem.api.getCurrentMedianHistoryPrice(function(err, result) {
@@ -22,9 +32,46 @@
                 });
             }
             
+            
+            async function getFullPowerSBD() {
+                $("#userSP").text("");
+                $("#votingSBD").text("");
+                //let username = $("#text_username").val();
+                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
+                
+                 console.log(steemPrice);
+                
+                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                let accounts = await steem.api.getAccountsAsync([username]);
+                
+                console.log(accounts);
+                
+                if(accounts.length == 0) {return;}
+                let item = accounts[0];
+                
+                // RSHARE
+                let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+                let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+                let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+                
+                let sumVestingShare = parseFloat(item.vesting_shares.replace(" VESTS", "")) + parseFloat(item.received_vesting_shares.replace(" VESTS", "") - parseFloat(item.delegated_vesting_shares.replace(" VESTS", "")));
+                let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
+                let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
+                let votingWeight = 100;
+                let power = sp / (total_vesting_fund_steem / total_vesting_shares);
+                let voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50;
+                let rshare = power * voting;
+                let fund = await steem.api.getRewardFundAsync('post');
+                let sbd = rshare * (parseFloat(fund.reward_balance.replace(" STEEM","")) / fund.recent_claims) * steemPrice;
+                
+                $("#userSP").text(sp.toFixed(2) + " SP");
+                $("#votingSBD").text("$" + sbd.toFixed(2));
+            }
+            
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
-                getSteemPrice();
+                saveUserName();
+                getFullPowerSBD();
             };
         </script>
     </head>
@@ -35,6 +82,7 @@
         <div>
             こんにちは、
         </div>
-        <h1 id="steemPrice"></h1>
+        <h1 id="userSP"></h1>
+        <h1 id="votingSBD"></h1>
     </body>
 </html>
