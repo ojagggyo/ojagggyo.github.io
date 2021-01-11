@@ -9,6 +9,6 @@ title: Javascript 学習
 
 |投稿日|タイトル|デモ|
 |---|---|---|
-|01/10|[JavaScriptで動的ページを作ってみる](https://steemit.com/japanese/@yasu/javascript)|[jquery01.html](https://ojagggyo.github.io/jquery01.html)|
+|01/10|[JavaScriptで動的ページを作ってみる](https://steemit.com/japanese/@yasu/javascript)|[jquery01](https://ojagggyo.github.io/jquery01.html)|
 
 
