@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Steemit 登録者数</title>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>        
+        <script>            
+            function getAccountCount(){
+                steem.api.getAccountCount(function(err, result) {
+                    const count = result.toLocaleString();
+                    var text = "Steemit 登録者数は " + count + " アカウントです。";
+                    $("#steemitUserCount").text(text);
+                });
+            }
+            
+            window.onload = function() {
+                steem.api.setOptions({url: 'https://api.steemit.com'});
+                getAccountCount();
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            こんにちは、
+        </div>
+        <h1 id="steemitUserCount"></h1>
+    </body>
+</html>
