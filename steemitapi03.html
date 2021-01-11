@@ -70,6 +70,9 @@
                 
                 let w = new Date - new Date(item.last_vote_time + "Z")
                  console.log(w);
+         console.log(new Date(item.last_vote_time + "Z"));
+ 
+                
                 let vp = item.voting_power + (10000 * ((w) / 1000) / 432000);
                 $("#vp").text(vp);
                 
