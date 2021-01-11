@@ -26,7 +26,7 @@
             
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
-                    $("#steemitUser").text(result);
+                    $("#steemitUser").text(result+" アカウント");
                 });
             }
             
@@ -44,7 +44,6 @@
         <div>
             こんにちは、
         </div>
-        <div id="steemitUser"></div>
-        <div class="list-group" id="postList"></div>
+        <h1 id="steemitUser"></h1>
     </body>
 </html>
