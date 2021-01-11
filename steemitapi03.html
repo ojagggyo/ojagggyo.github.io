@@ -107,25 +107,25 @@
         </div>
         <a>UPVOTE額を求めます。</a><br/>
         <hr/>
-        <div><div class="nnn"><b>steemPrice</b>は、</div><div class="vvv" id=steemPrice></div></div>
-        <div><div class="nnn">total_vesting_sharesは、</div><div class="vvv" id=total_vesting_shares></div></div>
-        <div><div class="nnn">total_vesting_fund_steemは、</div><div class="vvv" id=total_vesting_fund_steem></div></div>
+        <div><div class="nnn"><b>steemPrice</b></div><div class="vvv" id=steemPrice></div></div>
+        <div><div class="nnn">total_vesting_shares</div><div class="vvv" id=total_vesting_shares></div></div>
+        <div><div class="nnn">total_vesting_fund_steem</div><div class="vvv" id=total_vesting_fund_steem></div></div>
         <hr/>
-        <div><div class="nnn">vesting_sharesは、</div><div class="vvv" id=vesting_shares></div></div>
-        <div><div class="nnn">received_vesting_sharesは、</div><div class="vvv" id=received_vesting_shares></div></div>
-        <div><div class="nnn">delegated_vesting_sharesは、</div><div class="vvv" id=delegated_vesting_shares></div></div>
-        <div><div class="nnn">sumVestingShare = vesting + received - delegatedは、</div><div class="vvv" id=sumVestingShare></div></div>
+        <div><div class="nnn">vesting_shares</div><div class="vvv" id=vesting_shares></div></div>
+        <div><div class="nnn">received_vesting_shares</div><div class="vvv" id=received_vesting_shares></div></div>
+        <div><div class="nnn">delegated_vesting_shares</div><div class="vvv" id=delegated_vesting_shares></div></div>
+        <div><div class="nnn">sumVestingShare = vesting + received - delegated</div><div class="vvv" id=sumVestingShare></div></div>
         <hr/>
-        <div><div class="nnn">sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</div><div class="vvv" id=sp></div></div>
-        <div><div class="nnn">vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</div><div class="vvv" id=vp></div></div>
+        <div><div class="nnn">sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem</div><div class="vvv" id=sp></div></div>
+        <div><div class="nnn">vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000)</div><div class="vvv" id=vp></div></div>
         <hr/>
-        <div><div class="nnn">power = sp / (total_vesting_fund_steem / total_vesting_shares)は、</div><div class="vvv" id=power></div></div>
-        <div><div class="nnn">voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50は、</div><div class="vvv" id=voting></div></div>
-        <div><div class="nnn"><b>rshare</b> = power * votingは、</div><div class="vvv" id=rshare></div></div>
+        <div><div class="nnn">power = sp / (total_vesting_fund_steem / total_vesting_shares)</div><div class="vvv" id=power></div></div>
+        <div><div class="nnn">voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50</div><div class="vvv" id=voting></div></div>
+        <div><div class="nnn"><b>rshare</b> = power * voting</div><div class="vvv" id=rshare></div></div>
         <hr/>
-        <div><div class="nnn"><b>reward_balance</b>は、</div><div class="vvv" id=reward_balance></div></div>
-        <div><div class="nnn"><b>recent_claims</b>は、</div><div class="vvv" id=recent_claims></div></div>
-        <div><div class="nnn">UPVOTE額 = rshare * (reward_balance / recent_claims) * steemPriceは、</div><div class="vvv" id=sbd></div></div>
+        <div><div class="nnn"><b>reward_balance</b></div><div class="vvv" id=reward_balance></div></div>
+        <div><div class="nnn"><b>recent_claims</b></div><div class="vvv" id=recent_claims></div></div>
+        <div><div class="nnn">UPVOTE額 = rshare * (reward_balance / recent_claims) * steemPrice</div><div class="vvv" id=sbd></div></div>
         <hr/>
        
         <h1 id="userSP"></h1>
