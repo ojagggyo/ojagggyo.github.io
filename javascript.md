@@ -7,8 +7,8 @@ title: Javascript 学習
 # Javascript学習
 ## 2021
 
-|投稿日|タイトル|
-|---|---|
-|01/10|[JavaScriptで動的ページを作ってみる](https://steemit.com/japanese/@yasu/javascript)<br/>[jquery01.html](https://ojagggyo.github.io/jquery01.html)|
+|投稿日|タイトル|デモ|
+|---|---|---|
+|01/10|[JavaScriptで動的ページを作ってみる](https://steemit.com/japanese/@yasu/javascript)|[jquery01.html](https://ojagggyo.github.io/jquery01.html)|
 
 
