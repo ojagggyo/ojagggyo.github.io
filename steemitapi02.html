@@ -11,13 +11,7 @@
 
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>        
         <script>            
-            <!-- function getAccountCount(){
-                steem.api.getAccountCount(function(err, result) {
-                    const count = result.toLocaleString();
-                    var text = "Steemit 登録者数は " + count + " アカウントです。";
-                    $("#steemitUserCount").text(text);
-                });
-            } -->
+
             
             function getSteemPrice() {
                 steem.api.getCurrentMedianHistoryPrice(function(err, result) {
