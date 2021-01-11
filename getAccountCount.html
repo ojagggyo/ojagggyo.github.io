@@ -14,7 +14,7 @@
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
                     let count = result.toLocaleString();
-                    val txt = "Steemit ";
+                    val txt = "";
                     txt = txt + "登録者数は ";
                     txt = txt + count;
                     txt = txt + " アカウント";
