@@ -83,9 +83,12 @@
                 
                 let fund = await steem.api.getRewardFundAsync('post');
                 console.log(fund);
-                $("#fund").text(fund);
-                
-                let sbd = rshare * (parseFloat(fund.reward_balance.replace(" STEEM","")) / fund.recent_claims) * steemPrice;
+                let reward_balance = fund.reward_balance.replace(" STEEM","");
+                let recent_claims = fund.recent_claims;
+                let sbd = rshare * (parseFloat(reward_balance) / recent_claims) * steemPrice;
+                $("#reward_balance").text(reward_balance);
+                $("#recent_claims").text(recent_claims);              
+                $("#sbd").text(sbd);
                 
                 $("#userSP").text(sp.toFixed(2) + " SP");
                 $("#votingSBD").text("$" + sbd.toFixed(2));
@@ -122,7 +125,9 @@
         <a>voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50は、</a><h4 id=voting></h4>
         <a>rshare = power * votingは、</a><h4 id=rshare></h4>
         <br/>
-        <a>fundは、</a><h4 id=fund></h4>
+        <a>reward_balance、</a><h4 id=reward_balance></h4>
+        <a>recent_claimsは、</a><h4 id=recent_claims></h4>
+        <a>sbd = rshare * (parseFloat(reward_balance) / recent_claims) * steemPriceは、</a><h4 id=sbd></h4>
 
         
         
