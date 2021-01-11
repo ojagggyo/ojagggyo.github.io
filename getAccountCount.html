@@ -29,6 +29,9 @@
                     console.log(accounts[0].id);
                     console.log(accounts[0].balance);
                     console.log(accounts[0].reputation);
+                    
+                    var reputation = steem.formatter.reputation(accounts[0].reputation);
+                    console.log(reputation);
                 });
             }
             542882
