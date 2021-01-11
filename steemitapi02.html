@@ -15,6 +15,9 @@
             
             function getSteemPrice() {
                 steem.api.getCurrentMedianHistoryPrice(function(err, result) {
+                    
+                    $("#base").text(result.base);
+                    
                     let steemPrice = parseFloat(result.base.replace(" SBD"));
                     $("#steemPrice").text("$" + steemPrice);
                 });
@@ -33,6 +36,7 @@
         <div>
             こんにちは、
         </div>
+        <h1 id="base"></h1>
         <h1 id="steemPrice"></h1>
     </body>
 </html>
