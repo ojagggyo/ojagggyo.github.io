@@ -65,7 +65,7 @@
                 $("#sumVestingShare").text(sumVestingShare);
                 
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
-                $("#sp").text(sp + " SP");
+                $("#sp").text(sp);
                 
                 let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
                 $("#vp").text(vp);
@@ -116,7 +116,7 @@
         <div><div class="nnn">delegated_vesting_shares</div><div class="vvv" id=delegated_vesting_shares></div></div>
         <div><div class="nnn">sumVestingShare = vesting + received - delegated</div><div class="vvv" id=sumVestingShare></div></div>
         <hr/>
-        <div><div class="nnn">sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem</div><div class="vvv" id=sp></div></div>
+        <div><div class="nnn"><b>sp</b> = sumVestingShare / total_vesting_shares * total_vesting_fund_steem</div><div class="vvv" id=sp></div></div>
         <div><div class="nnn">vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000)</div><div class="vvv" id=vp></div></div>
         <hr/>
         <div><div class="nnn">power = sp / (total_vesting_fund_steem / total_vesting_shares)</div><div class="vvv" id=power></div></div>
