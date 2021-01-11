@@ -3,7 +3,7 @@
     <head>
         <title></title>
         <style>
-            .vvv {font-size: 15pt;}
+            .vvv {font-size: 20pt;}
         </style>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -105,6 +105,7 @@
             こんにちは、
         </div>
         <a>UPVOTE額を求めます。</a><br/>
+        <hr/>
         <a><b>steemPrice</b>は、</a><a id=steemPrice class="vvv"></a><br/>
         <a>total_vesting_sharesは、</a><a id=total_vesting_shares class="vvv"></a><br/>
         <a>total_vesting_fund_steemは、</a><a id=total_vesting_fund_steem class="vvv"></a><br/>
@@ -114,9 +115,9 @@
         <a>delegated_vesting_sharesは、</a><a id=delegated_vesting_shares class="vvv"></a><br/>
         <a>sumVestingShare = vesting + received - delegatedは、</a><a id=sumVestingShare class="vvv"></a><br/>
         <hr/>
-        <a>sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</a><h4 id=sp></h4>
-        <a>vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</a><h4 id=vp></h4>
-        <br/>
+        <a>sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</a><a id=sp class="vvv"></a><br/>
+        <a>vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</a><a id=vp class="vvv"></a><br/>
+        <hr/>
         <a>power = sp / (total_vesting_fund_steem / total_vesting_shares)は、</a><h4 id=power></h4>
         <a>voting = ((100 * vp * (100 * votingWeight) / 10000) + 49) / 50は、</a><h4 id=voting></h4>
         <a><b>rshare</b> = power * votingは、</a><h4 id=rshare></h4>
