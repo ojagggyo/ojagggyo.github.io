@@ -15,14 +15,12 @@
             
             function getSteemPrice() {
                 steem.api.getCurrentMedianHistoryPrice(function(err, result) {
-                    
-                    
+
                     console.log(result);
-                    
-                    $("#base").text(result.base);
-                    
+                                        
                     let steemPrice = parseFloat(result.base.replace(" SBD"));
-                    $("#steemPrice").text("$" + steemPrice);
+                    var text = "1STEEMは、" + steemPrice + "ドルです。"
+                    $("#steemPrice").text(text);
                 });
             }
             
