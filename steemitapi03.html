@@ -55,10 +55,16 @@
                 $("#total_vesting_shares").text(total_vesting_shares.toLocaleString());
                 $("#total_vesting_fund_steem").text(total_vesting_fund_steem.toLocaleString());
                 
+                //let sumVestingShare = parseFloat(item.vesting_shares.replace(" VESTS", "")) + parseFloat(item.received_vesting_shares.replace(" VESTS", "") - parseFloat(item.delegated_vesting_shares.replace(" VESTS", "")));              
+                vesting_shares = parseFloat(item.vesting_shares.replace(" VESTS", ""));
+                received_vesting_shares = parseFloat(item.received_vesting_shares.replace(" VESTS", ""));
+                delegated_vesting_shares = parseFloat(item.delegated_vesting_shares.replace(" VESTS", ""));
+                sumVestingShare = vesting_shares + received_vesting_shares - delegated_vesting_shares;
+                $("#vesting_shares").text(vesting_shares);
+                $("#received_vesting_shares").text(received_vesting_shares);
+                $("#delegated_vesting_shares").text(delegated_vesting_shares);
+                $("#sumVestingShare").text(sumVestingShare);
                 
-                
-                
-                let sumVestingShare = parseFloat(item.vesting_shares.replace(" VESTS", "")) + parseFloat(item.received_vesting_shares.replace(" VESTS", "") - parseFloat(item.delegated_vesting_shares.replace(" VESTS", "")));
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
                 let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
                 let votingWeight = 100;
@@ -93,6 +99,14 @@
         <a>STEEM価格は、</a><h4 id=steemPrice></h4><br/>
         <a>total_vesting_sharesは、</a><h4 id=total_vesting_shares></h4><br/>
         <a>total_vesting_fund_steemは、</a><h4 id=total_vesting_fund_steem></h4><br/>
+        <br/>
+        <a>vesting_sharesは、</a><h4 id=vesting_shares></h4><br/>
+        <a>received_vesting_sharesは、</a><h4 id=received_vesting_shares></h4><br/>
+        <a>delegated_vesting_sharesは、</a><h4 id=delegated_vesting_shares></h4><br/>
+        <a>sumVestingShareは、</a><h4 id=sumVestingShare></h4><br/>
+        
+
+        
         
         
         <h1 id="userSP"></h1>
