@@ -13,12 +13,9 @@
         <script>            
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
-                    let count = result.toLocaleString();
-                    val txt = "";
-                    txt = txt + "Steemit 登録者数は ";
-                    txt = txt + count;
-                    txt = txt + " アカウント";
-                    $("#steemitUser").text(txt);
+                    const count = result.toLocaleString();
+                    var text = "Steemit 登録者数は " + count + " アカウント";
+                    $("#steemitUser").text(text);
                 });
             }
             
