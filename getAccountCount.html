@@ -14,7 +14,7 @@
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
                     const count = result.toLocaleString();
-                    var text = "Steemit 登録者数は " + count + " アカウント";
+                    var text = "Steemit 登録者数は " + count + " アカウントです。";
                     $("#steemitUser").text(text);
                 });
             }
