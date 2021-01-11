@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Follower Checker</title>
+        <title>post list</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,15 +14,14 @@
             var username;
             function saveUserName(){
                 username = window.location.hash;// #username
-                console.log("username["+username+"]");
+                //console.log("username["+username+"]");
                 if (username == null || username.trim().length == 0){
                     username = "#steemitblog";
                 }
                 
-                
                 username = username.substr(1);//#を取る
                 username = decodeURI(username).trim();//デコード、トリム
-                console.log("username["+username+"]");
+                //console.log("username["+username+"]");
             }
             
             function load(){
