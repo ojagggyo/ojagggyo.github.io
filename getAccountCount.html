@@ -26,11 +26,13 @@
                 
                 steem.api.getAccounts(["yasu"], function(e1, accounts) {
 
-                    console.log(accounts[0]);
+                   
                     
                   var accountValueInUSD = steem.formatter.estimateAccountValue(accounts[0])
                     .catch(function (err) { console.log(err); })
                     .then(function (data) { console.log(data); });
+                    
+                  console.log(accountValueInUSD);
                 });
             };
         </script>
