@@ -68,7 +68,9 @@
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
                 $("#sp").text(sp + " SP");
                 
-                let vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000);
+                let w = new Date - new Date(item.last_vote_time + "Z")
+                 console.log(w);
+                let vp = item.voting_power + (10000 * ((w) / 1000) / 432000);
                 $("#vp").text(vp);
                 
                 
@@ -111,7 +113,7 @@
         <a>sumVestingShare = vesting + received - delegatedは、</a><h4 id=sumVestingShare></h4><br/>
         <br/>
         <a>sp = sumVestingShare / total_vesting_shares * total_vesting_fund_steem は、</a><h4 id=sp></h4><br/>
-        <a>vp = item.voting_power + (10000 * ((new Date - new Date(item.last_vote_time + "Z")) / 1000) / 432000) は、</a><h4 id=vp></h4><br/>
+        <a>vp = voting_power + (10000 * ((new Date - new Date(last_vote_time + "Z")) / 1000) / 432000) は、</a><h4 id=vp></h4><br/>
          
         
         
