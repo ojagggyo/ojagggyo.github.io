@@ -69,8 +69,8 @@
                 $("#sp").text(sp + " SP");
                 
                 let w = new Date - new Date(item.last_vote_time + "Z")
-                 console.log(item.last_vote_time);
-                console.log(w);
+                 console.log(item.voting_power);
+                console.log((10000 * ((w) / 1000) / 432000));
          
  
                 
