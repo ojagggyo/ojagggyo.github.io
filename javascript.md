@@ -9,6 +9,6 @@ title: Javascript 学習
 
 |投稿日|タイトル|デモ|
 |---|---|---|
+|01/11|[Steemitの投稿リストを表示してみました](https://steemit.com/japanese/@yasu/mzctv-steemit)|[postlist](https://ojagggyo.github.io/postlist.html#yasu)|
 |01/10|[JavaScriptで動的ページを作ってみる](https://steemit.com/japanese/@yasu/javascript)|[jquery01](https://ojagggyo.github.io/jquery01.html)|
-
 
