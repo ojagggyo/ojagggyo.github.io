@@ -37,9 +37,10 @@
                 $("#userSP").text("");
                 $("#votingSBD").text("");
                 //let username = $("#text_username").val();
-                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
                 
-                 console.log(steemPrice);
+                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
+                console.log(steemPrice);
+                $("#steemPrice").text(steemPrice);
                 
                 steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
                 let accounts = await steem.api.getAccountsAsync([username]);
