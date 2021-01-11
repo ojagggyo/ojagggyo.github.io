@@ -9,21 +9,19 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script>                
+        <!-- <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> -->
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        
         <script>            
             function getAccountCount(){
                 steem.api.getAccountCount(function(err, result) {
                     const count = result.toLocaleString();
                     var text = "Steemit 登録者数は " + count + " アカウントです。";
-                    $("#steemitUser").text(text);
+                    $("#steemitUserCount").text(text);
                 });
             }
             
-            window.onload = function() {
-                steem.api.setOptions({url: 'https://api.steemit.com'});
-                getAccountCount();
-                
-                
+            function getAccounts(){
                 steem.api.getAccounts(["yasu"], function(e1, accounts) {
                     console.log(e1); 
                     console.log(accounts); 
@@ -31,18 +29,13 @@
                     console.log(accounts[0].id);
                     console.log(accounts[0].balance);
                     console.log(accounts[0].reputation);
-                   
-                   
-                    
-                    
-                    
-                    
-                //  var accountValueInUSD = steem.formatter.estimateAccountValue(accounts[0])
-                //    .catch(function (err) { console.log(err); })
-                //    .then(function (data) { console.log(data); });
-                //    
-                //  console.log(accountValueInUSD);
                 });
+            }
+            542882
+            
+            window.onload = function() {
+                steem.api.setOptions({url: 'https://api.steemit.com'});
+                getAccountCount();            
             };
         </script>
     </head>
@@ -53,6 +46,7 @@
         <div>
             こんにちは、
         </div>
-        <h1 id="steemitUser"></h1>
+        <h1 id="steemitUserCount"></h1>
+        <h1 id="steemitUserId"></h1>
     </body>
 </html>
