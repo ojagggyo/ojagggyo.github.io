@@ -31,6 +31,8 @@
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
                 getAccountsAsync();
+                
+                setInterval(getAccountsAsync, 10000);
             };
         </script>
     </head>
