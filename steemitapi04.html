@@ -11,15 +11,9 @@
                 text = text + "💛";
                 $("#harts").text(text);
             }
-            function diamonds(){
-                var text = $("#harts").text();
-                text = text + "💎";
-                $("#harts").text(text);
-            }
             
             window.onload = function() {
-                setInterval(harts, 10);
-                setInterval(diamonds, 1000);
+                setInterval(harts, 100);
             };
         </script>
     </head>
