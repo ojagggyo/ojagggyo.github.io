@@ -25,7 +25,7 @@
                 console.log( replies);
                 let result = await steem.api.getActiveVotesAsync(username, link);
                 console.log( result);
-            }
+            };
             
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
