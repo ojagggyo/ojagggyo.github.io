@@ -30,7 +30,7 @@
             
             async function getActiveVotesAsync(){
                 let link = $("#permlink").text();
-                let result2 =  await steem.api.getActiveVotesAsync("yasu", "2021-1-15");
+                let result2 =  await steem.api.getActiveVotesAsync("yasu", link);
                 console.log("★");
                 console.log(result2);
             }
