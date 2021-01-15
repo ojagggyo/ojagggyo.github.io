@@ -10,68 +10,17 @@
             var username;
             function saveUserName(){
                 username = window.location.hash;// #username
-                //console.log("username["+username+"]");
                 if (username == null || username.trim().length == 0){
                     username = "#steemitblog";
                 }
                 
                 username = username.substr(1);//#を取る
                 username = decodeURI(username).trim();//デコード、トリム
-                //console.log("username["+username+"]");
             }
-
-            function loadSelectBox(){
-                //username = $("#text_username").val();
-                if(username === ""){
-                    return;
-                }
-                console.log("username["+username+"]");
-                steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
-                    let text = "";
-                    console.log("result["+result+"]");
-                    for(let i = 0; i < result.length; i++){
-                        if(result[i].author === username){
-                            text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
-                        }
-                    }
-                    console.log("text["+text+"]");
-                    if(result.length == 0) {
-                        $("#selectPerm").html("");
-                        $("#votingListButton").text("");
-                        $("#votingListButton").val("");
-                        return;
-                    }
-                    $("#selectPerm").html(text);
-                    getVoting("SBD");
-                });
-            }
-            
             
             async function getVoting(orderby){
-                let link = $("#selectPerm").val();
-                //username = $("#text_username").val();
-                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
-                let fund = await steem.api.getRewardFundAsync('post');
-                console.log("★fund");
-                console.log(fund);
-                let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
-                console.log("★replies");
-                console.log(replies);
-                
-                //replies = replies.map(function(item, index){
-                //    return item.author;
-                //});
-                //console.log("★replies");
-                //console.log( replies);
-                
-                console.log("★username");
-                console.log(username);
-                console.log("★link");
-                console.log(link);
+                let link = $("#selectPerm").val();                
                 let result = await steem.api.getActiveVotesAsync(username, link);
-                console.log("★result");
-                console.log( result);
             }
             
             window.onload = function() {
