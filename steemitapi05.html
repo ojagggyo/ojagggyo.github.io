@@ -59,14 +59,16 @@
                 console.log("★replies");
                 console.log(replies);
                 
-                replies = replies.map(function(item, index){
-                    console.log("★item");
-                    console.log(item);
-                    console.log("index["+index+"]");
-                    return item.author;
-                });
-                console.log("★replies");
-                console.log( replies);
+                //replies = replies.map(function(item, index){
+                //    return item.author;
+                //});
+                //console.log("★replies");
+                //console.log( replies);
+                
+                console.log("★username");
+                console.log(username);
+                console.log("★link");
+                console.log(link);
                 let result = await steem.api.getActiveVotesAsync(username, link);
                 console.log("★result");
                 console.log( result);
