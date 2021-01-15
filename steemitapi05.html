@@ -34,6 +34,7 @@
                             text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
                         }
                     }
+                    console.log("text["+text+"]");
                     if(result.length == 0) {
                         $("#selectPerm").html("");
                         $("#votingListButton").text("");
