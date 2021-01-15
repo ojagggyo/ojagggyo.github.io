@@ -60,14 +60,15 @@
                 console.log(replies);
                 
                 replies = replies.map(function(item, index){
-                    console.log("★★");
+                    console.log("★item");
                     console.log(item);
                     console.log("index["+index+"]");
                     return item.author;
                 });
-                console.log("★★★");
+                console.log("★replies");
                 console.log( replies);
                 let result = await steem.api.getActiveVotesAsync(username, link);
+                console.log("★result");
                 console.log( result);
             }
             
