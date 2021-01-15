@@ -7,6 +7,43 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>       
         <script>
 
+            var username;
+            function saveUserName(){
+                username = window.location.hash;// #username
+                //console.log("username["+username+"]");
+                if (username == null || username.trim().length == 0){
+                    username = "#steemitblog";
+                }
+                
+                username = username.substr(1);//#を取る
+                username = decodeURI(username).trim();//デコード、トリム
+                //console.log("username["+username+"]");
+            }
+
+            function loadSelectBox(){
+                //username = $("#text_username").val();
+                if(username === ""){
+                    return;
+                }
+                steem.api.getDiscussionsByBlog({tag: username, limit: 20}, function(err, result) {
+                    let text = "";
+                    for(let i = 0; i < result.length; i++){
+                        if(result[i].author === username){
+                            text += '<option value="' + result[i].permlink+ '">' + result[i].title + '</option>';
+                        }
+                    }
+                    if(result.length == 0) {
+                        $("#selectPerm").html("");
+                        $("#votingListButton").text("");
+                        $("#votingListButton").val("");
+                        return;
+                    }
+                    $("#selectPerm").html(text);
+                    getVoting("SBD");
+                });
+            }
+            
+            
             async function getVoting(orderby){
                 let link = $("#selectPerm").val();
                 username = $("#text_username").val();
@@ -29,7 +66,8 @@
             
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
-                getVoting("SBD");
+                saveUserName();
+                loadSelectBox();
             };
         </script>
     </head>
@@ -38,5 +76,10 @@
             こんにちは、
         </div>
         <h1 id="harts"></h1>
+    
+        /body>
+    
+    
+    
     </body>
 </html>
