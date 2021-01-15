@@ -18,16 +18,16 @@
                 username = decodeURI(username).trim();//デコード、トリム
             }
             
-            function getVoting(){
+            async function getVoting(){
                 steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, results) {
                     if(results.length == 0){
                         return;
                     }
                     console.log(results[0]);
-                    $("#permlink") = results[0].permlink;
+                    $("#permlink").text(results[0].permlink);
                 });
-                 permlink =  $("#permlink");
-                let result2 =  steem.api.getActiveVotesAsync(username, permlink);
+                 permlink =  $("#permlink").text();
+                let result2 =  await steem.api.getActiveVotesAsync(username, permlink);
                 console.log(result2);
             }
             
