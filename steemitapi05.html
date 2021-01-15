@@ -8,7 +8,7 @@
         <script>
 
             async function getVoting(orderby){
-                //let link = $("#selectPerm").val();
+                let link = $("#selectPerm").val();
                 username = $("#text_username").val();
                 console.log(username);
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
