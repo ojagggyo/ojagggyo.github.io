@@ -18,7 +18,7 @@
                 username = decodeURI(username).trim();//デコード、トリム
             }
             
-            function getVoting(){
+            async function getVoting(){
 
                 steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, results) {
                     if(result.length == 0){
