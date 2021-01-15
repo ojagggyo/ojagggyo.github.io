@@ -30,10 +30,10 @@
             }
             
             async function getActiveVotesAsync(){
-                                 permlink =  $("#permlink").text();
+                let permlink = $("#permlink").text();
                 let result2 =  await steem.api.getActiveVotesAsync(username, permlink);
                 console.log("★");
-                 console.log(result2);
+                console.log(result2);
             }
             
             
