@@ -25,7 +25,7 @@
                         return;
                     }
 console.log(result[0]);
-                    val permlink = result[0].permlink;
+                    var permlink = result[0].permlink;
                     let result = await steem.api.getActiveVotesAsync(username, link);
                     console.log(result);
                 });
