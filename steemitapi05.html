@@ -29,6 +29,8 @@
                     permlink = results[0].permlink;
                     console.log("★link1");
                     console.log(permlink);
+                    
+                     getActiveVotesAsync();
                 });
             }
             
@@ -57,7 +59,7 @@
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
                 getDiscussionsByBlog();
-                getActiveVotesAsync();
+                //getActiveVotesAsync();
             };
         </script>
     </head>
