@@ -59,12 +59,14 @@
                 console.log(fund);
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
                 console.log( replies);
-                
+                console.log("★");            
                 replies = replies.map(function(item, index){
+                    console.log("★★");
                     console.log(item);
                     console.log("index["+index+"]");
                     return item.author;
                 });
+                console.log("★★★");
                 console.log( replies);
                 let result = await steem.api.getActiveVotesAsync(username, link);
                 console.log( result);
