@@ -63,8 +63,8 @@
                         return item.author;
                 });
                 console.log( replies);
-                //let result = await steem.api.getActiveVotesAsync(username, link);
-                //console.log( result);
+                let result = await steem.api.getActiveVotesAsync(username, link);
+                console.log( result);
             }
             
             window.onload = function() {
