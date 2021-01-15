@@ -59,10 +59,9 @@
                 console.log(fund);
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
                 console.log( replies);
-                console.log(item);
-                console.log("index["+index+"]");
+                
                 replies = replies.map(function(item, index){
-                    console.log("item.author["+item.author+"]");
+                    console.log(item);
                     console.log("index["+index+"]");
                     return item.author;
                 });
