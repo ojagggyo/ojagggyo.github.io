@@ -18,7 +18,7 @@
                 username = decodeURI(username).trim();//デコード、トリム
             }
             
-            function getVoting(){
+            function getDiscussionsByBlog(){
                 steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, results) {
                     if(results.length == 0){
                         return;
@@ -29,7 +29,7 @@
 
             }
             
-            async function getVoting(){
+            async function getActiveVotesAsync(){
                                  permlink =  $("#permlink").text();
                 let result2 =  await steem.api.getActiveVotesAsync(username, permlink);
                 console.log("★");
@@ -41,7 +41,7 @@
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
                 getDiscussionsByBlog();
-                getVoting();
+                getActiveVotesAsync();
             };
         </script>
     </head>
