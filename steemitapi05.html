@@ -50,16 +50,15 @@
             async function getVoting(orderby){
                 let link = $("#selectPerm").val();
                 //username = $("#text_username").val();
-                console.log(username);
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                console.log(steemPrice);
                 steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
-                console.log(steemPrice);
                 let fund = await steem.api.getRewardFundAsync('post');
+                console.log("★fund");
                 console.log(fund);
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
-                console.log( replies);
-                console.log("★");            
+                console.log("★replies");
+                console.log(replies);
+                
                 replies = replies.map(function(item, index){
                     console.log("★★");
                     console.log(item);
