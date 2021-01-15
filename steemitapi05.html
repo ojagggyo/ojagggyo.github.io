@@ -20,14 +20,14 @@
             
             function getVoting(){
 
-                steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, result) {
+                steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, results) {
                     if(result.length == 0){
                         return;
                     }
-console.log(result[0]);
-                    var permlink = result[0].permlink;
-                    let result = await steem.api.getActiveVotesAsync(username, link);
-                    console.log(result);
+console.log(results[0]);
+                    var permlink = results[0].permlink;
+                    let result2 = await steem.api.getActiveVotesAsync(username, link);
+                    console.log(result2);
                 });
 
             }
