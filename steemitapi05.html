@@ -18,10 +18,20 @@
                 username = decodeURI(username).trim();//デコード、トリム
             }
             
-            async function getVoting(){
-                let link = $("#selectPerm").val();                
-                let result = await steem.api.getActiveVotesAsync(username, link);
+            function getVoting(){
+
+                steem.api.getDiscussionsByBlog({tag: username, limit: 1}, function(err, result) {
+                    if(result.length == 0){
+                        return;
+                    }
+
+                    val permlink = result[0].permlink;
+                    let result = await steem.api.getActiveVotesAsync(username, link);
+                    console.log(result);
+                });
+
             }
+            
             
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
@@ -35,8 +45,5 @@
             こんにちは、
         </div>
         <h1 id="harts"></h1>
-    
-        <select class="custom-select" id="selectPerm" onchange='getVoting("SBD");'>
-        </select>
     </body>
 </html>
