@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>       
+        <script>
+
+            async function getVoting(orderby){
+                //let link = $("#selectPerm").val();
+                username = $("#text_username").val();
+                console.log(username);
+                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
+                console.log(steemPrice);
+                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                console.log(steemPrice);
+                let fund = await steem.api.getRewardFundAsync('post');
+                console.log(fund);
+                let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
+                console.log( replies);
+            }
+            
+            window.onload = function() {
+                steem.api.setOptions({url: 'https://api.steemit.com'});
+                getVoting("SBD");
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            こんにちは、
+        </div>
+        <h1 id="harts"></h1>
+    </body>
+</html>
