@@ -57,8 +57,8 @@ async function Sample(error) {
 </pre>
 <hr/>
 <h1>rejectサンプル</h1>
-awaitを使うと同期型になる。非同期関数の中で有効
-Sampleでthrowされたので、catchルートを通る。
+awaitを使うと同期型になる。非同期関数の中で有効。
+Sampleでthrowされたので、例外が発生する。
 <pre>
 (async function(flag) {
     try {
@@ -73,7 +73,7 @@ Sampleでthrowされたので、catchルートを通る。
 <h1 id="Sample1"></h1>
 <hr/>
 <h1>resolveサンプル</h1>
-awaitを使うと同期型になる。
+awaitを使うと同期型になる。非同期関数の中で有効。
 Sampleでreturnされたので、例外は発生しない。
 <pre>
 (async function(flag) {
