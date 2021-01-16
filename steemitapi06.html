@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>     
+        <script>
+            
+            window.onload = function() {        
+
+                async function Sample(error) {
+                    if(error){
+                        // throwしているため、この値がrejectされる
+                        throw new Error('★Error★');
+                    }
+                    else{
+                        // returnしているため、この値がresolveされる
+                        return '★Success★';
+                    }   
+                }
+                
+                Sample(true)
+                    .then(value => {
+                        console.log(value);
+                        $("#Sample1").text(value);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        $("#Sample1").text(err);
+                    });
+                
+                Sample(false)
+                    .then(value => {
+                        console.log(value);
+                        $("#Sample2").text(value);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        $("#Sample2").text(err);
+                    });
+                    
+                var result = await Sample(false);
+                $("#Sample3").text(err);
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            こんにちは、
+        </div>
+<pre>
+async function Sample(error) {
+    if(error){
+        throw new Error('★Error★');
+    }
+    else{
+        return '★Sample★';
+    }   
+}
+</pre>
+<hr/>
+<h1>rejectサンプル</h1>
+Sampleでthrowされたので、catchルートを通る。
+<pre>
+Sample(true)
+    .then(value => {
+        console.log(value);
+        $("#Sample1").text(value);
+    })
+    .catch(err => {
+        console.log(err);
+        $("#Sample1").text(err);
+    });
+</pre>
+<h1 id="Sample1"></h1>
+<hr/>
+<h1>resolveサンプル</h1>
+Sampleでreturnされたので、thenルートを通る。
+<pre>
+Sample(false)
+    .then(value => {
+        console.log(value);
+        $("#Sample2").text(value);
+    })
+    .catch(err => {
+        console.log(err);
+        $("#Sample2").text(err);
+    });
+</pre>
+<h1 id="Sample2"></h1>
+<hr/>
+<h1 id="Sample3"></h1>
+
+    </body>
+</html>
