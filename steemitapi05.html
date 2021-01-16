@@ -16,6 +16,7 @@
                 // then()が実行されコンソールにresolve!!が表示される
                 resolveSample().then(value => {
                     console.log(value); // => resolve!!
+                    $("#resolveSample").text(value);
                 });
 
 
@@ -28,6 +29,7 @@
                 // catch()が実行されコンソールにreject!!が表示される
                 rejectSample().catch(err => {
                     console.log(err); // => reject!!
+                    $("#rejectSample").text(err);
                 });
 
 
@@ -48,6 +50,7 @@
         <div>
             こんにちは、
         </div>
-        <h1 id="harts"></h1>
+        <h1 id="resolveSample"></h1>
+        <h1 id="rejectSample"></h1>
     </body>
 </html>
