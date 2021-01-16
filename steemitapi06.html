@@ -24,7 +24,7 @@
                         var result = await Sample(flag);
                         $("#Sample1").text(result);  
                     } catch (error) {
-                        $("#Sample1").text(error);  
+                        $("#Sample1").text("例外"+error);  
                     }
                 })(true);
                 
@@ -33,7 +33,7 @@
                         var result = await Sample(flag);
                         $("#Sample2").text(result);  
                     } catch (error) {
-                        $("#Sample2").text(error);  
+                        $("#Sample2").text("例外"+error);  
                     }
                 })(false);
             };
@@ -55,6 +55,7 @@ async function Sample(error) {
 </pre>
 <hr/>
 <h1>rejectサンプル</h1>
+awaitを使うと同期型になる。
 Sampleでthrowされたので、catchルートを通る。
 <pre>
 (async function(flag) {
@@ -68,7 +69,8 @@ Sampleでthrowされたので、catchルートを通る。
 <h1 id="Sample1"></h1>
 <hr/>
 <h1>resolveサンプル</h1>
-Sampleでreturnされたので、thenルートを通る。
+awaitを使うと同期型になる。
+Sampleでreturnされたので、例外は発生しない。
 <pre>
 (async function(flag) {
     try {
