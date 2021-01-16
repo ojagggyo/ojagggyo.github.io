@@ -32,6 +32,7 @@ Sample(true)
     .catch(err => {
         console.log(err);
         $("#Sample1").text(err);
+        $('#Sample1').css('color','red');
     });
 </pre>
 <h1 id="Sample1"></h1>
@@ -47,6 +48,7 @@ Sample(false)
     .catch(err => {
         console.log(err);
         $("#Sample2").text(err);
+        $('#Sample2').css('color','red');
     });
 </pre>
 <h1 id="Sample2"></h1>
