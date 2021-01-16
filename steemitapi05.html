@@ -5,40 +5,6 @@
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>     
         <script>
-            
-            window.onload = function() {        
-
-                async function Sample(error) {
-                    if(error){
-                        // throwしているため、この値がrejectされる
-                        throw new Error('★Error★');
-                    }
-                    else{
-                        // returnしているため、この値がresolveされる
-                        return '★Success★';
-                    }   
-                }
-                
-                Sample(true)
-                    .then(value => {
-                        console.log(value);
-                        $("#Sample1").text(value);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        $("#Sample1").text(err);
-                    });
-                
-                Sample(false)
-                    .then(value => {
-                        console.log(value);
-                        $("#Sample2").text(value);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        $("#Sample2").text(err);
-                    });
-            };
         </script>
     </head>
     <body>
