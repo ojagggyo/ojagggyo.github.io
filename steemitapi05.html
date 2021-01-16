@@ -15,7 +15,7 @@
                     }
                     else{
                         // returnしているため、この値がresolveされる
-                        return '★Sample!';
+                        return '★Success!';
                     }   
                 }
                 
@@ -57,6 +57,7 @@ async function Sample(error) {
 </pre>
 <hr/>
 <h1>rejectサンプル</h1>
+Sampleでthrowされたので、catchルートを通る。
 <pre>
 Sample(true)
     .then(value => {
@@ -71,6 +72,7 @@ Sample(true)
 <h1 id="Sample1"></h1>
 <hr/>
 <h1>resolveサンプル</h1>
+Sampleでreturnされたので、thenルートを通る。
 <pre>
 Sample(false)
     .then(value => {
