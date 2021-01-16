@@ -22,18 +22,18 @@
                 (async function(flag) {
                     try {
                         var result = await Sample(flag);
-                        $("#Sample3").text(result);  
+                        $("#Sample1").text(result);  
                     } catch (error) {
-                        $("#Sample3").text(error);  
+                        $("#Sample1").text(error);  
                     }
                 })(true);
                 
                 (async function(flag) {
                     try {
                         var result = await Sample(flag);
-                        $("#Sample3").text(result);  
+                        $("#Sample2").text(result);  
                     } catch (error) {
-                        $("#Sample3").text(error);  
+                        $("#Sample2").text(error);  
                     }
                 })(false);
             };
