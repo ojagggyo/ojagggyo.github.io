@@ -10,9 +10,11 @@
 
                 async function Sample(error) {
                     if(error){
+                        // throwしているため、この値がrejectされる
                         throw new Error('★Error!');
                     }
                     else{
+                        // returnしているため、この値がresolveされる
                         return '★Sample!';
                     }   
                 }
@@ -36,8 +38,6 @@
                         console.log(err);
                         $("#Sample2").text(err);
                     });
-                
-    
             };
         </script>
     </head>
@@ -54,8 +54,10 @@ async function Sample(error) {
         return '★Sample!';
     }   
 }
-<pre>
 </pre>
+
+<h1>rejectサンプル</h1>
+<pre>
 Sample(true)
     .then(value => {
         console.log(value);
@@ -65,9 +67,11 @@ Sample(true)
         console.log(err);
         $("#Sample1").text(err);
     });
-<pre>
-        <h1 id="Sample1"></h1>
 </pre>
+<h1 id="Sample1"></h1>
+
+<h1>resolveサンプル</h1>
+<pre>
 Sample(false)
     .then(value => {
         console.log(value);
@@ -78,7 +82,7 @@ Sample(false)
         $("#Sample2").text(err);
     });
 </pre>
-        <h1 id="Sample2"></h1>
-        
+<h1 id="Sample2"></h1>
+
     </body>
 </html>
