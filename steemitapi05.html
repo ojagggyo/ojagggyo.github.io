@@ -50,6 +50,18 @@
         <div>
             こんにちは、
         </div>
+        <pre>
+            // resolve1!!をreturnしているため、この値がresolveされる
+            async function resolveSample() {
+                return '★resolve!!';
+            }
+
+            // resolveSampleがPromiseを返し、resolve!!がresolveされるため
+            // then()が実行されコンソールにresolve!!が表示される
+            resolveSample().then(value => {
+                $("#resolveSample").text(value);
+            });
+        </pre>
         <h1 id="resolveSample"></h1>
         <h1 id="rejectSample"></h1>
     </body>
