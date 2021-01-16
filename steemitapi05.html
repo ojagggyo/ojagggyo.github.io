@@ -33,7 +33,11 @@
                 });
                 
                 
-                async function Sample()
+                // reject!!をthrowしているため、この値がrejectされる
+                async function Sample() {
+                    throw new Error('★Sample!!');
+                }
+                Sample()
                     .then(value => {
                         console.log(value);
                         $("#resolveSample").text(value);
