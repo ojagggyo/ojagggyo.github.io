@@ -50,19 +50,32 @@
         <div>
             こんにちは、
         </div>
-        <pre>
-            // resolve1!!をreturnしているため、この値がresolveされる
-            async function resolveSample() {
-                return '★resolve!!';
-            }
+<pre>
+// resolve1!!をreturnしているため、この値がresolveされる
+async function resolveSample() {
+    return '★resolve!!';
+}
 
-            // resolveSampleがPromiseを返し、resolve!!がresolveされるため
-            // then()が実行されコンソールにresolve!!が表示される
-            resolveSample().then(value => {
-                $("#resolveSample").text(value);
-            });
-        </pre>
+// resolveSampleがPromiseを返し、resolve!!がresolveされるため
+// then()が実行されコンソールにresolve!!が表示される
+resolveSample().then(value => {
+    $("#resolveSample").text(value);
+});
+</pre>
         <h1 id="resolveSample"></h1>
+<pre>
+// reject!!をthrowしているため、この値がrejectされる
+async function rejectSample() {
+    throw new Error('★reject!!');
+}
+
+// rejectSampleがPromiseを返し、reject!!がrejectされるため
+// catch()が実行されコンソールにreject!!が表示される
+rejectSample().catch(err => {
+    console.log(err); // => reject!!
+    $("#rejectSample").text(err);
+});
+</pre>
         <h1 id="rejectSample"></h1>
     </body>
 </html>
