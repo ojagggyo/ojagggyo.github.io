@@ -33,11 +33,17 @@
                 });
                 
                 
-                // reject!!をthrowしているため、この値がrejectされる
-                async function Sample() {
-                    throw new Error('★Sample!!');
+
+                async function Sample(error) {
+                    if(error){
+                        throw new Error('★Error!');
+                    }
+                    else{
+                        return '★Sample!';
+                    }   
                 }
-                Sample()
+                
+                Sample(true)
                     .then(value => {
                         console.log(value);
                         $("#resolveSample").text(value);
@@ -47,6 +53,15 @@
                         $("#rejectSample").text(err);
                     });
                 
+                Sample(false)
+                    .then(value => {
+                        console.log(value);
+                        $("#Sample1").text(value);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        $("#Sample2").text(err);
+                    });
                 
     
             };
@@ -83,5 +98,9 @@ rejectSample().catch(err => {
 });
 </pre>
         <h1 id="rejectSample"></h1>
+        
+        <h1 id="Sample1"></h1>
+        <h1 id="Sample2"></h1>
+        
     </body>
 </html>
