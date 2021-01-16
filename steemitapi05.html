@@ -9,7 +9,7 @@
             window.onload = function() {        
                 // resolve1!!をreturnしているため、この値がresolveされる
                 async function resolveSample() {
-                    return 'resolve!!';
+                    return '★resolve!!';
                 }
 
                 // resolveSampleがPromiseを返し、resolve!!がresolveされるため
@@ -21,7 +21,7 @@
 
                 // reject!!をthrowしているため、この値がrejectされる
                 async function rejectSample() {
-                    throw new Error('reject!!');
+                    throw new Error('★reject!!');
                 }
 
                 // rejectSampleがPromiseを返し、reject!!がrejectされるため
@@ -33,7 +33,7 @@
 
                 // resolveErrorはasync functionではないため、Promiseを返さない
                 function resolveError() {
-                    return 'resolveError!!';
+                    return '★resolveError!!';
                 }
 
                 //// resolveErrorはPromiseを返さないため、エラーが発生して動かない
