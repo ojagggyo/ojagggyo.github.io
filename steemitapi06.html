@@ -24,7 +24,8 @@
                         var result = await Sample(flag);
                         $("#Sample1").text(result);  
                     } catch (error) {
-                        $("#Sample1").text("例外"+error);  
+                        $("#Sample1").text(error);
+                        $('.Sample1').css('color','red');
                     }
                 })(true);
                 
@@ -33,7 +34,8 @@
                         var result = await Sample(flag);
                         $("#Sample2").text(result);  
                     } catch (error) {
-                        $("#Sample2").text("例外"+error);  
+                        $("#Sample2").text(error);
+                        $('.Sample2').css('color','red');
                     }
                 })(false);
             };
