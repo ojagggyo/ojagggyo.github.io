@@ -65,8 +65,10 @@ Sampleでthrowされたので、catchルートを通る。
         var result = await Sample(flag);
         $("#Sample1").text(result);  
     } catch (error) {
-        $("#Sample1").text(error);  
+        $("#Sample1").text(error);
+        $('#Sample1').css('color','red');
     }
+})(true);
 </pre>
 <h1 id="Sample1"></h1>
 <hr/>
@@ -79,7 +81,8 @@ Sampleでreturnされたので、例外は発生しない。
         var result = await Sample(flag);
         $("#Sample2").text(result);  
     } catch (error) {
-        $("#Sample2").text(error);  
+        $("#Sample2").text(error);
+        $('#Sample2').css('color','red');
     }
 })(false);
 </pre>
