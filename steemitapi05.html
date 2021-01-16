@@ -7,32 +7,6 @@
         <script>
             
             window.onload = function() {        
-                // resolve1!!をreturnしているため、この値がresolveされる
-                async function resolveSample() {
-                    return '★resolve!!';
-                }
-
-                // resolveSampleがPromiseを返し、resolve!!がresolveされるため
-                // then()が実行されコンソールにresolve!!が表示される
-                resolveSample().then(value => {
-                    console.log(value); // => resolve!!
-                    $("#resolveSample").text(value);
-                });
-
-
-                // reject!!をthrowしているため、この値がrejectされる
-                async function rejectSample() {
-                    throw new Error('★reject!!');
-                }
-
-                // rejectSampleがPromiseを返し、reject!!がrejectされるため
-                // catch()が実行されコンソールにreject!!が表示される
-                rejectSample().catch(err => {
-                    console.log(err); // => reject!!
-                    $("#rejectSample").text(err);
-                });
-                
-                
 
                 async function Sample(error) {
                     if(error){
@@ -46,17 +20,17 @@
                 Sample(true)
                     .then(value => {
                         console.log(value);
-                        $("#resolveSample").text(value);
+                        $("#Sample1").text(value);
                     })
                     .catch(err => {
                         console.log(err);
-                        $("#rejectSample").text(err);
+                        $("#Sample1").text(err);
                     });
                 
                 Sample(false)
                     .then(value => {
                         console.log(value);
-                        $("#Sample1").text(value);
+                        $("#Sample2").text(value);
                     })
                     .catch(err => {
                         console.log(err);
@@ -72,33 +46,35 @@
             こんにちは、
         </div>
 <pre>
-// resolve1!!をreturnしているため、この値がresolveされる
-async function resolveSample() {
-    return '★resolve!!';
+async function Sample(error) {
+    if(error){
+        throw new Error('★Error!');
+    }
+    else{
+        return '★Sample!';
+    }   
 }
 
-// resolveSampleがPromiseを返し、resolve!!がresolveされるため
-// then()が実行されコンソールにresolve!!が表示される
-resolveSample().then(value => {
-    $("#resolveSample").text(value);
-});
-</pre>
-        <h1 id="resolveSample"></h1>
-<pre>
-// reject!!をthrowしているため、この値がrejectされる
-async function rejectSample() {
-    throw new Error('★reject!!');
-}
+Sample(true)
+    .then(value => {
+        console.log(value);
+        $("#Sample1").text(value);
+    })
+    .catch(err => {
+        console.log(err);
+        $("#Sample1").text(err);
+    });
 
-// rejectSampleがPromiseを返し、reject!!がrejectされるため
-// catch()が実行されコンソールにreject!!が表示される
-rejectSample().catch(err => {
-    console.log(err); // => reject!!
-    $("#rejectSample").text(err);
-});
-</pre>
-        <h1 id="rejectSample"></h1>
-        
+Sample(false)
+    .then(value => {
+        console.log(value);
+        $("#Sample2").text(value);
+    })
+    .catch(err => {
+        console.log(err);
+        $("#Sample2").text(err);
+    });
+</pre>        
         <h1 id="Sample1"></h1>
         <h1 id="Sample2"></h1>
         
