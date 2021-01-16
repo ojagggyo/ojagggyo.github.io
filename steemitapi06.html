@@ -40,10 +40,17 @@
                     });
 
                 async function () {
-                    var result = await Sample(false);
-                    $("#Sample3").text(result);  
+                    try {
+                        var result = await Sample(false);
+                        $("#Sample3").text(result);  
+                    } catch (error) {
+                        $("#Sample3").text(error);  
+                    }
                 }
 
+
+                
+                
             };
         </script>
     </head>
