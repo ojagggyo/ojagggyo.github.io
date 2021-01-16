@@ -38,9 +38,12 @@
                         console.log(err);
                         $("#Sample2").text(err);
                     });
-                    
-                var result = await Sample(false);
-                $("#Sample3").text(result);
+
+                async function () {
+                    var result = await Sample(false);
+                    $("#Sample3").text(result);  
+                }
+
             };
         </script>
     </head>
