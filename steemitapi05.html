@@ -11,11 +11,11 @@
                 async function Sample(error) {
                     if(error){
                         // throwしているため、この値がrejectされる
-                        throw new Error('★Error!');
+                        throw new Error('★Error★');
                     }
                     else{
                         // returnしているため、この値がresolveされる
-                        return '★Success!';
+                        return '★Success★';
                     }   
                 }
                 
@@ -48,10 +48,10 @@
 <pre>
 async function Sample(error) {
     if(error){
-        throw new Error('★Error!');
+        throw new Error('★Error★');
     }
     else{
-        return '★Sample!';
+        return '★Sample★';
     }   
 }
 </pre>
