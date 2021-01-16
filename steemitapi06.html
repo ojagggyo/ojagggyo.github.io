@@ -39,16 +39,17 @@
                         $("#Sample2").text(err);
                     });
 
-                async function () {
+                //async function () {
+                //}
+                
+                (async function() {
                     try {
                         var result = await Sample(false);
                         $("#Sample3").text(result);  
                     } catch (error) {
                         $("#Sample3").text(error);  
                     }
-                }
-
-
+                })();
                 
                 
             };
