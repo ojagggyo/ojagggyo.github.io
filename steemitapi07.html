@@ -17,6 +17,7 @@ alert("aaa");
   if ("Notification" in window) {
     var permission = Notification.permission;
 alert("bbb");
+      alert(permission);
       
     if (permission === "denied" || permission === "granted") {
       return;
