@@ -10,6 +10,21 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script> -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
+<script>
+    (function() {
+  if ("Notification" in window) {
+    var permission = Notification.permission;
+
+    if (permission === "denied" || permission === "granted") {
+      return;
+    }
+
+alert("aaa");
+      //Notification.requestPermission();
+  }
+})();
+</script>
+    
 <script type="text/javascript">
     setTimeout(function () {
         Push.Permission.request(onGranted, onDenied);
