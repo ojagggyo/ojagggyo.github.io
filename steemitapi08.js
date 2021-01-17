@@ -17,7 +17,7 @@ async function getAccountsAsync(){
     let vp = account.voting_power + (10000 * ((new Date - new Date(account.last_vote_time + "Z")) / 1000) / 432000);
     //var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
     //$("#votingPower").text(text);
-    if(vp/100 > 95){
+    if(vp > 9470){
         $('body').css('background', '#f00');
     }
 }
