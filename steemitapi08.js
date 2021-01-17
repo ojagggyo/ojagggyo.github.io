@@ -18,7 +18,8 @@ async function getAccountsAsync(){
     //var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
     //$("#votingPower").text(text);
     if(vp/100 > 99){
-        $('body').css('background', '#f00');
+        //$('body').css('background', '#f00');
+        $('h1').css('color', '#f00');
     }
 }
 
