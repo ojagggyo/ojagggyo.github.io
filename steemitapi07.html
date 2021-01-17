@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Push.js Sample</title>
+</head>
+<body>
+
+<h1>Push.js Sample</h1>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.7/push.min.js"></script>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        Push.Permission.request(onGranted, onDenied);
+    }, 30 * 1000);
+
+    function onGranted() {
+        console.log('Granted!');
+    }
+
+    function onDenied() {
+        ga('send', 'event', 'browser-push', 'denied', 'top', 1);
+    }
+
+    if (Push.Permission.has()) {
+        Push.create("Push Notification title here", {
+            body:    "Body text here",
+            icon:    './images/icon.png', // Image path displayed right side
+            timeout: 4000,
+            onClick: function () {
+                location.href = 'https://yahoo.co.jp'
+                this.close();
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
