@@ -15,8 +15,11 @@ async function getAccountsAsync(){
     if(accounts.length == 0) {return;}
     let account = accounts[0];
     let vp = account.voting_power + (10000 * ((new Date - new Date(account.last_vote_time + "Z")) / 1000) / 432000);
-    var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
-    $("#votingPower").text(text);
+    //var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
+    //$("#votingPower").text(text);
+    if(vp/100 > 95){
+        $('body').css('background', '#f00');
+    }
 }
 
 window.onload = function() {
