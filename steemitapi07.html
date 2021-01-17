@@ -21,8 +21,8 @@
 
     if (Push.Permission.has()) {
         Push.create("Push.jsサンプル", {
-            body:    "Push.jsサンプル",
-            icon:    './dlive.png', // Image path displayed right side
+            body:    "こんにちは、クリックするとsteemit.comサイトに移動します。",
+            icon:    './dlive.png',
             timeout: 10000,
             onClick: function () {
                 location.href = 'https://steemit.com/@yasu'
