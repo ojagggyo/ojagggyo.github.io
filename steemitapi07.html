@@ -3,29 +3,8 @@
     <title>Push.js Sample</title>
 </head>
 <body>
-
 <h1>Push.js Sample</h1>
-https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.11/push.min.js"></script>
-
-<script>
-    (function() {
-//alert("aaa");        
-        
-  if ("Notification" in window) {
-    var permission = Notification.permission;
-//alert("bbb");
-      //alert(permission);
-      
-    if (permission === "denied" || permission === "granted") {
-      return;
-    }
-
-//alert("ccc");
-      //Notification.requestPermission();
-  }
-})();
-</script>
     
 <script type="text/javascript">
     setTimeout(function () {
@@ -37,23 +16,20 @@ https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
     }
 
     function onDenied() {
-        ga('send', 'event', 'browser-push', 'denied', 'top', 1);
+        console.log('Denied!');
     }
 
     if (Push.Permission.has()) {
-        Push.create("Push Notification title here", {
-            body:    "Body text here",
+        Push.create("Push.jsサンプル", {
+            body:    "Push.jsサンプル",
             icon:    './dlive.png', // Image path displayed right side
             timeout: 10000,
             onClick: function () {
-                location.href = 'https://yahoo.co.jp'
+                location.href = 'https://steemit.com/@yasu'
                 this.close();
             }
         });
     }
-
-    
-    Push.create('Hello World!');
 </script>
 </body>
 </html>
