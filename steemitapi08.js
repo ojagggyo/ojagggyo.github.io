@@ -20,6 +20,8 @@ async function getAccountsAsync(){
     if(vp > 9900){//99%
         //$('body').css('background', '#f00');
         $('h1').css('color', '#f00');
+    }else if(vp > 9500){//99%
+        $('h1').css('color', '#ff0');
     }
 }
 
