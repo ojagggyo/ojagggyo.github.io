@@ -50,7 +50,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 (保有資産価値、14000ドル)
 
 
-
+<!--
 <div>
 <div style="float:left;">
 <p style="float: left; margin: 0px;">STEEM POWERは、</p><br/>
@@ -62,7 +62,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 </div>
 <div style="clear: both;"></div>
 </div>
-<br/>
+<br/>-->
 
 |VOTING POWER|STEEM POWER|
 |---|---:|
