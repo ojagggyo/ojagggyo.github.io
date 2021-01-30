@@ -38,15 +38,15 @@
                 let sumVestingShare = vesting_shares + received_vesting_shares - delegated_vesting_shares;
                
                 let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
-                $("#steemPower").text("" + sp.toFixed(6) + " SP");
+                $("#steemPower").text("" + sp.toFixed(6) + " STEEM");
 
                 let sp1 = (vesting_shares / total_vesting_shares * total_vesting_fund_steem);
                 let sp2 = (received_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
                 let sp3 = (delegated_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
                 
-                $("#sp1").text(sp1.toFixed(6) + " SP");
-                $("#sp2").text("+" + sp2.toFixed(6) + " SP");
-                $("#sp3").text("-" + sp3.toFixed(6) + " SP");
+                $("#sp1").text(sp1.toFixed(6) + " STEEM");
+                $("#sp2").text("+" + sp2.toFixed(6) + " STEEM");
+                $("#sp3").text("-" + sp3.toFixed(6) + " STEEM");
             }
 
             window.onload = function() {
@@ -62,7 +62,7 @@
         こんにちは、
     </div> 
     <div style="float:left;">
-      <h1 style="float: left; margin: 0px;">STEEM POWER</h1><br/>
+      <h1 style="float: left; margin: 0px;">STEEM POWERは、</h1><br/>
       <h1 style="float: right; margin: 0px;" id="sp1"></h1><br/>
       <h1 style="float: right; margin: 0px;" id="sp2"></h1><br/>
       <h1 style="float: right; margin: 0px;" id="sp3"></h1><br/>
