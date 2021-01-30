@@ -64,7 +64,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 </div>
 <br/>-->
 
-<a id=userName></a>
+@<a id=userName></a>のパワー
 
 |VOTING POWER|STEEM POWER|
 |---|---:|
