@@ -65,8 +65,8 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 <br/>
 
 |VOTING POWER|STEEM POWER|
-|---|---|
-|<a id=votingPower></a>|<div><div style="float:left;"><p style="float: left; margin: 0px;">STEEM POWERは、</p><br/><p style="float: right; margin: 0px;" id="sp1"></p><br/><p style="float: right; margin: 0px;" id="sp2"></p><br/><p style="float: right; margin: 0px;" id="sp3"></p><br/><p style="float: right; margin: 0px;">---------------------</p><br/><p style="float: right; margin: 0px;" id="steemPower"></p><br/></div><div style="clear: both;"></div></div>|
+|---|---:|
+|<a id=votingPower></a>|<a id=sp1></a><br/><a id=sp2></a><br/><a id=sp3></a><br/><a id=steemPower></a><br/>|
 
 # Archive
 
