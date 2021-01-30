@@ -2,7 +2,7 @@ let username;
 function saveUserName(){
     username = window.location.hash;// #username
     if (username == null || username.trim().length == 0){
-        username = "#steemitblog";
+        username = "#yasu";
     }
 
     username = username.substr(1);//#を取る
