@@ -65,9 +65,9 @@ async function getSteemPower() {
     $("#sp3").text("-" + sp3.toFixed(6) + "STEEM");
     
     
-    $('#sp1').css('color', '#ccc');
-    $('#sp2').css('color', '#ccc');
-    $('#sp3').css('color', '#ccc');
+    $('#sp1').css('color', '#aaa');
+    $('#sp2').css('color', '#aaa');
+    $('#sp3').css('color', '#aaa');
     $('#steemPower').css('color', '#fff');
 }
 
