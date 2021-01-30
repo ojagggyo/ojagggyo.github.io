@@ -7,6 +7,8 @@ function saveUserName(){
 
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
+    
+    $("#userName").text(username + "");
 }
 
 async function getAccountsAsync(){
