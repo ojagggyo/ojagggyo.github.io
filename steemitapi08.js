@@ -28,7 +28,7 @@ async function getAccountsAsync(){
     var text = "" + (vp/100).toFixed(3) + "%";
     $('#votingPower').text(text);
     $('#votingPower').css('color', '#aaa');
-    $('#votingPower').css('ont-size', '400%');
+    $('#votingPower').css('font-size', '400%');
     
 }
 
