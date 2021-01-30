@@ -25,10 +25,10 @@ async function getAccountsAsync(){
     }
     
     //var text = "あなたのVoting Powerは " + (vp/100).toFixed(3) + " %です。";
-    var text = "" + (vp/100).toFixed(3) + "";
+    var text = "" + (vp/100).toFixed(3) + "%";
     $('#votingPower').text(text);
     $('#votingPower').css('color', '#aaa');
-    $('#votingPower').css('ont-size: 100%;', '400%');
+    $('#votingPower').css('ont-size', '400%');
     
 }
 
