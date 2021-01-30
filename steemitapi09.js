@@ -43,9 +43,9 @@ async function getSteemPower() {
 }
 
 window.onload = function() {
-    //steem.api.setOptions({url: 'https://api.steemit.com'});
-    //saveUserName();
-    //getSteemPower();
+    steem.api.setOptions({url: 'https://api.steemit.com'});
+    saveUserName();
+    getSteemPower();
 
-    //setInterval(getSteemPower, 1000);
+    setInterval(getSteemPower, 1000);
 };
