@@ -41,7 +41,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 **@yasuの最近一週間の報酬は、**
 
-|Curation SP|Author SP|STEEM|SBD|Total USD*|
+|Cu.SP|Au.SP|STEEM|SBD|Total USD*|
 |---:|---:|---:|---:|---:|
 |28.19|250.96|9.86|38.32|143.35|
 
