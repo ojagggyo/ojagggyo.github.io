@@ -62,12 +62,12 @@ async function getSteemPower() {
 
 
     $("#userName").text(username + "");
-    
     $("#steemPower").text("" + sp.toFixed(6) + "");
     $("#sp1").text(sp1.toFixed(6) + "");
     $("#sp2").text("+" + sp2.toFixed(6) + "");
     $("#sp3").text("-" + sp3.toFixed(6) + "");
     
+    $('#userName').css('color', '#aaa');
     $('#steemPower').css('color', '#fff');    
     $('#sp1').css('color', '#aaa');
     $('#sp2').css('color', '#aaa');
