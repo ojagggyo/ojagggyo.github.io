@@ -23,6 +23,10 @@ async function getAccountsAsync(){
     }else if(vp > 9500){//99%
         $('h1').css('color', '#ff0');
     }
+    
+    var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
+    $('#votingPower').text(text);
+    
 }
 
 window.onload = function() {
