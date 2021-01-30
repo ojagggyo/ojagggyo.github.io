@@ -2,8 +2,6 @@
 title: steemit
 ---
 
-<h1 id=votingPower style="text-align: right;"></h1>
-
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
 
@@ -50,6 +48,8 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 2021.1.1現在
 
 (保有資産価値、14000ドル)
+
+<a id=votingPower></a>
 
 # Archive
 
