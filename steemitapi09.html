@@ -44,7 +44,7 @@
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
-                getAccountsAsync();
+                getSteemPower();
 
                 setInterval(getSteemPower, 5000);
             };</script>
