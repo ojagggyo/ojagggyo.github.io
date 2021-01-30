@@ -31,7 +31,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 売買に手数料はかかりませんが、入出金に1%ずつ手数料がかかります。
 
-私が所有しているトークンは、JJM, KRWP, STEEMP, JCAR, SCT, ZZAN, AAA, MARLIANS
+私が関心のあるトークンは、[JJM](https://steemit.com/@virus707/posts), [UPVU](https://steemit.com/@upvu/posts), [JCAR](https://steemit.com/@jcarvoting/posts), [MINI](https://steemit.com/@minigame/posts), STEEMP, KRWP, SCT, ZZAN, AAA, MARLIANS
 
 # Steem Auto
 
