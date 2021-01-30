@@ -54,15 +54,15 @@ async function getSteemPower() {
     let sumVestingShare = vesting_shares + received_vesting_shares - delegated_vesting_shares;
 
     let sp = (sumVestingShare / total_vesting_shares * total_vesting_fund_steem);
-    $("#steemPower").text("" + sp.toFixed(6) + " STEEM");
+    $("#steemPower").text("" + sp.toFixed(6) + "STEEM");
 
     let sp1 = (vesting_shares / total_vesting_shares * total_vesting_fund_steem);
     let sp2 = (received_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
     let sp3 = (delegated_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
 
-    $("#sp1").text(sp1.toFixed(6) + " STEEM");
-    $("#sp2").text("+" + sp2.toFixed(6) + " STEEM");
-    $("#sp3").text("-" + sp3.toFixed(6) + " STEEM");
+    $("#sp1").text(sp1.toFixed(6) + "STEEM");
+    $("#sp2").text("+" + sp2.toFixed(6) + "STEEM");
+    $("#sp3").text("-" + sp3.toFixed(6) + "STEEM");
     
     
     $('#sp1').css('color', '#ccc');
