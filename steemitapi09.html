@@ -41,7 +41,12 @@
                 $("#steemPower").text("Steem Powerは " + sp.toFixed(6) + " SPです。");
 
                 let sp1 = (vesting_shares / total_vesting_shares * total_vesting_fund_steem);
-                $("#detail").text(sp1);
+                let sp2 = (received_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
+                let sp3 = (delegated_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
+                
+                $("#sp1").text(sp1);
+                $("#sp2").text(sp2);
+                $("#sp3").text(sp3);
             }
 
             window.onload = function() {
@@ -57,6 +62,8 @@
         こんにちは、
     </div>
     <h1 id="steemPower"></h1>
-    <h1 id="detail"></h1>
+    <h1 id="sp1"></h1>
+    <h1 id="sp2"></h1>
+    <h1 id="sp3"></h1>
 </body>
 </html>
