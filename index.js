@@ -63,6 +63,12 @@ async function getSteemPower() {
     $("#sp1").text(sp1.toFixed(6) + " STEEM");
     $("#sp2").text("+" + sp2.toFixed(6) + " STEEM");
     $("#sp3").text("-" + sp3.toFixed(6) + " STEEM");
+    
+    
+    $('#sp1').css('color', '#ccc');
+    $('#sp2').css('color', '#ccc');
+    $('#sp3').css('color', '#ccc');
+    $('#steemPower').css('color', '#fff');
 }
 
 window.onload = function() {
