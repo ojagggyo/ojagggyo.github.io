@@ -45,8 +45,8 @@
                 let sp3 = (delegated_vesting_shares / total_vesting_shares * total_vesting_fund_steem);
                 
                 $("#sp1").text(sp1.toFixed(6) + " SP");
-                $("#sp2").text(sp2.toFixed(6) + " SP");
-                $("#sp3").text(sp3.toFixed(6) + " SP");
+                $("#sp2").text(”+”+sp2.toFixed(6) + " SP");
+                $("#sp3").text(”-”+sp3.toFixed(6) + " SP");
             }
 
             window.onload = function() {
