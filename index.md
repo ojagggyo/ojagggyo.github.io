@@ -60,6 +60,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 <a style="float: right; margin: 0px;" id="steemPower"></a><br/>
 </div>
 <a style="float:left;"></a>
+<div></div>
 
 # Archive
 
