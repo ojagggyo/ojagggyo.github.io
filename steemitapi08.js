@@ -24,7 +24,7 @@ async function getAccountsAsync(){
         $('h1').css('color', '#ff0');
     }
     
-    var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
+    var text = "Voting Powerは " + (vp/100).toFixed(8) + " %です。";
     $('#votingPower').text(text);
     
 }
