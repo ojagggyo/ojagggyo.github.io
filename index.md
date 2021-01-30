@@ -1,7 +1,8 @@
 ---
 title: steemit
 ---
-<h1 id=votingPower></h1>
+
+<div class="pull-right"><h1 id=votingPower></h1></div>
 
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
