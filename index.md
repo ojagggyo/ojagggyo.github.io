@@ -40,9 +40,9 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 # Reward Summary 
 
 **@yasuの最近一週間の報酬は、**
-2021.1.1現在
+2021.1.1 (米ドル換算)
 
-|Cu.SP|Au.SP|STEEM|SBD|Total USD*|
+|Cu.SP|Au.SP|STEEM|SBD|Total|
 |---:|---:|---:|---:|---:|
 |28.19|250.96|9.86|38.32|143.35|
 
