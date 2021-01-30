@@ -27,7 +27,7 @@ async function getAccountsAsync(){
     var text = "あなたのVoting Powerは" + (vp/100).toFixed(3) + "%です。";
     //var text = "" + (vp/100).toFixed(3) + "%";
     $('#votingPower').text(text);
-    $('#votingPower').css('color', '#aaa');
+    //$('#votingPower').css('color', '#fff');
     //$('#votingPower').css('font-size', '200%');
     
 }
