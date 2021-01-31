@@ -1,23 +1,14 @@
-<body>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="jquery.xdomainajax.js"></script>  
-  
-  <script>
-    $(function(){
-      $('#wrap').text("222");
-      $.ajax({
-        url: 'https://ojagggyo.github.io/steemitapi10.html#yasu',    // 表示させたいコンテンツがあるページURL
-        cache: false,
-        datatype: 'html',
-        success: function(html) {
-            //var h = $(html).find('#hoge');    // 表示させたいコンテンツの要素を指定
-            var h = $(html);    // 表示させたいコンテンツの要素を指定
-            $('#wrap').append(h);    // append関数で指定先の要素へ出力
-        }
-      });
-    });
-  </script>
-  <div id="wrap">
-    <!-- ここにajaxで呼び出したコンテンツ（＝要素）が出力される -->
-  </div>
-</body>
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>jQuery load() sample</title>
+ </head>
+ <body>
+  <h1>ここに外部 HTML ファイルを表示します</h1>
+  <div id="page"></div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="load.js"></script>
+ </body>
+</html>
