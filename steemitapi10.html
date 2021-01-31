@@ -1,39 +1,20 @@
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-    </head>
-    <body>
-        <div>
-            こんにちは、
-      
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="jquery.xdomainajax.js"></script>
-
-<h1>サンプル – 別ドメインの外部URLからidやclassなど特定の箇所を抜き出しサイトに表示する方法</h1>
-<div id="container"></div>
-<div id="header"></div>
-<div id="stock"></div>
-            
-<script type=text/javascript>
-$(function() {
-$.ajax(
-    {
-        url: ‘https://ojagggyo.github.io/steemitapi01.html#yasu’,
-        type: ‘GET’,
-        success: function(data) {
-            $(‘#container’).html(data.responseText);
-            //$table = $(‘table’, $(‘#container’));
-            //$(‘#header’).html($table.parent().prev().html());
-            //$(‘#stock’).html($table.parent().html());
+<body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $.ajax({
+        url: 'https://ojagggyo.github.io/steemitapi10.html#yasu',    // 表示させたいコンテンツがあるページURL
+        cache: false,
+        datatype: 'html',
+        success: function(html) {
+            //var h = $(html).find('#hoge');    // 表示させたいコンテンツの要素を指定
+            var h = $(html);    // 表示させたいコンテンツの要素を指定
+            $('#wrap').append(h);    // append関数で指定先の要素へ出力
         }
+      });
     });
-});
-</script>
-      
-      
-    </body>
-</html>
+  </script>
+  <div id="wrap">
+    <!-- ここにajaxで呼び出したコンテンツ（＝要素）が出力される -->
+  </div>
+</body>
