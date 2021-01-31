@@ -37,7 +37,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 あなたの代理となって自動的にVotingするツールです。[🔗](https://auto.steemdb.online/)
 
-# Reward Summary 
+# Reward Summary
 
 **@yasuの最近一週間の報酬は、**
 2021.1.31 (米ドル換算)
@@ -46,6 +46,8 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 |---:|---:|---:|---:|
 |24.10|190.19|34.46|145.28|
 
+
+# Your Power
 
 <!--
 <div>
