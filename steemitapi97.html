@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>jquery.xdomainajax.jsのテスト</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="jquery.xdomainajax.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <h1>jquery.xdomainajax.jsのテスト</h1>
-    <script>
-      
-      // ロード完了イベント
-      $(document).ready(function(){
-        $.ajax({
-          url: 'https://www.google.co.jp',
-          type: 'GET',
-          cache: false, // キャッシュOFF
-
-          // データのロード完了時の処理
-          success: function(res) {
-            content = $(res.responseText).text();
-　　　　　　// 取得した内容をコンソールに出力
-　　　　　　console.log(content);
-          }
-        });
-      });
-
-    </script>
-  </body>
+<head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+  body {font-size:12px;}
+  table {border: 1px solid #AAA; border-left: 0; border-collapse: separate; border-spacing: 0;}
+  th, td {border-left: 1px solid #AAA;}
+  td {border-top: 1px solid #AAA;}
+  th {border-top: 0;}
+</style>
+</head>
+<body>
+<div id="support"></p>
+<script>
+var props = [];
+var table = '';
+/* $.supportのプロパティを取得 */
+$.each($.support, function(key, value){
+  props.push({key:key, value:value});
+});
+/* 取得したプロパティをアルファベット順にソート */
+props.sort(function(a, b){
+  return a.key > b.key ? 1 : -1;
+});
+/* テーブルにして出力 */
+$.each(props, function(){
+  table += '<tr>';
+  table += '<td>' + this.key + '</td>';
+  table += '<td>' + this.value + '</td>';
+  table += '</tr>';
+});
+table = '<table>' + '<th>キー</th><th>値</th>' + table + '</table>'
+$('#support').append(table);
+</script>
+</body>
 </html>
