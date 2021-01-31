@@ -5,12 +5,15 @@
 <script type="text/javascript" src="./jquery.xdomainajax.js"></script>
 <h1>aaa</h1>
 
-<script>$.ajax({  
-    url: 'https://www.yahoo.co.jp/',
-    type: 'GET',  
-    success: function(data) {  
-        content = $($(data.responseText).text());
-        $('body').append(content);
-    }      
-});
+<script>
+$.ajax(
+    {
+        url: 'https://www.yahoo.co.jp/',
+        type: 'GET',  
+        success: function(data) {  
+            content = $($(data.responseText).text());
+            $('body').append(content);
+        }      
+    }
+);
 </script>
