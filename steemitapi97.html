@@ -2,20 +2,23 @@
 <script type="text/javascript" src="./jquery.xdomainajax.js"></script>
 <h1>サンプル – 別ドメインの外部URLからidやclassなど特定の箇所を抜き出しサイトに表示する方法</h1>
 <div id="container"></div>
-<div id="header"></div>
-<div id="stock"></div>
+
 <script type=text/javascript>
-$(function() {
+
+$('#container').load('http://google.com'); // SERIOUSLY!
+ 
 $.ajax({
-  //url: "https://ojagggyo.github.io/steemitapi10a.html",
-  url: "./steemitapi10a.html",
-  type: "GET",
-  success: function(data) {
-    $("#container").html(data.responseText);
-    //$table = $(‘table’, $(‘#container’));
-    //$(‘#header’).html($table.parent().prev().html());
-    //$(‘#stock’).html($table.parent().html());
-}
+    url: 'http://news.bbc.co.uk',
+    type: 'GET',
+    success: function(res) {
+        var headline = $(res.responseText).find('a.tsh').text();
+        alert(headline);
+    }
 });
-});
+ 
+// Works with $.get too!
+  
 </script>
+
+
+
