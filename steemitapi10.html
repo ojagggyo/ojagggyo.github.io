@@ -6,12 +6,16 @@
  </head>
  <body>
   <h1>ここに外部 HTML ファイルを表示します</h1>
-  <div id="page"></div>
+  <div id="result"></div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>
-      $(function() {
-      $('#page').load('./steemitapi10a.html');
+      //$(function() {
+      //$('#page').load('./steemitapi10a.html');
+      //});
+   
+      $( "#result" ).load( "./steemitapi10a.html", function() {
+          alert( "Load was performed." );
       });
   </script>
  </body>
