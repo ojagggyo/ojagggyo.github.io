@@ -1,4 +1,4 @@
-/**
+/*
  * jQuery.ajax mid - CROSS DOMAIN AJAX 
  * ---
  * @author James Padolsey (http://james.padolsey.com)
@@ -15,8 +15,8 @@ jQuery.ajax = (function(_ajax){
     var protocol = location.protocol,
         hostname = location.hostname,
         exRegex = RegExp(protocol + '//' + hostname),
-        YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
-        query = 'select * from html where url="{URL}" and xpath="*"';
+        YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys',
+        query = 'select * from htmlstring where url="{URL}" and xpath="*"';
     
     function isExternal(url) {
         return !exRegex.test(url) && /:\/\//.test(url);
@@ -40,7 +40,9 @@ jQuery.ajax = (function(_ajax){
                         (/\?/.test(url) ? '&' : '?') + jQuery.param(o.data)
                     : '')
                 ),
-                format: 'xml'
+                format: 'xml',
+				diagnostics: true,
+				env: 'store://datatables.org/alltableswithkeys',
             };
             
             // Since it's a JSONP request
@@ -52,16 +54,12 @@ jQuery.ajax = (function(_ajax){
             
             o.success = (function(_success){
                 return function(data) {
-                    
-                    if (_success) {
-                        // Fake XHR callback.
-                        _success.call(this, {
-                            responseText: (data.results[0] || '')
-                                // YQL screws with <script>s
-                                // Get rid of them
-                                .replace(/<script[^>]+?\/>|<script(.|\s)*?\/script>/gi, '')
-                        }, 'success');
-                    }
+    if (_success) {
+        var text = $((data.results[0] || '')
+                .replace(/<script[^>]+?\/>|<script(.|\s)*?\/script>/gi, '')).text();
+        _success.call(this, {
+            responseText: text
+        }, 'success');                    }
                     
                 };
             })(o.success);
