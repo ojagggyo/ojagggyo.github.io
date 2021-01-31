@@ -5,14 +5,16 @@
 
 <script type=text/javascript>
 
-    jQuery.get('http://google.com', function(res){
-        ok(
-            !!(res && res.responseText),
-            'GET Request to Google.com succeeded!'
-        );
-        start();
-    });
-  
+$.ajax({
+    url: 'http://news.bbc.co.uk',
+    type: 'GET',
+    success: function(res) {
+        var headline = $(res.responseText).find('a.tsh').text();
+        alert(headline);
+    }
+});
+ 
+// Work
 </script>
 
 
