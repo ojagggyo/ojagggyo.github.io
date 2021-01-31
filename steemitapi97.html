@@ -7,18 +7,14 @@
 <script type=text/javascript>
 $(function() {
 $.ajax({
-url: ‘steemitapi10a.html’,
-type: ‘GET’,
-success: function(data) {
-$(‘#container’).html(data.responseText);
-$table = $(‘table’, $(‘#container’));
-$(‘#header’).html($table.parent().prev().html());
-$(‘#stock’).html($table.parent().html());
+  url: ‘steemitapi10a.html’,
+  type: ‘GET’,
+  success: function(data) {
+    $(‘#container’).html(data.responseText);
+    //$table = $(‘table’, $(‘#container’));
+    //$(‘#header’).html($table.parent().prev().html());
+    //$(‘#stock’).html($table.parent().html());
 }
 });
 });
 </script>
-
-
-
-
