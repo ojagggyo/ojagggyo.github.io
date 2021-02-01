@@ -1,5 +1,6 @@
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="jquery.xdomainajax.js"></script>
 
 <script>
 //var jqxhr = $.ajax( "./steemitapi10a.html" )
@@ -17,19 +18,34 @@
 </script>
 
 <script>
-    $.ajax(
-    {
-    type: "GET",
-    url: "https://steemworld.org/@yasu",
-    data: { name: "John", location: "Boston" },
-    xhrFields: { withCredentials: true}
-    }
+    //$.ajax(
+    //{
+    //type: "GET",
+    //url: "https://steemworld.org/@yasu",
+    //data: { name: "John", location: "Boston" },
+    //xhrFields: { withCredentials: true}
+    //}
     
-    ).done(function (data) {
-      alert( "success"  + data);
-    }).fail(function (error) {
-      alert("error" + error);
-    }).always(function (msg) {
-      alert( "msg" + msg);
-    });
+    //).done(function (data) {
+    //  alert( "success"  + data);
+    //}).fail(function (error) {
+    //  alert("error" + error);
+    //}).always(function (msg) {
+    //  alert( "msg" + msg);
+    //});
+</script>
+
+
+
+
+<script>
+$.ajax({  
+    url: 'http://yahoo.co.jp/',
+    type: 'GET',  
+    success: function(data) {  
+        content = $($(data.responseText).text());
+        $('body').append(content);
+    }      
+});  
+
 </script>
