@@ -40,6 +40,10 @@ async function getSteemPower() {
     $("#sp1").text(sp1.toFixed(6) + " STEEM");
     $("#sp2").text("+" + sp2.toFixed(6) + " STEEM");
     $("#sp3").text("-" + sp3.toFixed(6) + " STEEM");
+    
+    $('sp1').css('color', '#aaa');
+    $('sp2').css('color', '#aaa');
+    $('sp3').css('color', '#aaa');
 }
 
 window.onload = function() {
