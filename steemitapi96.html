@@ -25,8 +25,10 @@
     }
     
     ).done(function (data) {
-      console.log(data);
+      alert( "success"  + data);
     }).fail(function (error) {
-      console.log(error);
+      alert("error" + data);
+    }).always(function (msg) {
+      alert( "msg" + msg);
     });
 </script>
