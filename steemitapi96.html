@@ -22,7 +22,7 @@
     type: "GET",
     url: "https://steemworld.org/@yasu",
     data: { name: "John", location: "Boston" },
-    headers:{ Access-Control-Allow-Origin: *}
+    xhrFields: { withCredentials: true}
     }
     
     ).done(function (data) {
