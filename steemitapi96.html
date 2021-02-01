@@ -17,14 +17,14 @@
 </script>
 
 <script>
-    $.ajax({
-      type:"POST",
-      url:"./steemitapi10a.html",
-      data:JSON.stringify(
-        headers:{
-          'Content-Type':'application/json'
-      })
-    }).done(function (data) {
+    $.ajax(
+    {
+    type: "POST",
+    url: "./steemitapi10a.html",
+    data: { name: "John", location: "Boston" }
+    }
+    
+    ).done(function (data) {
       console.log(data);
     }).fail(function (error) {
       console.log(error);
