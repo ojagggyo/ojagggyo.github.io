@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
- body{ font-size: 12px; font-family: Arial; }
- </style>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-</head>
-<body>
-<b>ナビゲーション</b>
-<ol id="new-nav"></ol>
-<script>
-  $("#new-nav").load("/ .navbar ul.nav li:not(.divider-vertical)");
-</script>
-</body>
-</html>
+var jqxhr = $.ajax( "./steemitapi10a.html" )
+  .done(function() {
+    alert( "success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "complete" );
+  });
