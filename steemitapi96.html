@@ -3,14 +3,30 @@
 
 <script>
 //var jqxhr = $.ajax( "./steemitapi10a.html" )
-var jqxhr = $.ajax( "https://steemworld.org/@yasu" )
-  .done(function() {
-    alert( "success" );
-  })
-  .fail(function() {
-    alert( "error" );
-  })
-  .always(function() {
-    alert( "complete" );
-  });
+
+  //var jqxhr = $.ajax( "https://steemworld.org/@yasu" )
+  //.done(function() {
+  //  alert( "success" );
+  //})
+  //.fail(function() {
+  //  alert( "error" );
+  //})
+  //.always(function() {
+  //  alert( "complete" );
+  //});
+</script>
+
+<script>
+    $.ajax({
+      type:"POST",
+      url:"./steemitapi10a.html",
+      data:JSON.stringify(
+        headers:{
+          'Content-Type':'application/json'
+      })
+    }).done(function (data) {
+      console.log(data);
+    }).fail(function (error) {
+      console.log(error);
+    });
 </script>
