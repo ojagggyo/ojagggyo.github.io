@@ -22,7 +22,8 @@
     type: "GET",
     dataType: "html",
     url: "https://steemworld.org/@yasu",
-    data: { name: "John", location: "Boston" }
+    data: { name: "John", location: "Boston" },
+    headers:{ 'Content-Type': 'application/json'}
     }
     
     ).done(function (data) {
