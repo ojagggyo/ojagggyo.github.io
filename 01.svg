@@ -1,0 +1,5 @@
+<!-- 多角形 -->
+<svg width="600" height="180" viewBox="0 0 600 180">
+<polygon points="0,50 75,0 150,50 150,150 0,150" fill="yellow"></polygon>
+<!-- polylineと同様。但し、始点と終点がつながる -->
+</svg>
