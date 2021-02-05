@@ -39,8 +39,9 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 # information from popular user
 
+<p>
 [Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)
-
+</p>
 
 # Reward Summary
 
