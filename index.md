@@ -2,6 +2,7 @@
 title: steemit
 ---
 
+# information for newbie
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
 
@@ -25,6 +26,11 @@ Steemitはじめの一歩！[🔗](https://steemit.com/japanese/@yasu/7fuxcn-ste
 
 ログインなどの操作を便利にするChrome 拡張機能です。(デスクトップのみ)[🔗](https://chrome.google.com/webstore/detail/jhgnbkkipaallpehbohjmkbjofjdmeid)
 
+# important information
+
+Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지[🔗](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)
+
+
 # Steem Engine
 
 STEEMベースのトークンを売買する取引所。[🔗](https://steem-engine.net/)
@@ -37,9 +43,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 あなたの代理となって自動的にVotingするツールです。[🔗](https://auto.steemdb.online/)
 
-# important information
 
-Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지[🔗](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)
 
 # Reward Summary
 
