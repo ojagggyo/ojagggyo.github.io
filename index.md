@@ -37,6 +37,11 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 あなたの代理となって自動的にVotingするツールです。[🔗](https://auto.steemdb.online/)
 
+# information from popular user
+
+[Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)
+
+
 # Reward Summary
 
 **@yasuの最近一週間の報酬は、**
@@ -48,20 +53,6 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 
 # Your Power
-
-<!--
-<div>
-<div style="float:left;">
-<p style="float: left; margin: 0px;">STEEM POWERは、</p><br/>
-<p style="float: right; margin: 0px;" id="sp1"></p><br/>
-<p style="float: right; margin: 0px;" id="sp2"></p><br/>
-<p style="float: right; margin: 0px;" id="sp3"></p><br/>
-<p style="float: right; margin: 0px;">---------------------</p><br/>
-<p style="float: right; margin: 0px;" id="steemPower"></p><br/>
-</div>
-<div style="clear: both;"></div>
-</div>
-<br/>-->
 
 **@<a id=userName></a>のパワーは、**
 
