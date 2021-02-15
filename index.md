@@ -66,7 +66,7 @@ Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogethe
 
 # Archive
 
-散策フォトギャラリー[🔗](./photogarally.html) Python学習[🔗](./python.html) Javascript学習[🔗](./javascript.html) Steemitサインアップ[🔗](./steemitsignup.html)
+散策フォトギャラリー[🔗](./photogarally.html) Python学習[🔗](./python.html) Javascript学習[🔗](./javascript.html) Steemitサインアップ[🔗](./steemitsignup.html) 再入国許可手続き[🔗](./hikorea.html)
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
