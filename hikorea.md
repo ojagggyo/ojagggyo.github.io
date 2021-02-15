@@ -17,4 +17,5 @@ title: 再入国手続き
 
 |投稿日|タイトル|
 |---|---|
+|10/22|[再入国許可されました](https://steemit.com/hive-101145/@yasu/strh3)|
 |10/21|[再入国許可申請](https://steemit.com/hive-101145/@yasu/6i4ljh)|
