@@ -11,6 +11,7 @@ title: 再入国手続き
 
 |投稿日|タイトル|
 |---|---|
+|02/16|[パスポート切替届けが受付された](https://steemit.com/japanese/@yasu/6s6bap)|
 |02/15|[再入国許可申請（２０２１年２月）](https://steemit.com/japanese/@yasu/2cuorb)|
 
 ## 2020
