@@ -11,6 +11,7 @@ title: 再入国手続き
 
 |投稿日|タイトル|
 |---|---|
+|02/19|[再入国の手続きが完了しました。](https://steemit.com/japanese/@yasu/4xwj3)|
 |02/18|[再入国の手続きをしました。](https://steemit.com/japanese/@yasu/7cc9rc)|
 |02/17|[パスポート変更手続きが完了した](https://steemit.com/japanese/@yasu/6ypz2b)| 
 |02/16|[パスポート切替届けが受付された](https://steemit.com/japanese/@yasu/6s6bap)|
