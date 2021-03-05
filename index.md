@@ -47,7 +47,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 |Date|Title|
 |---|---|
 |3月5日|[STEEM AUTO is down at the moment](https://steemit.com/steemauto/@steem-supporter/steem-auto-is-down-at-the-moment)|
-||[Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)|
+|2月4日|[Announcement to stop @gotogether upvoting project on 15th March 2021, @gotogether 업보팅 프로젝트 종료(21년 3월 15일) 공지](https://steemit.com/dblog/@gotogether/announcement-to-stop-gotogether-upvoting-project-in-15th-march-2021-gotogether-21-3-15)|
 
 # Reward Summary
 
