@@ -48,7 +48,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 # important information
 
-<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=13&l=ez&f=ifr&linkID=f896f80d4726e92db6555606e58b03be&t=ojagggyo-22&tracking_id=ojagggyo-22" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=20&l=ez&f=ifr&linkID=155aa13d87750ef11095d3edfeb5529e&t=ojagggyo-22&tracking_id=ojagggyo-22" width="120" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 
 |Date|Title|
 |---|---|
