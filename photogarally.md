@@ -1,6 +1,10 @@
 ---
 title: 散策フォトギャラリー
+layout: default
+description: 散策 フォト ギャラリー Python 学習 Javascript 学習 Steemit サインアップ Steemit ノウハウ 再入国 手続き 国際結婚生活マニュアル
+lang: ja_JP
 ---
+
 
 [ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html)
 
