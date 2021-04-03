@@ -1,8 +1,9 @@
 ---
-title: steemit
+title: steemit 
+layout: default
+description: 散策 フォト ギャラリー Python 学習 Javascript 学習 Steemit サインアップ Steemit ノウハウ 再入国 手続き 国際結婚生活マニュアル
+lang: ja_JP
 ---
-
-
 
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨STEEMが報酬として得られます。
