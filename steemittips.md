@@ -21,7 +21,7 @@ title: steemit ノウハウ
 |--|---|
 |サインアップ|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
 |プライベートキーの保存||
-|steemitログイン||
+|steemit最初のログイン||
 |記事を書く||
 |投稿する||
 |投票する||
