@@ -16,4 +16,19 @@ title: steemit ノウハウ
 |02/22|[[STEEMIT] パスワード変更時の注意点](https://steemit.com/japanese/@yasu/3syqm6)|
 |02/13|[朝起きるとVotingPowerが100％](https://steemit.com/japanese/@yasu/votingpower-100)|
 
+|主な操作||
+|--|---|
+|サインアップ||
+|プライベートキーの保存||
+|steemitログイン||
+|記事を書く||
+|投稿する||
+|投票する||
+|報酬を請求する||
+|パワーアップする||
+|ウォレットに送金する||
+|内部取引所を利用する||
+|取引所に送金する||
+
+
 
