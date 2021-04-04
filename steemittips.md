@@ -27,9 +27,8 @@ title: steemit ノウハウ
 |投票する||
 |報酬を請求する|[[STEEMIT] 報酬を請求する方法](https://steemit.com/hive-161179/@yasu/45q6qf)|
 |パワーアップする||
-|ウォレットに送金する||
 |内部取引所を利用する||
-|取引所に送金する||
+|取引所に送金する|[[STEEMIT] STEEMを取引所に送金する方法](https://steemit.com/japanese/@yasu/pcj9k-steem)|
 
 
 
