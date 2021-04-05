@@ -38,6 +38,16 @@ lang: ja_JP
 |05/21|[[散策フォトギャラリー] チョギャ山編](https://steemit.com/dtube/@yasu/e2rv1y4q)|
 |10/15|[[散策フォトギャラリー] チョギャ山編](https://steemit.com/dclick/@yasu/--1539543703515)|
 
+
+|場所||
+|--|---|
+|仙台|[[散策フォトギャラリー] 榴岡公園](https://steemit.com/hive-161179/@yasu/2tmmut) [[散策フォトギャラリー] 県民の森](https://steemit.com/hive-161179/@yasu/3k774m) [[散策フォトギャラリー] 岩切城跡](https://steemit.com/hive-161179/@yasu/6nrqxc) [[散策フォトギャラリー] 台原森林公園](https://steemit.com/japanese/@yasu/48kak8) [[散策フォトギャラリー] 西公園](https://steemit.com/japanese/@yasu/2banqr)|
+|春川|[[散策フォトギャラリー] チップタリゴル自然休養林 집다리골자연휴양림](https://steemit.com/japanese/@yasu/77xuzb) <br/> [[散策フォトギャラリー] 江村の九谷滝 구곡폭포](https://steemit.com/hive-101145/@yasu/5offbx-or) <br/> [[散策フォトギャラリー] ある日曜日](https://steemit.com/hive-101145/@yasu/3wsk6e) <br/> [[散策フォトギャラリー] 三岳山](https://steemit.com/hive-101145/@yasu/41b8r1) <br/> [[散策フォトギャラリー] ジプダリゴル自然休養林編 집다리골자연휴양림](https://steemit.com/hive-101145/@yasu/steemit-or) |
+|原州|[[散策フォトギャラリー] 原州の吊り橋 소금산 출렁다리](https://steemit.com/hive-101145/@yasu/3wkzi4-or) |
+|江原道|[[散策フォトギャラリー] ソラク山の飛仙台 비선대](https://steemit.com/hive-101145/@yasu/3nuza7-or)  <br/> [[散策フォトギャラリー] ソラク山の五色薬水 오색약수터](https://steemit.com/hive-101145/@yasu/vzgd3) |
+|洪川|[[散策フォトギャラリー] 八峰山 팔봉산](https://steemit.com/hive-101145/@yasu/2lgxa1-or) <br/> [[散策フォトギャラリー] スタサ農村テーマ公園 스타사농촌테마공원](https://steemit.com/hive-101145/@yasu/5ryuel-steemit-or) <br/> [[散策フォトギャラリー] チョギャ山編](https://steemit.com/hive-101145/@yasu/5antz8-steemit) <br/> [[散策フォトギャラリー] チョギャ山編](https://steemit.com/dtube/@yasu/e2rv1y4q) <br/> [[散策フォトギャラリー] チョギャ山編](https://steemit.com/dclick/@yasu/--1539543703515) |
+
+
 |||
 |---|---|
 |||
