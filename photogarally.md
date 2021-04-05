@@ -14,6 +14,7 @@ lang: ja_JP
 
 |投稿日|タイトル|
 |---|---|
+|04/06|[[散策フォトギャラリー] 榴岡公園](https://steemit.com/hive-161179/@yasu/2tmmut)|
 |04/03|[[散策フォトギャラリー] 県民の森](https://steemit.com/hive-161179/@yasu/3k774m)|
 |04/01|[[散策フォトギャラリー] 岩切城跡](https://steemit.com/hive-161179/@yasu/6nrqxc)|
 
