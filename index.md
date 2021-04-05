@@ -78,7 +78,15 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 
 # Archive
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html) [Steemitノウハウ](./steemittips.html) [再入国手続き](./hikorea.html) [国際結婚生活マニュアル](./kokusai/)
+|||
+|---|---|
+||[ホーム](./)|
+|写真|[散策フォトギャラリー](./photogarally.html)|
+|学習|[Python学習](./python.html) [Javascript学習](./javascript.html)|
+|Steemit|[Steemitサインアップ](./steemitsignup.html) [Steemitノウハウ](./steemittips.html)|
+|手続き|[再入国手続き](./hikorea.html) [国際結婚生活マニュアル](./kokusai/)|
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
