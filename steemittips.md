@@ -22,14 +22,14 @@ title: steemit ノウハウ
 |主な操作||
 |--|---|
 |サインアップ|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
-|プライベートキーの保存||
-|steemit最初のログイン||
-|記事を書く||
-|投稿する||
-|投票する||
+|プライベートキーの保存|coming soon|
+|steemit最初のログイン|coming soon|
+|記事を書く|coming soon|
+|投稿する|coming soon|
+|投票する|coming soon|
 |報酬を請求する|[[STEEMIT] 報酬を請求する方法](https://steemit.com/hive-161179/@yasu/45q6qf)|
-|パワーアップする||
-|内部取引所を利用する||
+|パワーアップする|coming soon|
+|内部取引所を利用する|coming soon|
 |取引所に送金する|[[STEEMIT] STEEMを取引所に送金する方法](https://steemit.com/japanese/@yasu/pcj9k-steem)|
 |証人投票する|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
 |SPデリゲーションする|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
