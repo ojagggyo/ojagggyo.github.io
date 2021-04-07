@@ -10,6 +10,7 @@ title: steemit ノウハウ
 
 |投稿日|タイトル|
 |--|---|
+|04/07|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
 |04/05|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
 |04/05|[[STEEMIT] 報酬を請求する方法](https://steemit.com/hive-161179/@yasu/45q6qf)|
 |04/02|[[STEEMIT] 一度にアップロードできる画像は10個まで](https://steemit.com/hive-161179/@yasu/6hdcym-10)|
@@ -31,7 +32,7 @@ title: steemit ノウハウ
 |内部取引所を利用する||
 |取引所に送金する|[[STEEMIT] STEEMを取引所に送金する方法](https://steemit.com/japanese/@yasu/pcj9k-steem)|
 |証人投票する|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
-|SPデリゲーションする||
+|SPデリゲーションする|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
 
 
 |||
