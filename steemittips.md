@@ -1,10 +1,10 @@
 ---
-title: steemit ノウハウ
+title: steemit知識
 ---
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html) [Steemitノウハウ](./steemittips.html)
+[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html) [Steemit知識](./steemittips.html)
 
-# steemit ノウハウ
+# steemit知識
 
 使い方などが改善されてきているため、過去に投稿した記事の内容が古くなっている場合があります。
 
