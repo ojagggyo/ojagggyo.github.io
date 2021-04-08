@@ -20,6 +20,13 @@ title: steemit ノウハウ
 |02/22|[[STEEMIT] パスワード変更時の注意点](https://steemit.com/japanese/@yasu/3syqm6)|
 |02/13|[朝起きるとVotingPowerが100％](https://steemit.com/japanese/@yasu/votingpower-100)|
 
+## 2019
+
+|投稿日|タイトル|
+|--|---|
+|04/04|[マスターパスワードでログインするとプライベートキーのQRコードを表示できるようになりました＋古い記事を編集できるようになっています^^](https://steemit.com/japanese/@yasu/qr-1554351307450)|
+|03/30|[マスターパスワードでログインすると警告が表示されるようになりました^^](https://steemit.com/japanese/@yasu/dclick-1553904791728)|
+
 |主な操作||
 |--|---|
 |サインアップ|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
