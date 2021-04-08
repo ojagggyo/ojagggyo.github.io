@@ -12,6 +12,7 @@ title: steemit ノウハウ
 
 |投稿日|タイトル|
 |--|---|
+|04/09|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
 |04/08|[[STEEMIT] 内部取引所を使ってみる](https://steemit.com/hive-161179/@yasu/r3ekt-steemit)|
 |04/07|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
 |04/05|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
@@ -48,7 +49,7 @@ title: steemit ノウハウ
 |主な操作||
 |--|---|
 |サインアップ|[Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit) <br/> [Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
-|プライベートキーの保存|coming soon|
+|プライベートキーの保存|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
 |steemit最初のログイン|coming soon|
 |記事を書く|coming soon|
 |投稿する|coming soon|
