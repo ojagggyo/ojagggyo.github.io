@@ -11,8 +11,8 @@ title: steemit サインアップ
 |投稿日|タイトル|
 |--|---|
 |11/28|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
-|09/19|[Steemit入会手続き時の留意点  ブラウザの選択](https://steemit.com/hive-101145/@yasu/4e8vth-steemit)|
-|09/16|[Steemitを始めるときの留意点](https://steemit.com/hive-101145/@yasu/6bbbkx-steemit)|
-|09/12|[Steemit入会手続き時の留意点](https://steemit.com/hive-101145/@yasu/4d2m7b-steemit)|
+|09/19|[Steemit入会手続き時の留意点  ブラウザの選択](https://steemit.com/hive-101145/@yasu/4e8vth-steemit) Chrome推奨|
+|09/16|[Steemitを始めるときの留意点](https://steemit.com/hive-101145/@yasu/6bbbkx-steemit) 偽アプリに注意|
+|09/12|[Steemit入会手続き時の留意点](https://steemit.com/hive-101145/@yasu/4d2m7b-steemit) 携帯番号の先頭ゼロは省略|
 |06/26|[すぐにSteemitを始められるようになりました](https://steemit.com/hive-101145/@yasu/4jw6lw-steemit)|
 
