@@ -41,6 +41,7 @@ title: steemit ノウハウ
 |投稿日|タイトル|
 |--|---|
 |08/24|[パワーダウンのハッキングに遭いました](https://steemit.com/japanese/@yasu/5n9imj)|
+|03/25|[STEEMIT始動はポスティングキー🔑で](https://steemit.com/japanese/@yasu/3upr9e-steemit)|
 |01/29|[Do you remember your email address? いざという時のために](https://steemit.com/japanese/@yasu/ujhy6)|
 
 
