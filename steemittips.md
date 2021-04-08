@@ -47,7 +47,7 @@ title: steemit ノウハウ
 
 |主な操作||
 |--|---|
-|サインアップ|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
+|サインアップ|[Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit) <br/> [Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
 |プライベートキーの保存|coming soon|
 |steemit最初のログイン|coming soon|
 |記事を書く|coming soon|
