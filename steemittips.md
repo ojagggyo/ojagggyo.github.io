@@ -29,6 +29,12 @@ title: steemit ノウハウ
 |04/04|[マスターパスワードでログインするとプライベートキーのQRコードを表示できるようになりました＋古い記事を編集できるようになっています^^](https://steemit.com/japanese/@yasu/qr-1554351307450)|
 |03/30|[マスターパスワードでログインすると警告が表示されるようになりました^^](https://steemit.com/japanese/@yasu/dclick-1553904791728)|
 
+## 2018
+
+|投稿日|タイトル|
+|--|---|
+|08/24|[パワーダウンのハッキングに遭いました](https://steemit.com/japanese/@yasu/5n9imj)|
+
 |主な操作||
 |--|---|
 |サインアップ|[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
