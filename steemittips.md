@@ -49,7 +49,7 @@ title: steemit ノウハウ
 |取引所に送金する|[[STEEMIT] STEEMを取引所に送金する方法](https://steemit.com/japanese/@yasu/pcj9k-steem)|
 |証人投票する|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
 |SPデリゲーションする|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
-
+|Keychainでログインする|coming soon|
 
 |||
 |---|---|
