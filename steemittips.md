@@ -22,6 +22,12 @@ title: steemit ノウハウ
 |02/22|[[STEEMIT] パスワード変更時の注意点](https://steemit.com/japanese/@yasu/3syqm6)|
 |02/13|[朝起きるとVotingPowerが100％](https://steemit.com/japanese/@yasu/votingpower-100)|
 
+## 2020
+
+|投稿日|タイトル|
+|--|---|
+|05/23|[[STEEMIT] ⚠️サードパーティサイトでアカウント作成すべきでない](https://steemit.com/hive-132971/@yasu.pal/steemit)|
+
 ## 2019
 
 |投稿日|タイトル|
