@@ -24,6 +24,7 @@ lang: ja_JP
 
 |投稿日|タイトル|
 |---|---|
+|12/13|[[DTUBE] 青葉城址から見える仙台市内](https://steemit.com/hive-196037/@yasu/m72s5ybfye0)|
 |12/08|[[散策フォトギャラリー] 台原森林公園](https://steemit.com/japanese/@yasu/48kak8)|
 |11/24|[[散策フォトギャラリー] 西公園](https://steemit.com/japanese/@yasu/2banqr)|
 |11/24|[青葉城址 思い出はかえらず](https://steemit.com/japanese/@yasu/5hwhfq)|
