@@ -12,6 +12,7 @@ title: steemit知識
 
 |投稿日|タイトル|
 |--|---|
+|04/09|[upbitに誤送金してしまったら](https://steemit.com/hive-161179/@yasu/511t4w-upbit)|
 |04/09|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
 |04/08|[[STEEMIT] 内部取引所を使ってみる](https://steemit.com/hive-161179/@yasu/r3ekt-steemit)|
 |04/07|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
