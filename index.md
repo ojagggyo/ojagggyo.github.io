@@ -85,6 +85,10 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 |学習|[Python学習](./python.html) <br/> [Javascript学習](./javascript.html)|
 |Steemit|[Steemitサインアップ](./steemitsignup.html) <br/> [Steemit知識](./steemittips.html)|
 |手続き|[再入国手続き](./hikorea.html) <br/> [国際結婚生活マニュアル](./kokusai/)|
+|操作|[Windows知識](./windowstips.html)|
+
+
+
 
 
 
