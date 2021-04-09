@@ -12,7 +12,6 @@ title: windows知識
 |--|---|
 |04/09|[[WINDOWS] 動画のファイルサイズを小さくする方法](https://steemit.com/hive-161179/@yasu/windows)|
 |02/18|[PDFに手書きの署名をつける](https://steemit.com/japanese/@yasu/6zyvuq-pdf)|
-|02/16|参考[再入国許可制度変更の案内](https://steemit.com/japanese/@yasu/4arrxr)|
 |01/31|[エクセル、F4で相対参照と絶対参照を切り替える](https://steemit.com/japanese/@yasu/f4)|
 |01/30|[エクセルの値だけコピー](https://steemit.com/japanese/@yasu/4j4sld)|
 |01/27|[Alt + スペース  ↓  ↓  Enter  ↓↓↓](https://steemit.com/japanese/@yasu/alt-enter)|
@@ -25,7 +24,7 @@ title: windows知識
 |--|---|
 |12/27|[コマンドプロンプトで便利なコピーペースト](https://steemit.com/japanese/@yasu/5scwfc)|
 |12/20|[コマンドプロンプトの便利な開き方があるんです](https://steemit.com/japanese/@yasu/6qkqkg)|
-|12/19||[Gmailのメールアドレスに別名が使えるそうです](https://steemit.com/japanese/@yasu/gmail-r)|
+|12/19|[Gmailのメールアドレスに別名が使えるそうです](https://steemit.com/japanese/@yasu/gmail-r)|
 |11/29|[Windows10のパソコン買いました^^](https://steemit.com/japanese/@yasu/windows10) ただの記事です|
 
 
