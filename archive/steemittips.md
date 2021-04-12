@@ -2,7 +2,7 @@
 title: steemit知識
 ---
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html) [Steemit知識](./steemittips.html)
+[ホーム](../) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html) [Steemit知識](./steemittips.html)
 
 # steemit知識
 
