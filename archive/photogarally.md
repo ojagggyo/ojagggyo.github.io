@@ -6,8 +6,7 @@ lang: ja_JP
 ---
 
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html) [covid19知識](./covid19tips.html)
-
+[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
 
 
