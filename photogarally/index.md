@@ -1,3 +1,3 @@
 <head>
-  <meta http-equiv="refresh" content="0; url=../photogarally.html">
+  <meta http-equiv="refresh" content="0; url=../archive/photogarally.html">
 </head>
