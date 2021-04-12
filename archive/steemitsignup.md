@@ -2,7 +2,7 @@
 title: steemit サインアップ
 ---
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Steemitサインアップ](./steemitsignup.html) [Steemitノウハウ](./steemittips.html)
+[ホーム](../) [Steemitサインアップ](./steemitsignup.html) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [windows知識](./windowstips.html) [hikorea知識](./hikorea.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
 # steemit サインアップ
 
