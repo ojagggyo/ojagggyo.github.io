@@ -4,10 +4,10 @@ title: 再入国手続き
 
 [ホーム](../) [Steemitサインアップ](./steemitsignup.html) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [windows知識](./windowstips.html) [hikorea知識](./hikorea.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
-# 再入国手続き
+# HiKOREA手続き
 
 
-## 2021
+## 2021 再入国手続き
 
 |投稿日|タイトル|
 |---|---|
@@ -20,7 +20,7 @@ title: 再入国手続き
 
 
 
-## 2020
+## 2020 再入国手続き
 
 |投稿日|タイトル|
 |---|---|
