@@ -1,3 +1,3 @@
 <head>
-  <meta http-equiv="refresh" content="0; url=../steemitsignup.html">
+  <meta http-equiv="refresh" content="0; url=../archive/steemitsignup.html">
 </head>
