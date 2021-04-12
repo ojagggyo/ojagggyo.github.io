@@ -5,8 +5,7 @@ description: 散策 フォト ギャラリー Python 学習 Javascript 学習 St
 lang: ja_JP
 ---
 
-[ホーム](./) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [Steemitサインアップ](./steemitsignup.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html) [hikorea知識](./hikorea.html)
-
+[ホーム](../) [Steemitサインアップ](./steemitsignup.html) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [windows知識](./windowstips.html) [hikorea知識](./hikorea.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
 
 # 散策フォトギャラリー
