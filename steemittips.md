@@ -12,6 +12,7 @@ title: steemit知識
 
 |投稿日|タイトル|
 |--|---|
+|04/12|[Steemitで投票する](https://steemit.com/hive-161179/@yasu/54p9ri-steemit)|
 |04/10|[2つのSteem Keychain](https://steemit.com/hive-161179/@yasu/2-steem-keychain)|
 |04/09|[upbitに誤送金してしまったら](https://steemit.com/hive-161179/@yasu/511t4w-upbit)|
 |04/09|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
