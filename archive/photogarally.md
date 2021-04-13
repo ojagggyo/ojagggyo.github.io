@@ -14,6 +14,7 @@ lang: ja_JP
 
 |投稿日|タイトル|
 |---|---|
+|04/13|[[フォトギャラリー] 県民の森、はぎ庵周辺～あさはぎの道](https://steemit.com/hive-161179/@yasu/4je4a9)|
 |04/12|[[フォトギャラリー] 県民の森、ながつきの道～いつきの道](https://steemit.com/hive-161179/@yasu/2nuokc)|
 |04/11|[[散策フォトギャラリー] 県民の森、中央記念館前の林道🌸](https://steemit.com/hive-161179/@yasu/6nqajy)|
 |04/11|[[散策フォトギャラリー] 岩切城跡、再び🌸](https://steemit.com/hive-161179/@yasu/nzevn)|
