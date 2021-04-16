@@ -27,7 +27,3 @@ title: windows知識
 |12/19|[Gmailのメールアドレスに別名が使えるそうです](https://steemit.com/japanese/@yasu/gmail-r)|
 |11/29|[Windows10のパソコン買いました^^](https://steemit.com/japanese/@yasu/windows10) ただの記事です|
 
-
-
-
-
