@@ -84,12 +84,13 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 |Steemit|[Steemitサインアップ](./archive/steemitsignup.html)|
 ||[Steemit知識](./archive/steemittips.html)|
 |写真|[散策フォトギャラリー](./archive/photogarally.html)|
+||[月観測](./archive/moon.html)|
 |手続き|[再入国手続き](./archive/hikorea.html)|
 ||古い [国際結婚生活マニュアル](./kokusai/)|
 |操作|[Windows知識](./archive/windowstips.html)|
 |学習|[Python学習](./archive/python.html)|
 ||[Javascript学習](./archive/javascript.html)|
-||[月観測](./archive/moon.html)|
+
 
 
 
