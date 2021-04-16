@@ -12,6 +12,7 @@ title: steemit知識
 
 |投稿日|タイトル|
 |--|---|
+|04/16|[[STEEMIT] 記事の書き方](https://steemit.com/hive-161179/@yasu/7szxr-steemit)|
 |04/12|[Steemitで投票する](https://steemit.com/hive-161179/@yasu/54p9ri-steemit)|
 |04/10|[2つのSteem Keychain](https://steemit.com/hive-161179/@yasu/2-steem-keychain)|
 |04/09|[upbitに誤送金してしまったら](https://steemit.com/hive-161179/@yasu/511t4w-upbit)|
@@ -56,7 +57,7 @@ title: steemit知識
 |サインアップ|[Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit) <br/> [Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
 |プライベートキーの保存|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
 |steemit最初のログイン|coming soon|
-|記事を書く|coming soon|
+|記事を書く|[[STEEMIT] 記事の書き方](https://steemit.com/hive-161179/@yasu/7szxr-steemit)|
 |投稿する|coming soon|
 |投票する|coming soon|
 |報酬を請求する|[[STEEMIT] 報酬を請求する方法](https://steemit.com/hive-161179/@yasu/45q6qf)|
