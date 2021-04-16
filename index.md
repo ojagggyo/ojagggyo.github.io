@@ -89,6 +89,7 @@ STEEMベースのトークンを売買する取引所。[🔗](https://steem-eng
 |操作|[Windows知識](./archive/windowstips.html)|
 |学習|[Python学習](./archive/python.html)|
 ||[Javascript学習](./archive/javascript.html)|
+||[月観測](./archive/moon.html)|
 
 
 
