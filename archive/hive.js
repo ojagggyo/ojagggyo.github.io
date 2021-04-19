@@ -8,9 +8,6 @@ function saveUserName(){
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
 
-    //$("#aaa").text(username);
-    $("#aaa").text(username);
-    
  
     //1個だけ
     //bbb = $("body").html().replace('@', '@'+username);
