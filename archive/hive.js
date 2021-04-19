@@ -13,14 +13,13 @@ function saveUserName(){
     
  
 
-    //bbb = replace('@', '@'+username);
-    //alert(bbb);
-    //$("#bbb").text(bbb);
+    bbb = $("body").html().replace('@', '@'+username);
+    $("body").html(bbb);
 }
 
 window.onload = function() {
     
-       alert( $("body").html());
+   //    alert( $("body").html());
     
     saveUserName();
 };
