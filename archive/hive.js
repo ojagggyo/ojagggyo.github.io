@@ -11,9 +11,9 @@ function saveUserName(){
 }
 
 var log = function(){
-    bbb = $("body").html().replace(/@/g, '@'+username)
+    bbb = $("tbody").html().replace(/@/g, '@'+username)
     bbb = bbb.replace(/a=/g, 'a='+username)
-    $("body").html(bbb);
+    $("tbody").html(bbb);
 };
 
 
