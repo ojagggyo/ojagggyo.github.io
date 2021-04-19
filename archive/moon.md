@@ -10,6 +10,7 @@ title: 月観測
 
 |投稿日|タイトル|
 |--|---|
+|04/19|[[MOON] 月観測３回目🌓](https://steemit.com/hive-161179/@yasu/ttgee-moon)|
 |04/18|[[MOON] 月観測２回目🌒](https://steemit.com/hive-161179/@yasu/2dbqwd-moon)|
 |04/16|[[MOON] 初めてお月さま🌒を写真にとってみた](https://steemit.com/hive-161179/@yasu/moon)|
 |04/13|[天体望遠鏡デビュー](https://steemit.com/hive-161179/@yasu/3hksud)|
