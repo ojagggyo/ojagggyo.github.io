@@ -7,11 +7,6 @@ function saveUserName(){
 
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
-
- 
-    //1個だけ
-    //bbb = $("body").html().replace('@', '@'+username);
-    //$("body").html(bbb);
     
     bbb = $("body").html().replace(/yasu/g, username)
     $("body").html(bbb);
@@ -19,7 +14,5 @@ function saveUserName(){
 
 window.onload = function() {
     saveUserName();
-    
-    // reloadメソッドによりページをリロード
-    window.location.reload();
+
 };
