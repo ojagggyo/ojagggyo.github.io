@@ -5,10 +5,10 @@
 |-----|-----|-----|
 |steemit|[https://steemit.com/@](https://steemit.com/@)|[https://hive.blog/@](https://hive.blog/@)|
 |wallet|[https://steemitwallet.com/@](https://steemitwallet.com/@)|[https://wallet.hive.blog/@](https://wallet.hive.blog/@)|
-|steemd|[https://steemd.com/@](https://steemd.com/@)|[https://hiveblocks.com/@](https://hiveblocks.com/@yasu)|
+|steemd|[https://steemd.com/@](https://steemd.com/@)|[https://hiveblocks.com/@](https://hiveblocks.com/@)|
 |steemnow|[https://steemnow.com/@](https://steemnow.com/@)|[https://hive-now.com/@](https://hive-now.com/@)|
 |steemworld|[https://steemworld.org/@](https://steemworld.org/@)||
-|steem-engine|[https://steem-engine.net/?p=balances&a=yasu](https://steem-engine.net/?p=balances&a=yasu)|[https://hive-engine.com/?p=balances&a=](https://hive-engine.com/?p=balances&a=)|
+|steem-engine|[https://steem-engine.net/?p=balances&a=](https://steem-engine.net/?p=balances&a=)|[https://hive-engine.com/?p=balances&a=](https://hive-engine.com/?p=balances&a=)|
 ||[https://steemscan.com](https://steemscan.com)||
 ||[https://steemdb.io](https://steemdb.io)||
 
