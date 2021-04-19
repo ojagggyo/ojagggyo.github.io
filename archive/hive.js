@@ -16,10 +16,8 @@ function saveUserName(){
     //bbb = $("body").html().replace('@', '@'+username);
     //$("body").html(bbb);
     
-    bbb = $("body").html().replace(/yasu/g, '@' + username)
+    bbb = $("body").html().replace(/yasu/g, username)
     $("body").html(bbb);
-    
-    
 }
 
 window.onload = function() {
