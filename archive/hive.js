@@ -8,11 +8,15 @@ function saveUserName(){
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
     
+}
+
+var log = function(){
     bbb = $("body").html().replace(/yasu/g, username)
     $("body").html(bbb);
-}
+};
+
 
 window.onload = function() {
     saveUserName();
-
+    setTimeout(log, 1000);
 };
