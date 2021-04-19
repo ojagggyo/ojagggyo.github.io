@@ -1,12 +1,20 @@
-  
+
 function saveUserName(){
 
-window.onload = function() {
-    steem.api.setOptions({url: 'https://api.steemit.com'});
-    saveUserName();
-    getAccountsAsync();
-    getSteemPower();
+    let username;
+    function saveUserName(){
+        username = window.location.hash;// #username
+        if (username == null || username.trim().length == 0){
+            username = "#steemitblog";
+        }
 
-    setInterval(getAccountsAsync, 5000);
-    setInterval(getSteemPower, 5000);
+        username = username.substr(1);//#を取る
+        username = decodeURI(username).trim();//デコード、トリム
+    }
+
+    $("#body").text(username);
+}
+
+window.onload = function() {
+    saveUserName();
 };
