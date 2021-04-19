@@ -12,7 +12,7 @@ function saveUserName(){
         username = decodeURI(username).trim();//デコード、トリム
     }
 
-    $("#body").text(username);
+    $("#aaa").text(username);
 }
 
 window.onload = function() {
