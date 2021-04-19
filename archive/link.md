@@ -10,7 +10,7 @@
 |steemworld|[https://steemworld.org/@](https://steemworld.org/@)||
 |steem-engine|[https://steem-engine.net/?p=balances&a=](https://steem-engine.net/?p=balances&a=)|[https://hive-engine.com/?p=balances&a=](https://hive-engine.com/?p=balances&a=)|
 ||[https://steemscan.com](https://steemscan.com)||
-||[https://steemdb.io](https://steemdb.io)||
+||[https://steemdb.io/@](https://steemdb.io/@)||
 
 
 
