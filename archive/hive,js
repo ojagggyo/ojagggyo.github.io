@@ -1,0 +1,12 @@
+  
+function saveUserName(){
+
+window.onload = function() {
+    steem.api.setOptions({url: 'https://api.steemit.com'});
+    saveUserName();
+    getAccountsAsync();
+    getSteemPower();
+
+    setInterval(getAccountsAsync, 5000);
+    setInterval(getSteemPower, 5000);
+};
