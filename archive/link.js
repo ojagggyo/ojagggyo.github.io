@@ -17,7 +17,6 @@ var log = function(){
     $("tbody").html(bbb);
 };
 
-
 window.onload = function() {
     saveUserName();
     setTimeout(log, 1000);
