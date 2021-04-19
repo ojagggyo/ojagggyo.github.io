@@ -1,7 +1,7 @@
 
 ||Steemit|Hive|
 |-----|-----|-----|
-|steemit| https://steemit.com/@yasu | https://hive.blog/@yasu |
+|steemit|<a>https://steemit.com/@yasu</a>| https://hive.blog/@yasu |
 |wallet| https://steemitwallet.com/@yasu|https://wallet.hive.blog/@yasu|
 |steemd| https://steemd.com/@yasu|https://hiveblocks.com/@yasu|
 |steemnow| https://steemnow.com/@yasu|https://hive-now.com/@yasu|
