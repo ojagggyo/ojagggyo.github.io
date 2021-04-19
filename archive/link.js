@@ -11,9 +11,12 @@ function saveUserName(){
 }
 
 var log = function(){
-    bbb = $("tbody").html().replace(/@/g, '@'+username)
-    bbb = bbb.replace(/a=/g, 'a='+username)
-    bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username)    
+    bbb = $("tbody").html().replace(/@/g, '@'+username);
+    bbb = bbb.replace(/a=/g, 'a='+username);
+
+    bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username);
+    bbb = bbb.replace(/steemdb.io/g, 'steemdb.io/@'+username);
+   
     $("tbody").html(bbb);
 };
 
