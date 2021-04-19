@@ -3,12 +3,12 @@
 
 ||Steemit|Hive|
 |-----|-----|-----|
-|steemit|[https://steemit.com/@yasu](https://steemit.com/@yasu)|[https://hive.blog/@yasu](https://hive.blog/@yasu)|
-|wallet|[https://steemitwallet.com/@yasu](https://steemitwallet.com/@yasu)|[https://wallet.hive.blog/@yasu](https://wallet.hive.blog/@yasu)|
-|steemd|[https://steemd.com/@yasu](https://steemd.com/@yasu)|[https://hiveblocks.com/@yasu](https://hiveblocks.com/@yasu)|
-|steemnow|[https://steemnow.com/@yasu](https://steemnow.com/@yasu)|[https://hive-now.com/@yasu](https://hive-now.com/@yasu)|
-|steemworld|[https://steemworld.org/@yasu](https://steemworld.org/@yasu)||
-|steem-engine|[https://steem-engine.net/?p=balances&a=yasu](https://steem-engine.net/?p=balances&a=yasu)|[https://hive-engine.com/?p=balances&a=yasu](https://hive-engine.com/?p=balances&a=yasu)|
+|steemit|[https://steemit.com/@](https://steemit.com/@)|[https://hive.blog/@](https://hive.blog/@)|
+|wallet|[https://steemitwallet.com/@](https://steemitwallet.com/@)|[https://wallet.hive.blog/@](https://wallet.hive.blog/@)|
+|steemd|[https://steemd.com/@](https://steemd.com/@)|[https://hiveblocks.com/@](https://hiveblocks.com/@yasu)|
+|steemnow|[https://steemnow.com/@](https://steemnow.com/@)|[https://hive-now.com/@](https://hive-now.com/@)|
+|steemworld|[https://steemworld.org/@](https://steemworld.org/@)||
+|steem-engine|[https://steem-engine.net/?p=balances&a=yasu](https://steem-engine.net/?p=balances&a=yasu)|[https://hive-engine.com/?p=balances&a=](https://hive-engine.com/?p=balances&a=)|
 ||[https://steemscan.com](https://steemscan.com)||
 ||[https://steemdb.io](https://steemdb.io)||
 
