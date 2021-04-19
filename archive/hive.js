@@ -14,8 +14,8 @@ alart(username);
     $("#aaa").text(username);
 }
 
-window.onload = function() {
+//window.onload = function() {
     alart("1");
     saveUserName();
   
-};
+//};
