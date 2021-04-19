@@ -8,11 +8,15 @@ function saveUserName(){
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
 
-    alert(username);
+    //$("#aaa").text(username);
     $("#aaa").text(username);
+
+    bbb = replaced = $("#bbb").replace('@', '@'+username)
+    
+    alert(bbb);
+    $("#bbb").text(bbb);
 }
 
 window.onload = function() {
-    alert("1");
     saveUserName();
 };
