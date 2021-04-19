@@ -13,10 +13,9 @@ function saveUserName(){
     
  
 
-    bbb = replaced = alert(bbb);.replace('@', '@'+username)
-    
-    alert(bbb);
-    $("#bbb").text(bbb);
+    //bbb = replace('@', '@'+username);
+    //alert(bbb);
+    //$("#bbb").text(bbb);
 }
 
 window.onload = function() {
