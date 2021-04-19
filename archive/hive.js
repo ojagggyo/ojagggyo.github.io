@@ -11,7 +11,7 @@ function saveUserName(){
     //$("#aaa").text(username);
     $("#aaa").text(username);
     
-    alert(alert(bbb));
+    alert( $("#bbb"));
 
     bbb = replaced = alert(bbb);.replace('@', '@'+username)
     
