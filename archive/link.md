@@ -1,5 +1,5 @@
 
-
+https://ojagggyo.github.io/archive/link.html#アカウント名＠を除く
 
 ||Steemit|Hive|
 |-----|-----|-----|
