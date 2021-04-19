@@ -12,8 +12,3 @@
 |steem-engine|[https://steem-engine.net/?p=balances&a=yasu](https://steem-engine.net/?p=balances&a=yasu)|[https://hive-engine.com/?p=balances&a=yasu](https://hive-engine.com/?p=balances&a=yasu)|
 ||[https://steemscan.com](https://steemscan.com)||
 ||[https://steemdb.io](https://steemdb.io)||
-
-
-
-
-
