@@ -1,5 +1,3 @@
-
-
 let username;
 function saveUserName(){
     username = window.location.hash;// #username
@@ -10,12 +8,11 @@ function saveUserName(){
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
 
-alart(username);
+    alert(username);
     $("#aaa").text(username);
 }
 
-//window.onload = function() {
-    alart("1");
+window.onload = function() {
+    alert("1");
     saveUserName();
-  
-//};
+};
