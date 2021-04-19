@@ -20,7 +20,7 @@ function saveUserName(){
 
 window.onload = function() {
     
-       alert( $("body"));
+       alert( $("body").html());
     
     saveUserName();
 };
