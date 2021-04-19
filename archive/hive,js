@@ -10,11 +10,12 @@ function saveUserName(){
     username = username.substr(1);//#を取る
     username = decodeURI(username).trim();//デコード、トリム
 
-
+alart(username);
     $("#aaa").text(username);
 }
 
 window.onload = function() {
+    alart("1");
     saveUserName();
   
 };
