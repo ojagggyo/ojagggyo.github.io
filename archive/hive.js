@@ -12,14 +12,16 @@ function saveUserName(){
     $("#aaa").text(username);
     
  
-
-    bbb = $("body").html().replace('@', '@'+username);
+    //1個だけ
+    //bbb = $("body").html().replace('@', '@'+username);
+    //$("body").html(bbb);
+    
+    bbb = $("body").html().replace(/yasu/g, '@' + username)
     $("body").html(bbb);
+    
+    
 }
 
 window.onload = function() {
-    
-   //    alert( $("body").html());
-    
     saveUserName();
 };
