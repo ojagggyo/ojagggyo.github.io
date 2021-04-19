@@ -19,4 +19,7 @@ function saveUserName(){
 
 window.onload = function() {
     saveUserName();
+    
+    // reloadメソッドによりページをリロード
+    window.location.reload();
 };
