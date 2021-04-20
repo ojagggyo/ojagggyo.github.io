@@ -148,8 +148,4 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script src="./index.js"></script>
 
-|||
-|---|---|
-|||
 
-<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=gift_certificates&banner=1SYCAVH40V67ZW41NT02&f=ifr&linkID=40cfd882496e423cc49e919f4061b488&t=ojagggyo-22&tracking_id=ojagggyo-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
