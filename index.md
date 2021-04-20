@@ -54,7 +54,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 # Link
 
 <iframe style="width: 100%;" id="inline-frame"
-  src="./link.html"
+  src="./link.htm"
   sandbox>
 </iframe>
 
