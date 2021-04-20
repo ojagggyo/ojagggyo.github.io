@@ -78,17 +78,17 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
       <td><a href="https://hiveblocks.com/@">https://hiveblocks.com/@</a></td>
     </tr>
     <tr>
-      <td>steemnow</td>
+      <td>steem now</td>
       <td><a href="https://steemnow.com/@">https://steemnow.com/@</a></td>
       <td><a href="https://hive-now.com/@">https://hive-now.com/@</a></td>
     </tr>
     <tr>
-      <td>steemworld</td>
+      <td>steem world</td>
       <td><a href="https://steemworld.org">https://steemworld.org</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td>steem-engine</td>
+      <td>steem engine</td>
       <td><a href="https://steem-engine.net/?p=balances&amp;a=">https://steem-engine.net/?p=balances&amp;a=</a></td>
       <td><a href="https://hive-engine.com/?p=balances&amp;a=">https://hive-engine.com/?p=balances&amp;a=</a></td>
     </tr>
