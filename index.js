@@ -75,6 +75,10 @@ async function getSteemPower() {
 
 }
 
+function link(){
+    $('#lll').text('リンク');
+}
+
 window.onload = function() {
     steem.api.setOptions({url: 'https://api.steemit.com'});
     saveUserName();
@@ -83,4 +87,6 @@ window.onload = function() {
 
     setInterval(getAccountsAsync, 5000);
     setInterval(getSteemPower, 5000);
+    
+    link();
 };
