@@ -103,5 +103,5 @@ window.onload = function() {
     
     link();
     
-    alert("abc");
+    alert(username);
 };
