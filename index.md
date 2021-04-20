@@ -53,7 +53,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 # Link
 
-<a id=lll>
+
 ||Steemit|Hive|
 |-----|-----|-----|
 |steemit|[https://steemit.com/@](https://steemit.com/@)|[https://hive.blog/@](https://hive.blog/@)|
@@ -64,7 +64,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 |steem-engine|[https://steem-engine.net/?p=balances&a=](https://steem-engine.net/?p=balances&a=)|[https://hive-engine.com/?p=balances&a=](https://hive-engine.com/?p=balances&a=)|
 ||[https://steemscan.com](https://steemscan.com)||
 ||[https://steemdb.io](https://steemdb.io)||
-</a>
+
 
 # Reward Summary
 
@@ -88,21 +88,10 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 # Archive
 
-|カテゴリ||
-|---|---|
-||[ホーム](./)|
-|Steemit|[Steemitサインアップ](./archive/steemitsignup.html)|
-||[Steemit知識](./archive/steemittips.html)|
-|写真|[散策フォトギャラリー](./archive/photogarally.html)|
-||[月観測](./archive/moon.html)|
-|手続き|[再入国手続き](./archive/hikorea.html)|
-||古い [国際結婚生活マニュアル](./kokusai/)|
-|操作|[Windows知識](./archive/windowstips.html)|
-|学習|[Python学習](./archive/python.html)|
-||[Javascript学習](./archive/javascript.html)|
-
-
-
+<iframe id="inline-frame"
+  src="./link.html"
+  sandbox>
+</iframe>
 
 
 
