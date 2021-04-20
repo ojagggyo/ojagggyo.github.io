@@ -75,9 +75,19 @@ async function getSteemPower() {
 
 }
 
+
 function link(){
-    //$('#lll').text('リンク');
-    $('#lll').html('<h1>リンク</h1>');
+
+    //$('#lll').html('<h1>リンク</h1>');
+    
+    bbb = $("#link").html();
+    bbb = bbb.replace(/@/g, '@'+username);
+    bbb = bbb.replace(/a=/g, 'a='+username);
+    bbb = bbb.replace(/steemworld.org/g, 'steemworld.org/@'+username);
+    bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username);
+    bbb = bbb.replace(/steemdb.io/g, 'steemdb.io/@'+username);
+   
+    $("#lll").html(bbb);
 }
 
 window.onload = function() {
