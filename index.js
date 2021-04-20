@@ -80,7 +80,7 @@ function link(){
 
     //$('#lll').html('<h1>リンク</h1>');
     
-    bbb = $("#link").html();
+    bbb = $("#lll").html();
     bbb = bbb.replace(/@/g, '@'+username);
     bbb = bbb.replace(/a=/g, 'a='+username);
     bbb = bbb.replace(/steemworld.org/g, 'steemworld.org/@'+username);
