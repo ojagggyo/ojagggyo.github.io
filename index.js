@@ -76,7 +76,8 @@ async function getSteemPower() {
 }
 
 function link(){
-    $('#lll').text('リンク');
+    //$('#lll').text('リンク');
+    $('#lll').heml('<h1>リンク</h1>');
 }
 
 window.onload = function() {
