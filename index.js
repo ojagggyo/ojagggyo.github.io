@@ -80,17 +80,16 @@ function link(){
 
     //$('#lll').html('<h1>リンク</h1>');
     
-    //bbb = $("#lll").html();
-    //bbb = bbb.replace(/@/g, '@'+username);
-    //bbb = bbb.replace(/a=/g, 'a='+username);
-    //bbb = bbb.replace(/steemworld.org/g, 'steemworld.org/@'+username);
-    //bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username);
-    //bbb = bbb.replace(/steemdb.io/g, 'steemdb.io/@'+username);
-   
-    //$("#lll").html(bbb);
+    bbb = $("#link1").html();
+    bbb = bbb.replace(/@/g, '@'+username);
+    bbb = bbb.replace(/a=/g, 'a='+username);
+    bbb = bbb.replace(/steemworld.org/g, 'steemworld.org/@'+username);
+    bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username);
+    bbb = bbb.replace(/steemdb.io/g, 'steemdb.io/@'+username);
+    $("#link1").html(bbb);
     
-    w = $("a").html();
-    $("a").html(w.replace(/steemdb.io/g, 'steemdb.io/@'+username));
+    //w = $("a").html();
+    //$("a").html(w.replace(/steemdb.io/g, 'steemdb.io/@'+username));
 }
 
 window.onload = function() {
