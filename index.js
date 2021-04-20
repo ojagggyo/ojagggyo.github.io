@@ -102,4 +102,6 @@ window.onload = function() {
     setInterval(getSteemPower, 5000);
     
     link();
+    
+    alert("abc");
 };
