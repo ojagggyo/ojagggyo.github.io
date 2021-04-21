@@ -22,5 +22,5 @@ var log = function(){
 
 window.onload = function() {
     saveUserName();
-    setTimeout(log, 1000);
+    setTimeout(log, 0);
 };
