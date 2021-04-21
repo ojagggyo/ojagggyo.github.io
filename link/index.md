@@ -4,3 +4,7 @@
 
 
 window.location = "../archive/link.html"
+
+
+
+<script src="./link.js"></script>
