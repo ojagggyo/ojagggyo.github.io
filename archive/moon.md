@@ -10,6 +10,7 @@ title: 月観測
 
 |投稿日|タイトル|
 |--|---|
+|04/26|[[MOON] 月観測９回目🌔月齢13](https://steemit.com/hive-161179/@yasu/6phn5a-moon)|
 |04/25|[[MOON] 月観測８回目🌔](https://steemit.com/hive-161179/@yasu/4wlur-moon)|
 |04/24|[[MOON] 月観測７回目🌓](https://steemit.com/hive-161179/@yasu/4rcdhy-moon)|
 |04/22|[[MOON] 月観測６回目](https://steemit.com/hive-161179/@yasu/2aeuw5-moon)|
