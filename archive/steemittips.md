@@ -60,6 +60,7 @@ title: steemit知識
 |steemit最初のログイン|coming soon|
 |記事を書く|[[STEEMIT] 記事の書き方](https://steemit.com/hive-161179/@yasu/7szxr-steemit)|
 |投稿する|coming soon|
+|画像を加工する|[背景を取り除くツール](https://steemit.com/hive-161179/@yasu/2rwoqj)|
 |投票する|coming soon|
 |報酬を請求する|[[STEEMIT] 報酬を請求する方法](https://steemit.com/hive-161179/@yasu/45q6qf)|
 |パワーアップする|coming soon|
