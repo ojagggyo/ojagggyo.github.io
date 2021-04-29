@@ -10,6 +10,7 @@ title: windows知識
 
 |投稿日|タイトル|
 |--|---|
+|04/29|[背景を取り除くツール](https://steemit.com/hive-161179/@yasu/2rwoqj)|
 |04/09|[[WINDOWS] 動画のファイルサイズを小さくする方法](https://steemit.com/hive-161179/@yasu/windows)|
 |02/18|[PDFに手書きの署名をつける](https://steemit.com/japanese/@yasu/6zyvuq-pdf)|
 |01/31|[エクセル、F4で相対参照と絶対参照を切り替える](https://steemit.com/japanese/@yasu/f4)|
