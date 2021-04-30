@@ -7,6 +7,12 @@ title: Python 学習
 
 # Python学習
 
+## 2021
+
+|投稿日|タイトル|
+|---|---|
+|04/30|[[Python] 背景を取り除いてみる](https://steemit.com/hive-161179/@yasu/35ary6-python)|
+
 ## 2020
 
 |投稿日|タイトル|
