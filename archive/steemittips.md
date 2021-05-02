@@ -13,6 +13,7 @@ title: steemit知識
 |投稿日|タイトル|
 |--|---|
 |05/02|[[STEEMIT] 続パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/7mhabn-steemit)|
+|05/01|[[STEEMIT] パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/3fvf8z-steemit)|
 |04/16|[[STEEMIT] 記事の書き方](https://steemit.com/hive-161179/@yasu/7szxr-steemit)|
 |04/12|[Steemitで投票する](https://steemit.com/hive-161179/@yasu/54p9ri-steemit)|
 |04/10|[2つのSteem Keychain](https://steemit.com/hive-161179/@yasu/2-steem-keychain)|
@@ -56,7 +57,8 @@ title: steemit知識
 
 |主な操作||
 |--|---|
-|サインアップ|[Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit) <br/> [Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
+|サインアップ|[Steemitアカウントの登録手続きが改善されていた](https://steemit.com/japanese/@yasu/4t27l6-steemit)|
+||[Steemitはじめの一歩！](https://steemit.com/japanese/@yasu/7fuxcn-steemit)|
 |プライベートキーの保存|[[STEEMIT] プライベートキーの保存](https://steemit.com/hive-161179/@yasu/5ex7vt-steemit)|
 |steemit最初のログイン|coming soon|
 |記事を書く|[[STEEMIT] 記事の書き方](https://steemit.com/hive-161179/@yasu/7szxr-steemit)|
@@ -70,7 +72,8 @@ title: steemit知識
 |証人投票する|[[STEEMIT] 証人投票してみる](https://steemit.com/hive-161179/@yasu/oeh2y-steemit)|
 |SPデリゲーションする|[[STEEMIT] SPデリゲーションするときの注意点](https://steemit.com/hive-161179/@yasu/steemit-sp)|
 |Keychainでログインする|coming soon|
-|パワーアップダウンする|[[STEEMIT] 続パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/7mhabn-steemit)|
+|パワーアップダウンする|[[STEEMIT] パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/3fvf8z-steemit)|
+||[[STEEMIT] 続パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/7mhabn-steemit)|
 
 |||
 |---|---|
