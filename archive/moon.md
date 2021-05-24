@@ -14,6 +14,8 @@ title: 月観測
 
 |投稿日|タイトル|
 |--|---|
+|05/24|[[MOON] 月観測 月齢11.3](https://steemit.com/hive-161179/@yasu/moon-11-3)|
+|05/15|[[MOON] 月観測 月齢2.3](https://steemit.com/hive-161179/@yasu/moon-2-3)|
 |04/28|[[MOON] 旧歴2021年3月 新月🌑🌒🌓🌔🌕満月](https://steemit.com/hive-161179/@yasu/moon-2021-3)|
 |04/27|[[MOON] 月観測10回目🌔月齢14](https://steemit.com/hive-161179/@yasu/moon-10-14)|
 |04/26|[[MOON] 月観測９回目🌔月齢13](https://steemit.com/hive-161179/@yasu/6phn5a-moon)|
