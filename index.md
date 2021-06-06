@@ -39,8 +39,9 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 # Steem Auto
 
-あなたの代理となって自動的にVotingするツールです。[🚀](https://steemdb.online/)  
-@steem-supporter
+あなたの代理となって自動的にVotingするツールです。
+~~@steem-supporter [🚀](https://steemdb.online/)~~  
+@xpilar [🚀](https://worldofxpilar.com/) @steem-supporter
 
 # important information
 
