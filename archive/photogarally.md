@@ -14,6 +14,10 @@ lang: ja_JP
 
 |投稿日|タイトル|
 |---|---|
+|06/21|[[散策フォトギャラリー] DATE BIKEで柿の葉ずしを買いに行ってきました^^](https://steemit.com/hive-161179/@yasu/36kp1b-date-bike)|
+|06/15|[[散策フォトギャラリー] 船岡駅～船岡城址～白石川遊歩道](https://steemit.com/hive-161179/@yasu/5hzzq5)|
+||[[動画編] 船岡駅～船岡城址～白石川遊歩道](https://steemit.com/hive-161179/@yasu/2tjem6)|
+|04/23|[[散策フォトギャラリー] DATE BIKEで台原森林公園へ](https://steemit.com/hive-161179/@yasu/date-bike)|
 |04/14|[[フォトギャラリー] 県民の森、ほずきの道～みつまたの道](https://steemit.com/hive-161179/@yasu/6uwe88)|
 |04/13|[[フォトギャラリー] 県民の森、はぎ庵周辺～あさはぎの道](https://steemit.com/hive-161179/@yasu/4je4a9)|
 |04/12|[[フォトギャラリー] 県民の森、ながつきの道～いつきの道](https://steemit.com/hive-161179/@yasu/2nuokc)|
