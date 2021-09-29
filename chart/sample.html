@@ -13,12 +13,7 @@
    
    
        <script>
-      // === include 'setup' then 'config' above ===
-      const config = {
-      type: 'line',
-        data: data,
-        options: {}
-      };
+
 
       const labels = [
         'January',
@@ -36,6 +31,13 @@
           borderColor: 'rgb(255, 99, 132)',
           data: [0, 10, 5, 2, 20, 30, 45],
         }]
+      };
+         
+      // === include 'setup' then 'config' above ===
+      const config = {
+      type: 'line',
+        data: data,
+        options: {}
       };
 
       var myChart = new Chart(
