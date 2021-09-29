@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+      const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+      ];
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0.0, 10.0, 5.0, 2.0, 20.0, 30.0, 45.0],
+        }]
+      };
+         
+      // === include 'setup' then 'config' above ===
+      const config = {
+      type: 'line',
+        data: data,
+        options: {}
+      };
+          
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+     
+    <script>
+
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    </script>
+   
+  </body>
+</html>
