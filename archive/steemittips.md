@@ -14,6 +14,7 @@ title: steemit知識
 |--|---|
 |08/01|[タイトルが長いと投稿できない](https://steemit.com/hive-161179/@yasu/7ngm4z)|
 |05/18|[[STEEMIT] 記事にYoutube動画を張り付ける方法](https://steemit.com/hive-161179/@yasu/steemit-youtube)|
+|05/16|[[STEEMIT] 同じ画像を使うときの工夫](https://steemit.com/hive-161179/@yasu/4g2buf-steemit)|
 |||
 |05/02|[[STEEMIT] 続パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/7mhabn-steemit)|
 |05/01|[[STEEMIT] パワーダウン先を変更してみる](https://steemit.com/hive-161179/@yasu/3fvf8z-steemit)|
