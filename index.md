@@ -132,6 +132,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 ||[月観測](./archive/moon.html)|
 |手続き|[再入国手続き](./archive/hikorea.html)|
 ||古い [国際結婚生活マニュアル](./kokusai/)|
+||[渡航手続き](./archive/travel.html)|
 |操作|[Windows知識](./archive/windowstips.html)|
 |学習|[Python学習](./archive/python.html)|
 ||[Javascript学習](./archive/javascript.html)|
