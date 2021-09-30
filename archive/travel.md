@@ -1,10 +1,10 @@
 ---
-title: コロナ知識
+title: 渡航手続き
 ---
 
 [ホーム](../) [Steemitサインアップ](./steemitsignup.html) [Steemit知識](./steemittips.html) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [windows知識](./windowstips.html) [hikorea知識](./hikorea.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
-# コロナ知識
+# 渡航手続き
 
 ## 2021
 
