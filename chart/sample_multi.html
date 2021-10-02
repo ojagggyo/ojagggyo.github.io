@@ -26,7 +26,8 @@
       }; 
       // === include 'setup' then 'config' above ===
       const config = {
-      type: 'bar',
+      //type: 'bar',
+      type: 'scatter',
         data: data,
         options: {}
       };
@@ -38,8 +39,7 @@
       <canvas id="myChart"></canvas>
     </div>
     <script>
-      //var myChart = new Chart(
-      var mixedChart = new Chart(ctx, 
+      var myChart = new Chart(
         document.getElementById('myChart'),
         config
       );
