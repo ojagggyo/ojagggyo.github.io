@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./sample_death.js"></script>
+    <script>
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: '死亡者数',
+          backgroundColor: 'rgb(221, 51, 204)',
+          borderColor: 'rgb(221, 51, 204)',
+          data: datas,
+        }]
+      }; 
+      // === include 'setup' then 'config' above ===
+      const config = {
+      type: 'bar',
+        data: data,
+        options: {}
+      };
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    </script>
+  </body>
+</html>
