@@ -10,7 +10,7 @@ Steemitは、世界で最初にブロックチェーンによるブログを実�
 
 * サインアップ
 
-[https://signup.steemit.com/](https://signup.steemit.com/) 公式サイト Chrome推奨
+[https://signup.steemit.com/](https://signup.steemit.com/) 公式サイト Chrome推奨(私が)
 
 Steemitはじめの一歩！[🚀](https://steemit.com/japanese/@yasu/7fuxcn-steemit)
 
