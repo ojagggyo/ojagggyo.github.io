@@ -94,6 +94,9 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
       <td><a href="https://steemdb.io">steemdb.io</a></td>
       <td> </td>
     </tr>
+    <tr>
+      <td colspan="2" ><a href="https://steemitimages.com/u//avatar/large">avatar large size</a></td>
+    </tr>
   </tbody>
 </table>
 
