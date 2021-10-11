@@ -86,6 +86,7 @@ function link(){
     bbb = bbb.replace(/steemworld.org/g, 'steemworld.org/@'+username);
     bbb = bbb.replace(/steemscan.com/g, 'steemscan.com/account/'+username);
     bbb = bbb.replace(/steemdb.io/g, 'steemdb.io/@'+username);
+    bbb = bbb.replace(/steemitimages.com\/u/g, 'steemitimages.com/u/'+username);
     $("#link1").html(bbb);
     
     //w = $("a").html();
