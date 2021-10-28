@@ -25,7 +25,9 @@
               reputation = account.reputation;
                 //let vp = account.voting_power + (10000 * ((new Date - new Date(account.last_vote_time + "Z")) / 1000) / 432000);
                 //var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
-                $("#reputation").text(text);
+                $("#reputation").text(reputation);
+                
+                 console.log(reputation);
             }
             
             window.onload = function() {
