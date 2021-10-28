@@ -40,11 +40,9 @@
             //export const repLog10 = rep2 => {
             function repLog10(str) {
                 //if (rep2 == null) return rep2;
-                //let rep = String(rep2);
-                //const neg = rep.charAt(0) === '-';
-                //rep = neg ? rep.substring(1) : rep;
-
-                let rep = String(str);
+                let rep = String(str/*rep2*/);
+                const neg = rep.charAt(0) === '-';
+                rep = neg ? rep.substring(1) : rep;
                 
                 let out = log10(rep);
                 if (isNaN(out)) out = 0;
