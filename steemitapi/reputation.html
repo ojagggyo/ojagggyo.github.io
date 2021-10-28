@@ -50,7 +50,7 @@
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
-                account = getAccountsAsync();
+                account = await getAccountsAsync();
           
                 reputation = repLog10(account.reputation);          
                 var text = "Reputationは " + (reputation).toFixed(4) + " です。";
