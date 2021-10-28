@@ -22,9 +22,6 @@
                 console.log(accounts);
                 if(accounts.length == 0) {return;}
                 let account = accounts[0];
-                //reputation = repLog10(account.reputation);          
-                //var text = "Reputationは " + (reputation).toFixed(4) + " です。";
-                //$("#text").text(text);
                 return account;
             }
             
@@ -36,7 +33,7 @@
             }
             
             function repLog10(str) {
-                let rep = String(str/*rep2*/);
+                let rep = String(str);
                 const neg = rep.charAt(0) === '-';
                 rep = neg ? rep.substring(1) : rep;
                 let out = log10(rep);
@@ -50,15 +47,12 @@
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
-                //account = getAccountsAsync();
-          
                 getAccountsAsync().then(result => {
                     console.log(result);
                     reputation = repLog10(result.reputation);          
                     var text = "Reputationは " + (reputation).toFixed(4) + " です。";
                     $("#text").text(text);
                 });
-
             };
         </script>
     </head>
