@@ -22,12 +22,14 @@
                 console.log(accounts);
                 if(accounts.length == 0) {return;}
                 let account = accounts[0];
-              reputation = account.reputation;
+                reputation = account.reputation;
                 //let vp = account.voting_power + (10000 * ((new Date - new Date(account.last_vote_time + "Z")) / 1000) / 432000);
                 //var text = "Voting Powerは " + (vp/100).toFixed(4) + " %です。";
-                $("#reputation").text(reputation);
                 
-                 console.log(reputation);
+                reputation = repLog10(reputation);
+                console.log(reputation);
+                
+                $("#reputation").text(reputation);
             }
             
             function log10(str) {
@@ -61,8 +63,7 @@
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
                 getAccountsAsync();
-                
-                console.log(repLog10(reputation));
+          
             };
         </script>
     </head>
