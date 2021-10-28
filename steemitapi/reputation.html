@@ -29,7 +29,9 @@
                 reputation = repLog10(reputation);
                 console.log(reputation);
                 
-                $("#reputation").text(reputation);
+                var text = "Reputationは " + (reputation).toFixed(4) + " です
+                
+                $("#text").text(text);
             }
             
             function log10(str) {
@@ -55,7 +57,8 @@
                 console.log(out);
                 
                 // base-line 0 to darken and < 0 to auto hide (grep rephide)
-                out = parseInt(out);
+                //out = parseInt(out);
+                
                 return out;
             };
  
