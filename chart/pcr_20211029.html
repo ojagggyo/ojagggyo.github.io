@@ -3,6 +3,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./pcr_20211029.js"></script>
     <script>
+      //2次元を2個の1次元に変換する。
+      labels =[];
+      datas =[];
+      for(var i=0;i<data.length;i=i+1){
+          labels.push(data[i][0]);
+          datas.push(data[i][1]);
+      }
+      //
       const data = {
         labels: labels,
         datasets: [{
