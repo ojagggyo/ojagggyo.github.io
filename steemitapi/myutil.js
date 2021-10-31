@@ -17,3 +17,14 @@ async function getAccountsAsync(username){
   let account = accounts[0];
   return account;
 }
+
+function getAccounts(username){
+  steem.api.getAccountsAsync([username]).then(accounts => {
+    console.log(accounts);
+    if(accounts.length == 0) {return;}
+    let account = accounts[0];
+    return account;
+  }).catch(err => {
+    console.log(err);
+  });
+}
