@@ -30,7 +30,7 @@
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
-                $("#username").text(text);
+                $("#username").text(username);
                 getAccountsAsync().then(result => {
                     console.log(result);
                     reputation = repLog10(result.reputation);          
