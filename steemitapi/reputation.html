@@ -30,7 +30,7 @@
             window.onload = function() {
                 username = getUserName();
                 $("#username").text(username);
-                getAccountsAsync().then(result => {
+                getAccountsAsync(username).then(result => {
                     console.log(result);
                     reputation = repLog10(result.reputation);          
                     var text = "Reputationは " + (reputation).toFixed(4) + " です。";
