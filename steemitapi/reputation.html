@@ -43,6 +43,7 @@
                 });
                 */
                 result = getAccounts(username);
+                console.log(result);
                 reputation = repLog10(result.reputation);          
                 var text = "Reputationは " + (reputation).toFixed(4) + " です。";
                 $("#text").text(text);
