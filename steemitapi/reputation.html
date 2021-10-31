@@ -30,23 +30,15 @@
             window.onload = function() {
                 username = getUserName();
                 $("#username").text(username);
-                /*
                 getAccountsAsync(username).then(result => {
                     console.log(result);
                     reputation = repLog10(result.reputation);          
                     var text = "Reputationは " + (reputation).toFixed(4) + " です。";
                     $("#text").text(text);
                 }).catch(err => {
-                    console.log(err);
-                    $("#text").text(err);
+                    $("#text").text("エラー");
                     $('#text').css('color','red');
                 });
-                */
-                result = getAccounts(username);
-                console.log(result);
-                reputation = repLog10(result.reputation);          
-                var text = "Reputationは " + (reputation).toFixed(4) + " です。";
-                $("#text").text(text);
             };
         </script>
     </head>
