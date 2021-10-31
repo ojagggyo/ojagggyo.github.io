@@ -16,14 +16,3 @@ async function getAccountsAsync(username){
   if(accounts.length == 0) {return;}
   return accounts[0];
 }
-
-function getAccounts(username){
-  steem.api.getAccountsAsync([username]).then(accounts => {
-    console.log(accounts);
-    console.log(accounts.length);
-    if(accounts.length == 0) {return;}
-    return accounts[0];
-  }).catch(err => {
-    console.log(err);
-  });
-}
