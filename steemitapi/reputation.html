@@ -28,7 +28,6 @@
             };
  
             window.onload = function() {
-                steem.api.setOptions({url: 'https://api.steemit.com'});
                 username = getUserName();
                 $("#username").text(username);
                 getAccountsAsync().then(result => {
