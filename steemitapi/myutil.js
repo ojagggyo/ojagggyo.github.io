@@ -1,4 +1,6 @@
+steem.api.setOptions({url: 'https://api.steemit.com'});
 //let username;
+
 
 function getUserName(){
   username = window.location.hash;// #username
