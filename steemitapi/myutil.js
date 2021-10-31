@@ -14,8 +14,7 @@ async function getAccountsAsync(username){
   let accounts = await steem.api.getAccountsAsync([username]);
   console.log(accounts);
   if(accounts.length == 0) {return;}
-  let account = accounts[0];
-  return account;
+  return accounts[0];
 }
 
 function getAccounts(username){
