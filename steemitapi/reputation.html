@@ -35,6 +35,10 @@
                     reputation = repLog10(result.reputation);          
                     var text = "Reputationは " + (reputation).toFixed(4) + " です。";
                     $("#text").text(text);
+                }).catch(err => {
+                    console.log(err);
+                    $("#text").text(err);
+                    $('#Sample1').css('color','red');
                 });
             };
         </script>
