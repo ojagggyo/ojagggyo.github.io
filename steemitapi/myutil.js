@@ -22,7 +22,7 @@ function getAccounts(username){
     console.log(accounts);
     console.log(accounts.length);
     if(accounts.length == 0) {return;}
-    return= accounts[0];
+    return accounts[0];
   }).catch(err => {
     console.log(err);
   });
