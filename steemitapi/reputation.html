@@ -42,7 +42,7 @@
                     $('#text').css('color','red');
                 });
                 */
-                reputation = getAccounts(username);
+                result = getAccounts(username);
                 reputation = repLog10(result.reputation);          
                 var text = "Reputationは " + (reputation).toFixed(4) + " です。";
                 $("#text").text(text);
