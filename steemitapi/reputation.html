@@ -30,6 +30,7 @@
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
                 saveUserName();
+                $("#username").text(text);
                 getAccountsAsync().then(result => {
                     console.log(result);
                     reputation = repLog10(result.reputation);          
@@ -41,7 +42,7 @@
     </head>
     <body>
         <div>
-            こんにちは、
+            こんにちは、<h1 id="username"></h1> さん
         </div>
         <h1 id="text"></h1>
     </body>
