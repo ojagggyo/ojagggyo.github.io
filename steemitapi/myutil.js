@@ -1,12 +1,13 @@
-let username;
+//let username;
 
-function saveUserName(){
+function getUserName(){
   username = window.location.hash;// #username
   if (username == null || username.trim().length == 0){
       username = "#steemitblog";
   }
   username = username.substr(1);//#を取る
-  username = decodeURI(username).trim();//デコード、トリム
+  username = decodeURI(username).trim();//デコード、トリム]
+  return username;
 }
 
 async function getAccountsAsync(){
