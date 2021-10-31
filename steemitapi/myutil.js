@@ -1,6 +1,4 @@
 steem.api.setOptions({url: 'https://api.steemit.com'});
-//let username;
-
 
 function getUserName(){
   username = window.location.hash;// #username
@@ -12,7 +10,7 @@ function getUserName(){
   return username;
 }
 
-async function getAccountsAsync(){
+async function getAccountsAsync(username){
   let accounts = await steem.api.getAccountsAsync([username]);
   console.log(accounts);
   if(accounts.length == 0) {return;}
