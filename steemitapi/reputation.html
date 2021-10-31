@@ -29,7 +29,7 @@
  
             window.onload = function() {
                 steem.api.setOptions({url: 'https://api.steemit.com'});
-                saveUserName();
+                username = getUserName();
                 $("#username").text(username);
                 getAccountsAsync().then(result => {
                     console.log(result);
