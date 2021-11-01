@@ -8,13 +8,17 @@
   
   
 <script>
-  const clickBtn1 = () => {
+  function clickBtn1() {
     const t1 = document.getElementById("text1").value;
     document.getElementById("span1").textContent = t1;
   }
-    function clickBtn2() {
+  function clickBtn2() {
     const t1 = document.getElementById("text2").value;
     document.getElementById("span1").textContent = t1;
+    
+    console.log(t1);
+    const t1 = t1.split(/\n/);
+    console.log(t1);
   }
 </script>
 </html>
