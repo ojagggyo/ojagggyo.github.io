@@ -1,24 +1,19 @@
 <html>
-<p>取得した値 <span id="span1"></span></p>
-<input type="text" value="red" id="text1" maxlength="5" />
-<input type="button" value="ボタン" onclick="clickBtn1()" />
-  <input type="button" value="ボタン" onclick="clickBtn2()" />
+<body>
+<input type="button" value="ボタン" onclick="clickBtn()" />
 <br/>
-<textarea name="kansou" id="text2" rows="4" cols="40"></textarea>
-  
-  
+<textarea id="text1" rows="4" cols="40"></textarea>   
+<p>取得した値 <span id="text2"></span></p>
 <script>
-  function clickBtn1() {
+  function clickBtn() {
     const t1 = document.getElementById("text1").value;
-    document.getElementById("span1").textContent = t1;
-  }
-  function clickBtn2() {
-    const t1 = document.getElementById("text2").value;
-    document.getElementById("span1").textContent = t1;
     
     console.log(t1);
     const t2 = t1.split(/\n/);
-    console.log(t2);
+    console.log(t2.join('<改行>'););
+    
+    document.getElementById("text2").textContent = t1;
   }
 </script>
+</body>
 </html>
