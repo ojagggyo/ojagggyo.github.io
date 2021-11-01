@@ -2,13 +2,18 @@
 <p>取得した値 <span id="span1"></span></p>
 <input type="text" value="red" id="text1" maxlength="5" />
 <input type="button" value="ボタン" onclick="clickBtn1()" />
+  <input type="button" value="ボタン" onclick="clickBtn2()" />
 <br/>
-<textarea name="kansou" rows="4" cols="40">rows="4"のテキストエリアです。</textarea>
+<textarea name="kansou" id="text2" rows="4" cols="40">rows="4"のテキストエリアです。</textarea>
   
   
 <script>
   function clickBtn1() {
     const t1 = document.getElementById("text1").value;
+    document.getElementById("span1").textContent = t1;
+  }
+    function clickBtn2() {
+    const t1 = document.getElementById("text2").value;
     document.getElementById("span1").textContent = t1;
   }
 </script>
