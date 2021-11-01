@@ -4,11 +4,11 @@
 <input type="button" value="ボタン" onclick="clickBtn1()" />
   <input type="button" value="ボタン" onclick="clickBtn2()" />
 <br/>
-<textarea name="kansou" id="text2" rows="4" cols="40">rows="4"のテキストエリアです。</textarea>
+<textarea name="kansou" id="text2" rows="4" cols="40"></textarea>
   
   
 <script>
-  function clickBtn1() {
+  const clickBtn1 = () => {
     const t1 = document.getElementById("text1").value;
     document.getElementById("span1").textContent = t1;
   }
