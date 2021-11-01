@@ -13,12 +13,14 @@
   function clickBtn() {
     let t1 = document.getElementById("text1").value;
     console.log(t1);
-    document.getElementById("text2").textContent = t1;
-    
     let t2 = t1.split(/\n/);
     t2 = t2.join('<改行>');
     console.log(t2);
-    document.getElementById("text3").textContent = t2;
+    document.getElementById("text2").textContent = t2;
+    
+    let t3 = t2.join('<br/>');
+    console.log(t3);
+    document.getElementById("text3").textContent = t3;
   }
 </script>
 </body>
