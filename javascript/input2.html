@@ -1,20 +1,24 @@
 <html>
 <body>
-<textarea id="text1" rows="4" cols="40"></textarea>   
+<p>複数行を入力してください。</p>
+<textarea id="text1" rows="4" cols="40"></textarea>
+<br/>
 <input type="button" value="改行で分割する" onclick="clickBtn()" />
-
-
+<p>入力された文字列は、</p>
 <span id="text2"></span>
+<p>改行で分割すると、</p>
+<span id="text3"></span>
+
 <script>
   function clickBtn() {
     let t1 = document.getElementById("text1").value;
-    
     console.log(t1);
-    t1 = t1.split(/\n/);
-    let t2 = t1.join('<改行>');
-    console.log(t2);
+    document.getElementById("text2").textContent = t1;
     
-    document.getElementById("text2").textContent = t2;
+    let t2 = t1.split(/\n/);
+    let t2 = t2.join('<改行>');
+    console.log(t2);
+    document.getElementById("text3").textContent = t2;
   }
 </script>
 </body>
