@@ -1,0 +1,10 @@
+<p>取得した値 <span id="span1"></span></p>
+<input type="text" value="red" id="text1" maxlength="5" />
+<input type="button" value="ボタン" onclick="clickBtn1()" />
+
+<script>
+  function clickBtn1() {
+    const t1 = document.getElementById("text1").value;
+    document.getElementById("span1").textContent = t1;
+  }
+</script>
