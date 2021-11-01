@@ -6,11 +6,11 @@
 <p>取得した値 <span id="text2"></span></p>
 <script>
   function clickBtn() {
-    const t1 = document.getElementById("text1").value;
+    let t1 = document.getElementById("text1").value;
     
     console.log(t1);
-    let t2 = t1.split(/\n/);
-    let t2 = t2.join('<改行>');
+    t1 = t1.split(/\n/);
+    let t2 = t1.join('<改行>');
     console.log(t2);
     
     document.getElementById("text2").textContent = t2;
