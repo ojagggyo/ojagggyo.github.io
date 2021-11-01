@@ -9,10 +9,11 @@
     const t1 = document.getElementById("text1").value;
     
     console.log(t1);
-    const t2 = t1.split(/\n/);
-    console.log(t2.join('<改行>'););
+    let t2 = t1.split(/\n/);
+    let t2 = t2.join('<改行>');
+    console.log(t2);
     
-    document.getElementById("text2").textContent = t1;
+    document.getElementById("text2").textContent = t2;
   }
 </script>
 </body>
