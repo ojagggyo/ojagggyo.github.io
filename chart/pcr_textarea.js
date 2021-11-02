@@ -6,8 +6,8 @@ function clickBtn() {
   console.log(csv);
 
   //2次元を2個の1次元に変換する。
-  var labels = [];
-  var datas = [];
+  let labels = [];
+  let datas = [];
   for(var i=0;i<csv.length;i=i+1){
     row = csv[i].split(/,/);
     labels.push(row[0]);
