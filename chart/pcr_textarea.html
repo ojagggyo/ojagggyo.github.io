@@ -37,10 +37,12 @@
           options: {}
         };
 
-        myChart = null;
+        if(myChart != null){
+          myChart.destroy():
+        }
         myChart = new Chart(
-          document.getElementById('myChart'), config
-        );
+            document.getElementById('myChart'), config);
+        }
       }
     </script>
   </head>
