@@ -34,6 +34,7 @@ function getOwnerHistory(){
                      console.log(result);
                     console.log(result[0].last_valid_time);
                     console.log(result[0].previous_owner_authority);
+                     console.log(result[0].previous_owner_authority.key_auths);
                     
                     
                     $("#text").text(result[0].last_valid_time);
