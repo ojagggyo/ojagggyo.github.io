@@ -32,10 +32,13 @@ function getOwnerHistory(){
                 getOwnerHistory().then(result => {
                     console.log('★');
                     console.log(result);
+                    
+                    
+                    $("#text").text(result.last_valid_time);
                 }).catch(err => {
                 });
 
-                //$("#text").text(text);
+                
             };
         </script>
     </head>
