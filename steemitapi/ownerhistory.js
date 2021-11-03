@@ -1,6 +1,6 @@
 steem.api.setOptions({url: 'https://api.steemit.com'});
 
-function getOwnerHistory(){  
+async function getOwnerHistory(){  
   wait steem.api.getOwnerHistory('support-jp', function(err, result) {
      console.log('☆');
     console.log(err, result);
