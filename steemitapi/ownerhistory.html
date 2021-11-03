@@ -34,7 +34,7 @@ function getOwnerHistory(){
                     console.log(result);
                     
                     
-                    $("#text").text(result.last_valid_time);
+                    $("#text").text(result[0].last_valid_time);
                 }).catch(err => {
                 });
 
