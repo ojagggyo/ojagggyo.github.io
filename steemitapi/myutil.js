@@ -16,9 +16,3 @@ async function getAccountsAsync(username){
   if(accounts.length == 0) {return;}
   return accounts[0];
 }
-
-function getOwnerHistory(account){  
-  steem.api.getOwnerHistory('support-jp', function(err, result) {
-    console.log(err, result);
-  });
-}
