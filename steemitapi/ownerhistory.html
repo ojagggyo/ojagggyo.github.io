@@ -11,7 +11,8 @@
 steem.api.setOptions({url: 'https://api.steemit.com'});
 
 function getOwnerHistory(){  
-  let ownerHistory = steem.api.getOwnerHistoryAsync('support-jp');
+  //let ownerHistory = steem.api.getOwnerHistoryAsync('support-jp');
+  let ownerHistory = steem.api.getOwnerHistory('support-jp');
   console.log('☆');
   console.log(ownerHistory);
   return ownerHistory;
@@ -19,13 +20,17 @@ function getOwnerHistory(){
             
             window.onload = function() {
                 
-                //let ownerhistory = getOwnerHistory();
+                let ownerhistory = getOwnerHistory();
+                console.log('★');
+                console.log(result);
+                
+                /*
                 getOwnerHistory().then(result => {
                     console.log('★');
                     console.log(result);
                 }).catch(err => {
                 });
-
+*/
             };
         </script>
     </head>
