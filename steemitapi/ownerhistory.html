@@ -11,9 +11,12 @@
 
             window.onload = function() {
                 
-                let ownerhistory = getOwnerHistory();
-                 console.log('★');
-                console.log(ownerhistory);
+                //let ownerhistory = getOwnerHistory();
+                getOwnerHistory().then(result => {
+                    console.log('★');
+                    console.log(result);
+                }).catch(err => {
+                });
 
             };
         </script>
