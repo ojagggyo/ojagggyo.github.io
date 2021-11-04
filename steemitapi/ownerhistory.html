@@ -41,7 +41,7 @@ function clickBtn() {
     console.log(result);
     html = '<table>';
     html = html + '<tr>';
-    html = html + '<th>Name</th><th>recovery_account</th><th>last_owner_update</th><th>withdraw_routes</th><th>last_valid_time</th>';
+    html = html + '<th>Name</th><th>recovery_account</th><th>last_owner_update</th><th>withdraw_routes</th><th>last_valid_time</th><th>Power Down</th>';
     html = html + '</tr>';
     
     for(var i=0;i<result.length;i=i+1){
@@ -74,6 +74,11 @@ function clickBtn() {
         html = html + ConvertDate(result[i].v[0].last_valid_time);
       }
       html = html + '</td>';
+      
+      html = html + '<td>';
+      html = html + (result[i].a.to_withdraw / result[i].a.vesting_shares * 100);
+      html = html + '</td>';
+        
       html = html + '</tr>';
     }
     html = html + '</table>';
