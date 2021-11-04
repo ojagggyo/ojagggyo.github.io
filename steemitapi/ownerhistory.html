@@ -8,61 +8,31 @@
         <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
         
         <script>            
-steem.api.setOptions({url: 'https://api.steemit.com'});
-
-function getOwnerHistory(){ 
-    steem.api.getOwnerHistory('support-jp', function(err, result) {
-        console.log('☆☆☆');
-        console.log(err, result);
         
-         $("#text").text(result[0].last_valid_time);
-    });
-}
+        steem.api.setOptions({url: 'https://api.steemit.com'});    
+
+        async function getOwnerHistoryAsync(){  
+          let ownerHistory = await steem.api.getOwnerHistoryAsync('support-jp');
+          console.log('☆☆');
+          console.log(ownerHistory);
+          return ownerHistory;
+        }
             
-function getOwnerHistory222(){  
-  let ownerHistory = steem.api.getOwnerHistory('support-jp');
-  console.log('☆');
-  console.log(ownerHistory);
-}
-            
-async function getOwnerHistoryAsync(){  
-  let ownerHistory = await steem.api.getOwnerHistoryAsync('support-jp');
-  console.log('☆☆');
-  console.log(ownerHistory);
-  return ownerHistory;
-}
-            
-            window.onload = function() {
-                
-                let ownerhistory = await getOwnerHistory();
-                console.log('★');
-                console.log(ownerhistory);
-                
-                /*
-                getOwnerHistory().then(result => {
-                    console.log('★★★★');
-                    console.log(result);                    
-                }).catch(err => {
-                });
-                */
-                
+        window.onload = function() {
                 
                 getOwnerHistoryAsync().then(result => {
                     console.log('★★');
-                     console.log(result);
+                    console.log(result);
                     console.log(result[0].last_valid_time);
                     console.log(result[0].previous_owner_authority);
-                     console.log(result[0].previous_owner_authority.key_auths);
-                      console.log(result[0].previous_owner_authority.key_auths.length);
+                    console.log(result[0].previous_owner_authority.key_auths);
+                    console.log(result[0].previous_owner_authority.key_auths.length);
                     onsole.log(result[0].previous_owner_authority.key_auths[0]);
-                    
-                    
-                    
+
                     $("#text").text(result[0].last_valid_time);
                 }).catch(err => {
                 });
 
-                
             };
         </script>
     </head>
