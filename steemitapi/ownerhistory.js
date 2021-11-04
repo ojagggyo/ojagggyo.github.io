@@ -41,24 +41,24 @@ function clickBtn() {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
-  let datas = getOwnerHistoryAsync2(csv);
+  getOwnerHistoryAsync2(csv).then(result => {
+    html = '<table>';
+    html = html + '<table>';
+    for(var i=0;i<datas.length;i=i+1){
+      html = html + '<tr>';
+      html = html + '<th>';
+      //html = html + csv[i];
+      html = html + '</th>';
+      html = html + '<td>';
+      //html = html + result[0].last_valid_time;
+      html = html + '</td>';
+      html = html + '</tr>';
+    }
+    html = html + '</table>';
+    console.log(html);
+    document.getElementById("text").innerHTML = html;
+  }).catch(err => {
+  }); 
 
-  html = '';
-  html = '<table>';
-  html = html + '<table>';
-  
-  for(var i=0;i<datas.length;i=i+1){
-    html = html + '<tr>';
-    html = html + '<th>';
-    //html = html + csv[i];
-    html = html + '</th>';
-    html = html + '<td>';
-    //html = html + result[0].last_valid_time;
-    html = html + '</td>';
-    html = html + '</tr>';
-  }
-  html = html + '</table>';
-  
-  console.log(html);
-  document.getElementById("text").innerHTML = html;
+
 }
