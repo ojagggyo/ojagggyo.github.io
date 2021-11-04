@@ -41,7 +41,7 @@ function clickBtn() {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
-  let datas = steem.api.getOwnerHistoryAsync2(csv);
+  let datas = getOwnerHistoryAsync2(csv);
 
   html = '';
   html = '<table>';
