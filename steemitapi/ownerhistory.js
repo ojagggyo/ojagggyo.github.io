@@ -35,7 +35,7 @@ function clickBtn() {
     console.log(result);
     html = '<table>';
     html = html + '<tr>';
-    html = html + '<th>Account Name</th><th>Memo</th>';
+    html = html + '<th>Account Name</th><th>last_valid_time</th>';
     html = html + '</tr>';
     
     for(var i=0;i<result.length;i=i+1){
