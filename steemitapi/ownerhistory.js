@@ -34,11 +34,16 @@ function clickBtn() {
      console.log('★');
     console.log(result);
     html = '<table>';
+    html = html + '<tr>';
+    html = html + '<th>Account Name</th><th>Memo</th>';
+    html = html + '</tr>';
+    
     for(var i=0;i<result.length;i=i+1){
+      
       html = html + '<tr>';
-      html = html + '<th>';
+      html = html + '<td>';
       html = html + csv[i];
-      html = html + '</th>';
+      html = html + '</td';
       html = html + '<td>';
       console.log('VVV');
       if(result[i].v.length > 0){
