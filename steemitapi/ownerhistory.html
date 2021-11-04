@@ -14,6 +14,8 @@ function getOwnerHistory(){
     steem.api.getOwnerHistory('support-jp', function(err, result) {
         console.log('☆☆☆');
         console.log(err, result);
+        
+         $("#text").text(result[0].last_valid_time);
     });
 }
             
@@ -36,11 +38,13 @@ async function getOwnerHistoryAsync(){
                 console.log('★');
                 console.log(ownerhistory);
                 
+                /*
                 getOwnerHistory().then(result => {
                     console.log('★★★★');
                     console.log(result);                    
                 }).catch(err => {
                 });
+                */
                 
                 
                 getOwnerHistoryAsync().then(result => {
