@@ -39,5 +39,6 @@ function clickBtn() {
   }
   html = html + '</table>';
   
-  $("#text").innerHTML(html);
+  //$("#text").innerHTML(html);
+  document.getElementById("text").innerHTML = html;
 }
