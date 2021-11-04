@@ -22,15 +22,15 @@ function getOwnerHistory(){
             
             window.onload = function() {
                 
-                //let ownerhistory = getOwnerHistory();
-                //console.log('★');
-                //console.log(ownerhistory);
+                let ownerhistory = getOwnerHistory();
+                console.log('★');
+                console.log(ownerhistory);
                 
                  
                 
                 
                 getOwnerHistory().then(result => {
-                    console.log('★');
+                    console.log('★★');
                      console.log(result);
                     console.log(result[0].last_valid_time);
                     console.log(result[0].previous_owner_authority);
