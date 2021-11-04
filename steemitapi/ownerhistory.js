@@ -1,3 +1,9 @@
+function ConvertDate(datetime){
+  time = new Date(datetime);
+  time.setHours(time.getHours() + 9);
+  return time.toLocaleString().slice(0,-3);
+}
+
 steem.api.setOptions({url: 'https://api.steemit.com'});    
 
 async function getOwnerHistoryAsync(accountname){  
@@ -54,7 +60,7 @@ function clickBtn() {
       console.log('VVV');
       console.log(result[i].v.length);
       console.log(result[i].v[0]);
-      html = html + result[i].v[0].last_valid_time;
+      html = html + ConvertDate(result[i].v[0].last_valid_time);
       html = html + '</td>';
       html = html + '</tr>';
     }
@@ -68,3 +74,5 @@ function clickBtn() {
 
 
 }
+
+
