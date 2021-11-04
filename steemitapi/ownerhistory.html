@@ -35,7 +35,8 @@ async function getAccountInfo(usernames){
     let account_copy = { ...accounts[0] };
       
     let ownerHistory = await steem.api.getOwnerHistoryAsync(username_copy);
-    let ownerHistory_copy = { ...ownerHistory };
+    //let ownerHistory_copy = { ...ownerHistory };
+    let ownerHistory_copy = [ ...ownerHistory ];
       
     //data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
       data.push({'n':username_copy,'a':account_copy,'v':ownerHistory_copy}); 
