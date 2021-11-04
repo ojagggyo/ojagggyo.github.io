@@ -24,8 +24,10 @@ async function getAccountInfo(usernames){
   let data =[];
   
   for(var i=0;i<usernames.length;i=i+1){
+
+      document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
+      //document.getElementById("progress").textContent = ' ' + (i + 1) + ' / ' + result.length;
       
-    
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
     if(accounts.length == 0) continue;//アカウントなし
     console.log(accounts[0]);
@@ -55,10 +57,6 @@ function clickBtn() {
     html = html + '</tr>';
     
     for(var i=0;i<result.length;i=i+1){
-      
-      \\document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + result.length;
-      document.getElementById("progress").textContent = ' ' + (i + 1) + ' / ' + result.length;
-         
         
       html = html + '<tr>';
       
