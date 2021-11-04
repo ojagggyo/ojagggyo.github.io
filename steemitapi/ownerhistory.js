@@ -16,7 +16,7 @@ async function getAccountInfo(usernames){
     console.log(accounts[0]);
     let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
     console.log('☆☆');
-    data.push({'n':accountnames[i],'a':accounts[0],'v':ownerHistory}); 
+    data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
   }
   
   console.log(data);
