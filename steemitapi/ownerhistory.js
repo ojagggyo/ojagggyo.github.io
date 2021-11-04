@@ -45,8 +45,7 @@ function clickBtn() {
      console.log('★');
     console.log(result);
     html = '<table>';
-    html = html + '<table>';
-    for(var i=0;i<datas.length;i=i+1){
+    for(var i=0;i<result.length;i=i+1){
       html = html + '<tr>';
       html = html + '<th>';
       //html = html + csv[i];
