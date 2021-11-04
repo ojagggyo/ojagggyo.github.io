@@ -7,7 +7,7 @@ async function getOwnerHistoryAsync(accountname){
   return ownerHistory;
 }
 
-let html = '';
+html = '';
 
 function clickBtn() {
   let t1 = document.getElementById("text1").value;
