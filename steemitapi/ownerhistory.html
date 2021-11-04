@@ -78,7 +78,7 @@ function clickBtn() {
         console.log(result[i].a.to_withdraw);
         console.log(result[i].a.vesting_shares.slice(0,-6));
       html = html + '<td>';
-      html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /1000000).toFixed(2);
+      html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /(1000000*100)).toFixed(2);
       html = html + '</td>';
         
       html = html + '</tr>';
