@@ -5,36 +5,7 @@
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-        <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
-        
-        <script>            
-        
-        steem.api.setOptions({url: 'https://api.steemit.com'});    
-
-        async function getOwnerHistoryAsync(){  
-          let ownerHistory = await steem.api.getOwnerHistoryAsync('support-jp');
-          console.log('☆☆');
-          console.log(ownerHistory);
-          return ownerHistory;
-        }
-            
-        window.onload = function() {
-                
-                getOwnerHistoryAsync().then(result => {
-                    console.log('★★');
-                    console.log(result);
-                    console.log(result[0].last_valid_time);
-                    console.log(result[0].previous_owner_authority);
-                    console.log(result[0].previous_owner_authority.key_auths);
-                    console.log(result[0].previous_owner_authority.key_auths.length);
-                    onsole.log(result[0].previous_owner_authority.key_auths[0]);
-
-                    $("#text").text(result[0].last_valid_time);
-                }).catch(err => {
-                });
-
-            };
-        </script>
+        <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script>
     </head>
     <body>
         <div>
