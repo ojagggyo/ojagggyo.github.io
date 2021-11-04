@@ -48,10 +48,10 @@ function clickBtn() {
     for(var i=0;i<result.length;i=i+1){
       html = html + '<tr>';
       html = html + '<th>';
-      //html = html + csv[i];
+      html = html + csv[i];
       html = html + '</th>';
       html = html + '<td>';
-      //html = html + result[0].last_valid_time;
+      html = html + result[i].v.last_valid_time;
       html = html + '</td>';
       html = html + '</tr>';
     }
