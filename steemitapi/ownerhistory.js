@@ -6,20 +6,17 @@ function ConvertDate(datetime){
 
 steem.api.setOptions({url: 'https://api.steemit.com'});    
 
-async function getOwnerHistoryAsync(accountname){  
-  let ownerHistory = await steem.api.getOwnerHistoryAsync(accountname);
-  console.log('☆☆');
-  console.log(ownerHistory);
-  return ownerHistory;
-}
-
-async function getOwnerHistoryAsync2(accountnames){
+async function getAccountInfo(usernames){
   let data =[];
   
-  for(var i=0;i<accountnames.length;i=i+1){
-    let ownerHistory = await steem.api.getOwnerHistoryAsync(accountnames[i]);
+  for(var i=0;i<usernames.length;i=i+1){
+    
+    let accounts = await steem.api.getAccountsAsync([usernames[i]]);
+    if(accounts.length == 0) return;//アカウントなし
+    console.log(accounts[0]);
+    let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
     console.log('☆☆');
-    data.push({'n':accountnames[i],'v':ownerHistory}); 
+    data.push({'n':accountnames[i],'a':accounts[0],'v':ownerHistory}); 
   }
   
   console.log(data);
@@ -30,7 +27,7 @@ function clickBtn() {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
-  getOwnerHistoryAsync2(csv).then(result => {
+  getAccountInfo(csv).then(result => {
      console.log('★');
     console.log(result);
     html = '<table>';
