@@ -88,9 +88,13 @@ function clickBtn() {
       html = html + '</td>';
 
       html = html + '<td>';
-      if(result[i].a.to_withdraw > 0){
-        html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /10000).toFixed(2) + '%';// 1000000/100
+      //if(result[i].a.to_withdraw > 0){
+      //  html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /10000).toFixed(2) + '%';// 1000000/100
+      //}
+      if(result[i].a.next_vesting_withdrawal.toString() != '1969-12-31T23:59:59'){
+        html = html + '開始'
       }
+        
       html = html + '</td>';
         
       html = html + '</tr>';
