@@ -21,7 +21,7 @@ async function getAccountInfo(usernames){
   for(var i=0;i<usernames.length;i=i+1){
     
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
-    if(accounts.length == 0) return;//アカウントなし
+    if(accounts.length == 0) continue;//アカウントなし
     console.log(accounts[0]);
     let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
     console.log('☆☆');
