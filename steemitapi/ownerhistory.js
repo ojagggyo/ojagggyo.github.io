@@ -32,15 +32,21 @@ function clickBtn() {
     console.log(result);
     html = '<table>';
     html = html + '<tr>';
-    html = html + '<th>Account Name</th><th>last_valid_time</th>';
+    html = html + '<th>Account Name</th><th>recovery_account</th><th>last_valid_time</th>';
     html = html + '</tr>';
     
     for(var i=0;i<result.length;i=i+1){
       
       html = html + '<tr>';
+      
       html = html + '<td>';
       html = html + csv[i];
       html = html + '</td>';
+      
+      html = html + '<td>';
+      html = html + result[i].a.recovery_account;
+      html = html + '</td>';
+      
       html = html + '<td>';
       console.log('VVV');
       if(result[i].v.length > 0){
