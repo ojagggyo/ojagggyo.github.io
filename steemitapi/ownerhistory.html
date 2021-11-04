@@ -31,7 +31,10 @@ async function getAccountInfo(usernames){
     document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
       
     let accounts = await steem.api.getAccountsAsync([username_copy]);
-    if(accounts.length == 0) continue;//アカウントなし
+    if(accounts.length == 0){ 
+        console.log('☆continue☆ ' + username_copy);
+        continue;//アカウントなし
+    }
     let account_copy = { ...accounts[0] };
       
     let ownerHistory = await steem.api.getOwnerHistoryAsync(username_copy);
