@@ -7,6 +7,19 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
         <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
         <script>
+            
+        function sleep(msec) {
+            return new Promise(function(resolve) {
+                setTimeout(function() {resolve()}, msec);
+            })
+        }
+        async function start() {
+            await sleep(5000);
+            console.log('5秒経過しました！');
+        }
+
+        
+            
         function ConvertDate(datetime){
   time = new Date(datetime);
   time.setHours(time.getHours() + 9);
@@ -33,6 +46,8 @@ async function getAccountInfo(usernames){
 }
 
 function clickBtn() {
+    start();
+    
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
