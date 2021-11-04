@@ -51,6 +51,7 @@ function clickBtn() {
       html = html + csv[i];
       html = html + '</th>';
       html = html + '<td>';
+      console.log(result[i].v);
       html = html + result[i].v.last_valid_time;
       html = html + '</td>';
       html = html + '</tr>';
