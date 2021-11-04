@@ -6,12 +6,14 @@ async function getOwnerHistoryAsync(accountname){
   console.log(ownerHistory);
   return ownerHistory;
 }
-            
+
+let html = '';
+
 function clickBtn() {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
-  let html = '<table>';
+  html = '<table>';
   html = html + '<table>';
   
   for(var i=0;i<csv.length;i=i+1){
