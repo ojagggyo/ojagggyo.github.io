@@ -76,7 +76,7 @@ function clickBtn() {
       html = html + '</td>';
       
         console.log(result[i].a.to_withdraw);
-        console.log(result[i].a.vesting_shares);
+        console.log(result[i].a.vesting_shares.substring(0,-6) + '@');
       html = html + '<td>';
       html = html + (result[i].a.to_withdraw / result[i].a.vesting_shares * 100);
       html = html + '</td>';
