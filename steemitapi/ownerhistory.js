@@ -42,6 +42,8 @@ function clickBtn() {
   let csv = t1.split(/\n/);//改行で分割する
   
   getOwnerHistoryAsync2(csv).then(result => {
+     console.log('★');
+    console.log(result);
     html = '<table>';
     html = html + '<table>';
     for(var i=0;i<datas.length;i=i+1){
@@ -58,6 +60,8 @@ function clickBtn() {
     console.log(html);
     document.getElementById("text").innerHTML = html;
   }).catch(err => {
+     console.log('☆');
+    console.log(err);
   }); 
 
 
