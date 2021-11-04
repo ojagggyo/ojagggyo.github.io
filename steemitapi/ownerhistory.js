@@ -26,23 +26,6 @@ async function getOwnerHistoryAsync2(accountnames){
   return data;
 }
 
-/*
-function createtable(accountname){
-    getOwnerHistoryAsync(csv[i]).then(result => {
-      console.log('★★');
-      console.log(result);
-      //console.log(result[0].last_valid_time);
-      //console.log(result[0].previous_owner_authority);
-      //console.log(result[0].previous_owner_authority.key_auths);
-      //console.log(result[0].previous_owner_authority.key_auths.length);
-      //onsole.log(result[0].previous_owner_authority.key_auths[0]);
-    }).catch(err => {
-    }); 
-  }
-}
-*/
-
-
 function clickBtn() {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
@@ -58,9 +41,10 @@ function clickBtn() {
       html = html + '</th>';
       html = html + '<td>';
       console.log('VVV');
-      console.log(result[i].v.length);
-      console.log(result[i].v[0]);
-      html = html + ConvertDate(result[i].v[0].last_valid_time);
+      if(result[i].v.length > 0){
+        console.log(result[i].v[0]);
+        html = html + ConvertDate(result[i].v[0].last_valid_time);
+      }
       html = html + '</td>';
       html = html + '</tr>';
     }
