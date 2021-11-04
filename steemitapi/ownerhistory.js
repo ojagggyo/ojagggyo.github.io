@@ -43,7 +43,7 @@ function clickBtn() {
       html = html + '<tr>';
       html = html + '<td>';
       html = html + csv[i];
-      html = html + '</td';
+      html = html + '</td>';
       html = html + '<td>';
       console.log('VVV');
       if(result[i].v.length > 0){
