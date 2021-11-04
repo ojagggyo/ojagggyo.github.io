@@ -70,7 +70,7 @@ function clickBtn() {
     
     for(var i=0;i<result.length;i=i+1){
       html = html + '<tr>';
-      html = html + '<td>' + csv[i] + '</td>';
+      html = html + '<td>' + result[i].n + '</td>';
       html = html + '<td>' + result[i].a.recovery_account + '</td>';
       html = html + '<td>';
       console.log(result[i].a.last_owner_update.toString());
