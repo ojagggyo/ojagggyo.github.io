@@ -52,8 +52,9 @@ function clickBtn() {
       html = html + '</th>';
       html = html + '<td>';
       console.log('VVV');
-      console.log(result[i].v);
-      html = html + result[i].v.last_valid_time;
+      console.log(result[i].v.length);
+      console.log(result[i].v[0]);
+      html = html + result[i].v[0].last_valid_time;
       html = html + '</td>';
       html = html + '</tr>';
     }
