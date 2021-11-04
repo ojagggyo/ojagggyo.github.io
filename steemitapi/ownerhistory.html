@@ -26,7 +26,7 @@ async function getAccountInfo(usernames){
     
   for(var i=0;i<usernames.length;i=i+1){
 
-    let username_copy = { ...usernames[i] };
+    let username_copy = usernames[i];
       
     document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
       
