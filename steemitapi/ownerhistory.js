@@ -38,4 +38,6 @@ function clickBtn() {
     html = html + '</tr>';
   }
   html = html + '</table>';
+  
+  $("#text").innerHTML(html);
 }
