@@ -31,7 +31,12 @@ function clickBtn() {
     html = '<table border=1 >';
       //テーブルのヘッダー
     html = html + '<tr>';
-    html = html + '<th>Name</th><th>recovery account</th><th>last owner update</th><th>withdraw routes</th><th>last valid time</th><th>Power Down</th>';
+    html = html + '<th>Name</th>'
+      +'<th>recovery account</th>'
+      +'<th>last owner update</th>'
+      +'<th>withdraw routes</th>'
+      +'<th>last valid time</th>'
+      +'<th>Power Down</th>';
     html = html + '</tr>';
     for(var i=0;i<result.length;i=i+1){
       html = html + '<tr>';
@@ -66,7 +71,7 @@ function clickBtn() {
     console.log(html);
     document.getElementById("text").innerHTML = html;
   }).catch(err => {
-     console.log('☆');
+    console.log('☆');
     console.log(err);
   }); 
 }
