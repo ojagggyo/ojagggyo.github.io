@@ -41,6 +41,8 @@ async function getAccountInfo(usernames){
     //let ownerHistory_copy = { ...ownerHistory };
     let ownerHistory_copy = [ ...ownerHistory ];
       
+     console.log('☆push☆ ' + username_copy);
+      
     //data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
       data.push({'n':username_copy,'a':account_copy,'v':ownerHistory_copy}); 
     //await sleep(1000);//適当な値500ms
