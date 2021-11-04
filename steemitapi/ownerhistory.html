@@ -32,7 +32,7 @@ async function getAccountInfo(usernames){
     if(accounts.length == 0) continue;//アカウントなし
     let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
     data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
-    await sleep(500);//適当な値500ms
+    //await sleep(1000);//適当な値500ms
   }
   
   console.log(data);
