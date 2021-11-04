@@ -6,16 +6,15 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
         <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
-        <script>
-            
-
-const sleep = ms => new Promise(res => setTimeout(res, ms));
         
-            
-        function ConvertDate(datetime){
-  time = new Date(datetime);
-  time.setHours(time.getHours() + 9);
-  return time.toLocaleString().slice(0,-3);
+        <script>
+          
+const sleep = ms => new Promise(res => setTimeout(res, ms));
+              
+function ConvertDate(datetime){
+    time = new Date(datetime);
+    time.setHours(time.getHours() + 9);
+    return time.toLocaleString().slice(0,-3);
 }
 
 steem.api.setOptions({url: 'https://api.steemit.com'});    
@@ -27,16 +26,13 @@ async function getAccountInfo(usernames){
     
   for(var i=0;i<usernames.length;i=i+1){
 
-      document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
+    document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
       
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
     if(accounts.length == 0) continue;//アカウントなし
-    console.log(accounts[0]);
     let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
-    console.log('☆☆');
     data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
-  
-    await sleep(1000);
+    await sleep(500);//適当な値500ms
   }
   
   console.log(data);
@@ -44,14 +40,12 @@ async function getAccountInfo(usernames){
 }
 
 function clickBtn() {
-   
-    
+
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   
   getAccountInfo(csv).then(result => {
-     console.log('★');
-    console.log(result);
+
     html = '<table border=1 >';
     html = html + '<tr>';
     html = html + '<th>Name</th><th>recovery account</th><th>last owner update</th><th>withdraw routes</th><th>last valid time</th><th>Power Down</th>';
@@ -60,17 +54,11 @@ function clickBtn() {
     for(var i=0;i<result.length;i=i+1){
         
       html = html + '<tr>';
+      html = html + '<td>' + csv[i] + '</td>';
+      html = html + '<td>' + result[i].a.recovery_account + '</td>';
       
       html = html + '<td>';
-      html = html + csv[i];
-      html = html + '</td>';
-      
-      html = html + '<td>';
-      html = html + result[i].a.recovery_account;
-      html = html + '</td>';
-      
-      html = html + '<td>';
-        console.log(result[i].a.last_owner_update.toString());
+      console.log(result[i].a.last_owner_update.toString());
       if(result[i].a.last_owner_update.toString() != '1970-01-01T00:00:00'){
         html = html + ConvertDate(result[i].a.last_owner_update);
       }
@@ -81,8 +69,7 @@ function clickBtn() {
         html = html + result[i].a.withdraw_routes;          
       }
       html = html + '</td>';
-       
-        
+
       html = html + '<td>';
       if(result[i].v.length > 0){
         console.log(result[i].v[0]);
@@ -105,8 +92,6 @@ function clickBtn() {
      console.log('☆');
     console.log(err);
   }); 
-
-
 }
 
         </script>
