@@ -18,7 +18,7 @@ function clickBtn() {
     html = html + '<tr>';
     html = html + '<th>';
     html = html + csv[i];
-    html = html + '<th>';
+    html = html + '</th>';
     
     getOwnerHistoryAsync(csv[i]).then(result => {
       console.log('★★');
@@ -30,7 +30,7 @@ function clickBtn() {
       //onsole.log(result[0].previous_owner_authority.key_auths[0]);
 
       html = html + '<td>';
-      html = html + result[0].last_valid_time);
+      html = html + result[0].last_valid_time;
       html = html + '</td>';
     }).catch(err => {
     });
