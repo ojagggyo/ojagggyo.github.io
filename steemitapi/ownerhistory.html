@@ -8,16 +8,8 @@
         <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
         <script>
             
-        function sleep(msec) {
-            return new Promise(function(resolve) {
-                setTimeout(function() {resolve()}, msec);
-            })
-        }
-        async function start() {
-            await sleep(5000);
-            console.log('5秒経過しました！');
-        }
 
+const sleep = ms => new Promise(res => setTimeout(res, ms));
         
             
         function ConvertDate(datetime){
@@ -41,8 +33,7 @@ async function getAccountInfo(usernames){
     console.log('☆☆');
     data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
   
-    await sleep(1000);
-    console.log('1秒経過しました！');
+    await sleep(2000);
   }
   
   console.log(data);
