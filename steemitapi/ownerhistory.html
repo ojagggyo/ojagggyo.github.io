@@ -56,7 +56,7 @@ function clickBtn() {
     
     for(var i=0;i<result.length;i=i+1){
       
-      document.getElementById("progress").innerText = (i + 1) + ' / ' + result.length;
+      document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + result.length;
         
       html = html + '<tr>';
       
@@ -116,7 +116,7 @@ function clickBtn() {
         <p>アカウント名を入力してください。</p>
         <textarea id="text1" rows="10" cols="20">support-jp</textarea>
         <br/>
-        <input type="button" value="検査する" onclick="clickBtn()" /><a id="progress">xxx</a>
+        <input type="button" value="検査する" onclick="clickBtn()" /><a id="progress"></a>
         
         <span id="text"></span>
     </body>
