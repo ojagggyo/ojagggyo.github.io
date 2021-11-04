@@ -58,6 +58,10 @@ function clickBtn() {
   let csv = t1.split(/\n/);//改行で分割する
   
   getAccountInfo(csv).then(result => {
+      
+      console.log('☆result☆');
+      console.log(result);
+      
     html = '<table border=1 >';
       //テーブルのヘッダー
     html = html + '<tr>';
