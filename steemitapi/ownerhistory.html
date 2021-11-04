@@ -57,7 +57,9 @@ function clickBtn() {
       html = html + '</td>';
       
       html = html + '<td>';
-      html = html + ConvertDate(result[i].a.last_owner_update);
+      if(result[i].a.last_owner_update != '1970-01-01T00:00:00'){
+        html = html + ConvertDate(result[i].a.last_owner_update);
+      }
       html = html + '</td>';
         
       html = html + '<td>';
@@ -68,17 +70,16 @@ function clickBtn() {
        
         
       html = html + '<td>';
-      console.log('VVV');
       if(result[i].v.length > 0){
         console.log(result[i].v[0]);
         html = html + ConvertDate(result[i].v[0].last_valid_time);
       }
       html = html + '</td>';
-      
-        console.log(result[i].a.to_withdraw);
-        console.log(result[i].a.vesting_shares.slice(0,-6));
+
       html = html + '<td>';
-      html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /10000).toFixed(2) + '%';// 1000000/100
+      if(result[i].a.to_withdraw > 0){
+        html = html + (result[i].a.to_withdraw / parseFloat(result[i].a.vesting_shares.slice(0,-6)) /10000).toFixed(2) + '%';// 1000000/100
+      }
       html = html + '</td>';
         
       html = html + '</tr>';
