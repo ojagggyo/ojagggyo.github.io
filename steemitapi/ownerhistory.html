@@ -36,7 +36,12 @@ async function getOwnerHistoryAsync(){
                 console.log('★');
                 console.log(ownerhistory);
                 
-                 
+                getOwnerHistory().then(result => {
+                    console.log('★★★★');
+                    console.log(result);                    
+                    $("#text").text(result);
+                }).catch(err => {
+                });
                 
                 
                 getOwnerHistoryAsync().then(result => {
