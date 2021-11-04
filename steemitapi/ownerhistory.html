@@ -32,6 +32,7 @@ async function getAccountInfo(usernames){
   let data =[];
   
   for(var i=0;i<usernames.length;i=i+1){
+      
     
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
     if(accounts.length == 0) continue;//アカウントなし
@@ -39,6 +40,9 @@ async function getAccountInfo(usernames){
     let ownerHistory = await steem.api.getOwnerHistoryAsync(usernames[i]);
     console.log('☆☆');
     data.push({'n':usernames[i],'a':accounts[0],'v':ownerHistory}); 
+  
+    await sleep(1000);
+    console.log('1秒経過しました！');
   }
   
   console.log(data);
@@ -46,7 +50,7 @@ async function getAccountInfo(usernames){
 }
 
 function clickBtn() {
-    start();
+   
     
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
