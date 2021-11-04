@@ -9,8 +9,15 @@
         
         <script>            
 steem.api.setOptions({url: 'https://api.steemit.com'});
+
+function getOwnerHistory(){ 
+    steem.api.getOwnerHistory(account, function(err, result) {
+        console.log('☆☆☆');
+        console.log(err, result);
+    });
+}
             
-function getOwnerHistory(){  
+function getOwnerHistory222(){  
   let ownerHistory = steem.api.getOwnerHistory('support-jp');
   console.log('☆');
   console.log(ownerHistory);
