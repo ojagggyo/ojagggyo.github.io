@@ -22,7 +22,7 @@ async function getAccountInfo(usernames){
   }
   console.log(data);
     
-    fruits.sort(function(a,b){
+    data.sort(function(a,b){
         if(a.curation_rewards < b.curation_rewards) return -1;
         if(a.curation_rewards > b.curation_rewards) return 1;
         return 0;
