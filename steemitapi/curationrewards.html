@@ -25,7 +25,7 @@ async function getAccountInfo(usernames){
     document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
     if(accounts.length == 0) continue;//アカウントなし
-    data.push({'n':usernames[i],'a':accounts[0]/*}); 
+    data.push({'n':usernames[i],'a':accounts[0]}); 
   }
   console.log(data);
   return data;
