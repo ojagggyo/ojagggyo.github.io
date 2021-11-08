@@ -5,8 +5,11 @@
 <body>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'});
-var ret = steem.database.getVestingDelegations("yasu", "", 100);
-console.log(ret);
+//var ret = steem.database.getVestingDelegations("yasu", "", 100);
+const acc = await client.database.call('get_accounts',['yasu']);
+	
+	
+console.log(acc);
 	
 </script>
 1.19
