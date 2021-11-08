@@ -9,7 +9,13 @@ steem.api.setOptions({url: 'https://api.steemit.com'});
 steem.api.getVestingDelegations('yasu', '', 100, function(err, result) {
   console.log(err, result);
 });
-  
+
+steem.api.getExpiringVestingDelegations('yasu', '', 100, function(err, result) {
+  console.log(err, result);
+});
+   
+	
+	
 steem.api.getWithdrawRoutes("blocktrades", 1, function(err, data) {
 	console.log(err, data);
 });
@@ -55,6 +61,6 @@ steem.api.getDynamicGlobalProperties(function(err, result) {
 });
 	
 </script>
-1.17
+1.18
   </body>
 </html>
