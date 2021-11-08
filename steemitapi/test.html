@@ -10,14 +10,14 @@ steem.api.getVestingDelegations('', '', 100, function(err, result) {
   console.log(err, result);
 });
   
-steem.api.getWithdrawRoutes("blocktrades", 1, function(err, data) {
+steem.api.getWithdrawRoutes("blocktrades", 10, function(err, data) {
 	console.log(err, data);
 });
-steem.api.getWithdrawRoutes("gtg", 1, function(err, data) {
+steem.api.getWithdrawRoutes("gtg", 10, function(err, data) {
 	console.log(err, data);
 });
   
 </script>
-1.8
+1.9
   </body>
 </html>
