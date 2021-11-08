@@ -4,7 +4,7 @@
 </head>
 <body>
 <script>
-steem.api.setOptions({url: 'https://api.steemit.com'});
+client = steem.api.setOptions({url: 'https://api.steemit.com'});
 //var ret = steem.database.getVestingDelegations("yasu", "", 100);
 const acc = client.database.call('get_accounts',['yasu']);
 	
@@ -12,6 +12,6 @@ const acc = client.database.call('get_accounts',['yasu']);
 console.log(acc);
 	
 </script>
-1.2
+1.3
   </body>
 </html>
