@@ -1,6 +1,7 @@
 steem.api.setOptions({url: 'https://api.steemit.com'});    
 
 async function getAccountInfo(usernames){
+  const start = performance.now();//計測用
   let data = [];
   document.getElementById("text").innerHTML = '<tabel></tabel>';
   for(var i=0;i<usernames.length;i=i+1){  
@@ -9,6 +10,8 @@ async function getAccountInfo(usernames){
     if(accounts.length == 0) continue;//アカウントなし
     data.push({'n':usernames[i],'a':accounts[0]}); 
   }
+  const end = performance.now();//計測用
+  console.log(end - start);//計測用
   console.log(data);
   data.sort(function(a,b){
         if(a.a.curation_rewards < b.a.curation_rewards) return -1;
