@@ -5,7 +5,7 @@ async function getAccountInfo(usernames){
   let data = [];
   document.getElementById("text").innerHTML = '<tabel></tabel>';
   for(var i=0;i<usernames.length;i=i+1){  
-    //document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
+    document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + usernames.length;
     let accounts = await steem.api.getAccountsAsync([usernames[i]]);
     if(accounts.length == 0) continue;//アカウントなし
     data.push({'n':usernames[i],'a':accounts[0]}); 
