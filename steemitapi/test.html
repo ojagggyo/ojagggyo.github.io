@@ -30,6 +30,10 @@ steem.api.getTagsUsedByAuthor("yasu", function(err, data) {
 	console.log(err, data);
 });
 	
+steem.api.getAccountVotes(voter, function(err, result) {
+  console.log(err, result);
+});
+	
 </script>
 1.13
   </body>
