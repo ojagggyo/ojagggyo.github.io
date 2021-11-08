@@ -6,7 +6,7 @@
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'});
 
-steem.api.getVestingDelegations('yasu', '', 2, function(err, result) {
+steem.api.getVestingDelegations('yasu', '', 100, function(err, result) {
   console.log(err, result);
 });
 </script>
