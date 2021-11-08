@@ -7,10 +7,13 @@
 client = steem.api.setOptions({url: 'https://api.steemit.com'});
 //var ret = steem.database.getVestingDelegations("yasu", "", 100);
 //const acc = client.database.call('get_accounts',['yasu']);
-	
+
 	
 console.log(steem);
 console.log(client);
+	
+var ret = steem.api.getApiByName();
+console.log(ret);
 	
 </script>
 1.4
