@@ -9,7 +9,12 @@ steem.api.setOptions({url: 'https://api.steemit.com'});
 steem.api.getVestingDelegations('', '', 100, function(err, result) {
   console.log(err, result);
 });
+  
+steem.api.getWithdrawRoutes("blocktrades", 1, function(err, data) {
+	console.log(err, data);
+});
+  
 </script>
-1.6
+1.7
   </body>
 </html>
