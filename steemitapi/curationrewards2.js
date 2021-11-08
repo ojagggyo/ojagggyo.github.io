@@ -1,17 +1,16 @@
 steem.api.setOptions({url: 'https://api.steemit.com'});    
 
 async function getAccountInfo(usernames){
-  let data = [];
   document.getElementById("text").innerHTML = '<tabel></tabel>';
-  let accounts = await steem.api.getAccountsAsync(usernames);
+  let data = await steem.api.getAccountsAsync(usernames);
   document.getElementById("progress").innerText =  accounts.length + '件';
-  console.log(accounts);
-  accounts.sort(function(a,b){
+  console.log(data);
+  data.sort(function(a,b){
         if(a.curation_rewards < b.curation_rewards) return -1;
         if(a.curation_rewards > b.curation_rewards) return 1;
         return 0;
   });
-  console.log(accounts)   
+  console.log(data)   
   return data;
 }
 
