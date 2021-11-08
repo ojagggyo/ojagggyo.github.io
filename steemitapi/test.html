@@ -50,7 +50,11 @@ steem.api.getWitnessByAccount("justyy", function(err, result) {
 var reputation = steem.formatter.reputation(501374826346533);
 console.log(reputation);
 	
+steem.api.getDynamicGlobalProperties(function(err, result) {
+  console.log(err, result);
+});
+	
 </script>
-1.15
+1.16
   </body>
 </html>
