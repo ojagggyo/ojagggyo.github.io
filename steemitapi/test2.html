@@ -12,12 +12,12 @@ client = steem.api.setOptions({url: 'https://api.steemit.com'});
 console.log(steem);
 console.log(client);
 	
-steem.api.getApiByName( function(err, data) {
+steem.api.getApiByNameAsync( function(err, data) {
 	console.log(err, data);
 });
 
 	
 </script>
-1.7
+1.8
   </body>
 </html>
