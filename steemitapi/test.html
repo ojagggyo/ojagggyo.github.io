@@ -1,12 +1,12 @@
 <html>
-
 <head>
+</head>
+<body>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'});
 
 steem.api.getVestingDelegations('ned', '', 2, function(err, result) {
   console.log(err, result);
 });
-</head>
-
+</body>
 </html>
