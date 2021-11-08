@@ -29,7 +29,7 @@ function clickBtn() {
     html = html + '</tr>';
     for(var i=0;i<result.length;i=i+1){
       html = html + '<tr>';
-      html = html + '<td>' + result[i].n + '</td>';
+      html = html + '<td>' + result[i].name + '</td>';
       html = html + '<td align=right>' + result[i].curation_rewards + '</td>';
       html = html + '</tr>';
     }
