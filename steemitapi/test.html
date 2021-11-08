@@ -43,8 +43,11 @@ steem.api.getWitnessByAccount("yasu", function(err, result) {
 steem.api.getWitnessByAccount("justyy", function(err, result) {
   console.log(err, result);
 });	
+
+var steemPower = steem.formatter.estimateAccountValue("yasu");
+console.log(steemPower);
 	
 </script>
-1.16
+1.14
   </body>
 </html>
