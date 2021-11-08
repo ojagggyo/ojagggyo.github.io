@@ -60,7 +60,10 @@ steem.api.getDynamicGlobalProperties(function(err, result) {
   console.log(err, result);
 });
 	
+var ret = steem.database.getVestingDelegations("yasu", "", 100);
+console.log(ret);
+	
 </script>
-1.18
+1.19
   </body>
 </html>
