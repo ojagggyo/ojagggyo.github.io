@@ -10,10 +10,10 @@ steem.api.getVestingDelegations('', '', 100, function(err, result) {
   console.log(err, result);
 });
   
-steem.api.getWithdrawRoutes("blocktrades", 10, function(err, data) {
+steem.api.getWithdrawRoutes("blocktrades", 1, function(err, data) {
 	console.log(err, data);
 });
-steem.api.getWithdrawRoutes("gtg", 10, function(err, data) {
+steem.api.getWithdrawRoutes("gtg", 1, function(err, data) {
 	console.log(err, data);
 });
   
@@ -22,6 +22,6 @@ steem.api.getApiByName('getApiByName', function(err, result) {
 });
 	
 </script>
-1.10
+1.11
   </body>
 </html>
