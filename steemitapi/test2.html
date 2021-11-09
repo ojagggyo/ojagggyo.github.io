@@ -16,6 +16,9 @@ steem.api.getApiByName("", function(err, data) {
 	console.log(err, data);
 });
 
+steem.api.getTrendingTags(afterTag, limit, function(err, result) {
+  console.log(err, result);
+});
 	
 </script>
 1.8
