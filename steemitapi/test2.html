@@ -43,11 +43,11 @@ console.log(client);
     html = html + '</tr>';
     for(var i=0;i<result.length;i=i+1){
       	html = html + '<tr>';
-	html = html + '<td>' + (i+1) + '</td>';
+	html = html + '<td align=right>' + (i+1) + '</td>';
 	html = html + '<td>' + result[i].name+ '</td>';
- 	html = html + '<td>' + result[i].top_posts + '</td>';
-	html = html + '<td>' + result[i].comments + '</td>';
-	html = html + '<td>' + result[i].total_payouts + '</td>';
+ 	html = html + '<td align=right>' + result[i].top_posts + '</td>';
+	html = html + '<td align=right>' + result[i].comments + '</td>';
+	html = html + '<td align=right>' + result[i].total_payouts + '</td>';
       	html = html + '</tr>';
     }
     html = html + '</table>';
