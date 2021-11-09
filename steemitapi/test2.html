@@ -20,9 +20,8 @@ console.log(client);
 			let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
 			console.log(ret);
 			limit = ret.length;
-			tags.push(ret);
-			lastTag = ret[ret.length - 1];
-			console.log("lastTag:"+lastTag);
+			lastTag = ret[ret.length - 1].name;
+			tags.concat(ret);
 		}
 		console.log("☆");
 		console.log(tags);
