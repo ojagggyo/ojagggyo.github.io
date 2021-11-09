@@ -30,11 +30,32 @@ console.log(client);
 		return tags;
 	};
 	
-	aaa().then(result => {
-	}).catch(err => {
-	});
+
 	
+	
+  aaa().then(result => {
+      console.log('☆result☆');
+      console.log(result);
+    html = '<table border=1 >';
+      //テーブルのヘッダー
+    html = html + '<tr>';
+    html = html + '<th>Name</th>';
+    html = html + '</tr>';
+    for(var i=0;i<result.length;i=i+1){
+      html = html + '<tr>';
+      html = html + '<td>' + result[i].name+ '</td>';
+      html = html + '</tr>';
+    }
+    html = html + '</table>';
+    console.log(html);
+    document.getElementById("text").innerHTML = html;
+  }).catch(err => {
+    console.log('☆');
+    console.log(err);
+  });
+
 </script>
 1.10
+<span id="text"></span>
   </body>
 </html>
