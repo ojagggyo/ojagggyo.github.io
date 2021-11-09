@@ -1,9 +1,3 @@
-<html>
-<head>
-<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-</head>
-<body>
-<script>
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	
 async function aaa(){
@@ -48,8 +42,3 @@ aaa().then(result => {
 	console.log('☆');
 	console.log(err);
 });
-
-</script>
-<span id="text"></span>
-  </body>
-</html>
