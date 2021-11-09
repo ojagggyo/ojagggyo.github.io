@@ -16,11 +16,11 @@ steem.api.getApiByName("", function(err, data) {
 	console.log(err, data);
 });
 
-steem.api.getTrendingTags(afterTag, limit, function(err, result) {
+steem.api.getTrendingTags("japanese", 10, function(err, result) {
   console.log(err, result);
 });
 	
 </script>
-1.8
+1.9
   </body>
 </html>
