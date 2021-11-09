@@ -12,13 +12,34 @@ client = steem.api.setOptions({url: 'https://api.steemit.com'});
 console.log(steem);
 console.log(client);
 	
-steem.api.getApiByName("", function(err, data) {
-	console.log(err, data);
-});
+	async function aaa(){
+		let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
+	};
+	
+//steem.api.getApiByName("", function(err, data) {
+//	console.log(err, data);
+//});
 
-steem.api.getTrendingTags("", 10, function(err, result) {
-  console.log(err, result);
-});
+	//let ret = await steem.api.getTrendingTags(lastTag, limit);
+	
+	/*
+let limit = 10;
+let lastTag = "";
+let tags = [];
+	
+while (limit == 10){
+	steem.api.getTrendingTags(lastTag, limit, function(err, result) {
+		if
+  		console.log(err, result);
+	});
+	if () 
+  console.log(num);
+  num = num * 3;
+}
+*/
+	
+
+
 steem.api.getTrendingTags("japanese", 10, function(err, result) {
   console.log(err, result);
 });
