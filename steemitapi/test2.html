@@ -13,37 +13,22 @@ console.log(steem);
 console.log(client);
 	
 	async function aaa(){
-		let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
+		let tags = [];
+		let limit = 10;
+		let lastTag = "";
+		while (limit == 10){
+			let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
+			console.log(ret);
+			limit = ret.length;
+			tags.push(ret);
+			lastTag = ret[ret.length - 1];
+			console.log("lastTag:"+lastTag);
+		}
+		console.log("☆");
+		console.log(tags);
 	};
 	
-//steem.api.getApiByName("", function(err, data) {
-//	console.log(err, data);
-//});
-
-	//let ret = await steem.api.getTrendingTags(lastTag, limit);
-	
-	/*
-let limit = 10;
-let lastTag = "";
-let tags = [];
-	
-while (limit == 10){
-	steem.api.getTrendingTags(lastTag, limit, function(err, result) {
-		if
-  		console.log(err, result);
-	});
-	if () 
-  console.log(num);
-  num = num * 3;
-}
-*/
-	
-
-
-steem.api.getTrendingTags("japanese", 10, function(err, result) {
-  console.log(err, result);
-});
-	
+	aaa();
 </script>
 1.10
   </body>
