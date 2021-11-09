@@ -39,12 +39,15 @@ console.log(client);
     html = '<table border=1 >';
       //テーブルのヘッダー
     html = html + '<tr>';
-    html = html + '<th>Name</th>';
+    html = html + '<th>Name</th><th>top posts</th><th>comments</th><th>total payouts</th>';
     html = html + '</tr>';
     for(var i=0;i<result.length;i=i+1){
-      html = html + '<tr>';
-      html = html + '<td>' + result[i].name+ '</td>';
-      html = html + '</tr>';
+      	html = html + '<tr>';
+	html = html + '<td>' + result[i].name+ '</td>';
+ 	html = html + '<td>' + result[i].top_posts + '</td>';
+	html = html + '<td>' + result[i].comments + '</td>';
+	html = html + '<td>' + result[i].total_payouts + '</td>';
+      	html = html + '</tr>';
     }
     html = html + '</table>';
     console.log(html);
