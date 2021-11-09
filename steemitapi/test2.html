@@ -21,6 +21,7 @@ console.log(client);
 			console.log(ret);
 			limit = ret.length;
 			lastTag = ret[ret.length - 1].name;
+			tags.pop();
 			tags = tags.concat(ret);
 		}
 		console.log("☆");
