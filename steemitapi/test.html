@@ -67,8 +67,12 @@ console.log(ret);
 */
 
 steem.api.getState("/@yasu", function(err, data) { console.log(data); });
+
+steem.api.getStateWith({ path : "/@yasu" }, function(err, data) {
+	console.log(err, data);
+});
 	
 </script>
-1.21
+1.22
   </body>
 </html>
