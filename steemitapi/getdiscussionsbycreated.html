@@ -42,14 +42,14 @@ aaa().then(result => {
 	html = html + '<tr>';
 	html = html + '<th></th><th>author</th><th>permlink</th><th>beneficiaries</th><th></th>';
 	html = html + '</tr>';
-	for(i=0;i<result.length;i=i+1){
+	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
 		html = html + '<td>' + result[i].permlink + '</td>';
 		html = html + '<td align=right>';
 		
-		fot(j=0;i<result[i].beneficiaries.length;j++){
+		fot(j=0; j<result[i].beneficiaries.length; j++){
 			html = html + result[i].beneficiaries[j].account + ' ';
 			html = html + result[i].beneficiaries[j].weight.slice(0,-2)+ '%';//右から2文字カット
 			html = html + '<br/>';
