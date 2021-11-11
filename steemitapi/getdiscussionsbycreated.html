@@ -32,7 +32,8 @@ function getImages(json_string){
   if ('image' in json) {
 	let html = "";
 	for(let i=0; i<json.image.length; i=i+1){	   
-	  html = html + "<img src=https://steemitimages.com/40x40/" + json.image[i] + " width=40 height=40 />";
+	  //html = html + "<img src=https://steemitimages.com/40x40/" + json.image[i] + " width=40 height=40 loading="lazy />";
+		html = html + "<img src=" + json.image[i] + " width=40 height=40 loading="lazy />";
 	}
     	return html;
   }
