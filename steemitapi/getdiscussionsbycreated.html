@@ -11,6 +11,23 @@ function ConvertDate(datetime){
     time.setHours(time.getHours() + 9);
     return time.toLocaleString().slice(0,-3);//右から3文字カット
 }
+function donokuraimae(date1){
+  var now = new Date();
+  sa = now - date1;
+  
+  if(sa >= 86400000){
+    return Math.floor(sa / 86400000)+'日前';
+  }
+  if(sa >= 3600000){
+    return Math.floor(sa / 3600000)+'時間前';
+  }
+  if(sa >= 60000){
+    return Math.floor(sa / 60000)+'分前';
+  }
+  if(sa >= 1000){
+    return Math.floor(sa / 1000)+'秒前';
+  }
+}
 
 	      
           client = steem.api.setOptions({url: 'https://api.steemit.com'})
@@ -53,7 +70,7 @@ aaa().then(result => {
 	html = html + '</tr>';
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td align=right>' + ConvertDate(result[i].created) + '</td>';//
+		html = html + '<td align=right>' + donokuraimae(result[i].created) + '</td>';//
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
 		html = html + '<td>' + result[i].title + '</td>';
 		html = html + '<td align=right>';
