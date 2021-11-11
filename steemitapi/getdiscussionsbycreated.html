@@ -6,14 +6,13 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
       
 <script>
-
-		
 	
-function ConvertDate(datetime){
-    time = new Date(datetime);
-    time.setHours(time.getHours() + 9);
-    return time.toLocaleString().slice(0,-3);//右から3文字カット
-}
+//function ConvertDate(datetime){
+//    time = new Date(datetime);
+//    time.setHours(time.getHours() + 9);
+//    return time.toLocaleString().slice(0,-3);//右から3文字カット
+//}
+	
 function donokuraimae(date){
 	date1 = new Date(date);
 	date1.setHours(date1.getHours() + 9);
@@ -28,15 +27,25 @@ function donokuraimae(date){
 
 function getTags(json_string){
   const json = JSON.parse(json_string);
-  console.log(json.tags);
-  
   if ('tags' in json) {
     return json.tags.join(' ');
   }
   return '';  
 }
-	      
-client = steem.api.setOptions({url: 'https://api.steemit.com'})
+function getImages(json_string){
+  const json = JSON.parse(json_string);
+  if ('image' in json) {
+	  let html = "";
+	  for(i=0; i<json.image.length; i=i+1){	   
+		  html = html + "<img src=" + json.image[i] + " />" 
+	  }
+	  console.log(html');
+    return html;
+  }
+  return '';  
+}	
+	
+steem.api.setOptions({url: 'https://api.steemit.com'})
 lastauthor = "";
 lastpermlink = "";
 discussions = [];
@@ -91,6 +100,8 @@ function makeTable(result){
 	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th>tags</th>';
 	html = html + '</tr>';
 	for(i=0; i<discussions.length; i=i+1){
+		getImages(discussions[i].json_metadata);
+		
 		html = html + '<tr>';
 		html = html + '<td align=right>' + donokuraimae(discussions[i].created) + '</td>';//
 		html = html + '<td>' + discussions[i].author + '</td>';
