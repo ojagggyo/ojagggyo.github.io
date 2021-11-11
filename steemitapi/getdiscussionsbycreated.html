@@ -33,7 +33,7 @@ function getTags(json_string){
   const json = JSON.parse(json_string);
   console.log(json.tags);
   
-  if (json in tags) {
+  if ('tags' in json) {
     return json.tags.join(' ');
   }
   return '';  
