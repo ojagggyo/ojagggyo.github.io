@@ -22,7 +22,8 @@ function donokuraimae(date){
 function getTags(json_string){
   const json = JSON.parse(json_string);
   if ('tags' in json) {
-    return json.tags.join(' ');
+    //return json.tags.join(' ');
+	return json.tags.map(tsg => "#" + tag).join(' ');
   }
   return '';  
 }
