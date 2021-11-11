@@ -113,10 +113,15 @@ function makeTable(result){
 	document.getElementById("text").innerHTML = html;
 }
 	
+let lastauthor;
+let lastpermlink;
+let discussions;
+	
 window.onload = function() {
-let lastauthor = "";
-let lastpermlink = "";
-let discussions = [];
+lastauthor = "";
+lastpermlink = "";
+discussions = [];
+	
 
     clickBtn();
 };
