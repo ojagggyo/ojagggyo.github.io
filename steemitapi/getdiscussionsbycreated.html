@@ -34,6 +34,11 @@ function donokuraimae(date){
 return 'たった今';
 }
 
+function getTags(json_string){
+  const json = JSON.parse(json_string);
+  console.log(json.tags);
+  return json.tags.join(' ');
+}
 	      
           client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	
@@ -87,7 +92,7 @@ aaa().then(result => {
 		}
 		
 		html = html + '</td>';
-		html = html + '<td align=right>' + result[i].json_metadata + '</td>';
+		html = html + '<td align=right>' + getTags(result[i].json_metadata) + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
