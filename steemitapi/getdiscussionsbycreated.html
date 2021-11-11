@@ -11,7 +11,9 @@ function ConvertDate(datetime){
     time.setHours(time.getHours() + 9);
     return time.toLocaleString().slice(0,-3);//右から3文字カット
 }
-function donokuraimae(date1){
+function donokuraimae(date){
+ date1 = new Date(date);
+ date1.setHours(time.getHours() + 9);
 	console.log(date1);
   var now = new Date();
 	console.log(now);
