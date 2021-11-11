@@ -46,7 +46,7 @@ aaa().then(result => {
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
-		html = html + '<td align=right>' + result[i].permlink + '</td>';
+		html = html + '<td>' + result[i].permlink + '</td>';
 		html = html + '<td align=right>';
 		
 		fot(var i=0,i<result[i].beneficiaries.length,i++){
