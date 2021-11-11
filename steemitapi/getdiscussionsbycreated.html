@@ -31,7 +31,7 @@ function getImages(json_string){
   const json = JSON.parse(json_string);
   if ('image' in json) {
 	let html = "";
-	for(i=0; i<json.image.length; i=i+1){	   
+	for(let i=0; i<json.image.length; i=i+1){	   
 	  html = html + "<img src=https://steemitimages.com/40x40/" + json.image[i] + " width=40 height=40 />";
 	}
     	return html;
@@ -93,7 +93,7 @@ function makeTable(result){
 	html = html + '<tr>';
 	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th>tags</th>';
 	html = html + '</tr>';
-	for(i=0; i<discussions.length; i=i+1){
+	for(let i=0; i<discussions.length; i=i+1){
 		
 		
 		html = html + '<tr>';
@@ -103,7 +103,7 @@ function makeTable(result){
 		+ '<br/>' + getImages(discussions[i].json_metadata) + '</td>';
 		html = html + '<td>';
 		
-		for(j=0; j<discussions[i].beneficiaries.length; j++){
+		for(let j=0; j<discussions[i].beneficiaries.length; j++){
 			html = html + discussions[i].beneficiaries[j].account + ' ';
 			html = html + discussions[i].beneficiaries[j].weight.toString().slice(0,-2) + '%';
 			html = html + '<br/>';
