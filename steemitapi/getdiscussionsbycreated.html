@@ -71,7 +71,7 @@ aaa().then(result => {
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th></th>';
+	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th>json_metadata<th></th>';
 	html = html + '</tr>';
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
@@ -87,7 +87,7 @@ aaa().then(result => {
 		}
 		
 		html = html + '</td>';
-		html = html + '<td align=right>' + '</td>';
+		html = html + '<td align=right>' + result[i].json_metadata + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
