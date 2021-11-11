@@ -6,8 +6,8 @@
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
       
 <script>
-let lastauthor ="";
-let lastpermlink ="";
+let lastauthor = "";
+let lastpermlink = "";
 	
 function ConvertDate(datetime){
     time = new Date(datetime);
@@ -35,8 +35,9 @@ function getTags(json_string){
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	      
 async function aaa(){
-	//let query = { limit : 10, tag : "hive-161179" };
-	let query = { limit : 10, tag : "hive-161179", start_permlink : '', start_author : ''};
+	let query = { limit : 10, tag : "hive-161179" };
+	query["start_author"] = lastauthor;
+	query["start_permlink"] = lastpermlink;
 	let ret = steem.api.getDiscussionsByCreatedAsync(query);
 	console.log(ret);
 	return ret;
@@ -89,6 +90,13 @@ function makeTable(result){
 function moreBtn(){
 	console.log(lastauthor);
 	console.log(lastpermlink);
+	
+	aaa().then(result => {
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
 }
 	
         </script>
