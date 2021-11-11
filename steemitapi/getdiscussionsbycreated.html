@@ -51,7 +51,7 @@ aaa().then(result => {
 		
 		for(j=0; j<result[i].beneficiaries.length; j++){
 			html = html + result[i].beneficiaries[j].account + ' ';
-			html = html + result[i].beneficiaries[j].weight.slice(0,-2)+ '%';//右から2文字カット
+			html = html + (result[i].beneficiaries[j].weight).slice(0,-2)+ '%';//右から2文字カット
 			html = html + '<br/>';
 		}
 		
