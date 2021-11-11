@@ -35,18 +35,27 @@ function getTags(json_string){
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	      
 async function aaa(){
-	let query = { limit : 10, tag : "hive-161179" };
+	//let query = { limit : 10, tag : "hive-161179" };
+	let query = { limit : 10, tag : "hive-161179", start_permlink : '', start_author : ''};
 	let ret = steem.api.getDiscussionsByCreatedAsync(query);
 	console.log(ret);
 	return ret;
 };
 	
 aaa().then(result => {
+	makeTable(result);
+}).catch(err => {
+	console.log('☆');
+	console.log(err);
+});
+
+function makeTable(result){
+
 	console.log('☆result☆');
 	console.log(result);
 	
 	if(result.length > 0){
-		lastauthor = result[result.length - 1].lastauthor;
+		lastauthor = result[result.length - 1].author;
 		lastpermlink = result[result.length - 1].permlink;
 	}
 	
@@ -75,11 +84,8 @@ aaa().then(result => {
 	html = html + '</table>';
 	console.log(html);
 	document.getElementById("text").innerHTML = html;
-	}).catch(err => {
-	console.log('☆');
-	console.log(err);
-});
-
+]
+	
 function moreBtn(){
 	console.log(lastauthor);
 	console.log(lastpermlink);
