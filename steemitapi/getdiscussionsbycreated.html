@@ -14,9 +14,7 @@ function ConvertDate(datetime){
 function donokuraimae(date){
  date1 = new Date(date);
  date1.setHours(date1.getHours() + 9);
-	console.log(date1);
   var now = new Date();
-	console.log(now);
   sa = now - date1;
   
   if(sa >= 86400000){
