@@ -40,9 +40,11 @@ client = steem.api.setOptions({url: 'https://api.steemit.com'})
 lastauthor = "";
 lastpermlink = "";
 discussions = [];
+limit = 10;
 	
 async function aaa(){
 	let query = { limit : 10, tag : "hive-161179" };
+	query["limit"] = limit;
 	query["start_author"] = lastauthor;
 	query["start_permlink"] = lastpermlink;
 	let ret = steem.api.getDiscussionsByCreatedAsync(query);
@@ -76,6 +78,7 @@ function makeTable(result){
 	if(result.length > 0){
 		lastauthor = result[result.length - 1].author;//最後の要素を保存
 		lastpermlink = result[result.length - 1].permlink;//最後の要素を保存
+		limit = 11;
 	}
 	
 	
