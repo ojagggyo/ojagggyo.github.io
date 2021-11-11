@@ -27,7 +27,7 @@ async function aaa(){
 	});
     */
     
-    let query = { limit : 3, tag : "hive-161179" };
+    let query = { limit : 20, tag : "hive-161179" };
     let ret = steem.api.getDiscussionsByCreatedAsync(query);
     console.log(ret);
 	return ret;
@@ -40,18 +40,18 @@ aaa().then(result => {
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>author</th><th>permlink</th><th>beneficiaries</th><th></th>';
+	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th></th>';
 	html = html + '</tr>';
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
-		html = html + '<td>' + result[i].permlink + '</td>';
+		html = html + '<td>' + result[i].title + '</td>';
 		html = html + '<td align=right>';
 		
 		for(j=0; j<result[i].beneficiaries.length; j++){
 			html = html + result[i].beneficiaries[j].account + ' ';
-			html = html + result[i].beneficiaries[j].weight.toString().slice(0,-2)+ '%';//右から2文字カット
+			html = html + (result[i].beneficiaries[j].weight/100).toString() + '%';
 			html = html + '<br/>';
 		}
 		
