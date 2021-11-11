@@ -53,7 +53,7 @@ function clickBtn(){
 			_limit = 11;
 		}
 		_discussions = _discussions.concat(result);//合体
-		makeTable(result);
+		makeTable(_discussions);
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
