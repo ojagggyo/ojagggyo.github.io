@@ -12,24 +12,15 @@ function ConvertDate(datetime){
     return time.toLocaleString().slice(0,-3);//右から3文字カット
 }
 function donokuraimae(date){
- date1 = new Date(date);
- date1.setHours(date1.getHours() + 9);
-  var now = new Date();
-  sa = now - date1;
-  
-  if(sa >= 86400000){
-    return Math.floor(sa / 86400000)+'日前';
-  }
-  if(sa >= 3600000){
-    return Math.floor(sa / 3600000)+'時間前';
-  }
-  if(sa >= 60000){
-    return Math.floor(sa / 60000)+'分前';
-  }
-  if(sa >= 1000){
-    return Math.floor(sa / 1000)+'秒前';
-  }
-return 'たった今';
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
 }
 
 function getTags(json_string){
@@ -38,34 +29,13 @@ function getTags(json_string){
   return json.tags.join(' ');
 }
 	      
-          client = steem.api.setOptions({url: 'https://api.steemit.com'})
-	
+client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	      
 async function aaa(){
-	/*
-    let tags = [];
-	let limit = 10;
-	let lastTag = "";
-	while (limit == 10 && tags.length < 50){
-		let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
-		console.log(ret);
-		limit = ret.length;
-		lastTag = ret[ret.length - 1].name;
-		tags.pop();
-		tags = tags.concat(ret);
-	}
-	console.log("☆");
-	console.log(tags);
-
-	return tags;
-	});
-    */
-    
-    let query = { limit : 20, tag : "hive-161179" };
-    let ret = steem.api.getDiscussionsByCreatedAsync(query);
-    console.log(ret);
+	let query = { limit : 20, tag : "hive-161179" };
+	let ret = steem.api.getDiscussionsByCreatedAsync(query);
+	console.log(ret);
 	return ret;
-
 };
 	
 aaa().then(result => {
