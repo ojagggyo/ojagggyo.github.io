@@ -5,8 +5,17 @@
         <meta charset="utf-8">
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
       <script>
+
+function ConvertDate(datetime){
+    time = new Date(datetime);
+    time.setHours(time.getHours() + 9);
+    return time.toLocaleString().slice(0,-3);//右から3文字カット
+}
+
+	      
           client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	
+	      
 async function aaa(){
 	/*
     let tags = [];
@@ -44,7 +53,7 @@ aaa().then(result => {
 	html = html + '</tr>';
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td align=right>' + result[i].beneficiaries[j].created + '</td>';//
+		html = html + '<td align=right>' + ConvertDate(result[i].beneficiaries[j].created) + '</td>';//
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
 		html = html + '<td>' + result[i].title + '</td>';
 		html = html + '<td align=right>';
