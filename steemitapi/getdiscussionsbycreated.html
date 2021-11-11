@@ -49,15 +49,33 @@ aaa().then(result => {
 	console.log('☆');
 	console.log(err);
 });
+	
+function clickBtn(){
+	console.log(lastauthor);
+	console.log(lastpermlink);
+	
+	aaa().then(result => {
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
 
+
+	
 function makeTable(result){
 
 	console.log('☆result☆');
 	console.log(result);
+
+	if(lastauthor != ''){
+		result.shift();//配列の先頭を削除
+	}
 	
 	if(result.length > 0){
-		lastauthor = result[result.length - 1].author;
-		lastpermlink = result[result.length - 1].permlink;
+		lastauthor = result[result.length - 1].author;//最後の要素を保存
+		lastpermlink = result[result.length - 1].permlink;//最後の要素を保存
 	}
 	
 	html = '<table border=1 >';
@@ -87,26 +105,17 @@ function makeTable(result){
 	document.getElementById("text").innerHTML = html;
 }
 	
-function moreBtn(){
-	console.log(lastauthor);
-	console.log(lastpermlink);
+
 	
-	aaa().then(result => {
-		makeTable(result);
-	}).catch(err => {
-		console.log('☆');
-		console.log(err);
-	});
-}
-	
+
         </script>
     </head>
     <body>        
-        <p>ディスカッションを表示します。</p>
+        <p>ディスカッションを表示します。</p>	<input type="button" value="もっと見る" onclick="clickBtn()" />
         <span id="text"></span>
         <!-- <script src="https://ojagggyo.github.io/steemitapi/gettrendingtags.js"></script> -->
 	    
-	<input type="button" value="もっと見る" onclick="moreBtn()" />
+
     </body>
 </html>
 
