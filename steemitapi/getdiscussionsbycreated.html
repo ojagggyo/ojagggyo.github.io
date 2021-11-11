@@ -47,7 +47,15 @@ aaa().then(result => {
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
 		html = html + '<td align=right>' + result[i].permlink + '</td>';
-		html = html + '<td align=right>' + result[i].beneficiaries.length + '</td>';
+		html = html + '<td align=right>';
+		
+		fot(var i=0,i<result[i].beneficiaries.length,i++){
+			html = html + result[i].beneficiaries.account + ' ';
+			html = html + result[i].beneficiaries.weight.slice(0,-2)+ '%';//右から2文字カット
+			html = html + '<br/>';
+		}
+		
+		html = html + '</td>';
 		html = html + '<td align=right>' + '</td>';
 		html = html + '</tr>';
 	}
