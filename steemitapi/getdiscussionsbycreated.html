@@ -7,12 +7,6 @@
       
 <script>
 	
-//function ConvertDate(datetime){
-//    time = new Date(datetime);
-//    time.setHours(time.getHours() + 9);
-//    return time.toLocaleString().slice(0,-3);//右から3文字カット
-//}
-	
 function donokuraimae(date){
 	date1 = new Date(date);
 	date1.setHours(date1.getHours() + 9);
@@ -100,12 +94,12 @@ function makeTable(result){
 	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th>tags</th>';
 	html = html + '</tr>';
 	for(i=0; i<discussions.length; i=i+1){
-		getImages(discussions[i].json_metadata);
+		
 		
 		html = html + '<tr>';
 		html = html + '<td align=right>' + donokuraimae(discussions[i].created) + '</td>';//
 		html = html + '<td>' + discussions[i].author + '</td>';
-		html = html + '<td><a href=' + 'https://steemit.com' + discussions[i].url + ' target=_blank>' + discussions[i].title + '</a></td>';
+		html = html + '<td><a href=' + 'https://steemit.com' + discussions[i].url + ' target=_blank>' + discussions[i].title + '</a><br/>' + getImages(discussions[i].json_metadata) + '</td>';
 		html = html + '<td>';
 		
 		for(j=0; j<discussions[i].beneficiaries.length; j++){
