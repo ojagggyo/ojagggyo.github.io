@@ -35,7 +35,7 @@ function getTags(json_string){
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	      
 async function aaa(){
-	let query = { limit : 20, tag : "hive-161179" };
+	let query = { limit : 10, tag : "hive-161179" };
 	let ret = steem.api.getDiscussionsByCreatedAsync(query);
 	console.log(ret);
 	return ret;
