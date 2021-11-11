@@ -37,7 +37,7 @@ function getImages(json_string){
   if ('image' in json) {
 	  let html = "";
 	  for(i=0; i<json.image.length; i=i+1){	   
-		  html = html + "<img src="https://steemitimages.com/64x64/" + json.image[i] + " />" 
+		  html = html + "<img src=https://steemitimages.com/64x64/" + json.image[i] + " />" 
 	  }
 	  console.log(html);
     return html;
