@@ -73,16 +73,16 @@ steem.api.getState("/created/hive-161179", function(err, data) { console.log(dat
 steem.api.getState("/hive-161179/@sakura-sakura/sweet-things-make-me-happy-20-payout-to-japansteemit", function(err, data) { console.log(data); });
 
 	//
-/*var query = { limit : 10, tag : "hive-161179", "start_author": "yasu", "start_permlink": "2021-11-11"};
-steem.api.getDiscussionsByCreated(query, function(err, result) {
-  console.log(err, result);
-});*/
-	var query = { limit : 10, tag : "yasu", "start_author": "yasu", "start_permlink": "2021-11-11"};
+var query = { limit : 10, tag : "hive-161179", "start_author": "yasu", "start_permlink": "2021-11-11"};
 steem.api.getDiscussionsByCreated(query, function(err, result) {
   console.log(err, result);
 });
+
+steem.api.getBlog("yasu", 10, 3, function(err, data) {
+	console.log(err, data);
+});
 	
 </script>
-1.28
+1.29
   </body>
 </html>
