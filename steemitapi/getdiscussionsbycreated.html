@@ -24,13 +24,14 @@ async function aaa(){
 	console.log(tags);
 
 	return tags;
+	});
     */
     
     let query = { limit : 3, tag : "hive-161179" };
     let ret = steem.api.getDiscussionsByCreatedAsync(query);
     console.log(ret);
 	return ret;
-});
+
 };
 	
 aaa().then(result => {
