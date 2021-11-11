@@ -32,10 +32,11 @@ function donokuraimae(date){
 function getTags(json_string){
   const json = JSON.parse(json_string);
   console.log(json.tags);
-  if(json.tags.length == 0){
-	return '';
+  
+  if (json in tags) {
+    return json.tags.join(' ');
   }
-  return json.tags.join(' ');
+  return '';  
 }
 	      
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
