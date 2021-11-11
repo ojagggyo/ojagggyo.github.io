@@ -29,12 +29,12 @@ function getTags(json_string){
 function getImages(json_string){
   const json = JSON.parse(json_string);
   if ('image' in json) {
-	  let html = "";
-	  for(i=0; i<json.image.length; i=i+1){	   
-		  html = html + "<img src=https://steemitimages.com/40x40/" + json.image[i] + " width=40 height=40 />" 
-	  }
-	  console.log(html);
-    return html;
+	let html = "";
+	for(i=0; i<json.image.length; i=i+1){	   
+	  html = html + "<img src=https://steemitimages.com/40x40/" + json.image[i] + " width=40 height=40 />";
+	}
+	console.log(html);
+    	return html;
   }
   return '';  
 }	
@@ -112,6 +112,7 @@ function makeTable(result){
 		html = html + '</td>';
 		html = html + '<td>' + getTags(discussions[i].json_metadata) + '</td>';
 		html = html + '</tr>';
+		console.log("☆" + i);
 	}
 	html = html + '</table>';
 	console.log(html);
