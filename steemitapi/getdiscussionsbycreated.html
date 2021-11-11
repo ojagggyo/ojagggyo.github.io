@@ -51,7 +51,7 @@ aaa().then(result => {
 		
 		for(j=0; j<result[i].beneficiaries.length; j++){
 			html = html + result[i].beneficiaries[j].account + ' ';
-			html = html + (result[i].beneficiaries[j].weight/100).toString() + '%';
+			html = html + result[i].beneficiaries[j].weight.toString().slice(0,-2) + '%';
 			html = html + '<br/>';
 		}
 		
@@ -74,3 +74,4 @@ aaa().then(result => {
         <!-- <script src="https://ojagggyo.github.io/steemitapi/gettrendingtags.js"></script> -->
     </body>
 </html>
+
