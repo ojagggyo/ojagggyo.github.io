@@ -37,7 +37,10 @@ function getTags(json_string){
 }
 	      
 client = steem.api.setOptions({url: 'https://api.steemit.com'})
-	      
+lastauthor = "";
+lastpermlink = "";
+discussions = [];
+	
 async function aaa(){
 	let query = { limit : 10, tag : "hive-161179" };
 	query["start_author"] = lastauthor;
@@ -113,10 +116,7 @@ function makeTable(result){
 	document.getElementById("text").innerHTML = html;
 }
 	
-lastauthor;
-lastpermlink;
-discussions;
-	
+
 window.onload = function() {
 lastauthor = "";
 lastpermlink = "";
