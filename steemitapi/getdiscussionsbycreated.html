@@ -49,9 +49,9 @@ aaa().then(result => {
 		html = html + '<td>' + result[i].permlink + '</td>';
 		html = html + '<td align=right>';
 		
-		fot(var i=0,i<result[i].beneficiaries.length,i++){
-			html = html + result[i].beneficiaries.account + ' ';
-			html = html + result[i].beneficiaries.weight.slice(0,-2)+ '%';//右から2文字カット
+		fot(va j=0;i<result[i].beneficiaries.length;j++){
+			html = html + result[i].beneficiaries[j].account + ' ';
+			html = html + result[i].beneficiaries[j].weight.slice(0,-2)+ '%';//右から2文字カット
 			html = html + '<br/>';
 		}
 		
