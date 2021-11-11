@@ -4,8 +4,11 @@
         <title>getdiscussionsbycreated</title>
         <meta charset="utf-8">
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-      <script>
-
+      
+<script>
+let lastauthor ="";
+let lastpermlink ="";
+	
 function ConvertDate(datetime){
     time = new Date(datetime);
     time.setHours(time.getHours() + 9);
@@ -41,6 +44,12 @@ async function aaa(){
 aaa().then(result => {
 	console.log('☆result☆');
 	console.log(result);
+	
+	if(result.length > 0){
+		lastauthor = result[result.length - 1].lastauthor;
+		lastpermlink = result[result.length - 1].permlink;
+	}
+	
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
@@ -70,12 +79,20 @@ aaa().then(result => {
 	console.log('☆');
 	console.log(err);
 });
+
+function moreBtn(){
+	console.log(lastauthor);
+	console.log(lastpermlink);
+}
+	
         </script>
     </head>
     <body>        
         <p>ディスカッションを表示します。</p>
         <span id="text"></span>
         <!-- <script src="https://ojagggyo.github.io/steemitapi/gettrendingtags.js"></script> -->
+	    
+	<input type="button" value="もっと見る" onclick="moreBtn()" />
     </body>
 </html>
 
