@@ -8,6 +8,9 @@
 <script>
 let lastauthor = "";
 let lastpermlink = "";
+let discussions = [];
+
+		
 	
 function ConvertDate(datetime){
     time = new Date(datetime);
@@ -78,26 +81,30 @@ function makeTable(result){
 		lastpermlink = result[result.length - 1].permlink;//最後の要素を保存
 	}
 	
+	
+	discussions = discussions.concat(result);//合体
+	
+	
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
 	html = html + '<th></th><th>author</th><th>title</th><th>beneficiaries</th><th>tags</th>';
 	html = html + '</tr>';
-	for(i=0; i<result.length; i=i+1){
+	for(i=0; i<discussions.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td align=right>' + donokuraimae(result[i].created) + '</td>';//
+		html = html + '<td align=right>' + donokuraimae(discussions[i].created) + '</td>';//
 		html = html + '<td>' + result[i].author + '</td>';
-		html = html + '<td><a href=' + 'https://steemit.com' + result[i].url + ' target=_blank>' + result[i].title + '</a></td>';
+		html = html + '<td><a href=' + 'https://steemit.com' + result[i].url + ' target=_blank>' + discussions[i].title + '</a></td>';
 		html = html + '<td align=right>';
 		
-		for(j=0; j<result[i].beneficiaries.length; j++){
-			html = html + result[i].beneficiaries[j].account + ' ';
-			html = html + result[i].beneficiaries[j].weight.toString().slice(0,-2) + '%';
+		for(j=0; j<discussions[i].beneficiaries.length; j++){
+			html = html + discussions[i].beneficiaries[j].account + ' ';
+			html = html + discussions[i].beneficiaries[j].weight.toString().slice(0,-2) + '%';
 			html = html + '<br/>';
 		}
 		
 		html = html + '</td>';
-		html = html + '<td align=right>' + getTags(result[i].json_metadata) + '</td>';
+		html = html + '<td align=right>' + getTags(discussions[i].json_metadata) + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
