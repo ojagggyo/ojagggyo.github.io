@@ -53,7 +53,7 @@ aaa().then(result => {
 	html = html + '</tr>';
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td align=right>' + ConvertDate(result[i].beneficiaries[j].created) + '</td>';//
+		html = html + '<td align=right>' + ConvertDate(result[i].created) + '</td>';//
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
 		html = html + '<td>' + result[i].title + '</td>';
 		html = html + '<td align=right>';
