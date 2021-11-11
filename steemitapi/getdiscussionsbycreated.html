@@ -79,8 +79,8 @@ aaa().then(result => {
 	for(i=0; i<result.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + donokuraimae(result[i].created) + '</td>';//
-		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
-		html = html + '<td>' + result[i].title + '</td>';
+		html = html + '<td>' + result[i].author + '</td>';
+		html = html + '<td><a href=' + 'https://steemit.com' + result[i].url + ' target=_blank>' + result[i].title + '</a></td>';
 		html = html + '<td align=right>';
 		
 		for(j=0; j<result[i].beneficiaries.length; j++){
