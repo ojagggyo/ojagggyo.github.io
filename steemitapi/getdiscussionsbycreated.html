@@ -95,7 +95,7 @@ function makeTable(result){
 		html = html + '<td align=right>' + donokuraimae(discussions[i].created) + '</td>';//
 		html = html + '<td>' + discussions[i].author + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com' + discussions[i].url + ' target=_blank>' + discussions[i].title + '</a></td>';
-		html = html + '<td align=right>';
+		html = html + '<td>';
 		
 		for(j=0; j<discussions[i].beneficiaries.length; j++){
 			html = html + discussions[i].beneficiaries[j].account + ' ';
