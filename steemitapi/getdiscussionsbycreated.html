@@ -40,14 +40,14 @@ aaa().then(result => {
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>author</th><th>ermlink</th><th>comments</th><th>total payouts</th>';
+	html = html + '<th></th><th>author</th><th>permlink</th><th>beneficiaries</th><th></th>';
 	html = html + '</tr>';
 	for(var i=0;i<result.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td><a href=' + 'https://steemit.com/@' + result[i].name + ' target=_blank>' + result[i].author + '</a></td>';
-		html = html + '<td align=right>' + result[i].ermlink + '</td>';
-		html = html + '<td align=right>' + '</td>';
+		html = html + '<td align=right>' + result[i].permlink + '</td>';
+		html = html + '<td align=right>' + result[i].beneficiaries.length + '</td>';
 		html = html + '<td align=right>' + '</td>';
 		html = html + '</tr>';
 	}
