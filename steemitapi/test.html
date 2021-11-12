@@ -84,6 +84,10 @@ steem.api.getBlog("yasu", 0, 3, function(err, data) {
 steem.api.getBlogAuthors("yasu", function(err, data) {
 	console.log(err, data);
 });
+
+steem.api.getBlogEntries("yasu", 0, 3, function(err, data) {
+	console.log(err, data);
+});
 	
 </script>
 1.31
