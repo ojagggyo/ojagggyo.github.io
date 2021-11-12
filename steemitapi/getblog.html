@@ -29,6 +29,11 @@ _entry_id = 0;
 _limit = 500;
 
 async function aaa(){
+	if(_entry_id != 0){
+		if(_entry_id + 1 < _limit){
+			_limit = _entry_id + 1;
+		}
+	}
 	let ret = steem.api.getBlogAsync("yasu", _entry_id, _limit);
 	console.log(ret);
 	return ret;
