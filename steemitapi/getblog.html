@@ -42,7 +42,7 @@ function clickBtn(){
 		}
 		if(result.length > 0){
 			_entry_id = result[result.length - 1].entry_id;//最後の要素を保存
-			_blogs.concat(result);
+			_blogs = _blogs.concat(result);
 		}
 		
 		makeTable(_blogs);
