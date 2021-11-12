@@ -37,7 +37,7 @@ async function aaa(){
 function clickBtn(){
 	aaa().then(result => {
 		
-		if(_author != ''){
+		if(_blogs.length != 0){
 			result.shift();//配列の先頭を削除
 		}
 		if(result.length > 0){
