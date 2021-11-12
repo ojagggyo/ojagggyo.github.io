@@ -8,11 +8,72 @@
         <!-- <script src="./steemitapi/getblog.js"></script> -->
       
       <script>
+          
+          
+function donokuraimae(date){
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
+}
+
+
+	
+
+
+async function aaa(){
+    let ret = steem.api.getBlogAsync("yasu", 1, 1);
+	console.log(ret);
+	return ret;
+};
+
+function clickBtn(){
+	aaa().then(result => {
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
+	
+function makeTable(records){
+	console.log('☆records☆');
+	console.log(records);
+	let html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th></th>entry_id<th>blog</th>';
+	html = html + '</tr>';
+	for(let i=0; i<records.length; i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
+		html = html + '<td>' + records[i].blog + '</td>';
+	}
+	html = html + '</table>';
+	document.getElementById("text").innerHTML = html;
+}
+
+steem.api.setOptions({url: 'https://api.steemit.com'})
+
+
+window.onload = function() {
+	_author = "";
+	_permlink = "";
+	_discussions.length = 0;//配列の初期化
+	clickBtn();
+};
+          
+          
         </script>
       
     </head>
     <body>        
-        <p>ディスカッションを表示します。</p>
+        <p>ブログを表示します。</p>
         <span id="text"></span>    
         <input type="button" value="もっと見る" onclick="clickBtn()" />
     </body>
