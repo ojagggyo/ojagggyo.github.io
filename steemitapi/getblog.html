@@ -24,25 +24,35 @@ function donokuraimae(date){
 
 
 	
-_blogs = [];
+
 _entry_id = 0;
 _limit = 500;
 	      _author = "";
 
+	      
 async function aaa(){
+	blogs = [];
 	
 	let ret;
 	if(_entry_id == 0){
 		ret = await steem.api.getBlogAsync(_author, _entry_id, 1);
 		_entry_id = ret[0].entry_id;
-	}
-	if(_entry_id + 1 < _limit){
-		_limit = _entry_id + 1;
+		blogs.pop();
 	}
 	
-	ret = await steem.api.getBlogAsync(_author, _entry_id, _limit);
-	console.log(ret);
-	return ret;
+	while (_entry_id != 0){
+		if(_entry_id + 1 < _limit){
+			_limit = _entry_id + 1;
+		}
+		ret = await steem.api.getBlogAsync(_author, _entry_id, _limit);
+		_entry_id = ret[ret.length - 1].entry_id;
+		blogs = _blogs.concat(result);
+	}
+	
+
+	//ret = await steem.api.getBlogAsync(_author, _entry_id, _limit);
+	console.log(blogs);
+	return blogs;
 };
 
 function clickBtn(){
@@ -51,6 +61,7 @@ function clickBtn(){
 	
 	aaa().then(result => {
 		
+		/*
 		if(_blogs.length != 0){
 			result.shift();//配列の先頭を削除
 		}
@@ -58,8 +69,9 @@ function clickBtn(){
 			_entry_id = result[result.length - 1].entry_id;//最後の要素を保存
 			_blogs = _blogs.concat(result);
 		}
+		*/
 		
-		makeTable(_blogs);
+		makeTable(result);
 		
 		
 	}).catch(err => {
@@ -108,9 +120,9 @@ window.onload = function() {
     </head>
     <body>        
         <p>ブログを表示します。</p>
-	<input type="text" id="text1" size="20" value=yasu>
+	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" 
         <br/>
         <span id="text"></span>    
-        <input type="button" value="もっと見る" onclick="clickBtn()" />
+       />
     </body>
 </html>
