@@ -35,7 +35,7 @@ async function aaa(){
 			_limit = _entry_id + 1;
 		}
 	}
-	let ret = steem.api.getBlogAsync("yasu", _entry_id, _limit);
+	let ret = steem.api.getBlogAsync(_author, _entry_id, _limit);
 	console.log(ret);
 	return ret;
 };
