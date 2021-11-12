@@ -31,6 +31,7 @@ _limit = 500;
 
 async function aaa(){
 	
+	let ret;
 	if(_entry_id == 0){
 		ret = await steem.api.getBlogAsync(_author, _entry_id, 1);
 	}else{
@@ -38,7 +39,7 @@ async function aaa(){
 			_limit = _entry_id + 1;
 		}
 	}
-	let ret = steem.api.getBlogAsync(_author, _entry_id, _limit);
+	ret = steem.api.getBlogAsync(_author, _entry_id, _limit);
 	console.log(ret);
 	return ret;
 };
