@@ -27,6 +27,7 @@ function donokuraimae(date){
 _blogs = [];
 _entry_id = 0;
 _limit = 500;
+	      _author = "";
 
 async function aaa(){
 	if(_entry_id != 0){
@@ -40,6 +41,9 @@ async function aaa(){
 };
 
 function clickBtn(){
+	
+	_author = document.getElementById("text1").value;
+	
 	aaa().then(result => {
 		
 		if(_blogs.length != 0){
@@ -99,6 +103,8 @@ window.onload = function() {
     </head>
     <body>        
         <p>ブログを表示します。</p>
+	<input type="text" id="text1" size="20" value=yasu>
+        <br/>
         <span id="text"></span>    
         <input type="button" value="もっと見る" onclick="clickBtn()" />
     </body>
