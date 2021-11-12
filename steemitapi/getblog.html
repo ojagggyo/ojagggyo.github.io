@@ -30,7 +30,10 @@ _limit = 500;
 	      _author = "";
 
 async function aaa(){
-	if(_entry_id != 0){
+	
+	if(_entry_id == 0){
+		ret = steem.api.getBlogA(_author, _entry_id, 1);
+	}else{
 		if(_entry_id + 1 < _limit){
 			_limit = _entry_id + 1;
 		}
