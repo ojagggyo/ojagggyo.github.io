@@ -24,19 +24,30 @@ function donokuraimae(date){
 
 
 	
-
+_blogs = [];
+_entry_id = 0;
+_limit = 500;
 
 async function aaa(){
-    //let ret = steem.api.getBlogAsync("yasu", 3, 4);
-	//let ret = steem.api.getBlogAsync("yasu", 0, 1);
-	let ret = steem.api.getBlogAsync("yasu", 2012, 500);
+	let ret = steem.api.getBlogAsync("yasu", _entry_id, _limit);
 	console.log(ret);
 	return ret;
 };
 
 function clickBtn(){
 	aaa().then(result => {
-		makeTable(result);
+		
+		if(_author != ''){
+			result.shift();//配列の先頭を削除
+		}
+		if(result.length > 0){
+			_entry_id = result[result.length - 1].entry_id;//最後の要素を保存
+			_blogs.concat(result)l;
+		}
+		
+		makeTable(_blogs);
+		
+		
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
@@ -70,6 +81,10 @@ function makeTable(records){
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 window.onload = function() {
+	_blogs.length = 0;
+	_entry_id = 0;
+	_limit = 500;
+	
 	clickBtn();
 };
           
@@ -80,6 +95,6 @@ window.onload = function() {
     <body>        
         <p>ブログを表示します。</p>
         <span id="text"></span>    
-        <!-- <input type="button" value="もっと見る" onclick="clickBtn()" /> -->
+        <input type="button" value="もっと見る" onclick="clickBtn()" />
     </body>
 </html>
