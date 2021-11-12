@@ -46,7 +46,7 @@ async function aaa(){
 		}
 		ret = await steem.api.getBlogAsync(_author, _entry_id, _limit);
 		_entry_id = ret[ret.length - 1].entry_id;
-		blogs = _blogs.concat(result);
+		blogs = blogs.concat(result);
 	}
 	
 
