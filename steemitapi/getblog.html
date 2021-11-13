@@ -32,14 +32,17 @@ async function aaa(){
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	if(entry_id == 0){
 		ret = await steem.api.getBlogAsync(author, entry_id, 1);
-		console.log(ret);
+		//console.log(ret);
 		entry_id = ret[0].entry_id;
 		total = entry_id + 1;
-		blogs.pop();
+		//blogs.pop();
 		document.getElementById("progress").innerText = ' 0 / ' + total;
 	}
 	
 	while (entry_id != 0){
+		if(blogs.length > 0){
+			limit = 101;
+		}
 		if(entry_id + 1 < limit){
 			limit = entry_id + 1;
 		}
@@ -49,7 +52,7 @@ async function aaa(){
 		blogs = blogs.concat(ret);
 		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
 	}
-	console.log(blogs);
+	//console.log(blogs);
 	return blogs;
 };
 
