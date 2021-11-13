@@ -32,10 +32,8 @@ async function aaa(){
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	if(entry_id == 0){
 		ret = await steem.api.getBlogAsync(author, entry_id, 1);
-		//console.log(ret);
 		entry_id = ret[0].entry_id;
 		total = entry_id + 1;
-		//blogs.pop();
 		document.getElementById("progress").innerText = ' 0 / ' + total;
 	}
 	
@@ -52,7 +50,6 @@ async function aaa(){
 		blogs = blogs.concat(ret);
 		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
 	}
-	//console.log(blogs);
 	return blogs;
 };
 
@@ -78,7 +75,7 @@ function makeTable(records){
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
 		html = html + '<td>' + records[i].blog + '</td>';
 		html = html + '<td>' + donokuraimae(records[i].comment.created) + '</td>';
-		html = html + '<td>' + records[i].comment.title + '</td>';
+		html = html + '<td><a href=https://steemit.com'+records[i].comment.url + ' targer=_blank>' + records[i].comment.title + '</a></td>';
 		
 		
 		
