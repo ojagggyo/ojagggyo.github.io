@@ -21,35 +21,30 @@ function donokuraimae(date){
 	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
 	return 'たった今';
 }
-
-
-	
-
-_entry_id = 0;
-_limit = 500;
-	      _author = "";
-
-	      
+      
 async function aaa(){
 	let blogs = [];
 	let total = 0;
 	let ret;
+	let limit = 500;
+	let entry_id = 0;
+	let author = document.getElementById("text1").value
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
-	if(_entry_id == 0){
-		ret = await steem.api.getBlogAsync(_author, _entry_id, 1);
+	if(entry_id == 0){
+		ret = await steem.api.getBlogAsync(author, entry_id, 1);
 		console.log(ret);
-		_entry_id = ret[0].entry_id;
-		total = _entry_id;
+		entry_id = ret[0].entry_id;
+		total = entry_id;
 		blogs.pop();
 		//document.getElementById("progress").innerText = ' 0 / ' + total;
 	}
 	
-	while (_entry_id != 0){
-		if(_entry_id + 1 < _limit){
-			_limit = _entry_id + 1;
+	while (entry_id != 0){
+		if(entry_id + 1 < limit){
+			limit = entry_id + 1;
 		}
-		ret = await steem.api.getBlogAsync(_author, _entry_id, _limit);
-		_entry_id = ret[ret.length - 1].entry_id;
+		ret = await steem.api.getBlogAsync(author, entry_id, limit);
+		entry_id = ret[ret.length - 1].entry_id;
 		blogs.pop();
 		blogs = blogs.concat(ret);
 		//document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
@@ -58,8 +53,7 @@ async function aaa(){
 	return blogs;
 };
 
-function clickBtn(){
-	_author = document.getElementById("text1").value;
+function clickBtn(){;
 	aaa().then(result => {		
 		makeTable(result);
 	}).catch(err => {
@@ -95,9 +89,8 @@ function makeTable(records){
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 window.onload = function() {
-	//_blogs.length = 0;
-	_entry_id = 0;
-	_limit = 500;
+
+
 	
 	<!-- clickBtn(); -->
 };
