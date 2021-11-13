@@ -36,7 +36,7 @@ async function aaa(){
 		entry_id = ret[0].entry_id;
 		total = entry_id;
 		blogs.pop();
-		//document.getElementById("progress").innerText = ' 0 / ' + total;
+		document.getElementById("progress").innerText = ' 0 / ' + total;
 	}
 	
 	while (entry_id != 0){
@@ -47,7 +47,7 @@ async function aaa(){
 		entry_id = ret[ret.length - 1].entry_id;
 		blogs.pop();
 		blogs = blogs.concat(ret);
-		//document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
+		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
 	}
 	console.log(blogs);
 	return blogs;
