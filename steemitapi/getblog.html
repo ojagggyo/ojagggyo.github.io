@@ -34,6 +34,7 @@ async function aaa(){
 	let blogs = [];
 	let total = 0;
 	let ret;
+	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	if(_entry_id == 0){
 		ret = await steem.api.getBlogAsync(_author, _entry_id, 1);
 		_entry_id = ret[0].entry_id;
