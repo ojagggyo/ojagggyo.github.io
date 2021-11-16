@@ -64,7 +64,7 @@ function effective_sp(){
 	_stok = _stok.sort(function(a,b){
 		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return k;
 		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return -k;
-	return 0;
+		return 0;
 	});
 	makeTable(_stok);
 }
