@@ -20,9 +20,12 @@ async function aaa(usernames){
  
   let accounts = await steem.api.getAccountsAsync(usernames)
   for(var i=0;i<accounts.length;i=i+1){
-    let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
-    let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
-   
+	let vesting_shares = parseFloat(accounts[i].vesting_shares.replace(" VESTS", ""));
+	let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
+	let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
+    
+	  
+	  
     let item = {};
     sp = vesting_shares * k;//保持しているSP
     sp1 = received_vesting_shares * k;//委任されたSP
