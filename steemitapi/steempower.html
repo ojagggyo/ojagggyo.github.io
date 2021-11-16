@@ -30,10 +30,10 @@ async function aaa(usernames){
 	sp1 = received_vesting_shares * k;//委任されたSP
 	sp2 = delegated_vesting_shares * k;//委任したSP
 	item['name'] = accounts[i].name;
-	item['sp'] = sp;
-	item['received_sp'] = sp1;
-	item['delegated_sp'] = sp2;
-	item['effective_sp'] = sp + sp1 - sp2;
+	item['sp'] = (sp).toPrecision(3);
+	item['received_sp'] = (sp1).toPrecision(3);
+	item['delegated_sp'] = (sp2).toPrecision(3);
+	item['effective_sp'] = (sp + sp1 - sp2).toPrecision(3);
     	items.push(item);
   }
 	return items;
@@ -62,9 +62,9 @@ function makeTable(records){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
 		html = html + '<td align=right>' + records[i].effective_sp + '</td>';
-		html = html + '<td align=right>>' + records[i].sp + '</td>';
-		html = html + '<td align=right>>' + records[i].received_sp + '</td>';
-		html = html + '<td align=right>>' + records[i].delegated_sp + '</td>';
+		html = html + '<td align=right>' + records[i].sp + '</td>';
+		html = html + '<td align=right>' + records[i].received_sp + '</td>';
+		html = html + '<td align=right>' + records[i].delegated_sp + '</td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
