@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>steempower</title>
+        <meta charset="utf-8">
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <!-- <script src="https://ojagggyo.github.io/steemitapi/ownerhistory.js"></script> -->
+      <script>
+               
+async function aaa(usernames){
+ 
+  let items = [];
+  
+  let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+  console.log(globalProperties);
+  let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+  let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+  let k = total_vesting_fund_steem / total_vesting_shares;
+ 
+  let accounts = await steem.api.getAccountsAsync(usernames)
+  for(var i=0;i<accounts.length;i=i+1){
+    let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
+    let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
+   
+    let item = {};
+    sp = vesting_shares * k;//保持しているSP
+    sp1 = received_vesting_shares * k;//委任されたSP
+    sp2 = delegated_vesting_shares * k;//委任したSP
+    item['username'] = accounts[i].username;
+    item['sp'] = sp;
+    item['received_sp'] = sp1;
+    item['delegated_sp'] = sp2;
+    item['effective_sp'] =  = sp + sp1 - sp2;
+    
+    items.push(item);
+  }
+}
+
+function clickBtn(){;
+  let t1 = document.getElementById("text1").value;
+  let usernames = t1.split(/\n/);//改行で分割する
+	aaa(usernames).then(result => {		
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
+	
+function makeTable(records){
+	console.log('☆records☆');
+	console.log(records);
+	let html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th>username</th><th></th><th></th><th></th><th></th>';
+	html = html + '</tr>';
+	for(let i=0; i<records.length; i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=left>' + records[i].username + '</td>';//
+		html = html + '<td>' + records[i].sp + '</td>';
+		html = html + '<td>' + records[i].received_sp + '</td>';
+		html = html + '<td>' + records[i].delegated_sp + '</td>';
+    html = html + '<td>' + records[i].effective_sp + '</td>';
+	}
+	html = html + '</table>';
+	document.getElementById("text").innerHTML = html;
+}
+
+steem.api.setOptions({url: 'https://api.steemit.com'})
+        
+        </script>
+    </head>
+    <body>        
+        <p>アカウント名を入力してください。</p>
+        <textarea id="text1" rows="10" cols="20">yasu
+japansteemit</textarea>
+        <br/>
+        <input type="button" value="STEEM POWERを表示する" onclick="clickBtn()" /><a id="progress"></a>
+        <span id="text"></span>
+    </body>
+</html>
