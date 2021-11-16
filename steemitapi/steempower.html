@@ -60,10 +60,10 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=left>' + records[i].name + '</td>';//
+		html = html + '<td>' + records[i].effective_sp + '</td>';
 		html = html + '<td>' + records[i].sp + '</td>';
 		html = html + '<td>' + records[i].received_sp + '</td>';
 		html = html + '<td>' + records[i].delegated_sp + '</td>';
-    html = html + '<td>' + records[i].effective_sp + '</td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
