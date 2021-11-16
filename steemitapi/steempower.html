@@ -54,12 +54,21 @@ function clickBtn(){;
 }
 
 function effective_sp(){
-  _stok.sort(function(a,b){
-        if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return -1;
-        if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return 1;
-        return 0;
-  });
 	
+	if(_stok.length < 2)return;
+	if(_stok[0] > _stok[(_stok.length - 1]) {
+	  _stok.sort(function(a,b){
+		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return -1;
+		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return 1;
+		return 0;
+	  });
+	}else{
+	_stok.sort(function(a,b){
+		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return 1;
+		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return -1;
+		return 0;
+	  });
+	}
 	makeTable(_stok);
 }
 	
@@ -69,12 +78,12 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th>effective sp</th><th>sp</th><th>received sp</th><th>delegated sp</th>';
+	html = html + '<th>name</th><th><a href=javascript:effective_sp();>effective sp</a></th><th>sp</th><th>received sp</th><th>delegated sp</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right><a href=javascript:effective_sp();>' + records[i].effective_sp + '</a></td>';
+		html = html + '<td align=right>' + records[i].effective_sp + '</a></td>';
 		html = html + '<td align=right>' + records[i].sp + '</td>';
 		html = html + '<td align=right>' + records[i].received_sp + '</td>';
 		html = html + '<td align=right>' + records[i].delegated_sp + '</td>';
