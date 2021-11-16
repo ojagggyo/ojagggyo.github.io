@@ -23,20 +23,17 @@ async function aaa(usernames){
 	let vesting_shares = parseFloat(accounts[i].vesting_shares.replace(" VESTS", ""));
 	let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
 	let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
-    
 	  
-	  
-    let item = {};
-    sp = vesting_shares * k;//保持しているSP
-    sp1 = received_vesting_shares * k;//委任されたSP
-    sp2 = delegated_vesting_shares * k;//委任したSP
-    item['username'] = accounts[i].username;
-    item['sp'] = sp;
-    item['received_sp'] = sp1;
-    item['delegated_sp'] = sp2;
-    item['effective_sp'] = sp + sp1 - sp2;
-    
-    items.push(item);
+	let item = {};
+	sp = vesting_shares * k;//保持しているSP
+	sp1 = received_vesting_shares * k;//委任されたSP
+	sp2 = delegated_vesting_shares * k;//委任したSP
+	item['username'] = accounts[i].username;
+	item['sp'] = sp;
+	item['received_sp'] = sp1;
+	item['delegated_sp'] = sp2;
+	item['effective_sp'] = sp + sp1 - sp2;
+    	items.push(item);
   }
 }
 
