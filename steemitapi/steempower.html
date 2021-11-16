@@ -29,7 +29,7 @@ async function aaa(usernames){
 	sp = vesting_shares * k;//保持しているSP
 	sp1 = received_vesting_shares * k;//委任されたSP
 	sp2 = delegated_vesting_shares * k;//委任したSP
-	item['username'] = accounts[i].name;
+	item['name'] = accounts[i].name;
 	item['sp'] = sp;
 	item['received_sp'] = sp1;
 	item['delegated_sp'] = sp2;
@@ -56,15 +56,15 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th></th><th></th><th></th><th></th>';
+	html = html + '<th>name</th><th>effective sp</th>sp<th></th><th>received sp</th><th>delegated sp</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td align=left>' + records[i].name + '</td>';//
-		html = html + '<td>' + records[i].effective_sp + '</td>';
-		html = html + '<td>' + records[i].sp + '</td>';
-		html = html + '<td>' + records[i].received_sp + '</td>';
-		html = html + '<td>' + records[i].delegated_sp + '</td>';
+		html = html + '<td>' + records[i].name + '</td>';//
+		html = html + '<td align=right>' + records[i].effective_sp + '</td>';
+		html = html + '<td align=right>>' + records[i].sp + '</td>';
+		html = html + '<td align=right>>' + records[i].received_sp + '</td>';
+		html = html + '<td align=right>>' + records[i].delegated_sp + '</td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
