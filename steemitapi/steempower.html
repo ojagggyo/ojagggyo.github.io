@@ -30,9 +30,9 @@ async function aaa(usernames){
 	sp1 = received_vesting_shares * k;//委任されたSP
 	sp2 = delegated_vesting_shares * k;//委任したSP
 	item['name'] = accounts[i].name;
-	item['sp'] = (sp).toPrecision(3);
-	item['received_sp'] = (sp1).toPrecision(3);
-	item['delegated_sp'] = (sp2).toPrecision(3);
+	item['sp'] = (sp ).toPrecision(3);
+	item['received_sp'] = (sp1 ).tocxPrecision(3);
+	item['delegated_sp'] = (sp2 ).toPrecision(3);
 	item['effective_sp'] = (sp + sp1 - sp2).toPrecision(3);
     	items.push(item);
   }
