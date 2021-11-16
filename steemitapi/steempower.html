@@ -36,11 +36,12 @@ async function aaa(usernames){
 	item['effective_sp'] = sp + sp1 - sp2;
     	items.push(item);
   }
+	return items;
 }
 
 function clickBtn(){;
-  let t1 = document.getElementById("text1").value;
-  let usernames = t1.split(/\n/);//改行で分割する
+	let t1 = document.getElementById("text1").value;
+	let usernames = t1.split(/\n/);//改行で分割する
 	aaa(usernames).then(result => {		
 		makeTable(result);
 	}).catch(err => {
