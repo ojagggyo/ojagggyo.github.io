@@ -50,7 +50,7 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + records[i].voting_power.toFixed(3) + '%</a></td>';
+		html = html + '<td align=right>' + records[i].voting_power.toFixed(2) + '%</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
