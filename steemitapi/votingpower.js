@@ -32,8 +32,8 @@ function clickHeader(){
 		k = 1;
 	}
 	_stok = _stok.sort(function(a,b){
-		a.voting_power < b.voting_power return k;
-		a.voting_power > b.voting_power return -k;
+		if a.voting_power < b.voting_power return k;
+		if a.voting_power > b.voting_power return -k;
 		return 0;
 	});
 	makeTable(_stok);
