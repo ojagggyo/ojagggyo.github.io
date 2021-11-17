@@ -1,13 +1,19 @@
+function getLoaction(json_string){
+  const json = JSON.parse(json_string);
+  if ('location' in json) {
+    return json.location;
+  }
+  return '';  
+}
+
 async function aaa(usernames){
   let items = [];
   let accounts = await steem.api.getAccountsAsync(usernames)
   console.log(accounts);
   for(var i=0;i<accounts.length;i=i+1){
-	  let vp = accounts[i].voting_power + (10000 * ((new Date - new Date(accounts[i].last_vote_time + "Z")) / 1000) / 432000);
 	  let item = {};
 	  item['name'] = accounts[i].name;
-	  item['voting_power'] = vp / 100;
-	  item['last_vote_time'] = donokuraimae(accounts[i].last_vote_time);
+	  item['profile_location'] = getlocation(accounts[i].json_string);
 	  items.push(item);
   }
   return items;
@@ -27,14 +33,14 @@ function clickBtn(){
 
 function clickTableHeader(){
 	if(_stok.length < 2) return;
-	if(parseFloat(_stok[0].voting_power) > parseFloat(_stok[_stok.length - 1].voting_power)) {
+	if(_stok[0].profile_location > _stok[_stok.length - 1].profile_location) {
 		k = -1;
 	}else{
 		k = 1;
 	}
 	_stok = _stok.sort(function(a,b){
-		if(a.voting_power < b.voting_power) return k;
-		if(a.voting_power > b.voting_power) return -k;
+		if(a.profile_location < b.profile_location) return k;
+		if(a.profile_location > b.profile_location) return -k;
 		return 0;
 	});
 	makeTable(_stok);
