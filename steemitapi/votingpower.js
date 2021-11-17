@@ -1,3 +1,15 @@
+function donokuraimae(date){
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
+}
+
 async function aaa(usernames){
   let items = [];
   let accounts = await steem.api.getAccountsAsync(usernames)
@@ -7,6 +19,7 @@ async function aaa(usernames){
 	  let item = {};
 	  item['name'] = accounts[i].name;
 	  item['voting_power'] = vp / 100;
+	  item['last_vote_time'] = donokuraimae(accounts[i].last_vote_time);
 	  items.push(item);
   }
   return items;
@@ -45,12 +58,15 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th><a href=javascript:clickHeader();>voting power</a></th>';
+	html = html + '<th>name</th><th><a href=javascript:clickHeader();>voting power</a></th><th>last vote time</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
 		html = html + '<td align=right>' + records[i].voting_power.toFixed(2) + '%</a></td>';
+		html = html + '<td align=left>' + records[i].last_vote_time + '</a></td>';
+		
+		
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
