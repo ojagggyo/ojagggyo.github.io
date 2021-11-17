@@ -6,7 +6,7 @@ async function aaa(usernames){
 	  let vp = accounts[i].voting_power + (10000 * ((new Date - new Date(accounts[i].last_vote_time + "Z")) / 1000) / 432000);
 	  let item = {};
 	  item['name'] = accounts[i].name;
-	  item['voting_power'] = vp;
+	  item['voting_power'] = vp / 100;
 	  items.push(item);
   }
   return items;
@@ -50,8 +50,7 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + records[i].effective_sp + '</a></td>';
-		html = html + '<td align=right>' + records[i].voting_power + '</a></td>';
+		html = html + '<td align=right>' + records[i].voting_power.toFixed(3) + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
