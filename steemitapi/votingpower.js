@@ -64,7 +64,7 @@ function makeTable(records){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
 		html = html + '<td align=right>' + records[i].voting_power.toFixed(2) + '%</a></td>';
-		html = html + '<td align=left>' + records[i].last_vote_time + '</a></td>';
+		html = html + '<td align=right>' + records[i].last_vote_time + '</a></td>';
 		
 		
 	}
