@@ -1,9 +1,11 @@
 function getlocation(json_string){
-  const json = JSON.parse(json_string);
-  if ('location' in json.profile) {
-    return json.profile.location;
-  }
-  return '';  
+	const json = JSON.parse(json_string);
+	if('profile' in json){
+		if ('location' in json.profile) {
+			return json.profile.location;
+		}
+	}
+	return '';  
 }
 
 async function aaa(usernames){
