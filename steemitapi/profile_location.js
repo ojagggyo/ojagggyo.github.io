@@ -6,11 +6,12 @@ function getlocation(json_string){
 				return json.profile.location;
 			}
 		}
-		return '';
+		
 	}
 	catch(e){
 		console.log( e.message );
 	}
+	return '';
 }
 
 async function aaa(usernames){
