@@ -1,4 +1,4 @@
-function getLoaction(json_string){
+function getlocation(json_string){
   const json = JSON.parse(json_string);
   if ('location' in json) {
     return json.location;
