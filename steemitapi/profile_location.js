@@ -64,7 +64,7 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + records[i].profile_location + '</a></td>';
+		html = html + '<td align=left>' + records[i].profile_location + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
