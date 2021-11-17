@@ -37,7 +37,7 @@ function clickBtn(){
 	});
 }
 
-function clickHeader(){
+function clickTableHeader(){
 	if(_stok.length < 2) return;
 	if(parseFloat(_stok[0].voting_power) > parseFloat(_stok[_stok.length - 1].voting_power)) {
 		k = -1;
