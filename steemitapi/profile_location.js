@@ -1,6 +1,6 @@
 function getlocation(json_string){
   const json = JSON.parse(json_string);
-  if ('location' in json) {
+  if ('location' in json.profile) {
     return json.location;
   }
   return '';  
