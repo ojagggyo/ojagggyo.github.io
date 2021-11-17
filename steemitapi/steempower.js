@@ -37,7 +37,7 @@ function clickBtn(){
 	});
 }
 
-function effective_sp(){
+function clickTableHeader(){
 	if(_stok.length < 2) return;
 	if(parseFloat(_stok[0].effective_sp) > parseFloat(_stok[_stok.length - 1].effective_sp)) {
 		k = -1;
@@ -58,7 +58,7 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th><a href=javascript:effective_sp();>effective sp</a></th><th>sp</th><th>received sp</th><th>delegated sp</th>';
+	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();>effective sp</a></th><th>sp</th><th>received sp</th><th>delegated sp</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
