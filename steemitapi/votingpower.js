@@ -3,19 +3,11 @@ async function aaa(usernames){
   let accounts = await steem.api.getAccountsAsync(usernames)
   console.log(accounts);
   for(var i=0;i<accounts.length;i=i+1){
-    //let vesting_shares = parseFloat(accounts[i].vesting_shares.replace(" VESTS", ""));
-    //let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
-    //let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
-    let item = {};
-    //sp = vesting_shares * k;//保持しているSP
-    //sp1 = received_vesting_shares * k;//委任されたSP
-    //sp2 = delegated_vesting_shares * k;//委任したSP
-    //item['name'] = accounts[i].name;
-    //item['sp'] = sp.toFixed(3);
-    //item['received_sp'] = sp1.toFixed(3);
-    //item['delegated_sp'] = sp2.toFixed(3);
-    //item['effective_sp'] = (sp + sp1 - sp2).toFixed(3);
-    items.push(item);
+	  let vp = accounts[i].voting_power + (10000 * ((new Date - new Date(accounts[i].last_vote_time + "Z")) / 1000) / 432000);
+	  let item = {};
+	  item['name'] = accounts[i].name;
+	  item['voting_power'] = vp;
+	  items.push(item);
   }
   return items;
 }
@@ -33,7 +25,6 @@ function clickBtn(){
 }
 
 function clickHeader(){
-  /*
 	if(_stok.length < 2) return;
 	if(parseFloat(_stok[0].effective_sp) > parseFloat(_stok[_stok.length - 1].effective_sp)) {
 		k = -1;
@@ -41,12 +32,11 @@ function clickHeader(){
 		k = 1;
 	}
 	_stok = _stok.sort(function(a,b){
-		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return k;
-		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return -k;
+		a.voting_power < b.voting_power) return k;
+		a.voting_power > b.voting_power) return -k;
 		return 0;
 	});
 	makeTable(_stok);
-  */
 }
 	
 function makeTable(records){
@@ -60,8 +50,8 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		//html = html + '<td align=right>' + records[i].effective_sp + '</a></td>';
-    html = html + '<td align=right>' + 'あああ' + '</a></td>';
+		html = html + '<td align=right>' + records[i].effective_sp + '</a></td>';
+		html = html + '<td align=right>' + records[i].voting_power + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
