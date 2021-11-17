@@ -26,7 +26,7 @@ function clickBtn(){
 
 function clickHeader(){
 	if(_stok.length < 2) return;
-	if(parseFloat(_stok[0].effective_sp) > parseFloat(_stok[_stok.length - 1].effective_sp)) {
+	if(parseFloat(_stok[0].voting_power) > parseFloat(_stok[_stok.length - 1].voting_power)) {
 		k = -1;
 	}else{
 		k = 1;
