@@ -13,7 +13,7 @@ async function aaa(usernames){
   for(var i=0;i<accounts.length;i=i+1){
 	  let item = {};
 	  item['name'] = accounts[i].name;
-	  item['profile_location'] = getlocation(accounts[i].json_string);
+	  item['profile_location'] = getlocation(accounts[i].json_metadata);
 	  items.push(item);
   }
   return items;
