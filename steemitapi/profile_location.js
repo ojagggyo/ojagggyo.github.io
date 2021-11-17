@@ -52,12 +52,12 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();>voting power</a></th>';
+	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();>location</a></th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + records[i].profile_location + '%</a></td>';
+		html = html + '<td align=right>' + records[i].profile_location + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
