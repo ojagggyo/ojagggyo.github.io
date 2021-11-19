@@ -20,7 +20,7 @@ async function aaa(){
 	let author = document.getElementById("text1").value;
 	while (limit == 10 && out.length < 50){
 		//let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
-		let ret = await steem.api.getFollowers(author, lastUser, 'blog', limit);
+		let ret = await steem.api.getFollowersAsync(author, lastUser, 'blog', limit);
 		console.log(ret);
 		limit = ret.length;
 		lastUser = ret[ret.length - 1].name;
@@ -44,7 +44,7 @@ aaa().then(result => {
 	for(var i=0;i<result.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td><a href=' + 'https://steemit.com/trending/' + result[i].name + ' target=_blank>' + result[i].name+ '</a></td>';
+		html = html + '<td>' + result[i].follower + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
