@@ -23,7 +23,7 @@ async function aaa(){
 		let ret = await steem.api.getFollowersAsync(author, lastUser, 'blog', limit);
 		console.log(ret);
 		limit = ret.length;
-		lastUser = ret[ret.length - 1].name;
+		lastUser = ret[ret.length - 1].follower;
 		out.pop();
 		out = out.concat(ret);
 	}
