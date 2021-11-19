@@ -36,20 +36,20 @@
 		
 async function aaa(){
 	let out = [];
-	let limit = 10;
-	let lastUser = "";
+	let limit = 100;
+	let lastFollower = "";
 	let author = document.getElementById("text1").value;
-	while (limit == 10 && out.length < 50){
+	while (true){
 		if(out.length > 0){
-			limit = 11;
+			limit = 101;
 		}
 		//if(entry_id + 1 < limit){
 		//	limit = entry_id + 1;
 		//}
-		let ret = await steem.api.getFollowersAsync(author, lastUser, 'blog', limit);
+		let ret = await steem.api.getFollowersAsync(author, lastFollower, 'blog', limit);
 		console.log(ret);
 		limit = ret.length;
-		lastUser = ret[ret.length - 1].follower;
+		lastFollower = ret[ret.length - 1].follower;
 		out.pop();
 		out = out.concat(ret);
 	}
