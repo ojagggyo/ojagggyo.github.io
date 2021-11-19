@@ -12,8 +12,8 @@ function clickTableHeader(){
 	if(_stok.length < 2) return;
 	(_stok[0].accountValueInUSD > _stok[_stok.length - 1].accountValueInUSD) ? k = -1 : k = 1;
 	_stok = _stok.sort(function(a,b){
-		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return k;
-		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return -k;
+		if(a.accountValueInUSD) < b.accountValueInUSD) return k;
+		if(a.accountValueInUSD) > b.accountValueInUSD) return -k;
 		return 0;
 	});
 	makeTable(_stok);
