@@ -30,7 +30,7 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>$' + records[i].accountValueInUSD + '</td>';
+		html = html + '<td align=right>$' + records[i].accountValueInUSD.toFixed(2) + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
@@ -44,10 +44,10 @@ async function aaa(usernames){
 	console.log(accounts);
 	for(var i=0;i<accounts.length;i=i+1){
 		document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + accounts.length;
-		let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]).toFixed();
+		let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]);
 		let item = {};
 		item['name'] = accounts[i].name;
-		item['accountValueInUSD'] = parseFloat(accountValueInUSD);
+		item['accountValueInUSD'] = accountValueInUSD;
 		items.push(item);
 	}
 	return items;
