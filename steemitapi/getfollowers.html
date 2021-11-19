@@ -55,7 +55,7 @@ async function aaa(){
 
 function clickTableHeader(){
 	if(_stok.length < 2) return;
-	(_stok[0].reputation > _stok[_stok.length - 1].reputation) ? k = -1 else k = 1;
+	(_stok[0].reputation > _stok[_stok.length - 1].reputation) ? k = -1 : k = 1;
 	_stok = _stok.sort(function(a,b){
 		if(a.reputation < b.reputation) return k;
 		if(a.reputation > b.reputation) return -k;
