@@ -39,7 +39,12 @@ async function aaa(){
 	let lastUser = "";
 	let author = document.getElementById("text1").value;
 	while (limit == 10 && out.length < 50){
-		//let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
+		if(out.length > 0){
+			limit = 11;
+		}
+		//if(entry_id + 1 < limit){
+		//	limit = entry_id + 1;
+		//}
 		let ret = await steem.api.getFollowersAsync(author, lastUser, 'blog', limit);
 		console.log(ret);
 		limit = ret.length;
@@ -49,19 +54,18 @@ async function aaa(){
 	}
 	console.log("☆");
 	console.log(out);
-
 	return out;
 };
 	
 
-	function clickBtn(){;
-		aaa().then(result => {		
-			makeTable(result);
-		}).catch(err => {
-			console.log('☆');
-			console.log(err);
-		});
-	}
+function clickBtn(){;
+	aaa().then(result => {		
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
 
 		
         </script>
