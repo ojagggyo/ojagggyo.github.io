@@ -112,7 +112,14 @@ steem.api.getAccounts(["yasu"], function(e1, accounts){
 	const end = performance.now();//計測用
   	console.log(end - start);//計測用
 	
-	
+	const start2 = performance.now();//計測用
+	let b = []
+	for(var i=0;i<1000;i++){
+		b.push("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+	}
+	var result = b.join();
+	const end2 = performance.now();//計測用
+  	console.log(end2 - start2);//計測用
 	
 	
 </script>
