@@ -5,10 +5,10 @@
 
 
 ---
-* [キュレーションリワードを表示する](ojagggyo.github.io/steemitapi/curationrewards.html)
+* [キュレーションリワードを表示する](https://ojagggyo.github.io/steemitapi/curationrewards.html)
 
 
-* [ハッキングチェック](ojagggyo.github.io/steemitapi/ownerhistory.html)
+* [ハッキングチェック](https://ojagggyo.github.io/steemitapi/ownerhistory.html)
 
 
 * [レピュテーションを表示する](https://ojagggyo.github.io/steemitapi/reputation.html#yasu)
