@@ -95,9 +95,12 @@ steem.api.getFollowers('yasu', '', 'blog', 2, function(err, result) {
   console.log(err, result);
 });
 
-steem.formatter.estimateAccountValue('yasu', function(err, result) {
-  console.log(err, result);
-});
+
+steem.api.getAccounts(["yasu"], function(e1, accounts){ 
+    var accountValueInUSD = steem.formatter.estimateAccountValue(accounts[0])
+        .catch(function (err) { console.log(err); })
+        .then(function (data) { console.log(data); });
+ });
 	
 </script>
 1.35
