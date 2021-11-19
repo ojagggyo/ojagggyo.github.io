@@ -44,7 +44,7 @@ async function aaa(usernames){
 	console.log(accounts);
 	for(var i=0;i<accounts.length;i=i+1){
 		document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + accounts.length;
-		let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]);
+		let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]).toFixed();
 		let item = {};
 		item['name'] = accounts[i].name;
 		item['accountValueInUSD'] = parseFloat(accountValueInUSD);
