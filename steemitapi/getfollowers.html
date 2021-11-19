@@ -14,21 +14,21 @@
 	client = steem.api.setOptions({url: 'https://api.steemit.com'})
 	
 async function aaa(){
-	let users = [];
+	let out = [];
 	let limit = 10;
 	let lastUser = "";
 	let author = document.getElementById("text1").value;
-	while (limit == 10 && tags.length < 50){
+	while (limit == 10 && out.length < 50){
 		//let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
 		let ret = await steem.api.getFollowers(author, lastUser, 'blog', limit);
 		console.log(ret);
 		limit = ret.length;
 		lastUser = ret[ret.length - 1].name;
-		users.pop();
-		users = users.concat(ret);
+		out.pop();
+		out = out.concat(ret);
 	}
 	console.log("☆");
-	console.log(users);
+	console.log(out);
 
 	return tags;
 };
