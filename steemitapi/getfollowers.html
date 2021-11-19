@@ -12,7 +12,27 @@
     	
 	
 	client = steem.api.setOptions({url: 'https://api.steemit.com'})
-	
+
+		
+		function makeTable(records){
+	console.log('☆records☆');
+	console.log(records);
+	html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th></th><th>Name</th>';
+	html = html + '</tr>';
+	for(var i=0;i<records.length;i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=right>' + (i+1) + '</td>';
+		html = html + '<td>' + records[i].follower + '</td>';
+		html = html + '</tr>';
+	}
+	html = html + '</table>';
+	console.log(html);
+	document.getElementById("text").innerHTML = html;
+}
+		
 async function aaa(){
 	let out = [];
 	let limit = 10;
@@ -33,32 +53,10 @@ async function aaa(){
 	return out;
 };
 	
-aaa().then(result => {
-	console.log('☆result☆');
-	console.log(result);
-	html = '<table border=1 >';
-	//テーブルのヘッダー
-	html = html + '<tr>';
-	html = html + '<th></th><th>Name</th>';
-	html = html + '</tr>';
-	for(var i=0;i<result.length;i=i+1){
-		html = html + '<tr>';
-		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td>' + result[i].follower + '</td>';
-		html = html + '</tr>';
-	}
-	html = html + '</table>';
-	console.log(html);
-	document.getElementById("text").innerHTML = html;
-	}).catch(err => {
-	console.log('☆');
-	console.log(err);
-});
-		
-		
+
 	function clickBtn(){;
 		aaa().then(result => {		
-			//makeTable(result);
+			makeTable(result);
 		}).catch(err => {
 			console.log('☆');
 			console.log(err);
