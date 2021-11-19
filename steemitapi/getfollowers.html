@@ -56,7 +56,15 @@ aaa().then(result => {
 });
 		
 		
-		
+	function clickBtn(){;
+		aaa().then(result => {		
+			makeTable(result);
+		}).catch(err => {
+			console.log('☆');
+			console.log(err);
+		});
+	}
+
 		
         </script>
         
