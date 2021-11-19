@@ -77,6 +77,7 @@ steem.api.getDiscussionsByCreated(query, function(err, result) {
 });
 */
 
+	/*
 steem.api.getBlog("yasu", 0, 3, function(err, data) {
 	console.log(err, data);
 });
@@ -88,8 +89,13 @@ steem.api.getBlogAuthors("yasu", function(err, data) {
 steem.api.getBlogEntries("yasu", 0, 3, function(err, data) {
 	console.log(err, data);
 });
+	*/
+	
+steem.api.getFollowers('yasu', '', 'blog', 2, function(err, result) {
+  console.log(err, result);
+});
 	
 </script>
-1.32
+1.33
   </body>
 </html>
