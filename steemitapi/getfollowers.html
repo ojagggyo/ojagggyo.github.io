@@ -26,7 +26,7 @@
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].follower + '</td>';
-		html = html + '<td>' + records[i].reputation + '</td>';
+		html = html + '<td>' + records[i].reputation.toFixed(2) + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
