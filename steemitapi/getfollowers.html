@@ -27,7 +27,7 @@
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].follower + '</td>';
 		html = html + '<td align=right>' + records[i].reputation.toFixed(2) + '</td>';
-		html = html + '<td align=right>' + steem.formatter.estimateAccountValue(account)(records[i].follower) + '</td>';
+		html = html + '<td align=right>' + steem.formatter.estimateAccountValue(records[i].follower) + '</td>';
 		
 		html = html + '</tr>';
 	}
