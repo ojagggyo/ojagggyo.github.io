@@ -17,7 +17,7 @@ function makeTable(records){
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>follower</th><th>reputation</th>';
+	html = html + '<th></th><th>follower</th><th><a href=javascript:clickTableHeader();>reputation</a></th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
