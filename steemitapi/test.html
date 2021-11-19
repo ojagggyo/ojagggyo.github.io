@@ -91,6 +91,7 @@ steem.api.getBlogEntries("yasu", 0, 3, function(err, data) {
 });
 	*/
 	
+	/*
 steem.api.getFollowers('yasu', '', 'blog', 2, function(err, result) {
   console.log(err, result);
 });
@@ -101,6 +102,18 @@ steem.api.getAccounts(["yasu"], function(e1, accounts){
         .catch(function (err) { console.log(err); })
         .then(function (data) { console.log(data); });
  });
+ */
+	
+	const start = performance.now();//計測用
+	let a = ""
+	for(var i~;0;i<1000;i++){
+		a = a+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+	}
+	const end = performance.now();//計測用
+  	console.log(end - start);//計測用
+	
+	
+	
 	
 </script>
 1.35
