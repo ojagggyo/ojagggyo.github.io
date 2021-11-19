@@ -10,7 +10,7 @@
             		
 function clickTableHeader(){
 	if(_stok.length < 2) return;
-	(parseFloat(_stok[0].accountValueInUSD) > parseFloat(_stok[_stok.length - 1].accountValueInUSD)) ? k = -1 : ; k = 1;
+	(_stok[0].accountValueInUSD > _stok[_stok.length - 1].accountValueInUSD) ? k = -1 : k = 1;
 	_stok = _stok.sort(function(a,b){
 		if(parseFloat(a.effective_sp) < parseFloat(b.effective_sp)) return k;
 		if(parseFloat(a.effective_sp) > parseFloat(b.effective_sp)) return -k;
@@ -30,7 +30,7 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + records[i].accountValueInUSD + '</a></td>';
+		html = html + '<td align=right>' + records[i].accountValueInUSD + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
