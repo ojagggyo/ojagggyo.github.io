@@ -20,12 +20,13 @@
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>follower</th>';
+	html = html + '<th></th><th>follower</th><th>reputation</th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].follower + '</td>';
+		html = html + '<td>' + records[i].reputation + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
