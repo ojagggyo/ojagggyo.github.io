@@ -52,7 +52,7 @@ function clickTableHeader(){
 	makeTable(_stok);
 }
 
-function clickBtn(){;
+function clickBtn(){
 	aaa().then(result => {		
 		makeTable(result);
 		_stok = result;
