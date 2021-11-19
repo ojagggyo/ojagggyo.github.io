@@ -39,13 +39,13 @@ function makeTable(records){
 
 async function aaa(usernames){
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
-	let progress = document.getElementById("progress");
+	//let progress = document.getElementById("progress");
 	let items = [];
 	let accounts = await steem.api.getAccountsAsync(usernames)
 	console.log(accounts);
 	for(var i=0;i<accounts.length;i=i+1){
-		//document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + accounts.length;
-		progress.innerText = ' ' + (i + 1) + ' / ' + accounts.length;
+		document.getElementById("progress").innerText = ' ' + (i + 1) + ' / ' + accounts.length;
+		//progress.innerText = ' ' + (i + 1) + ' / ' + accounts.length;
 		let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]);
 		let item = {};
 		item['name'] = accounts[i].name;
