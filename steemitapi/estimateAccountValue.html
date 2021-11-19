@@ -45,7 +45,7 @@ async function aaa(usernames){
 	  let accountValueInUSD = await steem.formatter.estimateAccountValue(accounts[i]);
 	  let item = {};
 	  item['name'] = accounts[i].name;
-	  item['accountValueInUSD'] = accountValueInUSD;
+	  item['accountValueInUSD'] = parseFloat(accountValueInUSD);
 	  items.push(item);
   }
   return items;
