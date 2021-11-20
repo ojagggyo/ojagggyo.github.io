@@ -13,9 +13,10 @@ async function aaa(usernames){
       let ret = await steem.api.getWithdrawRoutesAsync(usernames[i],1);
 	    console.log(ret);
 	  let item = {};
-	  item['name'] = usernames[i];
-	  //item['voting_power'] = vp / 100;
-	  //item['last_vote_time'] = donokuraimae(accounts[i].last_vote_time);
+	  item['from_account'] = ret.from_account;
+	  item['to_account'] = ret.to_account;
+	  item['percent'] = ret.percent;
+	  item['auto_vest'] = ret.auto_vest;
 	  items.push(item);
   }
   return items;
@@ -32,22 +33,6 @@ function clickBtn(){
 		console.log(err);
 	});
 }
-
-            /*
-function clickTableHeader(){
-	if(_stok.length < 2) return;
-	if(parseFloat(_stok[0].voting_power) > parseFloat(_stok[_stok.length - 1].voting_power)) {
-		k = -1;
-	}else{
-		k = 1;
-	}
-	_stok = _stok.sort(function(a,b){
-		if(a.voting_power < b.voting_power) return k;
-		if(a.voting_power > b.voting_power) return -k;
-		return 0;
-	});
-	makeTable(_stok);
-}*/
 	
 function makeTable(records){
 	console.log('☆records☆');
@@ -55,14 +40,14 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();></a></th><th></th>';
+	html = html + '<th>from_account</th><th>to_account</th><th>percent</th><th>auto_vest</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
-		html = html + '<td>' + records[i].name + '</td>';//
-		html = html + '<td align=right>' + '/a></td>';
-		html = html + '<td align=right>' + '</a></td>';
-		
+		html = html + '<td>' + records[i].from_account + '</td>';//
+		html = html + '<td>' + records[i].to_account + '/a></td>';
+		html = html + '<td align=right>' + records[i].percent + '</a></td>';
+		html = html + '<td>' + records[i].auto_vest + '</a></td>';
 		
 	}
 	html = html + '</table>';
