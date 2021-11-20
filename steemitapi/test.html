@@ -134,8 +134,11 @@ steem.api.getAccountHistory(accounts[0], accounts[0], 1, function(err, result) {
 });
  });
 	
+	steem.api.getAccountVotes("yasu", function(err, result) {
+  console.log(err, result);
+});
 	
 </script>
-1.38
+1.39
   </body>
 </html>
