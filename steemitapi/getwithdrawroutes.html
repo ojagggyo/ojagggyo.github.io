@@ -12,12 +12,25 @@ async function aaa(usernames){
   for(var i=0;i<usernames.length;i=i+1){
       let ret = await steem.api.getWithdrawRoutesAsync(usernames[i],1);
 	    console.log(ret);
-	  let item = {};
-	  item['from_account'] = ret.from_account;
-	  item['to_account'] = ret.to_account;
-	  item['percent'] = ret.percent;
-	  item['auto_vest'] = ret.auto_vest;
-	  items.push(item);
+	  if(ret.length > 0){
+		for(var j=0;j<ret.length;j=j+1){
+			let item = {};
+			item['from_account'] = ret[j].from_account;
+			item['to_account'] = ret[j].to_account;
+			item['percent'] = ret[j].percent;
+			item['auto_vest'] = ret[j].auto_vest;
+			items.push(item);
+	 	}
+	  }else{
+		  	let item = {};
+			item['from_account'] = usernames[i];
+			item['to_account'] = "";
+			item['percent'] = "";
+			item['auto_vest'] = "";
+			items.push(item);
+	  }
+	 
+
   }
   return items;
 }
