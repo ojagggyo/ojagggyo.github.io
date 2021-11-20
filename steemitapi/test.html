@@ -126,6 +126,10 @@ steem.api.getConversionRequests("yasu", function(err, result) {
   console.log(err, result);
 });
 	
+
+steem.api.getAccountHistory("yasu", "", 10, function(err, result) {
+  console.log(err, result);
+});
 	
 	
 </script>
