@@ -10,7 +10,7 @@
 async function aaa(usernames){
   let items = [];
   for(var i=0;i<usernames.length;i=i+1){
-      let ret = await steem.api.getWithdrawRoutesAsync(usernames[i],1);
+      let ret = await steem.api.getWithdrawRoutesAsync(usernames[i],0);
 	    console.log(ret);
 	  if(ret.length > 0){
 		for(var j=0;j<ret.length;j=j+1){
@@ -75,7 +75,9 @@ let _stok ;
     <body>        
         <p>アカウント名を入力してください。</p>
         <textarea id="text1" rows="10" cols="20">yasu
-japansteemit</textarea>
+japansteemit
+blocktrades
+gtg</textarea>
         <br/>
         <input type="button" value="出金ルートを表示する" onclick="clickBtn()" /><a id="progress"></a>
         <span id="text"></span>
