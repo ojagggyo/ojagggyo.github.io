@@ -14,6 +14,7 @@ async function aaa(usernames){
   console.log(accounts);
   for(var i=0;i<accounts.length;i=i+1){
       let ret = await steem.api.getWithdrawRoutesAsync(accounts[i],1);
+	    console.log(ret);
 	  let item = {};
 	  item['name'] = accounts[i].name;
 	  //item['voting_power'] = vp / 100;
