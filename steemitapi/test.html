@@ -129,7 +129,7 @@ steem.api.getConversionRequests("yasu", function(err, result) {
 
 
 steem.api.getAccounts(["yasu"], function(e1, accounts){ 
-steem.api.getAccountHistory(accounts[0], "", 10, function(err, result) {
+steem.api.getAccountHistory(accounts[0], accounts[0], 10, function(err, result) {
   console.log(err, result);
 });
  });
