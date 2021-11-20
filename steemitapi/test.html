@@ -103,7 +103,7 @@ steem.api.getAccounts(["yasu"], function(e1, accounts){
         .then(function (data) { console.log(data); });
  });
  */
-	
+	/*
 	const start = performance.now();//計測用
 	let a = ""
 	for(var i=0;i<1000;i++){
@@ -120,9 +120,15 @@ steem.api.getAccounts(["yasu"], function(e1, accounts){
 	var result = b.join();
 	const end2 = performance.now();//計測用
   	console.log(end2 - start2);//計測用
+	*/
+	
+steem.api.getConversionRequests("yasu", function(err, result) {
+  console.log(err, result);
+});
+	
 	
 	
 </script>
-1.35
+1.36
   </body>
 </html>
