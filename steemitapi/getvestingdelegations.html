@@ -27,7 +27,7 @@ function makeTable(records){
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].delegatee + '</td>';
 		html = html + '<td>' + records[i].min_delegation_time + '</td>';
-		html = html + '<td align=right>' + records[i].vesting_shares.toFixed(2) + '</td>';		
+		html = html + '<td align=right>' + records[i].vesting_shares + '</td>';		
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
