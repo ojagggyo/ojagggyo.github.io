@@ -58,7 +58,7 @@ function makeTable(records){
 	let html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();>effective sp</a></th><th>sp</th><th>received sp</th><th>delegated sp</th>';
+	html = html + '<th>name</th><th><a href=javascript:clickTableHeader();>Effective Power</a></th><th>sp</th><th>received sp</th><th>delegated sp</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
