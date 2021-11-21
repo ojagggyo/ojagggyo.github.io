@@ -37,7 +37,7 @@ function makeTable(records){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].delegatee + '</td>';
-		html = html + '<td>' + donokuraimae(records[i].min_delegation_time) + '</td>';
+		html = html + '<td align=right>' + donokuraimae(records[i].min_delegation_time) + '</td>';
 		html = html + '<td align=right>' + records[i].vesting_shares + '</td>';		
 		html = html + '</tr>';
 	}
