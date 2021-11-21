@@ -129,9 +129,11 @@ steem.api.getConversionRequests("yasu", function(err, result) {
 
 
 steem.api.getAccounts(["yasu"], function(e1, accounts){ 
-steem.api.getAccountHistory(accounts[0], accounts[0], 1, function(err, result) {
+steem.api.getAccountHistory(accounts[0], -1, 10, function(err, result) {
   console.log(err, result);
 });
+
+/*
  });
 	
 	steem.api.getAccountVotes("yasu", function(err, result) {
@@ -142,8 +144,13 @@ steem.api.getAccountHistory(accounts[0], accounts[0], 1, function(err, result) {
 	steem.api.getWithdrawRoutes("blocktrades", 1, function(err, data) {
 	console.log(err, data);
 });
+*/	
+	
+	
+	var ret = steem.database.getVestingDelegations("yasu", "", 100);
+console.log(ret);
 	
 </script>
-1.39
+1.40
   </body>
 </html>
