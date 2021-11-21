@@ -65,7 +65,7 @@ async function aaa(){
 	console.log("☆");
 	console.log(out);
 
-	
+	//vestToSteem
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	for(let i=0; i<out.length; i++){
 		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, globalProperties.total_vesting_shares, globalProperties.total_vesting_fund_steem)
@@ -74,16 +74,6 @@ async function aaa(){
 	return out;
 };
 
-/*function clickTableHeader(){
-	if(_stok.length < 2) return;
-	(_stok[0].reputation > _stok[_stok.length - 1].reputation) ? k = -1 : k = 1;
-	_stok = _stok.sort(function(a,b){
-		if(a.reputation < b.reputation) return k;
-		if(a.reputation > b.reputation) return -k;
-		return 0;
-	});
-	makeTable(_stok);
-}*/
 
 function clickBtn(){
 	aaa().then(result => {		
