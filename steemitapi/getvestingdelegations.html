@@ -39,7 +39,7 @@ function makeTable(records){
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].delegatee + '</td>';
 		html = html + '<td align=right>' + donokuraimae(records[i].min_delegation_time) + '</td>';
-		html = html + '<td align=right>' + records[i].sp + '</td>';		
+		html = html + '<td align=right>' + records[i].sp.toFixed(2) + '</td>';		
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
@@ -66,15 +66,9 @@ async function aaa(){
 	console.log(out);
 
 	
-	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-  	console.log(globalProperties);
-	//let totalVestingShares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
-	//let totalVestingFundSteem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
-	let totalVestingShares = globalProperties.total_vesting_shares;
-	let totalVestingFundSteem = globalProperties.total_vesting_fund_steem;
-	//let k = total_vesting_fund_steem / total_vesting_shares;	
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	for(let i=0; i<out.length; i++){
-		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, totalVestingShares, totalVestingFundSteem)
+		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, globalProperties.total_vesting_shares, globalProperties.total_vesting_fund_steem)
 	}
 	
 	return out;
