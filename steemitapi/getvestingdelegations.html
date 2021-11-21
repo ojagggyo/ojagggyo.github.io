@@ -12,6 +12,18 @@
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
+	
+function donokuraimae(date){
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
+}
 		
 function makeTable(records){
 	console.log('☆records☆');
@@ -25,7 +37,7 @@ function makeTable(records){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].delegatee + '</td>';
-		html = html + '<td>' + records[i].min_delegation_time + '</td>';
+		html = html + '<td>' + donokuraimae(records[i].min_delegation_time) + '</td>';
 		html = html + '<td align=right>' + records[i].vesting_shares + '</td>';		
 		html = html + '</tr>';
 	}
