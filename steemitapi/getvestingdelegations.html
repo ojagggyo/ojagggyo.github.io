@@ -72,7 +72,7 @@ async function aaa(){
 	let totalVestingFundSteem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
 	//let k = total_vesting_fund_steem / total_vesting_shares;	
 	for(let i=0; i<out.length; i++){
-		records[i]['sp'] = steem.formatter.vestToSteem(records[i].vesting_shares, totalVestingShares, totalVestingFundSteem)
+		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, totalVestingShares, totalVestingFundSteem)
 	}
 	
 	return out;
