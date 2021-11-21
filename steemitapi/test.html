@@ -147,7 +147,7 @@ steem.api.getAccountHistory(accounts[0], -1, 10, function(err, result) {
 */	
 	
 	
-	var ret = steem.database.getVestingDelegations("yasu", "", 100);
+	var ret = steem.api.getVestingDelegations("yasu", "", 100);
 console.log(ret);
 	
 </script>
