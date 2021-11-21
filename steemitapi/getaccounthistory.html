@@ -53,7 +53,7 @@ async function aaa(){
 	let lastlength = limit;
 	let lastValue = -1;
 	let author = document.getElementById("text1").value;
-	while (lastlength == limit){
+	while (lastlength == limit || lastlength == limit+1){
 		if (out.length > 0) limit = 10 + 1;
 		let ret = await steem.api.getAccountHistoryAsync(author, lastValue, limit);
 		console.log(ret);		
