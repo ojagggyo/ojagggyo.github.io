@@ -58,7 +58,7 @@ async function aaa(){
 		let ret = await steem.api.getAccountHistoryAsync(author, lastValue, limit);
 		console.log(ret);		
 		lastlength = ret.length;
-		lastValue = ret[ret.length - 1].delegatee;
+		lastValue = ret[ret.length - 1][0];
 		out.pop();
 		out = out.concat(ret);
 	}
