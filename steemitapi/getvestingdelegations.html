@@ -8,72 +8,74 @@
       
 <script>
 
+	
+//teem.api.getVestingDelegations(account, from, limit, function(err, result) {
+//console.log(err, result);
+
+steem.api.setOptions({url: 'https://api.steemit.com'})
+let _stok;
+		
+function makeTable(records){
+	console.log('☆records☆');
+	console.log(records);
+	html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	//html = html + '<th></th><th>follower</th><th><a href=javascript:clickTableHeader();>reputation</a></th>';
+	html = html + '<th></th>';
+	html = html + '</tr>';
+	for(var i=0;i<records.length;i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=right>' + (i+1) + '</td>';
+		//html = html + '<td>' + records[i].follower + '</td>';
+		//html = html + '<td align=right>' + records[i].reputation.toFixed(2) + '</td>';		
+		html = html + '</tr>';
+	}
+	html = html + '</table>';
+	console.log(html);
+	document.getElementById("text").innerHTML = html;
+}
+		
 async function aaa(){
-	
-	steem.api.getVestingDelegations(account, from, limit, function(err, result) {
-  console.log(err, result);
-});
-	
-	let blogs = [];
-	let total = 0;
-	let ret;
-	let limit = 100;
-	let entry_id = 0;
-	let author = document.getElementById("text1").value
-	document.getElementById("text").innerHTML = '<tabel></tabel>';
-	if(entry_id == 0){
-		ret = await steem.api.getBlogAsync(author, entry_id, 1);
-		entry_id = ret[0].entry_id;
-		total = entry_id + 1;
-		document.getElementById("progress").innerText = ' 0 / ' + total;
+	let out = [];
+	let limit = 2;
+	let lastlength = limit;
+	let lastFrom = "";
+	let author = document.getElementById("text1").value;
+	while (lastlength == limit){
+		if (out.length > 0) limit = 2 + 1;
+		let ret = await steem.api.getVestingDelegationsAsync(author, lastFrom, limit);
+		console.log(ret);
+		lastlength = ret.length;
+		lastFrom = ret[ret.length - 1].from;
+		out.pop();
+		out = out.concat(ret);
 	}
-	
-	while (entry_id != 0){
-		if(blogs.length > 0){
-			limit = 101;
-		}
-		if(entry_id + 1 < limit){
-			limit = entry_id + 1;
-		}
-		ret = await steem.api.getBlogAsync(author, entry_id, limit);
-		entry_id = ret[ret.length - 1].entry_id;
-		blogs.pop();
-		blogs = blogs.concat(ret);
-		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
-	}
-	return blogs;
+	console.log("☆");
+	console.log(out);
+	return out;
 };
 
-function clickBtn(){;
+/*function clickTableHeader(){
+	if(_stok.length < 2) return;
+	(_stok[0].reputation > _stok[_stok.length - 1].reputation) ? k = -1 : k = 1;
+	_stok = _stok.sort(function(a,b){
+		if(a.reputation < b.reputation) return k;
+		if(a.reputation > b.reputation) return -k;
+		return 0;
+	});
+	makeTable(_stok);
+}*/
+
+function clickBtn(){
 	aaa().then(result => {		
 		makeTable(result);
+		_stok = result;
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
 	});
-}
-	
-function makeTable(records){
-	console.log('☆records☆');
-	console.log(records);
-	let html = '<table border=1 >';
-	//テーブルのヘッダー
-	html = html + '<tr>';
-	html = html + '<th>entry id</th><th>author</th><th>created</th><th>title</th>';
-	html = html + '</tr>';
-	for(let i=0; i<records.length; i=i+1){
-		html = html + '<tr>';
-		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
-		//html = html + '<td>' + records[i].blog + '</td>';
-		//html = html + '<td>' + donokuraimae(records[i].comment.created) + '</td>';
-		//html = html + '<td><a href=https://steemit.com'+records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
-	}
-	html = html + '</table>';
-	document.getElementById("text").innerHTML = html;
-}
-
-steem.api.setOptions({url: 'https://api.steemit.com'})
-  
+}  
       
 </script>
       
