@@ -7,10 +7,10 @@
         <!-- <script src="https://ojagggyo.github.io/steemitapi/getwithdrawroutes.js"></script> -->
         <script>
 
-async function aaa(usernames){
+async function aaa(usernames,withdrawRouteType){
   let items = [];
   for(var i=0;i<usernames.length;i=i+1){
-      let ret = await steem.api.getWithdrawRoutesAsync(usernames[i],0);
+      let ret = await steem.api.getWithdrawRoutesAsync(usernames[i], withdrawRouteType);
 	    console.log(ret);
 	  if(ret.length > 0){
 		for(var j=0;j<ret.length;j=j+1){
@@ -35,10 +35,10 @@ async function aaa(usernames){
   return items;
 }
 
-function clickBtn(){
+function clickBtn(withdrawRouteType){
 	let t1 = document.getElementById("text1").value;
 	let usernames = t1.split(/\n/);//改行で分割する
-	aaa(usernames).then(result => {	
+	aaa(usernames,withdrawRouteType).then(result => {	
 		_stok = result;
 		makeTable(result);
 	}).catch(err => {
@@ -79,7 +79,9 @@ japansteemit
 blocktrades
 gtg</textarea>
         <br/>
-        <input type="button" value="出金ルートを表示する" onclick="clickBtn()" /><a id="progress"></a>
+        <input type="button" value="出金ルートを表示する Outgoting Routes" onclick="clickBtn(1)" />
+	<input type="button" value="出金ルートを表示する Incoming Routes" onclick="clickBtn(0)" />
+	    <a id="progress"></a>
         <span id="text"></span>
 	    
 	    <br/>withdrawRouteType 0:Incoming routes 1:Outgoing Routes 2: Both
