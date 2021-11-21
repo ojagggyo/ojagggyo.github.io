@@ -40,7 +40,7 @@ async function aaa(){
 	let author = document.getElementById("text1").value;
 	while (lastlength == limit){
 		if (out.length > 0) limit = 2 + 1;
-		let ret = await steem.api.getVestingDelegationsAsync(author, lastFrom, limit);
+		let ret = await steem.api.getVestingDelegationsAsync(author, lastDelegatee, limit);
 		console.log(ret);
 		lastlength = ret.length;
 		lastDelegatee = ret[ret.length - 1].delegatee;
