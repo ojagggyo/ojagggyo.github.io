@@ -68,8 +68,10 @@ async function aaa(){
 	
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
   	console.log(globalProperties);
-	let totalVestingShares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
-	let totalVestingFundSteem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+	//let totalVestingShares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+	//let totalVestingFundSteem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+	let totalVestingShares = globalProperties.total_vesting_shares;
+	let totalVestingFundSteem = globalProperties.total_vesting_fund_steem;
 	//let k = total_vesting_fund_steem / total_vesting_shares;	
 	for(let i=0; i<out.length; i++){
 		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, totalVestingShares, totalVestingFundSteem)
