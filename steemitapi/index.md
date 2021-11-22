@@ -1,7 +1,8 @@
 * [推定アカウント価格を表示する](https://ojagggyo.github.io/steemitapi/estimateAccountValue.html)
 * [出金ルートを表示する](https://ojagggyo.github.io/steemitapi/getwithdrawroutes.html)
 * [デリゲート先を表示する](https://ojagggyo.github.io/steemitapi/getvestingdelegations.html)
-* [アカウントヒストリー先を表示する](https://ojagggyo.github.io/steemitapi/getaccounthistory.html)
+* [アカウントヒストリーを表示する](https://ojagggyo.github.io/steemitapi/getaccounthistory.html)
+ 
 ---
 * [フォローワを表示する](https://ojagggyo.github.io/steemitapi/getfollowers.html)
 * [プロフィールのロケーションを表示する](https://ojagggyo.github.io/steemitapi/profile_location.html)
