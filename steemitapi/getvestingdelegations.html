@@ -54,7 +54,8 @@ async function aaa(){
 	while (lastlength == limit){
 		if (out.length > 0) limit = 2 + 1;
 		let ret = await steem.api.getVestingDelegationsAsync(author, lastDelegatee, limit);
-		console.log(ret);		
+		console.log(ret);
+		if(ret.length == 0) break;
 		lastlength = ret.length;
 		lastDelegatee = ret[ret.length - 1].delegatee;
 		out.pop();
