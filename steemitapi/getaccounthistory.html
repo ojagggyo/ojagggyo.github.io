@@ -36,9 +36,9 @@ function makeTable(records){
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td>' + records[i].delegatee + '</td>';
-		html = html + '<td align=right>' + donokuraimae(records[i].min_delegation_time) + '</td>';
-		html = html + '<td align=right>' + records[i].sp.toFixed(2) + '</td>';		
+		html = html + '<td>' + records[i][0] + '</td>';
+		//html = html + '<td align=right>' + donokuraimae(records[i].min_delegation_time) + '</td>';
+		//html = html + '<td align=right>' + records[i].sp.toFixed(2) + '</td>';		
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
@@ -77,7 +77,7 @@ async function aaa(){
 
 function clickBtn(){
 	aaa().then(result => {		
-		//makeTable(result);
+		makeTable(result);
 		//_stok = result;
 	}).catch(err => {
 		console.log('☆');
