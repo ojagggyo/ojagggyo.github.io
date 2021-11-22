@@ -51,25 +51,26 @@ async function aaa(){
 	let out = [];
 	let limit = 10;
 	let lastlength = limit;
-	let lastValue = -1;
+	let firstValue = -1;
 	let author = document.getElementById("text1").value;
 	while (lastlength == limit || lastlength == limit+1){
 		if (out.length > 0) limit = 10 + 1;
-		let ret = await steem.api.getAccountHistoryAsync(author, lastValue, limit);
+		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
 		console.log(ret);		
 		lastlength = ret.length;
-		lastValue = ret[ret.length - 1][0];
-		out.pop();
-		out = out.concat(ret);
+		firstValue = ret[0][0];
+		//out.pop();
+		//out = out.concat(ret);
+		out.unshift();ret
 	}
 	console.log("☆");
 	console.log(out);
 
-	//vestToSteem
-	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
-	for(let i=0; i<out.length; i++){
-		out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, globalProperties.total_vesting_shares, globalProperties.total_vesting_fund_steem)
-	}
+	////vestToSteem
+	//let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
+	//for(let i=0; i<out.length; i++){
+	//	out[i]['sp'] = steem.formatter.vestToSteem(out[i].vesting_shares, globalProperties.total_vesting_shares, globalProperties.total_vesting_fund_steem)
+	//}
 	
 	return out;
 };
