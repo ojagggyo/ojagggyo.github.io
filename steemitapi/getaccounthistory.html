@@ -33,7 +33,8 @@ function makeTable(records){
 	html = html + '<tr>';
 	html = html + '<th></th><th>no</th><th>op</th><th>timestamp</th>';
 	html = html + '</tr>';
-	for(var i=0;i<records.length;i=i+1){
+	//for(var i=0;i<records.length;i=i+1){
+	for(var i=records.length-1;i>=0;i=i-1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i][0] + '</td>';
