@@ -70,7 +70,7 @@ async function aaa(){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
 			if(ret[i][1].op[1].benefactor != "japansteemit"){ret.splice(i,1);continue;}
 			
-			_payout[ret[i][1].op[1].author]['sbd_payout'] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
+			_payout[ret[i][1].op[1].author] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			
 			
 			//records[i][1].vesting_payout
