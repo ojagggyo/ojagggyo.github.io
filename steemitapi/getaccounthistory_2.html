@@ -56,18 +56,19 @@ async function aaa(){
 	let firstValue = -1;
   let firstTimestamp = new Date();
 	let author = document.getElementById("text1").value;
-	while (lastlength == limit && out.length < 100){
+	while (lastlength == limit && firstTimestamp + new Date() < 86400000){
 		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
 		console.log(ret);		
 		firstValue = ret[0][0];
-    firstTimestamp = new Date(ret[0][1].timestamp);
+    		firstTimestamp = new Date(ret[0][1].timestamp);
+		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
 		ret.shift();
 		lastlength = ret.length;
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){
-        ret.splice(i,1);
-      }
+			ret.splice(i,1);
+		      }
 		}
 		
 		out = ret.concat(out);
