@@ -23,12 +23,12 @@ function makeTable(records){
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>name</th><th>sbd_payout</th><th>sp_payout</th><th>count</th>';
+	html = html + '<th></th><th>author</th><th>sbd_payout</th><th>sp_payout</th><th>count</th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td>' + records[i].name + '</td>';
+		html = html + '<td>' + records[i].author + '</td>';
 		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
 		html = html + '<td align=right>' + records[i].sp.toFixed(3) + '</td>';
 		html = html + '<td align=right>' + records[i].count + '</td>';
@@ -111,7 +111,7 @@ async function aaa(days){
 	Object.keys(_sbd_payout).forEach(function (key) {
 	  	//console.log(key + " " + _sbd_payout[key] );
 		let payout = {};
-		payout['name'] = key;
+		payout['author'] = key;
 		payout['sbd_payout'] = _sbd_payout[key];
 		payout['vesting_payout'] = _vesting_payout[key];
 		payout['count'] = _sbd_payout_count[key];
