@@ -62,7 +62,7 @@ async function aaa(){
 		
 		document.getElementById("progress").innerText = firstTimestamp;
 		console.log(firstTimestamp);
-		console.log(now - firstTimestamp);
+		console.log(firstTimestamp + 86400000 * 7 - now);
 		
 		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
 		console.log(ret);		
