@@ -55,10 +55,10 @@ async function aaa(){
 	let limit = 1000;
 	let lastlength = limit;
 	let firstValue = -1;
-  	let firstTimestamp = new Date().getTime();
+  	let firstTimestamp = new Date();
 	let benefactor = document.getElementById("text1").value;
-	let now = new Date().getTime();
-	while (lastlength == limit && now - firstTimestamp <= (86400000 * 7)){
+	let now = new Date();
+	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * 7)){
 		
 		document.getElementById("progress").innerText = firstTimestamp;
 		console.log(firstTimestamp);
@@ -75,7 +75,7 @@ async function aaa(){
 		for(var i=ret.length-1;i>=0;i=i-1){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
 			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
-			if(now - (ret[i][1].timestamp.getTime() + 3600000 * 9) > (86400000 * 7)){
+			if(now.getTime() - (ret[i][1].timestamp.getTime() + 3600000 * 9) > (86400000 * 7)){
 				ret.splice(i,1);
 				continue;
 			}
