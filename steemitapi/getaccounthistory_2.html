@@ -77,8 +77,8 @@ async function aaa(){
 			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * 7)){
 				//ret.splice(i,1);
-				ret.splice(i, i + 1);
-				continue;
+				ret.splice(0, i + 1);
+				break;
 			}
 					
 			let author = ret[i][1].op[1].author;
