@@ -93,12 +93,17 @@ async function aaa(){
 				_sbd_payout_count[author] += 1;
 				_vesting_payout[author] += vesting_payout;
 			}
+			
+			
+			let timestamp = new Date(ret[i][1].timestamp);
+			timestamp.setHours(timestamp.getHours() + 9);
+			document.getElementById("progress").innerText = timestamp;
 		}
 		
 		out = ret.concat(out);
 		
-		let timestamp = new Date(ret[ret.length-1][1].timestamp);
-		timestamp.setHours(timestamp.getHours() + 9);
+		//let timestamp = new Date(ret[ret.length-1][1].timestamp);
+		//timestamp.setHours(timestamp.getHours() + 9);
 		document.getElementById("progress").innerText = timestamp;
 	}
 	
