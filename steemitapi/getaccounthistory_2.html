@@ -76,9 +76,9 @@ async function aaa(){
 			let author = _sbd_payout[ret[i][1].op[1].author];
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			if(author === void 0){
-				_sbd_payout[ret[i][1].op[1].author] = sbd_payout;	
+				author = sbd_payout;	
 			}else{
-				_sbd_payout[ret[i][1].op[1].author] += sbd_payout;			
+				author += sbd_payout;			
 			}
 		
 			/*
