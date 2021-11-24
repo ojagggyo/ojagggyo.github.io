@@ -148,8 +148,8 @@ function clickBtn(days){
 		makeTable(_payout);
 		//_stok = result;
 	}).catch(err => {
-		console.log('☆');
 		console.log(err);
+		document.getElementById("progress").innerText = err;
 	});
 }  
       
