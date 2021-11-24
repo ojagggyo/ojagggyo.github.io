@@ -19,8 +19,7 @@ _payout = [];
 		
 function makeTable(records){
 
-	console.log('☆records☆');
-	console.log(records);
+	//console.log(records);
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
@@ -37,7 +36,7 @@ function makeTable(records){
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
-	console.log(html);
+	//console.log(html);
 	document.getElementById("text").innerHTML = html;
 }
 
@@ -100,7 +99,7 @@ async function aaa(){
 	
 	
 	Object.keys(_sbd_payout).forEach(function (key) {
-	  	console.log(key + " " + _sbd_payout[key] );
+	  	//console.log(key + " " + _sbd_payout[key] );
 		let payout = {};
 		payout['name'] = key;
 		payout['sbd_payout'] = _sbd_payout[key];
@@ -127,9 +126,7 @@ async function aaa(){
 		});
 	}
 	
-	console.log("☆");
-	console.log(out);
-	
+	//console.log(out);
 	return out;
 };
 
