@@ -64,7 +64,7 @@ async function aaa(){
 		console.log(firstTimestamp);
 		
 		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
-		console.log(ret);		
+		//console.log(ret);		
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
 		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
