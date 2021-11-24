@@ -10,7 +10,7 @@
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
-//let _payout = [];
+
 
 	_sbd_payout = {};
 	
@@ -72,7 +72,7 @@ async function aaa(){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
 			if(ret[i][1].op[1].benefactor != "japansteemit"){ret.splice(i,1);continue;}
 		
-		/*
+		
 			let author = _sbd_payout[ret[i][1].op[1].author];
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			if(author === void 0){
@@ -80,7 +80,7 @@ async function aaa(){
 			}else{
 				_sbd_payout += sbd_payout;			
 			}
-		*/
+		
 			/*
 			let payout = {};
 			payout['name'] = ret[i][1].op[1].author;
