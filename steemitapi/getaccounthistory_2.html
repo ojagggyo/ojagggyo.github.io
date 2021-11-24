@@ -28,6 +28,12 @@ function donokuraimae(date){
 		
 function makeTable(records){
 
+	Object.keys(_sbd_payout).forEach(function (key) {
+	  console.log(key + " " + _sbd_payout[key] );
+	});
+	
+	
+	
 	console.log('☆records☆');
 	console.log(records);
 	html = '<table border=1 >';
