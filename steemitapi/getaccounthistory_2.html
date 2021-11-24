@@ -38,7 +38,7 @@ function makeTable(records){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].name + '</td>';
-		html = html + '<td align=right>' + records[i].sbd_payout + '</td>';
+		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
 
 		html = html + '</tr>';
 	}
