@@ -52,7 +52,7 @@ async function aaa(){
 	
 	
 	let out = [];
-	let limit = 1000;
+	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
   	let firstTimestamp = new Date();
@@ -76,9 +76,10 @@ async function aaa(){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
 			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * 7)){
-				//ret.splice(i,1);
-				ret.splice(0, i + 1);//残りの要素を削除
-				break;//すべて処理済
+				ret.splice(i,1);
+				continue;
+				//ret.splice(0, i + 1);//残りの要素を削除
+				//break;//すべて処理済
 			}
 					
 			let author = ret[i][1].op[1].author;
