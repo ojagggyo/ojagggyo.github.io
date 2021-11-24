@@ -60,8 +60,8 @@ async function aaa(){
 	let now = new Date();
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * 7)){
 		
-		document.getElementById("progress").innerText = firstTimestamp;
-		console.log(firstTimestamp);
+		//document.getElementById("progress").innerText = firstTimestamp;
+		//console.log(firstTimestamp);
 		
 		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
 		//console.log(ret);		
