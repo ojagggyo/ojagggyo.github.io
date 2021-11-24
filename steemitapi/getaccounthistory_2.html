@@ -81,7 +81,7 @@ async function aaa(){
 			}
 		*/
 			let payout = {};
-			payout['name'] = _payout[ret[i][1].op[1].author];
+			payout['name'] = ret[i][1].op[1].author;
 			payout['sbd_payout'] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			
 			_payout.push(payout);
