@@ -11,6 +11,7 @@
 steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
 _sbd_payout = {};
+_sbd_payout_count = {};
 _payout = [];
 	
 
@@ -22,13 +23,14 @@ function makeTable(records){
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>name</th><th>sbd_payout</th>';
+	html = html + '<th></th><th>name</th><th>sbd_payout</th><th>count</th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].name + '</td>';
 		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
+		html = html + '<td align=right>' + _sbd_payout_count[records[i].name] + '</td>';
 
 		html = html + '</tr>';
 	}
@@ -46,7 +48,7 @@ async function aaa(){
 	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
-  let firstTimestamp = new Date();
+  	let firstTimestamp = new Date();
 	let benefactor = document.getElementById("text1").value;
 	while (lastlength == limit && new Date() - firstTimestamp < 86400000 * 7){
 		
@@ -69,9 +71,11 @@ async function aaa(){
 			let author = ret[i][1].op[1].author;
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			if(_sbd_payout[author] === void 0){
-				_sbd_payout[author] = sbd_payout;	
+				_sbd_payout[author] = sbd_payout;
+				_sbd_payout_count[author] = 1;
 			}else{
-				_sbd_payout[author] += sbd_payout;			
+				_sbd_payout[author] += sbd_payout;
+				_sbd_payout_count[author] += 1;
 			}
 		}
 		
@@ -79,8 +83,8 @@ async function aaa(){
 	}
 	
 	
-		Object.keys(_sbd_payout).forEach(function (key) {
-	  console.log(key + " " + _sbd_payout[key] );
+	Object.keys(_sbd_payout).forEach(function (key) {
+	  	console.log(key + " " + _sbd_payout[key] );
 		
 		let payout = {};
 		payout['name'] = key;
