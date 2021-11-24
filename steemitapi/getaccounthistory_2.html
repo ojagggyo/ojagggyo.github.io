@@ -105,7 +105,14 @@ async function aaa(){
 		_payout.push(payout);
 	});
 	
-	
+	//vestToSteem
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
+	for(let i=0; i<_payout.length; i++){
+		_payout[i]['vesting_payout'] = steem.formatter.vestToSteem(
+			_payout[i].vesting_payout, 
+			globalProperties.total_vesting_shares, 
+			globalProperties.total_vesting_fund_steem)
+	}
 	
 	
 	if(_payout.length > 1) {
