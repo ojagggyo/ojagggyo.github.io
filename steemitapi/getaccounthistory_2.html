@@ -53,7 +53,7 @@ async function aaa(){
 	
 	
 	let out = [];
-	let limit = 100;
+	let limit = 10;
 	let lastlength = limit;
 	let firstValue = -1;
   	let firstTimestamp = new Date();
@@ -80,7 +80,7 @@ async function aaa(){
 			
 			let author = ret[i][1].op[1].author;
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
-			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);//" VEST"を除く
+			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
 			if(_sbd_payout[author] === void 0){
 				_sbd_payout[author] = sbd_payout;
 				_sbd_payout_count[author] = 1;
