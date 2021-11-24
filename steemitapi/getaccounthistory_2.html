@@ -73,12 +73,12 @@ async function aaa(){
 			if(ret[i][1].op[1].benefactor != "japansteemit"){ret.splice(i,1);continue;}
 		
 		
-			let author = _sbd_payout[ret[i][1].op[1].author];
+			let author = ret[i][1].op[1].author;
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
-			if(author === void 0){
-				author = sbd_payout;	
+			if(_sbd_payout[author] === void 0){
+				_sbd_payout[author] = sbd_payout;	
 			}else{
-				author += sbd_payout;			
+				_sbd_payout[author] += sbd_payout;			
 			}
 		
 			/*
