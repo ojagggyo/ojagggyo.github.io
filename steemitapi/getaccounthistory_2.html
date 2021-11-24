@@ -39,6 +39,9 @@ function makeTable(records){
 
 		
 async function aaa(){
+	
+	 document.getElementById("text").innerHTML = '<tabel></tabel>';
+	
 	let out = [];
 	let limit = 10;
 	let lastlength = limit;
@@ -46,6 +49,9 @@ async function aaa(){
   let firstTimestamp = new Date();
 	let benefactor = document.getElementById("text1").value;
 	while (lastlength == limit && new Date() - firstTimestamp < 86400000 * 7){
+		
+		document.getElementById("progress").innerText = firstTimestamp;
+		
 		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
 		console.log(ret);		
 		firstValue = ret[0][0];
