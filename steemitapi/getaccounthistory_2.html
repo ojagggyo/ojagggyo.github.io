@@ -10,9 +10,9 @@
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
-//let _payout = {};
-let _payout = [];
+//let _payout = [];
 
+	_sbd_payout = {};
 	
 function donokuraimae(date){
 	date1 = new Date(date);
@@ -73,23 +73,23 @@ async function aaa(){
 			if(ret[i][1].op[1].benefactor != "japansteemit"){ret.splice(i,1);continue;}
 		
 		/*
-			let author = _payout[ret[i][1].op[1].author];
+			let author = _sbd_payout[ret[i][1].op[1].author];
+			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
 			if(author === void 0){
-				_payout[ret[i][1].op[1].author] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));	
+				_sbd_payout = sbd_payout;	
 			}else{
-				_payout[ret[i][1].op[1].author] += parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));			
+				_sbd_payout += sbd_payout;			
 			}
 		*/
+			/*
 			let payout = {};
 			payout['name'] = ret[i][1].op[1].author;
 			payout['sbd_payout'] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
-			
 			_payout.push(payout);
-			
 			const name = 'blackcaron';
-const targetUser = _payout.find((v) => v.name === name);
-console.log(targetUser);
-		
+			const targetUser = _payout.find((v) => v.name === name);
+			console.log(targetUser);
+		*/
 		}
 		
 		out = ret.concat(out);
