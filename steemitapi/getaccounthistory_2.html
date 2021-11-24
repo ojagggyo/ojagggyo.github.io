@@ -31,7 +31,7 @@ function makeTable(records){
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].name + '</td>';
 		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
-		html = html + '<td align=right>' + records[i].vesting_payout.toFixed(3) + '</td>';
+		html = html + '<td align=right>' + records[i].vesting_payout + '</td>';
 		html = html + '<td align=right>' + _sbd_payout_count[records[i].name] + '</td>';
 
 		html = html + '</tr>';
@@ -80,7 +80,7 @@ async function aaa(){
 			
 			let author = ret[i][1].op[1].author;
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
-			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout.slice(0,-5));//" VEST"を除く
+			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);//" VEST"を除く
 			if(_sbd_payout[author] === void 0){
 				_sbd_payout[author] = sbd_payout;
 				_vesting_payout[author] = vesting_payout;
