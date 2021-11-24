@@ -10,20 +10,10 @@
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
-	_sbd_payout = {};
+_sbd_payout = {};
 _payout = [];
 	
-function donokuraimae(date){
-	date1 = new Date(date);
-	date1.setHours(date1.getHours() + 9);
-	var now = new Date();
-	sa = now - date1;
-	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
-	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
-	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
-	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
-	return 'たった今';
-}
+
 		
 function makeTable(records){
 
@@ -54,9 +44,9 @@ async function aaa(){
 	let lastlength = limit;
 	let firstValue = -1;
   let firstTimestamp = new Date();
-	let author = document.getElementById("text1").value;
+	let benefactor = document.getElementById("text1").value;
 	while (lastlength == limit && new Date() - firstTimestamp < 86400000 * 7){
-		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
+		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
 		console.log(ret);		
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
@@ -67,7 +57,7 @@ async function aaa(){
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
 			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
-			if(ret[i][1].op[1].benefactor != "japansteemit"){ret.splice(i,1);continue;}
+			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
 		
 		
 			let author = ret[i][1].op[1].author;
@@ -77,16 +67,6 @@ async function aaa(){
 			}else{
 				_sbd_payout[author] += sbd_payout;			
 			}
-		
-			/*
-			let payout = {};
-			payout['name'] = ret[i][1].op[1].author;
-			payout['sbd_payout'] = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));
-			_payout.push(payout);
-			const name = 'blackcaron';
-			const targetUser = _payout.find((v) => v.name === name);
-			console.log(targetUser);
-		*/
 		}
 		
 		out = ret.concat(out);
