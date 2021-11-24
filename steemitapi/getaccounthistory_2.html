@@ -27,43 +27,19 @@ function donokuraimae(date){
 		
 function makeTable(records){
 
-	Object.keys(_sbd_payout).forEach(function (key) {
-	  console.log(key + " " + _sbd_payout[key] );
-		
-		let payout = {};
-		payout['name'] = key;
-		payout['sbd_payout'] = _sbd_payout[key];
-		_payout.push(payout);
-	});
-	
-	
-	
-	
-	if(_payout.length > 1) {
-		_payout = _payout.sort(function(a,b){
-			if(a.sbd_payout < b.sbd_payout) return 1;
-			if(a.sbd_payout > b.sbd_payout) return -1;
-			return 0;
-		});
-	}
-	
-	
-	
 	console.log('☆records☆');
 	console.log(records);
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>no</th><th>op</th><th></th><th>timestamp</th>';
+	html = html + '<th></th><th>name</th><th>sbd_payout</th>';
 	html = html + '</tr>';
-	//for(var i=0;i<records.length;i=i+1){
-	for(var i=records.length-1;i>=0;i=i-1){
+	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td>' + records[i][0] + '</td>';
-		html = html + '<td>' + records[i][1].op[0] + '</td>';
-		html = html + '<td>' + JSON.stringify(records[i][1].op[1]) + '</td>';
-		html = html + '<td align=right>' + donokuraimae(records[i][1].timestamp) + '</td>';		
+		html = html + '<td>' + records[i].name + '</td>';
+		html = html + '<td align=right>' + records[i].sbd_payout + '</td>';
+
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
@@ -115,6 +91,30 @@ async function aaa(){
 		
 		out = ret.concat(out);
 	}
+	
+	
+		Object.keys(_sbd_payout).forEach(function (key) {
+	  console.log(key + " " + _sbd_payout[key] );
+		
+		let payout = {};
+		payout['name'] = key;
+		payout['sbd_payout'] = _sbd_payout[key];
+		_payout.push(payout);
+	});
+	
+	
+	
+	
+	if(_payout.length > 1) {
+		_payout = _payout.sort(function(a,b){
+			if(a.sbd_payout < b.sbd_payout) return 1;
+			if(a.sbd_payout > b.sbd_payout) return -1;
+			return 0;
+		});
+	}
+	
+	
+	
 	console.log("☆");
 	console.log(out);
 	
@@ -125,7 +125,7 @@ async function aaa(){
 
 function clickBtn(){
 	aaa().then(result => {		
-		makeTable(result);
+		makeTable(_payout);
 		//_stok = result;
 	}).catch(err => {
 		console.log('☆');
