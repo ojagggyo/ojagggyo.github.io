@@ -32,7 +32,7 @@ function makeTable(records){
 		html = html + '<td>' + records[i].name + '</td>';
 		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
 		html = html + '<td align=right>' + records[i].vesting_payout + '</td>';
-		html = html + '<td align=right>' + _sbd_payout_count[records[i].name] + '</td>';
+		html = html + '<td align=right>' + records[i].count + '</td>';
 
 		html = html + '</tr>';
 	}
@@ -83,11 +83,12 @@ async function aaa(){
 			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);//" VEST"を除く
 			if(_sbd_payout[author] === void 0){
 				_sbd_payout[author] = sbd_payout;
-				_vesting_payout[author] = vesting_payout;
 				_sbd_payout_count[author] = 1;
+				_vesting_payout[author] = vesting_payout;
 			}else{
 				_sbd_payout[author] += sbd_payout;
 				_sbd_payout_count[author] += 1;
+				_vesting_payout[author] += vesting_payout;
 			}
 		}
 		
@@ -102,13 +103,14 @@ async function aaa(){
 		payout['name'] = key;
 		payout['sbd_payout'] = _sbd_payout[key];
 		payout['vesting_payout'] = _vesting_payout[key];
+		payout['count'] = _sbd_payout_count[key];
 		_payout.push(payout);
 	});
 	
 	//vestToSteem
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	for(let i=0; i<_payout.length; i++){
-		_payout[i]['vesting_payout'] = steem.formatter.vestToSteem(
+		_payout[i]['sp'] = steem.formatter.vestToSteem(
 			_payout[i].vesting_payout, 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
