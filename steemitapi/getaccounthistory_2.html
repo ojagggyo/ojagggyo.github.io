@@ -101,6 +101,7 @@ async function aaa(){
 		let payout = {};
 		payout['name'] = key;
 		payout['sbd_payout'] = _sbd_payout[key];
+		payout['vesting_payout'] = _vesting_payout[key];
 		_payout.push(payout);
 	});
 	
