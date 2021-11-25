@@ -43,7 +43,7 @@ function makeTable(records){
 		sp_payout_total +=  records[i].sp_payout;
 		steem_payout_total +=  records[i].steem_payout;
 		
-		document.getElementById("total").innerText = "Payout total: "+sbd_payout_total+" SBD, "+sp_payout_total+" SP, " + steem_payout_total + " STEEM";
+		document.getElementById("total").innerText = "Payout total: "+sbd_payout_total.toFixed(3)+" SBD, "+sp_payout_total.toFixed(3)+" SP, " + steem_payout_total.toFixed(3) + " STEEM";
 	}
 	html = html + '</table>';
 	//console.log(html);
