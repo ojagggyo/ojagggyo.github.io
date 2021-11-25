@@ -43,7 +43,7 @@ function makeTable(records){
 		sp_payout_total +=  records[i].sp_payout;
 		steem_payout_total +=  steem_payout_total[i].steem_payout;
 		
-		document.getElementById("text").innerText = "Payout total: "+sbd_payout_total+" SBD, "+sp_payout_total+" SP, " + steem_payout_total + " STEEM";
+		document.getElementById("total").innerText = "Payout total: "+sbd_payout_total+" SBD, "+sp_payout_total+" SP, " + steem_payout_total + " STEEM";
 	}
 	html = html + '</table>';
 	//console.log(html);
@@ -176,6 +176,7 @@ function clickBtn(days){
 	<a id="progress"></a>
         <br/>
 	<span id="total"></span>
+	<br/>
         <span id="text"></span>
     </body>
 </html>
