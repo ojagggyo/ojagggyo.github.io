@@ -41,7 +41,7 @@ function makeTable(records){
 		
 		sbd_payout_total +=  records[i].sbd_payout;
 		sp_payout_total +=  records[i].sp_payout;
-		steem_payout_total +=  steem_payout_total[i].steem_payout;
+		steem_payout_total +=  records[i].steem_payout;
 		
 		document.getElementById("total").innerText = "Payout total: "+sbd_payout_total+" SBD, "+sp_payout_total+" SP, " + steem_payout_total + " STEEM";
 	}
