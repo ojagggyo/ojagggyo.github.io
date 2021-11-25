@@ -12,6 +12,7 @@ steem.api.setOptions({url: 'https://api.steemit.com'})
 let _stok;
 _sbd_payout = {};
 _vesting_payout = {};
+_steem_payout = {};
 _sbd_payout_count = {};
 _payout = [];
 	
@@ -23,14 +24,15 @@ function makeTable(records){
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>author</th><th>sbd_payout</th><th>sp_payout</th><th>count</th>';
+	html = html + '<th></th><th>author</th><th>sbd_payout</th><th>steem_payout</th><th>sp_payout</th><th>count</th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
 		html = html + '<td>' + records[i].author + '</td>';
 		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
-		html = html + '<td align=right>' + records[i].sp.toFixed(3) + '</td>';
+		html = html + '<td align=right>' + records[i].steem_payout + '</td>';
+		html = html + '<td align=right>' + records[i].sp.toFixed(3) + '</td>';		
 		html = html + '<td align=right>' + records[i].count + '</td>';
 
 		html = html + '</tr>';
@@ -49,6 +51,7 @@ async function aaa(days){
 	_sbd_payout = {};
 	_sbd_payout_count = {};
 	_vesting_payout = {};
+	_steem_payout = {};
 	_payout = [];
 	
 	
@@ -89,10 +92,12 @@ async function aaa(days){
 				_sbd_payout[author] = sbd_payout;
 				_sbd_payout_count[author] = 1;
 				_vesting_payout[author] = vesting_payout;
+				_steem_payout[author] = vesting_payout;
 			}else{
 				_sbd_payout[author] += sbd_payout;
 				_sbd_payout_count[author] += 1;
 				_vesting_payout[author] += vesting_payout;
+				_steem_payout[author] += vesting_payout;
 			}
 			
 			
@@ -115,6 +120,7 @@ async function aaa(days){
 		payout['author'] = key;
 		payout['sbd_payout'] = _sbd_payout[key];
 		payout['vesting_payout'] = _vesting_payout[key];
+		payout['steem_payout'] = _steem_payoutkey];
 		payout['count'] = _sbd_payout_count[key];
 		_payout.push(payout);
 	});
