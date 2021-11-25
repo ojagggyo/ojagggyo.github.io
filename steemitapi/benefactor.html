@@ -88,16 +88,17 @@ async function aaa(days){
 			let author = ret[i][1].op[1].author;
 			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
 			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
 			if(_sbd_payout[author] === void 0){
 				_sbd_payout[author] = sbd_payout;
 				_sbd_payout_count[author] = 1;
 				_vesting_payout[author] = vesting_payout;
-				_steem_payout[author] = vesting_payout;
+				_steem_payout[author] = steem_payout;
 			}else{
 				_sbd_payout[author] += sbd_payout;
 				_sbd_payout_count[author] += 1;
 				_vesting_payout[author] += vesting_payout;
-				_steem_payout[author] += vesting_payout;
+				_steem_payout[author] += steem_payout;
 			}
 			
 			
