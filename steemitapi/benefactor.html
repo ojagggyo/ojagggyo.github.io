@@ -20,7 +20,10 @@ _payout = [];
 		
 function makeTable(records){
 
-	//console.log(records);
+	let sbd_payout_total = 0;
+	let steem_payout_total = 0;
+	let sp_payout_total = 0;
+
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
@@ -34,8 +37,13 @@ function makeTable(records){
 		html = html + '<td align=right>' + records[i].steem_payout + '</td>';
 		html = html + '<td align=right>' + records[i].sp.toFixed(3) + '</td>';		
 		html = html + '<td align=right>' + records[i].count + '</td>';
-
 		html = html + '</tr>';
+		
+		sbd_payout_total +=  records[i].sbd_payout;
+		sp_payout_total +=  records[i].sp_payout;
+		steem_payout_total +=  steem_payout_total[i].steem_payout;
+		
+		document.getElementById("text").innerText = "Payout total: "+sbd_payout_total+" SBD, "+sp_payout_total+" SP, " + steem_payout_total + " STEEM";
 	}
 	html = html + '</table>';
 	//console.log(html);
@@ -63,9 +71,6 @@ async function aaa(days){
 	let benefactor = document.getElementById("text1").value;
 	let now = new Date();
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
-		
-		//document.getElementById("progress").innerText = firstTimestamp;
-		//console.log(firstTimestamp);
 		
 		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
 		//console.log(ret);		
@@ -108,10 +113,6 @@ async function aaa(days){
 		}
 		
 		out = ret.concat(out);
-		
-		//let timestamp = new Date(ret[ret.length-1][1].timestamp);
-		//timestamp.setHours(timestamp.getHours() + 9);
-		//document.getElementById("progress").innerText = timestamp;
 	}
 	
 	
@@ -174,6 +175,7 @@ function clickBtn(days){
 	<br/>
 	<a id="progress"></a>
         <br/>
+	<span id="total"></span>
         <span id="text"></span>
     </body>
 </html>
