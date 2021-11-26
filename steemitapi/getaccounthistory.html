@@ -55,7 +55,7 @@ async function aaa(){
 	let lastlength = limit;
 	let firstValue = -1;
 	let author = document.getElementById("text1").value;
-	while (lastlength == limit && out.length < 100){
+	while (firstValue != 0 && out.length < 100){
 	
 		if(firstValue != -1 && firstValue < limit) limit = firstValue;
 		
@@ -64,8 +64,6 @@ async function aaa(){
 		firstValue = ret[0][0];
 		ret.shift();
 		lastlength = ret.length;
-		
-
 		
 		out = ret.concat(out);
 	}
