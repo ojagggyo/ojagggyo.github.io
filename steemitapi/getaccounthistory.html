@@ -31,16 +31,15 @@ function makeTable(records){
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
-	html = html + '<th></th><th>no</th><th>op</th><th></th><th>timestamp</th>';
+	html = html + '<th>timestamp</th><th>no</th><th>op</th><th></th>';
 	html = html + '</tr>';
 	//for(var i=0;i<records.length;i=i+1){
 	for(var i=records.length-1;i>=0;i=i-1){
 		html = html + '<tr>';
-		html = html + '<td align=right>' + (i+1) + '</td>';
+		html = html + '<td align=right>' + donokuraimae(records[i][1].timestamp) + '</td>';
 		html = html + '<td>' + records[i][0] + '</td>';
 		html = html + '<td>' + records[i][1].op[0] + '</td>';
 		html = html + '<td>' + JSON.stringify(records[i][1].op[1]) + '</td>';
-		html = html + '<td align=right>' + donokuraimae(records[i][1].timestamp) + '</td>';		
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
