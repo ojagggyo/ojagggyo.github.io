@@ -57,7 +57,7 @@ async function aaa(){
 	let author = document.getElementById("text1").value;
 	while (lastlength == limit && out.length < 100){
 	
-		//if(firstValue !=1 && firstValue < limit) limit = firstValue;
+		if(firstValue < limit) limit = firstValue;
 		
 		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
 		console.log(ret);		
