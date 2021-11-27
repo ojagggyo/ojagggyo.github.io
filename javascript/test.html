@@ -14,7 +14,7 @@ $.getJSON(url, (data) => {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   //$("#text").text(jsonString.replace("/,/g", ",n"));
-  $("#text").html(jsonString.replace( /,/g , '\\n');
+  $("#text").html(jsonString.replace( /,/g , ',\\n'));
 });
 </script>
 <p id="text"></p>
