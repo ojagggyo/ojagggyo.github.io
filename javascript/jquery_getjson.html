@@ -1,19 +1,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>jQuery.getJSON demo</title>
+  <title>jQuery.getJSON</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
- 
-
 <script>
 let  url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
 $.getJSON(url, (data) => {
- // JSONデータを受信した後に実行する処理
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
-  //$("#text").text(jsonString.replace("/,/g", ",n"));
   $("#text").html(jsonString.replace( /,/g , ',<br/>'));
 });
 </script>
