@@ -11,9 +11,11 @@
 let  url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
 $.getJSON(url, (data) => {
  // JSONデータを受信した後に実行する処理
-  console.info(data);
+  let jsonString = JSON.stringify(data);
+  console.log(json);
+  ("#text").text(jsonString);
 });
 </script>
- 
+<p id="text"></p>
 </body>
 </html>
