@@ -13,7 +13,8 @@ $.getJSON(url, (data) => {
  // JSONデータを受信した後に実行する処理
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
-  $("#text").text(jsonString.replace("/,/g",  ",n"));
+  //$("#text").text(jsonString.replace("/,/g", ",n"));
+  $("#text").html(jsonString.replace("/,/g", ",<br>"));
 });
 </script>
 <p id="text"></p>
