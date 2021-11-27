@@ -13,7 +13,7 @@ $.getJSON(url, (data) => {
  // JSONデータを受信した後に実行する処理
   let jsonString = JSON.stringify(data);
   console.log(json);
-  ("#text").text(jsonString);
+  ("#text").html(jsonString);
 });
 </script>
 <p id="text"></p>
