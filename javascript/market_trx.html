@@ -10,7 +10,10 @@ let url = "https://api.upbit.com/v1/ticker?markets=KRW-TRX";
 $.getJSON(url, (data) => {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
-  $("#text").html(jsonString.replace( /,/g , ',<br/>'));
+  //$("#text").html(jsonString.replace( /,/g , ',<br/>'));
+  $("#text").html(data.data[0]['trade_price']);
+  
+  
 });
 </script>
 <p id="text"></p>
