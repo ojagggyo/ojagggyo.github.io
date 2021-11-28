@@ -11,7 +11,7 @@ $.getJSON(url, (data) => {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
   //$("#text").html(jsonString.replace( /,/g , ',<br/>'));
-  $("#text").html(data.data[0]['trade_price']);
+  $("#text").html(data[0]['trade_price']);
   
   
 });
