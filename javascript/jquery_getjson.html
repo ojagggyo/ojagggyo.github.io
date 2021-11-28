@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-let  url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
+let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
 $.getJSON(url, (data) => {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
