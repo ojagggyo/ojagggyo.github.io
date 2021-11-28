@@ -1,1 +1,18 @@
-
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<script>
+let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
+$.getJSON(url, (data) => {
+  let jsonString = JSON.stringify(data);
+  console.log(jsonString);
+  $("#text").html(jsonString.replace( /,/g , ',<br/>'));
+});
+</script>
+<p id="text"></p>
+</body>
+</html>
