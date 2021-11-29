@@ -9,16 +9,15 @@
 <script>
 let url = "https://api.upbit.com/v1/ticker?markets=KRW-TRX";
 $.getJSON(url, (data) => {
-  let jsonString = JSON.stringify(data);
-  console.log(jsonString);
+  //let jsonString = JSON.stringify(data);
+  //console.log(jsonString);
   $("#text1").html(data[0].trade_price);
 });
   
-//url = "https://api-cloud.huobi.co.jp/market/detail/merged?symbol=trxjpy"
 url = "https://api-cloud.huobi.co.jp/market/trade?symbol=trxjpy"
   $.getJSON(url, (data) => {
-  let jsonString = JSON.stringify(data);
-  console.log(jsonString);
+  //let jsonString = JSON.stringify(data);
+  //console.log(jsonString);
   $("#text2").html(data.tick.data[0].price);
 });
 </script>
