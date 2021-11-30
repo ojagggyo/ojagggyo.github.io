@@ -71,5 +71,7 @@ function makeTable(records){
 }
 
 if(steem === void 0){steem.api.setOptions({url: 'https://api.steemit.com'});}
-if(!('DOMAIN' in window)){const DOMAIN = 'steemit.com';}
+if(!('DOMAIN' in window)){
+	const DOMAIN = 'steemit.com';
+}
 const DEF_LIMIT = 500;
