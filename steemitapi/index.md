@@ -11,10 +11,13 @@
 * [プロフィールのロケーションを表示する](https://ojagggyo.github.io/steemitapi/profile_location.html)
 * [キュレーションリワードを表示する](https://ojagggyo.github.io/steemitapi/curationrewards.html)
 * [キュレーションリワードを表示する２](https://ojagggyo.github.io/steemitapi/curationrewards2.html)
-* [ブログを表示する](https://ojagggyo.github.io/steemitapi/getblog.html)
+
 * [ディスカッションを表示する](https://ojagggyo.github.io/steemitapi/getdiscussionsbycreated.html)
 * [トレンドタグを表示する](https://ojagggyo.github.io/steemitapi/gettrendingtags.html)
 * [オーナーヒストリーを表示する（ハッキングチェックツール）](https://ojagggyo.github.io/steemitapi/ownerhistory.html)
 * [レピュテーションを表示する](https://ojagggyo.github.io/steemitapi/reputation.html#yasu)
 * [STEEM POWERを表示する](https://ojagggyo.github.io/steemitapi/steempower.html)
 * [VOTING POWERを表示する](https://ojagggyo.github.io/steemitapi/votingpower.html)
+
+---
+* [ブログを表示する](https://ojagggyo.github.io/steemitapi/getblog.html)
