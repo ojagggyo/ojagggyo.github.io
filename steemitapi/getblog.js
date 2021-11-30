@@ -70,7 +70,10 @@ function makeTable(records){
 	document.getElementById("text").innerHTML = html;
 }
 
-if(steem === void 0){steem.api.setOptions({url: 'https://api.steemit.com'});}
+//if(steem === void 0){
+if(!('steem' in window)){
+	steem.api.setOptions({url: 'https://api.steemit.com'});
+}
 if(!('DOMAIN' in window)){
 	DOMAIN = 'steemit.com';
 }
