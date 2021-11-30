@@ -18,7 +18,7 @@ url = "https://api-cloud.huobi.co.jp/market/trade?symbol=trxjpy"
   $.getJSON(url, (data) => {
   //let jsonString = JSON.stringify(data);
   //console.log(jsonString);
-  $("#text2").html(data.tick.data[0].price);
+  $("#text2").html(data.tick.data[0].price.toFixed(3));
 });
   
   
@@ -26,7 +26,7 @@ url = "https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/price?symbol=TRX
   $.getJSON(url, (data) => {
   //let jsonString = JSON.stringify(data);
   //console.log(jsonString);
-  $("#text3").html( Number.parseFloat(data.symbolPrice[0].price).toFixed(2));
+  $("#text3").html( Number.parseFloat(data.symbolPrice[0].price).toFixed(3));
 });
   
   
