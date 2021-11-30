@@ -70,5 +70,5 @@ function makeTable(records){
 	document.getElementById("text").innerHTML = html;
 }
 
-//steem.api.setOptions({url: 'https://api.steemit.com'})
-//const DEF_LIMIT = 500;
+//steem.api.setOptions({url: 'https://api.steemit.com'});
+const DEF_LIMIT = 500;
