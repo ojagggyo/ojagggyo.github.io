@@ -4,7 +4,7 @@
 
  
 ---
-* [出金ルートを表示する](https://ojagggyo.github.io/steemitapi/getwithdrawroutes.html)
+
 * [デリゲート先を表示する](https://ojagggyo.github.io/steemitapi/getvestingdelegations.html)
 * [推定アカウント価格を表示する](https://ojagggyo.github.io/steemitapi/estimateAccountValue.html)
 * [フォローワを表示する](https://ojagggyo.github.io/steemitapi/getfollowers.html)
@@ -24,4 +24,6 @@
 ||Steemit|Hive| 
 |-----|:-----:|:-----:| 
 |ブログを表示する|[〇](https://ojagggyo.github.io/steemitapi/getblog.html)|[〇](https://ojagggyo.github.io/steemitapi/hive/getblog.html)| 
+|出金ルートを表示する|[〇](https://ojagggyo.github.io/steemitapi/getwithdrawroutes.html)|[〇](https://ojagggyo.github.io/steemitapi/hive/getwithdrawroutes.html)|
+
 
