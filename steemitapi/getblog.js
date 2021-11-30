@@ -45,8 +45,8 @@ function clickBtn(){;
 	aaa().then(result => {		
 		makeTable(result);
 	}).catch(err => {
-		console.log('☆');
 		console.log(err);
+		document.getElementById("progress").innerText = JSON.stringify(err);
 	});
 }
 	
