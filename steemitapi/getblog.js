@@ -64,7 +64,7 @@ function makeTable(records){
 		//html = html + '<td>' + records[i].blog + '</td>';
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td>' + donokuraimae(records[i].comment.created) + '</td>';
-		html = html + '<td><a href=https://'+DOMAIN+'+records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
