@@ -24,7 +24,7 @@ function makeTable(records){
 	let steem_payout_total = 0;
 	let sp_payout_total = 0;
 
-	document.getElementById("progress").innerText = 'html編集中...';
+
 	
 	html = '<table border=1 >';
 	//テーブルのヘッダー
@@ -50,8 +50,7 @@ function makeTable(records){
 	html = html + '</table>';
 	//console.log(html);
 	document.getElementById("text").innerHTML = html;
-	
-	document.getElementById("progress").innerText = '';
+
 }
 
 		
@@ -59,7 +58,7 @@ async function aaa(days){
 	
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	document.getElementById("total").innerHTML = '<b></b>';
-	document.getElementById("progress").innerText = 'データ取得中...';
+	document.getElementById("progress").innerText = '';
 	
 	_sbd_payout = {};
 	_sbd_payout_count = {};
@@ -159,7 +158,6 @@ async function aaa(days){
 function clickBtn(days){
 	aaa(days).then(result => {		
 		makeTable(_payout);
-		//_stok = result;
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerHTML = "<font color=red>"+err+"</font>";
