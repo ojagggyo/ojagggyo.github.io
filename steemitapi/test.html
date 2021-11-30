@@ -150,6 +150,12 @@ steem.api.getAccountHistory("yasu", -1, 10, function(err, result) {
 //var ret = steem.api.getVestingDelegations("yasu", "", 100);
 //console.log(ret);
 	
+	
+steem.api.getBlogAuthors("yasu", function(err, data) {
+	console.log(err, data);
+});
+	
+	
 </script>
 1.42
   </body>
