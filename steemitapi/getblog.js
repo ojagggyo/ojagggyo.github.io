@@ -61,7 +61,8 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
-		html = html + '<td>' + records[i].blog + '</td>';
+		//html = html + '<td>' + records[i].blog + '</td>';
+		html = html + '<td>' + donokuraimae(records[i].comment.author) + '</td>';
 		html = html + '<td>' + donokuraimae(records[i].comment.created) + '</td>';
 		html = html + '<td><a href=https://steemit.com'+records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
 	}
