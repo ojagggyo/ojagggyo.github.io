@@ -9,10 +9,14 @@
     //background-color: #d0f2ff;
 	  background-color: glay;
   }
-  //::-webkit-progress-value {
-  //  background-color: #217ab7;
-  //}
-::-webkit-progress-value {
+.votingpower::-webkit-progress-value {
+    background-color: #217ab7;
+  }
+.downvotepower::-webkit-progress-value {
+    //background-color: #5bc0de;
+	background-color: #5eb85e;
+  }
+.resourcecredits::-webkit-progress-value {
     //background-color: #5bc0de;
 	background-color: #5eb85e;
   }
@@ -20,8 +24,9 @@
 </head>
 <body>
 	
-	<progress value=0.8 style=height:5rem; class=vp></progress>
-	<progress value=0.8 style=height:5rem; ></progress>
+	<progress value=0.8 style=height:5rem; class=votingpower></progress>
+	<progress value=0.8 style=height:5rem; class=downvotepower></progress>
+	<progress value=0.8 style=height:5rem; class=resourcecredits></progress>
 	
 	
 <script>
