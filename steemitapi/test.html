@@ -2,18 +2,23 @@
 <head>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <style>
-  progress {
+  progress.vp {
     -webkit-appearance: none;
   }
-  ::-webkit-progress-bar {
+  ::-webkit-progress-bar.vp {
     background-color: #d0f2ff;
   }
-  ::-webkit-progress-value {
+  ::-webkit-progress-value.vp {
     background-color: #217ab7;
   }
 </style>
 </head>
 <body>
+	
+	<progress value=0.8 style=height:5rem; class=vp></progress>
+	<progress value=0.8 style=height:5rem; ></progress>
+	
+	
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'});
 
@@ -170,7 +175,7 @@ steem.api.getBlogAuthors("yasu", function(err, data) {
 </script>
 
 	
-	<progress value=0.8 style=height:5rem;></progress>
+	
 	
 	
 	
