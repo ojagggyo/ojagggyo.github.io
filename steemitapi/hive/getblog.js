@@ -69,5 +69,4 @@ function makeTable(records){
 	document.getElementById("text").innerHTML = html;
 }
 
-steem.api.setOptions({url: 'https://api.hive.blog/'})
-const DOMAIN = "hive.blog";
+
