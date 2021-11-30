@@ -64,11 +64,12 @@ function makeTable(records){
 		//html = html + '<td>' + records[i].blog + '</td>';
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td>' + donokuraimae(records[i].comment.created) + '</td>';
-		html = html + '<td><a href=https://steemit.com'+records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		html = html + '<td><a href=https://'+DOMAIN+'+records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
 	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
 }
 
-//steem.api.setOptions({url: 'https://api.steemit.com'});
+if(steem === void 0){steem.api.setOptions({url: 'https://api.steemit.com'});}
+if(DOMAIN === void 0){DOMAIN = 'steemit.com';}
 const DEF_LIMIT = 500;
