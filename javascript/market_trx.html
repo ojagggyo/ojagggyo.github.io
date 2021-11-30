@@ -20,6 +20,16 @@ url = "https://api-cloud.huobi.co.jp/market/trade?symbol=trxjpy"
   //console.log(jsonString);
   $("#text2").html(data.tick.data[0].price);
 });
+  
+  
+url = "https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/price?symbol=TRXJPY"
+  $.getJSON(url, (data) => {
+  let jsonString = JSON.stringify(data);
+  console.log(jsonString);
+  //$("#text2").html(data.tick.data[0].price);
+});
+  
+  
 </script>
 
 <h1>TRX価格</h1>
