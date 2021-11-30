@@ -26,7 +26,7 @@ url = "https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/price?symbol=TRX
   $.getJSON(url, (data) => {
   let jsonString = JSON.stringify(data);
   console.log(jsonString);
-  //$("#text2").html(data.tick.data[0].price);
+  $("#text3").html(data.symbolPric[0].price);
 });
   
   
@@ -36,5 +36,8 @@ url = "https://smartapi.bitpoint.co.jp/bpj-smart-api/api/ticker/price?symbol=TRX
 <b id="text1"></b>ウォン (upbit取引所)
 <br/>
 <b id="text2"></b>円 (huobi取引所)
+<br/>
+<b id="text3"></b>円 (bitpoint取引所)
+
 </body>
 </html>
