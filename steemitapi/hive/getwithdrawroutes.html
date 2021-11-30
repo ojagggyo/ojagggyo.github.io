@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>getwithdrawroutes</title>
+        <meta charset="utf-8">
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <script src="https://ojagggyo.github.io/steemitapi/getwithdrawroutes.js"></script>
+    </head>
+    <body>        
+        <p>HIVEアカウント名を入力してください。</p>
+        <textarea id="text1" rows="10" cols="20">yasu
+japansteemit
+bittrex
+bittrix</textarea>
+        <br/>
+        <input type="button" value="出金ルートを表示する Outgoting Routes" onclick="clickBtn(1)" />
+	    <br/>
+	<input type="button" value="出金ルートを表示する Incoming Routes" onclick="clickBtn(0)" />
+	    <a id="progress"></a>
+        <span id="text"></span>
+    </body>
+</html>
