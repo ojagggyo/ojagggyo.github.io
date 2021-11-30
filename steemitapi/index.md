@@ -21,6 +21,7 @@
 
 ---
 
-||Steemit|Hive|
-|-----|:-----:|:-----:|
-|ブログを表示する|[〇](https://ojagggyo.github.io/steemitapi/getblog.html)|[〇](https://ojagggyo.github.io/steemitapi/hive/getblog.html)|
+||Steemit|Hive| 
+|-----|:-----:|:-----:| 
+|ブログを表示する|[〇](https://ojagggyo.github.io/steemitapi/getblog.html)|[〇](https://ojagggyo.github.io/steemitapi/hive/getblog.html)| 
+
