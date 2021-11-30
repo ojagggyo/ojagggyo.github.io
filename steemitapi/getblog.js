@@ -14,7 +14,7 @@ async function aaa(){
 	let blogs = [];
 	let total = 0;
 	let ret;
-	let limit = 100;
+	let limit = DEF_LIMIT;
 	let entry_id = 0;
 	let author = document.getElementById("text1").value
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
@@ -27,7 +27,7 @@ async function aaa(){
 	
 	while (entry_id != 0){
 		if(blogs.length > 0){
-			limit = 101;
+			limit = DEF_LIMIT + 1;
 		}
 		if(entry_id + 1 < limit){
 			limit = entry_id + 1;
@@ -70,3 +70,4 @@ function makeTable(records){
 }
 
 steem.api.setOptions({url: 'https://api.steemit.com'})
+const DEF_LIMIT = 1000;
