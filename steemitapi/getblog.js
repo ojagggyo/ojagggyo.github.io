@@ -14,7 +14,7 @@ async function aaa(){
 	let blogs = [];
 	let total = 0;
 	let ret;
-	let limit = DEF_LIMIT;
+	let limit = DEF_LIMIT - 1;
 	let entry_id = 0;
 	let author = document.getElementById("text1").value
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
@@ -27,7 +27,7 @@ async function aaa(){
 	
 	while (entry_id != 0){
 		if(blogs.length > 0){
-			limit = DEF_LIMIT + 1;
+			limit = DEF_LIMIT;
 		}
 		if(entry_id + 1 < limit){
 			limit = entry_id + 1;
