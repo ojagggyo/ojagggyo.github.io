@@ -71,4 +71,4 @@ function makeTable(records){
 }
 
 steem.api.setOptions({url: 'https://api.steemit.com'})
-const DEF_LIMIT = 1000;
+const DEF_LIMIT = 500;
