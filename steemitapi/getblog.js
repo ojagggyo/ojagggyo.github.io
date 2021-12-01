@@ -13,17 +13,15 @@ function donokuraimae(date){
 async function aaa(){
 	let blogs = [];
 	let total = 0;
-	let ret;
 	let limit = GETBLOG_LIMIT - 1;
 	let entry_id = 0;
 	let author = document.getElementById("text1").value
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
-	if(entry_id == 0){
-		ret = await steem.api.getBlogAsync(author, entry_id, 1);
-		entry_id = ret[0].entry_id;
-		total = entry_id + 1;
-		document.getElementById("progress").innerText = ' 0 / ' + total;
-	}
+	//件数取得
+	let　ret = await steem.api.getBlogAsync(author, entry_id, 1);
+	entry_id = ret[0].entry_id;
+	total = entry_id + 1;
+	document.getElementById("progress").innerText = ' 0 / ' + total;
 	
 	while (entry_id != 0){
 		if(blogs.length > 0){
@@ -69,7 +67,6 @@ function makeTable(records){
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
 }
-
 
 steem.api.setOptions({url: 'https://api.steemit.com'});
 if(!('DOMAIN' in window)){DOMAIN = 'steemit.com';}
