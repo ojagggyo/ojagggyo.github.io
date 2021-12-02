@@ -24,12 +24,25 @@ progress {
 <body>
 
 	Voting Power
-	<progress value=0.8 class=votingpower></progress>
+	<progress id="p1"  min="0" max="100" value="0" class=votingpower></progress>
 	<br/>
 	Downvote Power<br/>
-	<progress value=0.8 class=downvotepower></progress>
+	<progress id="p2" min="0" max="100" value="0" class=downvotepower></progress>
 	<br/>
 	Resource Credits<br/>
-	<progress value=0.8 class=resourcecredits></progress>
-  </body>
+	<progress id="p3" min="0" max="100" value="0" class=resourcecredits></progress>
+  
+<script>
+function proc1()
+{
+	if (document.getElementById('p1').value < 100 ) {
+		document.getElementById('p1').value++;
+		setTimeout(proc1, 100);
+	}
+}
+	proc1();
+</script>
+	
+	
+	</body>
 </html>
