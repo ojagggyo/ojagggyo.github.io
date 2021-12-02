@@ -35,10 +35,10 @@ progress {
 <script>
 function proc1()
 {
-	if (document.getElementById('p1').value < 95 ) {
-		document.getElementById('p1').value = Math.random()*100;
-		document.getElementById('p2').value = Math.random()*100;
-		document.getElementById('p3').value = Math.random()*100;
+	if (document.getElementById('p1').value < 100 ) {
+		document.getElementById('p1').value++;
+		document.getElementById('p2').value++;
+		document.getElementById('p3').value++;
 		setTimeout(proc1, 100);
 	}
 }
