@@ -37,6 +37,8 @@ function proc1()
 {
 	if (document.getElementById('p1').value < 100 ) {
 		document.getElementById('p1').value++;
+		document.getElementById('p2').value++;
+		document.getElementById('p3').value++;
 		setTimeout(proc1, 100);
 	}
 }
