@@ -1,0 +1,17 @@
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3rem;
+}
+::-webkit-progress-bar {
+  background-color: glay;
+}
+.votingpower::-webkit-progress-value {
+  background-color: #217ab7;
+}
+.downvotepower::-webkit-progress-value {
+  background-color: #5bc0de;
+}
+.resourcecredits::-webkit-progress-value {
+  background-color: #5eb85e;
+}
