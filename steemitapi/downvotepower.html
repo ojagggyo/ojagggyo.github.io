@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
     <head>
-	<!-- https://steemit.com/witness-category/@justyy/javascript-nodejs-function-to-get-the-downvote-power-of-account-on-steem-blockchain -->
-	<!-- https://helloacm.com/javascript-nodejs-function-to-get-the-downvote-power-of-account-on-steem-blockchain/ -->
-        <title>steempower</title>
+	<!-- See https://steemit.com/witness-category/@justyy/javascript-nodejs-function-to-get-the-downvote-power-of-account-on-steem-blockchain -->
+	<!-- See https://helloacm.com/javascript-nodejs-function-to-get-the-downvote-power-of-account-on-steem-blockchain/ -->
+		<title>steempower</title>
         <meta charset="utf-8">
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
         <!--<script src="https://ojagggyo.github.io/steemitapi/steempower.js"></script>--> 
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
     
-function getDownvotePower(id) {
+function getDownvotePower(username) {
     return new Promise((resolve, reject) => {
-        steem.api.getAccounts([id], function(err, response) {
+        steem.api.getAccounts([username], function(err, response) {
             if (err) reject(err);
             const current_mana = response[0].voting_manabar.current_mana;
             const downvote_mana = response[0].downvote_manabar.current_mana;
@@ -20,7 +20,7 @@ function getDownvotePower(id) {
             const downvote_per = downvote_mana / (current_mana / (response[0].voting_power / 100) / 4);          
             const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
             let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
-            //resolve(Math.min(vpow / 100, 100).toFixed(2));
+            resolve(Math.min(vpow / 100, 100).toFixed(2));
             resolve((vpow / 100).toFixed(2));
         });          
     });
@@ -30,13 +30,9 @@ function getDownvotePower(id) {
             return  await getDownvotePower(username);
     }
     
-    
-    function clickBtn(){
-	let t1 = document.getElementById("text1").value;
-	//let usernames = t1.split(/\n/);//改行で分割する
-	aaa(t1).then(result => {	
-		//_stok = result;
-		//makeTable(result);
+function clickBtn(){
+	let username = document.getElementById("username").value;
+	aaa(username).then(result => {	
         document.getElementById("text").innerText = result;
 	}).catch(err => {
 		console.log('☆');
@@ -44,14 +40,11 @@ function getDownvotePower(id) {
 	});
 }
     
-    
-    
-    
 </script>
     </head>
     <body>        
         <p>アカウント名を入力してください。</p>
-        <textarea id="text1" rows="1" cols="20">yasu</textarea>
+        <input type="text" id="username" rows="1" cols="20" value=yasu />
         <br/>
         <input type="button" value="DOWNVOTE POWERを表示する" onclick="clickBtn()" /><a id="progress"></a>
         <p id="text"></p>
