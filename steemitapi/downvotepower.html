@@ -16,7 +16,8 @@ function getDownvotePower(id) {
             const downvote_per = downvote_mana / (current_mana / (response[0].voting_power / 100) / 4);          
             const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
             let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
-            resolve(Math.min(vpow / 100, 100).toFixed(2));
+            //resolve(Math.min(vpow / 100, 100).toFixed(2));
+            resolve((vpow / 100).toFixed(2));
         });          
     });
 }
