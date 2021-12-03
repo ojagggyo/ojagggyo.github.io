@@ -5,7 +5,7 @@
 <body>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
-async function aaa(){
+async function clickBtn(){
 //capture account
         let username = document.getElementById("username").innerText = maxMana;
 var _account = await steem.api.getAccountsAsync([username])
@@ -36,12 +36,13 @@ console.log(currentManaPerc);
         document.getElementById("currentManaPerc").innerText = currentManaPerc;
 }
  
-    aaa();
+
     
 </script>
                 <p>アカウント名を入力してください。</p>
         <textarea id="username" rows="1" cols="20">yasu
-                <BR/>
+                <br/>
+                <input type="button" value="RCを表示する" onclick="clickBtn()" /><a id="progress"></a>
         <p id=maxMana></p>
         <p id=currentMana></p>
         <p id=currentManaPerc></p>
