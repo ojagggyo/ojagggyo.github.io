@@ -31,10 +31,10 @@ var currentManaPerc = currentMana * 100 / maxMana;
     
 console.log(currentManaPerc);
 
-        document.getElementById("totalShares").innerText = totalShares.toFixed(0);
-        document.getElementById("vesting_shares").innerText = parseFloat(account.vesting_shares).toFixed(0);
-        document.getElementById("received_vesting_shares").innerText = parseFloat(account.received_vesting_shares).toFixed(0);
-        document.getElementById("delegated_vesting_shares").innerText = parseFloat(account.delegated_vesting_shares).toFixed(0);
+        document.getElementById("totalShares").innerText = steem.formatter.numberWithCommas(totalShares.toFixed(0));
+        document.getElementById("vesting_shares").innerText = steem.formatter.numberWithCommas(parseFloat(account.vesting_shares).toFixed(0));
+        document.getElementById("received_vesting_shares").innerText = steem.formatter.numberWithCommas(parseFloat(account.received_vesting_shares).toFixed(0));
+        document.getElementById("delegated_vesting_shares").innerText = steem.formatter.numberWithCommas(parseFloat(account.delegated_vesting_shares).toFixed(0));
 
         document.getElementById("currentMana").innerText = currentMana.toFixed(0);
         document.getElementById("current_mana").innerText = account.voting_manabar.current_mana;
