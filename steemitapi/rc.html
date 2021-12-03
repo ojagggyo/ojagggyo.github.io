@@ -5,7 +5,7 @@
 <body>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
-
+async function aaa(){
 //capture account
 var _account = await steem.api.getAccountsAsync(['yasu'])
 var account = _account[0]
@@ -26,6 +26,10 @@ if (currentMana > maxMana) {
 var currentManaPerc = currentMana * 100 / maxMana;
     
 console.log(currentManaPerc);
+}
+ 
+    aaa();
+    
 </script>
 </body>
 </html>
