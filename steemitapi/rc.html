@@ -1,6 +1,11 @@
 <html>
 <head>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <style>
+.double {
+  height: 2rem;
+}
+                </style>
 </head>
 <body>
 <script>
@@ -49,7 +54,7 @@ console.log(currentManaPerc);
 
 <br/>
 <br/>
-<h3><b>totalShares: </b><a id=totalShares></a></h3><br/>
+<b class=double>totalShares: </b><a id=totalShares></a><br/>
 vesting_shares + received_vesting_shares - delegated_vesting_shares<br/>
 <b>vesting_shares: </b><a id=vesting_shares></a><br/>
 <b>received_vesting_shares: </b><a id=received_vesting_shares></a><br/>
