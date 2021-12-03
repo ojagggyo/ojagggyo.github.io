@@ -35,7 +35,9 @@ console.log(currentManaPerc);
         document.getElementById("received_vesting_shares").innerText = parseFloat(account.received_vesting_shares).toFixed(0);
         document.getElementById("delegated_vesting_shares").innerText = parseFloat(account.delegated_vesting_shares).toFixed(0);
 
-        document.getElementById("maxMana").innerText = maxMana.toFixed(3);
+        document.getElementById("current_mana").innerText = account.voting_manabar.current_mana.toFixed(0);
+        document.getElementById("elapsed").innerText = elapsed.toFixed(0);
+        document.getElementById("maxMana").innerText = totalShares.toFixed(0);
 
         document.getElementById("currentMana").innerText = currentMana.toFixed(3);
         document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(3)+'%';
@@ -47,25 +49,20 @@ console.log(currentManaPerc);
 
 <br/>
 <br/>
-<b>totalShares: </b><a id=maxMana></a>
-<br/>
-vesting_shares + received_vesting_shares - delegated_vesting_shares
-<br/>
-<b>vesting_shares: </b><a id=vesting_shares></a>
-<br/>
-<b>received_vesting_shares: </b><a id=received_vesting_shares></a>
-<br/>
-<b>delegated_vesting_shares: </b><a id=delegated_vesting_shares></a>        
-<br/>
+<b>totalShares: </b><a id=maxMana></a><br/>
+vesting_shares + received_vesting_shares - delegated_vesting_shares<br/>
+<b>vesting_shares: </b><a id=vesting_shares></a><br/>
+<b>received_vesting_shares: </b><a id=received_vesting_shares></a><br/>
+<b>delegated_vesting_shares: </b><a id=delegated_vesting_shares></a><br/>
 <br/>
         
 <b>currentMana: </b><a id=currentMana></a>
 <br/>
-voting_manabar.current_mana + elapsed * maxMana / 432000
+voting_manabar.current_mana + elapsed * maxMana / 432000<br/>
 <br/>
-<br/>
-<b>elapsed: </b><a id=elapsed></a>
-<br/>
+<b>current_mana: </b><a id=current_mana></a><br/>
+<b>elapsed: </b><a id=elapsed></a><br/>
+<b>maxMana: </b><a id=maxMana></a> * 1000000<br/>
 <br/>
         
 <b>currentManaPerc: </b><a id=currentManaPerc></a>
