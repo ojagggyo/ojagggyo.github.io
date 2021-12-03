@@ -31,9 +31,9 @@ var currentManaPerc = currentMana * 100 / maxMana;
     
 console.log(currentManaPerc);
 
-        document.getElementById("vesting_shares").innerText = account.vesting_shares;
-        document.getElementById("received_vesting_shares").innerText = account.received_vesting_shares;
-        document.getElementById("delegated_vesting_shares").innerText = account.delegated_vesting_shares;
+        document.getElementById("vesting_shares").innerText = parseFloat(account.vesting_shares).toFixed(0);
+        document.getElementById("received_vesting_shares").innerText = parseFloat(account.received_vesting_shares).toFixed(0);
+        document.getElementById("delegated_vesting_shares").innerText = parseFloat(account.delegated_vesting_shares).toFixed(0);
 
         document.getElementById("maxMana").innerText = maxMana.toFixed(3);
 
