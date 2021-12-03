@@ -28,7 +28,7 @@ function aaa(){
 	getAccountsAsync(username).then(result => {
 		console.log(result);
 		
-		document.getElementById("votingpower").value z result.voting_power / 100;
+		document.getElementById("votingpower").value = result.voting_power / 100;
 		
 		
 		//reputation = repLog10(result.reputation);
