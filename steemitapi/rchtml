@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+</head>
+<body>
+<script>
+steem.api.setOptions({url: 'https://api.steemit.com'})
+
+//capture account
+var _account = await steem.api.getAccountsAsync(['yasu'])
+var account = _account[0]
+var props = await client.database.getDynamicGlobalPropertiesAsync()
+var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time).getTime() / 1000).toFixed(0))
+//calculate available SP
+var totalShares = parseFloat(account.vesting_shares) + parseFloat(account.received_vesting_shares) - parseFloat(account.delegated_vesting_shares);
+//determine elapsed time since last RC update
+var elapsed = CURRENT_UNIX_TIMESTAMP - account.voting_manabar.last_update_time;
+var maxMana = totalShares * 1000000;
+//calculate current mana for the 5 day period (432000 sec = 5 days)
+var currentMana = parseFloat(account.voting_manabar.current_mana) + elapsed * maxMana / 432000;
+
+if (currentMana > maxMana) {
+    currentMana = maxMana;
+}
+//determine percentage of available mana(RC)
+var currentManaPerc = currentMana * 100 / maxMana;
+    
+console.log(currentManaPerc);
+</script>
+</body>
+</html>
