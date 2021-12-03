@@ -37,7 +37,7 @@ console.log(currentManaPerc);
         document.getElementById("delegated_vesting_shares").innerText = steem.formatter.numberWithCommas(parseFloat(account.delegated_vesting_shares).toFixed(0));
 
         document.getElementById("currentMana").innerText = steem.formatter.numberWithCommas(currentMana.toFixed(0));
-        document.getElementById("current_mana").innerText = account.voting_manabar.current_mana;
+        document.getElementById("current_mana").innerText = steem.formatter.numberWithCommas(account.voting_manabar.current_mana);
         document.getElementById("elapsed").innerText = elapsed.toFixed(0)+ "秒";
 
         document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(0)+'%';
