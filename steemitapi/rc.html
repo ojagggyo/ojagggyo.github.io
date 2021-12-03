@@ -10,8 +10,8 @@ async function aaa(){
 var _account = await steem.api.getAccountsAsync(['justyy'])
 var account = _account[0]
 var props = await steem.api.getDynamicGlobalPropertiesAsync()
-//var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time+"Z").getTime() / 1000).toFixed(0))//
-var CURRENT_UNIX_TIMESTAMP = parseInt((new Date().getTime() / 1000).toFixed(0))//
+var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time+"Z").getTime() / 1000).toFixed(0))//
+//var CURRENT_UNIX_TIMESTAMP = parseInt((new Date().getTime() / 1000).toFixed(0))//
 
 //calculate available SP
 var totalShares = parseFloat(account.vesting_shares) + parseFloat(account.received_vesting_shares) - parseFloat(account.delegated_vesting_shares);
