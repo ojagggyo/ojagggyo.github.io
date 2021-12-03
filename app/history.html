@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <link rel="stylesheet" href="history.css" type="text/css" />
 <script>
@@ -27,6 +27,10 @@ function aaa(){
 	$("#username").text(username);
 	getAccountsAsync(username).then(result => {
 		console.log(result);
+		
+		document.getElementById("votingpower").value z result.voting_power / 100;
+		
+		
 		//reputation = repLog10(result.reputation);
 		//var text = "Reputationは " + (reputation).toFixed(4) + " です。";
 		//$("#text").text(text);
@@ -50,7 +54,7 @@ window.onload = function() {
 	Effective Power
 	Voting Power
 	<br/><br/>
-	<progress value=0.8 class=votingpower></progress>
+	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
 	<br/><br/>
 	Downvote Power
 	<progress value=0.8 class=downvotepower></progress>
