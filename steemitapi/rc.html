@@ -39,16 +39,19 @@ console.log(currentManaPerc);
                 <p>アカウント名を入力してください。</p>
         <input type="text" id="username" cols="20" value=yasu />
                 <input type="button" value="RCを表示する" onclick="clickBtn()" /><a id="progress"></a>
+
+<br/>
 <br/>
 <b>totalShares: </b><a id=maxMana></a>
 <br/>
-account.vesting_shares + account.received_vesting_shares - account.delegated_vesting_shares
+vesting_shares + received_vesting_shares - delegated_vesting_shares
 <br/>
 <br/>
+        
+<b>currentMana: </b><a id=currentMana></a>
+voting_manabar.current_mana + elapsed * maxMana / 432000
 
         
-        
-        <p id=currentMana></p>
         <p id=currentManaPerc></p>
 </body>
 </html>
