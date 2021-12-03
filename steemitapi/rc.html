@@ -31,9 +31,9 @@ var currentManaPerc = currentMana * 100 / maxMana;
     
 console.log(currentManaPerc);
 
-        document.getElementById("maxMana").innerText = maxMana;
-        document.getElementById("currentMana").innerText = currentMana;
-        document.getElementById("currentManaPerc").innerText = currentManaPerc;
+        document.getElementById("maxMana").innerText = maxMana.toFixed(3);
+        document.getElementById("currentMana").innerText = currentMana.toFixed(3);
+        document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(3)+'%';
 }    
 </script>
                 <p>アカウント名を入力してください。</p>
