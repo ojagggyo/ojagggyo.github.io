@@ -4,7 +4,8 @@ progress {
   height: 3rem;
 }
 ::-webkit-progress-bar {
-  background-color: glay;
+  //background-color: glay;
+  background-color: lightglay;
 }
 .votingpower::-webkit-progress-value {
   background-color: #217ab7;
