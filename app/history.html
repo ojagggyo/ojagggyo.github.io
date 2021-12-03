@@ -1,1 +1,34 @@
 
+
+<html>
+<head>
+<style>
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3rem;
+}
+::-webkit-progress-bar {
+  background-color: glay;
+}
+.votingpower::-webkit-progress-value {
+  background-color: #217ab7;
+}
+.downvotepower::-webkit-progress-value {
+  background-color: #5bc0de;
+}
+.resourcecredits::-webkit-progress-value {
+  background-color: #5eb85e;
+}
+</style>
+</head>
+<body>
+プログレスバーを表示する。
+<br/>
+	<progress value=0.8 class=votingpower></progress>
+	<br/><br/>
+	<progress value=0.8 class=downvotepower></progress>
+	<br/><br/>
+	<progress value=0.8 class=resourcecredits></progress>
+</body>
+</html>
