@@ -1,6 +1,8 @@
 <html>
 <body>
 <script>
+steem.api.setOptions({url: 'https://api.steemit.com'})
+    
 function getDownvotePower(id) {
     return new Promise((resolve, reject) => {
         steem.api.getAccounts([id], function(err, response) {
