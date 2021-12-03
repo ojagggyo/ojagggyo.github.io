@@ -1,0 +1,26 @@
+<html>
+<body>
+<script>
+function getDownvotePower(id) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([id], function(err, response) {
+            if (err) reject(err);
+            const current_mana = response[0].voting_manabar.current_mana;
+            const downvote_mana = response[0].downvote_manabar.current_mana;
+            const downvote_last_update_time = response[0].downvote_manabar.last_update_time;
+            const downvote_per = downvote_mana / (current_mana / (response[0].voting_power / 100) / 4);          
+            const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
+            let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
+            resolve(Math.min(vpow / 100, 100).toFixed(2));
+        });          
+    });
+}
+ 
+// Sample Usage
+(async function() {
+    const val = await getDownvotePower('justyy');
+    log(val);
+})();
+</script>
+</body>  
+<html>
