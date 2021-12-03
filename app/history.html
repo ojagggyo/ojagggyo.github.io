@@ -1,6 +1,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="history.css" type="text/css" />
+	
+<script>
+window.onload = function() {
+    steem.api.setOptions({url: 'https://api.steemit.com'});
+    saveUserName();
+    getAccountsAsync();
+};
+</script>
 </head>
 <body>
 アカウントの状態を表示する。
