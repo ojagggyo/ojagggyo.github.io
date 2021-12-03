@@ -40,8 +40,8 @@ console.log(currentManaPerc);
         document.getElementById("elapsed").innerText = elapsed.toFixed(0);
         document.getElementById("maxMana").innerText = maxMana.toFixed(0);
 
-        document.getElementById("currentMana").innerText = currentMana.toFixed(3);
-        document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(3)+'%';
+        document.getElementById("currentMana").innerText = currentMana.toFixed(0);
+        document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(0)+'%';
 }    
 </script>
                 <p>アカウント名を入力してください。</p>
@@ -57,9 +57,8 @@ vesting_shares + received_vesting_shares - delegated_vesting_shares<br/>
 <b>delegated_vesting_shares: </b><a id=delegated_vesting_shares></a><br/>
 <br/>
         
-<b>currentMana: </b><a id=currentMana></a>
-<br/>
-voting_manabar.current_mana + elapsed * maxMana / 432000<br/>
+<b>currentMana: </b><a id=currentMana></a><br/>
+current_mana + elapsed * maxMana / 432000<br/>
 <b>current_mana: </b><a id=current_mana></a><br/>
 <b>elapsed: </b><a id=elapsed></a><br/>
 <b>maxMana: </b><a id=maxMana></a> * 1000000<br/>
