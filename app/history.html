@@ -2,8 +2,7 @@
 <head>
 <link rel="stylesheet" href="history.css" type="text/css" />
 <script>
-let username;
-
+	
 function getUserName(){
   username = window.location.hash;// #username
   if (username == null || username.trim().length == 0){
@@ -20,12 +19,27 @@ async function getAccountsAsync(username){
   if(accounts.length == 0) {return;}
   return accounts[0];
 }
-	
+
+function aaa(){
+	let username = getUserName();
+	$("#username").text(username);
+	getAccountsAsync(username).then(result => {
+		console.log(result);
+		//reputation = repLog10(result.reputation);
+		//var text = "Reputationは " + (reputation).toFixed(4) + " です。";
+		//$("#text").text(text);
+	}).catch(err => {
+		$("#text").text("エラー");
+		$('#text').css('color','red');
+	});
+}
+
 window.onload = function() {
-    steem.api.setOptions({url: 'https://api.steemit.com'});
-    saveUserName();
-    getAccountsAsync();
+	steem.api.setOptions({url: 'https://api.steemit.com'});
+	aaa();  
 };
+	
+	
 </script>
 </head>
 <body>
