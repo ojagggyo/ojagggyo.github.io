@@ -33,7 +33,7 @@ function getDownvotePower(username) {
 function clickBtn(){
 	let username = document.getElementById("username").value;
 	aaa(username).then(result => {	
-        document.getElementById("text").innerText = result;
+        document.getElementById("text").innerText = result + "%";
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
