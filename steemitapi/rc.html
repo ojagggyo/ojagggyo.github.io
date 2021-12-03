@@ -10,9 +10,11 @@ async function aaa(){
 var _account = await steem.api.getAccountsAsync(['yasu'])
 var account = _account[0]
 var props = await steem.api.getDynamicGlobalPropertiesAsync()
-var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time + "Z").getTime() / 1000).toFixed(0))
+var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time + "Z").getTime() / 1000).toFixed(0))//
 //calculate available SP
 var totalShares = parseFloat(account.vesting_shares) + parseFloat(account.received_vesting_shares) - parseFloat(account.delegated_vesting_shares);
+    totalShares = totalShares * parseFloat(total_vesting_fund_steem) / parseFloat(total_vesting_shares);//
+        
 //determine elapsed time since last RC update
 var elapsed = CURRENT_UNIX_TIMESTAMP - account.voting_manabar.last_update_time;
 var maxMana = totalShares * 1000000;
