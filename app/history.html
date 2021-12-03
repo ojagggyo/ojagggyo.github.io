@@ -24,7 +24,7 @@ async function getAccountsAsync(username){
 
 function aaa(){
 	let username = getUserName();
-	document.getElementById("username").value = username;
+	document.getElementById("username").value = '@'+username;
 	getAccountsAsync(username).then(result => {
 		console.log(result);
 		
@@ -49,6 +49,7 @@ window.onload = function() {
 </script>
 </head>
 <body>
+	<h1 id=username></h1>
 	Effective Power
 	Voting Power
 	<br/><br/>
