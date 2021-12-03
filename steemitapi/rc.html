@@ -29,10 +29,17 @@ if (currentMana > maxMana) {
 var currentManaPerc = currentMana * 100 / maxMana;
     
 console.log(currentManaPerc);
+        
+        document.getElementById("maxMana").innerText = maxMana;
+        document.getElementById("currentMana").innerText = currentMana;
+        document.getElementById("currentManaPerc").innerText = currentManaPerc;
 }
  
     aaa();
     
 </script>
+        <p id=maxMana></p>
+        <p id=currentMana></p>
+        <p id=currentManaPerc></p>
 </body>
 </html>
