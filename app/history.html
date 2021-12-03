@@ -24,7 +24,7 @@ async function getAccountsAsync(username){
 
 function aaa(){
 	let username = getUserName();
-	$("#username").text(username);
+	document.getElementById("username").text = username;
 	getAccountsAsync(username).then(result => {
 		console.log(result);
 		
