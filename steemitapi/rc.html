@@ -37,7 +37,7 @@ console.log(currentManaPerc);
 
         document.getElementById("current_mana").innerText = account.voting_manabar.current_mana.toFixed(0);
         document.getElementById("elapsed").innerText = elapsed.toFixed(0);
-        document.getElementById("maxMana").innerText = totalShares.toFixed(0);
+        document.getElementById("maxMana").innerText = maxMana.toFixed(0);
 
         document.getElementById("currentMana").innerText = currentMana.toFixed(3);
         document.getElementById("currentManaPerc").innerText = currentManaPerc.toFixed(3)+'%';
@@ -59,7 +59,6 @@ vesting_shares + received_vesting_shares - delegated_vesting_shares<br/>
 <b>currentMana: </b><a id=currentMana></a>
 <br/>
 voting_manabar.current_mana + elapsed * maxMana / 432000<br/>
-<br/>
 <b>current_mana: </b><a id=current_mana></a><br/>
 <b>elapsed: </b><a id=elapsed></a><br/>
 <b>maxMana: </b><a id=maxMana></a> * 1000000<br/>
