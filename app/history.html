@@ -32,12 +32,12 @@ function getDownvotePower(username) {
     });
 }
 
-async function aaa(username){
-            return  await getDownvotePower(username);
-}
+//async function aaa(username){
+//            return  await getDownvotePower(username);
+//}
     
 function downvotepower(username){
-	aaa(username).then(result => {	
+	getDownvotePower(username).then(result => {	
         	document.getElementById("downvotepower").value = result;
 	}).catch(err => {
 		console.log('☆');
