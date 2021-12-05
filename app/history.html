@@ -26,27 +26,21 @@ function getRC(username) {
     return new Promise((resolve, reject) => {
         steem.api.getAccounts([username], function(err, response) {
 		if (err) reject(err);
-
 		//var props = getDynamicGlobalProperties();
 		//var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time+"Z").getTime() / 1000).toFixed(0))//
 		CURRENT_UNIX_TIMESTAMP = parseInt((new Date().getTime() / 1000).toFixed(0))//
-
 		//calculate available SP
 		var totalShares = parseFloat(response[0].vesting_shares) + parseFloat(response[0].received_vesting_shares) - parseFloat(response[0].delegated_vesting_shares);
-
 		//determine elapsed time since last RC update
 		var elapsed = CURRENT_UNIX_TIMESTAMP - response[0].voting_manabar.last_update_time;
-
 		var maxMana = totalShares * 1000000;
 		//calculate current mana for the 5 day period (432000 sec = 5 days)
 		var currentMana = parseFloat(response[0].voting_manabar.current_mana) + elapsed * maxMana / 432000;
-
 		if (currentMana > maxMana) {
 		    currentMana = maxMana;
 		}
 		//determine percentage of available mana(RC)
 		var currentManaPerc = currentMana * 100 / maxMana;
-		
 		resolve(currentManaPerc);
         });          
     });
@@ -112,14 +106,11 @@ window.onload = function() {
 	downvotepower(username);
 	rc(username);
 };
-	
-	
+
 </script>
 </head>
 <body>
 	<h1 id=username>aaa</h1>
-	<br/><br/>
-	Effective Power <b>1000 SP</b>
 	<br/><br/>
 	Voting Power
 	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
