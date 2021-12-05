@@ -79,10 +79,13 @@ window.onload = function() {
 	steem.api.setOptions({url: 'https://api.steemit.com'});
 	let username = getUserName();
 	document.getElementById("username").innerText = '@'+username;
-	votingpower(username);
 
-	downvotepower(username).then(result => {
+	votingpower(username).then(result => {
 		document.getElementById("votingpower").value = result;
+	}).catch(err => {
+	}
+	downvotepower(username).then(result => {
+		document.getElementById("downvotepower").value = result;
 	}).catch(err => {
 	});
 };
