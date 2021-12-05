@@ -29,7 +29,7 @@ function getRC(username) {
 
 		//var props = getDynamicGlobalProperties();
 		//var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time+"Z").getTime() / 1000).toFixed(0))//
-		CURRENT_UNIX_TIMESTAMP = parseInt((new Date("Z").getTime() / 1000).toFixed(0))//
+		CURRENT_UNIX_TIMESTAMP = parseInt((new Date().getTime() / 1000).toFixed(0))//
 
 		//calculate available SP
 		var totalShares = parseFloat(response[0].vesting_shares) + parseFloat(response[0].received_vesting_shares) - parseFloat(response[0].delegated_vesting_shares);
