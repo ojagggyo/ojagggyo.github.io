@@ -83,7 +83,7 @@ window.onload = function() {
 	votingpower(username).then(result => {
 		document.getElementById("votingpower").value = result;
 	}).catch(err => {
-	}
+	});
 	downvotepower(username).then(result => {
 		document.getElementById("downvotepower").value = result;
 	}).catch(err => {
