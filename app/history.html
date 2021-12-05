@@ -15,13 +15,48 @@ function getUserName(){
   return username;
 }
 
+
+//DownvotePower
+function getDownvotePower(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+            if (err) reject(err);
+            const current_mana = response[0].voting_manabar.current_mana;
+            const downvote_mana = response[0].downvote_manabar.current_mana;
+            const downvote_last_update_time = response[0].downvote_manabar.last_update_time;
+            const downvote_per = downvote_mana / (current_mana / (response[0].voting_power / 100) / 4);          
+            const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
+            let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
+            resolve(Math.min(vpow / 100, 100).toFixed(2));
+            resolve((vpow / 100).toFixed(2));
+        });          
+    });
+}
+
+/*
+async function aaa(username){
+            return  await getDownvotePower(username);
+}
+    
+function clickBtn(){
+	let username = document.getElementById("username").value;
+	aaa(username).then(result => {	
+        document.getElementById("text").innerText = result + "%";
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});	
+}
+*/
+	
+//votingpower
 async function getAccountsAsync(username){
   let accounts = await steem.api.getAccountsAsync([username]);
   console.log(accounts);
   if(accounts.length == 0) {return;}
   return accounts[0];
 }
-
+	
 function votingpower(username){
 	getAccountsAsync(username).then(result => {
 		document.getElementById("votingpower").value = (result.voting_power / 100) + " %";
@@ -34,7 +69,8 @@ window.onload = function() {
 	steem.api.setOptions({url: 'https://api.steemit.com'});
 	let username = getUserName();
 	document.getElementById("username").innerText = '@'+username;
-	votingpower(username);  
+	votingpower(username);
+	getDownvotePower(username);
 };
 	
 	
