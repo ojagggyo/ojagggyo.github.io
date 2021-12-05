@@ -28,26 +28,23 @@ function getDownvotePower(username) {
             const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
             let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
             resolve(Math.min(vpow / 100, 100).toFixed(2));
-            resolve((vpow / 100).toFixed(2));
         });          
     });
 }
 
-/*
 async function aaa(username){
             return  await getDownvotePower(username);
 }
     
-function clickBtn(){
-	let username = document.getElementById("username").value;
+function downvotepower(username){
 	aaa(username).then(result => {	
-        document.getElementById("text").innerText = result + "%";
+        	document.getElementById("downvotepower").value = result;
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
 	});	
 }
-*/
+
 	
 //votingpower
 async function getAccountsAsync(username){
@@ -70,7 +67,7 @@ window.onload = function() {
 	let username = getUserName();
 	document.getElementById("username").innerText = '@'+username;
 	votingpower(username);
-	getDownvotePower(username);
+	downvotepower(username);
 };
 	
 	
@@ -85,7 +82,7 @@ window.onload = function() {
 	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
 	<br/><br/>
 	Downvote Power
-	<progress value=0.8 class=downvotepower></progress>
+	<progress id=downvotepower value=0.8 class=downvotepower></progress>
 	<br/><br/>
 	Resource Credits
 	<progress value=0.8 class=resourcecredits></progress>
