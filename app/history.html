@@ -15,7 +15,6 @@ function getUserName(){
   return username;
 }
 
-
 //--------------------DownvotePower--------------------
 function getDownvotePower(username) {
     return new Promise((resolve, reject) => {
@@ -40,9 +39,7 @@ function downvotepower(username){
 	});	
 }
 
-	
 //--------------------votingpower--------------------
-
 function getVotingPower(username) {
     return new Promise((resolve, reject) => {
         steem.api.getAccounts([username], function(err, response) {
@@ -60,10 +57,6 @@ function votingpower(username){
 		console.log(err);
 	});
 }
-
-	
-	
-
 
 window.onload = function() {
 	steem.api.setOptions({url: 'https://api.steemit.com'});
