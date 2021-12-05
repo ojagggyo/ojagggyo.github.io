@@ -22,18 +22,10 @@ async function getAccountsAsync(username){
   return accounts[0];
 }
 
-function aaa(){
-	let username = getUserName();
-	document.getElementById("username").innerText = '@'+username;
+function votingpower(username){
 	getAccountsAsync(username).then(result => {
 		console.log(result);
-		
 		document.getElementById("votingpower").value = result.voting_power / 100;
-		
-		
-		//reputation = repLog10(result.reputation);
-		//var text = "Reputationは " + (reputation).toFixed(4) + " です。";
-		//$("#text").text(text);
 	}).catch(err => {
 		$("#text").text("エラー");
 		$('#text').css('color','red');
@@ -42,7 +34,9 @@ function aaa(){
 
 window.onload = function() {
 	steem.api.setOptions({url: 'https://api.steemit.com'});
-	aaa();  
+	let username = getUserName();
+	document.getElementById("username").innerText = '@'+username;
+	votingpower(username);  
 };
 	
 	
