@@ -59,7 +59,7 @@ async function getAccountsAsync(username){
 	
 function votingpower(username){
 	getAccountsAsync(username).then(result => {
-		document.getElementById("votingpower").value = (result.voting_power / 100) + " %";
+		document.getElementById("votingpower").value = result.voting_power / 100;
 	}).catch(err => {
 		//$('#text').css('color','red');
 	});
