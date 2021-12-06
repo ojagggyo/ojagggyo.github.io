@@ -41,7 +41,7 @@ async function getEffectivePower(username){
   
  function effectivepower(username){
 	getEffectivePower(username).then(result => {
-        	document.getElementById("effectivepower").value = result;
+        	document.getElementById("effectivepower").text = result;
 	}).catch(err => {
 		console.log(err);
 	});	
@@ -101,7 +101,7 @@ function getDownvotePower(username) {
     
 function downvotepower(username){
 	getDownvotePower(username).then(result => {	
-        	document.getElementById("downvotepower").value = result;
+        	document.getElementById("downvotepower").innerText = result;
 	}).catch(err => {
 		console.log(err);
 	});	
