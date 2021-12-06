@@ -41,7 +41,7 @@ async function getEffectivePower(username){
   
  function effectivepower(username){
 	getEffectivePower(username).then(result => {
-        	document.getElementById("effectivepower").text = (result.sp + received_sp - delegated_sp).toFixed(0);
+        	document.getElementById("effectivepower").text = (result.sp + result.received_sp - result.delegated_sp).toFixed(0);
 	}).catch(err => {
 		console.log(err);
 	});	
