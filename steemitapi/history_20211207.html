@@ -3,6 +3,11 @@
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <link rel="stylesheet" href="history.css" type="text/css" />
+<style>
+.double {
+  font-size: 2rem;
+}
+</style>
 <script>
 	
 function getUserName(){
@@ -141,7 +146,7 @@ window.onload = function() {
 </head>
 <body>
 	<h1 id=username>aaa</h1>
-  Effective Power <a id=effectivepower></a>
+  <span class=double>Effective Power <a id=effectivepower></a></span>
 	<br/><br/>
   Voting Power
 	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
