@@ -101,7 +101,7 @@ function getDownvotePower(username) {
     
 function downvotepower(username){
 	getDownvotePower(username).then(result => {	
-        	document.getElementById("downvotepower").innerText = result;
+        	document.getElementById("downvotepower").value = result;
 	}).catch(err => {
 		console.log(err);
 	});	
