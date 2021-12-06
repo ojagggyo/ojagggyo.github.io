@@ -40,7 +40,7 @@ async function getEffectivePower(username){
 }
   
  function effectivepower(username){
-	getSteemPower(username).then(result => {	
+	getEffectivePower(username).then(result => {	
         	document.getElementById("effectivepower").value = result;
 	}).catch(err => {
 		console.log(err);
