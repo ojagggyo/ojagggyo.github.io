@@ -22,31 +22,21 @@ async function getDynamicGlobalProperties(){
 //--------------------STEEM POWER--------------------
 
    
-async function getEffectivePower(usernames){
-  let items = [];
-  let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-  console.log(globalProperties);
-  let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
-  let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
-  let k = total_vesting_fund_steem / total_vesting_shares;
-  let accounts = await steem.api.getAccountsAsync(usernames)
-  console.log(accounts);
-  for(var i=0;i<accounts.length;i=i+1){
-    let vesting_shares = parseFloat(accounts[i].vesting_shares.replace(" VESTS", ""));
-    let received_vesting_shares = parseFloat(accounts[i].received_vesting_shares.replace(" VESTS", ""));
-    let delegated_vesting_shares = parseFloat(accounts[i].delegated_vesting_shares.replace(" VESTS", ""));
-    let item = {};
-    sp = vesting_shares * k;//保持しているSP
-    sp1 = received_vesting_shares * k;//委任されたSP
-    sp2 = delegated_vesting_shares * k;//委任したSP
-    item['name'] = accounts[i].name;
-    item['sp'] = sp.toFixed(3);
-    item['received_sp'] = sp1.toFixed(3);
-    item['delegated_sp'] = sp2.toFixed(3);
-    item['effective_sp'] = (sp + sp1 - sp2).toFixed(3);
-    items.push(item);
-  }
-  return items;
+async function getEffectivePower(username){
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	console.log(globalProperties);
+	let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+	let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+	let k = total_vesting_fund_steem / total_vesting_shares;
+	let accounts = await steem.api.getAccountsAsync([username]);
+	console.log(accounts);
+	let vesting_shares = parseFloat(accounts[0].vesting_shares.replace(" VESTS", ""));
+	let received_vesting_shares = parseFloat(accounts[0].received_vesting_shares.replace(" VESTS", ""));
+	let delegated_vesting_shares = parseFloat(accounts[0].delegated_vesting_shares.replace(" VESTS", ""));
+	sp = vesting_shares * k;//保持しているSP
+	sp1 = received_vesting_shares * k;//委任されたSP
+	sp2 = delegated_vesting_shares * k;//委任したSP
+	return sp + sp1 - sp2;
 }
   
  function effectivepower(username){
