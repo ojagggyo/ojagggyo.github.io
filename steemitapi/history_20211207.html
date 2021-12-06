@@ -131,7 +131,7 @@ window.onload = function() {
 	let username = getUserName();
 	document.getElementById("username").innerText = '@'+username;
 	effectivepower(username);
-  votingpower(username);
+  	votingpower(username);
 	downvotepower(username);
 	rc(username);
 };
@@ -141,6 +141,7 @@ window.onload = function() {
 <body>
 	<h1 id=username>aaa</h1>
   Effective Power <a id=effectivepower></a>
+	<br/><br/>
   Voting Power
 	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
 	<br/><br/>
