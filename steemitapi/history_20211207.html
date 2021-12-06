@@ -48,6 +48,10 @@ async function getEffectivePower(username){
 	getEffectivePower(username).then(result => {
         	document.getElementById("effectivepower").text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
+		document.getElementById("effectivepowerdetail").text = 
+			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
+			'-' + 
+			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
 	}).catch(err => {
 		console.log(err);
 	});	
@@ -147,6 +151,7 @@ window.onload = function() {
 <body>
 	<h1 id=username></h1>
   <span class=double>Effective Power <a id=effectivepower></a></span>
+	<a id=effectivepowerdetail></a>
 	<br/><br/>
   Voting Power
 	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
