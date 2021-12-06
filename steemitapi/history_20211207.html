@@ -53,8 +53,10 @@ async function getEffectivePower(username){
         	document.getElementById("effectivepower").text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
 		document.getElementById("effectivepowerdetail").text = 
+			steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
+			'-+ ' + 
 			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
-			'-' + 
+			' - ' + 
 			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
 	}).catch(err => {
 		console.log(err);
