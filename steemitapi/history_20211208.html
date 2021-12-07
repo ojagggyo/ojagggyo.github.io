@@ -82,8 +82,8 @@ async function getEffectivePower(username){
 		//	' - ' + 
 		//	steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
 		
-		document.getElementById("effectivepower").max = result.sp * result.received_sp;
-		document.getElementById("effectivepower").value = result.sp * result.received_sp - result.delegated_sp;
+		document.getElementById("effectivepower").max = result.sp + result.received_sp;
+		document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
 	}).catch(err => {
 		console.log(err);
 	});	
