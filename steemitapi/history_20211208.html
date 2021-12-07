@@ -1,1 +1,173 @@
+<html>
+<head>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+<link rel="stylesheet" href="history.css" type="text/css" />
+<style>
+.double {
+  font-size: 2rem;
+}
 
+#effectivepowerdetail {
+  color: gray;
+}	
+</style>
+<script>
+	
+function getUserName(){
+  username = window.location.hash;// #username
+  if (username == null || username.trim().length == 0){
+      username = "#steemitblog";
+  }
+  username = username.substr(1);//#を取る
+  username = decodeURI(username).trim();//デコード、トリム]
+  return username;
+}
+
+async function getDynamicGlobalProperties(){
+	return await steem.api.getDynamicGlobalPropertiesAsync()
+}
+	
+//--------------------STEEM POWER--------------------
+
+   
+async function getEffectivePower(username){
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	console.log(globalProperties);
+	let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+	let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+	let k = total_vesting_fund_steem / total_vesting_shares;
+	let accounts = await steem.api.getAccountsAsync([username]);
+	console.log(accounts);
+	let vesting_shares = parseFloat(accounts[0].vesting_shares.replace(" VESTS", ""));
+	let received_vesting_shares = parseFloat(accounts[0].received_vesting_shares.replace(" VESTS", ""));
+	let delegated_vesting_shares = parseFloat(accounts[0].delegated_vesting_shares.replace(" VESTS", ""));
+	sp = vesting_shares * k;//保持しているSP
+	sp1 = received_vesting_shares * k;//委任されたSP
+	sp2 = delegated_vesting_shares * k;//委任したSP
+	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
+}
+  
+ function effectivepower(username){
+	getEffectivePower(username).then(result => {
+        	document.getElementById("effectivepower").text = 
+			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
+		document.getElementById("effectivepowerdetail").text = 
+			steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
+			' + ' + 
+			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
+			' - ' + 
+			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+   
+
+//--------------------RC--------------------
+
+function getRC(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+		if (err) reject(err);
+		//var props = getDynamicGlobalProperties();
+		//var CURRENT_UNIX_TIMESTAMP = parseInt((new Date(props.time+"Z").getTime() / 1000).toFixed(0))//
+		CURRENT_UNIX_TIMESTAMP = parseInt((new Date().getTime() / 1000).toFixed(0))//
+		//calculate available SP
+		var totalShares = parseFloat(response[0].vesting_shares) + parseFloat(response[0].received_vesting_shares) - parseFloat(response[0].delegated_vesting_shares);
+		//determine elapsed time since last RC update
+		var elapsed = CURRENT_UNIX_TIMESTAMP - response[0].voting_manabar.last_update_time;
+		var maxMana = totalShares * 1000000;
+		//calculate current mana for the 5 day period (432000 sec = 5 days)
+		var currentMana = parseFloat(response[0].voting_manabar.current_mana) + elapsed * maxMana / 432000;
+		if (currentMana > maxMana) {
+		    currentMana = maxMana;
+		}
+		//determine percentage of available mana(RC)
+		var currentManaPerc = currentMana * 100 / maxMana;
+		resolve(currentManaPerc);
+        });          
+    });
+}
+	
+function rc(username){
+	getRC(username).then(result => {	
+        	document.getElementById("resourcecredits").value = result;
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+
+	
+//--------------------DownvotePower--------------------
+function getDownvotePower(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+            if (err) reject(err);
+            const current_mana = response[0].voting_manabar.current_mana;
+            const downvote_mana = response[0].downvote_manabar.current_mana;
+            const downvote_last_update_time = response[0].downvote_manabar.last_update_time;
+            const downvote_per = downvote_mana / (current_mana / (response[0].voting_power / 100) / 4);          
+            const secondsago = (new Date - new Date(downvote_last_update_time * 1000)) / 1000;
+            let vpow = downvote_per * 100 + (10000 * secondsago / 432000);
+            resolve(Math.min(vpow / 100, 100).toFixed(2));
+        });          
+    });
+}
+    
+function downvotepower(username){
+	getDownvotePower(username).then(result => {	
+        	document.getElementById("downvotepower").value = result;
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+
+//--------------------votingpower--------------------
+function getVotingPower(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+            if (err) reject(err);
+            const voting_power  = response[0].voting_power;
+            resolve(voting_power / 100);
+        });          
+    });
+}
+	
+function votingpower(username){
+	getVotingPower(username).then(result => {
+		document.getElementById("votingpower").value = result;
+	}).catch(err => {
+		console.log(err);
+	});
+}
+
+window.onload = function() {
+	steem.api.setOptions({url: 'https://api.steemit.com'});
+	let username = getUserName();
+	document.getElementById("username").innerText = '@'+username;
+	effectivepower(username);
+  	votingpower(username);
+	downvotepower(username);
+	rc(username);
+};
+
+</script>
+</head>
+<body>
+	<h1 id=username></h1>
+  <span class=double>Effective Power <a id=effectivepower></a></span>
+	<br/>
+	<a id=effectivepowerdetail></a>
+  <progress id=effectivepower value=0.0 max = 100 class=effectivepower></progress>
+	<br/><br/>
+  Voting Power
+	<progress id=votingpower value=0.0 max = 100 class=votingpower></progress>
+	<br/><br/>
+	Downvote Power
+	<progress id=downvotepower value=0.0 max = 100 class=downvotepower></progress>
+	<br/><br/>
+	Resource Credits
+	<progress id=resourcecredits value=0.0 max = 100  class=resourcecredits></progress>
+</body>
+</html>
