@@ -115,9 +115,9 @@ function getRC(username) {
 }
 	
 function rc(username){
-	getRC(username).then(result => {	
+	getRC(username).then(result => {
+		document.getElementById("resourcecreditsvalue").text = result.toFixed(0) + ' %';
         	document.getElementById("resourcecredits").value = result;
-		
 	}).catch(err => {
 		console.log(err);
 	});	
@@ -142,7 +142,7 @@ function getDownvotePower(username) {
     
 function downvotepower(username){
 	getDownvotePower(username).then(result => {
-		document.getElementById("downvotepowervalue").text = result + ' %';
+		document.getElementById("downvotepowervalue").text = result.toFixed(0) + ' %';
         	document.getElementById("downvotepower").value = result;
 	}).catch(err => {
 		console.log(err);
@@ -162,6 +162,7 @@ function getVotingPower(username) {
 	
 function votingpower(username){
 	getVotingPower(username).then(result => {
+		document.getElementById("votingpowervalue").text = result.toFixed(0) + ' %';
 		document.getElementById("votingpower").value = result;
 	}).catch(err => {
 		console.log(err);
