@@ -72,16 +72,16 @@ async function getEffectivePower(username){
   
  function effectivepower(username){
 	getEffectivePower(username).then(result => {
-        	/*
-		document.getElementById("effectivepower").text = 
-			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
-		document.getElementById("effectivepowerdetail").text = 
-			steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
-			' + ' + 
-			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
-			' - ' + 
-			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
-		*/
+        	
+		//document.getElementById("effectivepower").text = 
+		//	steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
+		//document.getElementById("effectivepowerdetail").text = 
+		//	steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
+		//	' + ' + 
+		//	steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
+		//	' - ' + 
+		//	steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
+		
 		document.getElementById("effectivepower").max = result.sp * result.received_sp;
 		document.getElementById("effectivepower").value = result.sp * result.received_sp - result.delegated_sp;
 	}).catch(err => {
