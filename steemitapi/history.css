@@ -8,7 +8,7 @@ progress {
   background-color: lightglay;
 }
 //.votingpower::-webkit-progress-value {
-#votingpower::-webkit-progress-value {
+::-webkit-progress-value#votingpower {
   background-color: #217ab7;
 }
 .downvotepower::-webkit-progress-value {
