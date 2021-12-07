@@ -18,17 +18,15 @@ progress {
   height: 3rem;
 }
 ::-webkit-progress-bar {
-  //background-color: glay;
   background-color: lightglay;
 }
-//.votingpower::-webkit-progress-value {
-progress#votingpower::-webkit-progress-value {
+#votingpower::-webkit-progress-value {
   background-color: #217ab7;
 }
-.downvotepower::-webkit-progress-value {
+#downvotepower::-webkit-progress-value {
   background-color: #5bc0de;
 }
-.resourcecredits::-webkit-progress-value {
+#resourcecredits::-webkit-progress-value {
   background-color: #5eb85e;
 }
 
@@ -186,9 +184,9 @@ window.onload = function() {
 	<progress id=votingpower value=0.0 max = 100></progress>
 	<br/><br/>
 	Downvote Power
-	<progress id=downvotepower value=0.0 max = 100 class=downvotepower></progress>
+	<progress id=downvotepower value=0.0 max = 100></progress>
 	<br/><br/>
 	Resource Credits
-	<progress id=resourcecredits value=0.0 max = 100  class=resourcecredits></progress>
+	<progress id=resourcecredits value=0.0 max = 100></progress>
 </body>
 </html>
