@@ -69,7 +69,7 @@ async function getEffectivePower(username){
   
  function effectivepower(username){
 	getEffectivePower(username).then(result => {
-        	document.getElementById("effectivepower").text = 
+        	/*document.getElementById("effectivepower").text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
 		document.getElementById("effectivepowerdetail").text = 
 			steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
@@ -77,6 +77,9 @@ async function getEffectivePower(username){
 			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
 			' - ' + 
 			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
+		*?
+		document.getElementById("effectivepower").max = result.sp * result.received_sp;
+		document.getElementById("effectivepower").value = result.sp * result.received_sp - result.delegated_sp;
 	}).catch(err => {
 		console.log(err);
 	});	
@@ -178,9 +181,10 @@ window.onload = function() {
   <!-- <span class=double>Effective Power <a id=effectivepower></a></span> -->
 	<br/>
 	<!-- <a id=effectivepowerdetail></a> -->
-  <progress id=effectivepower value=0.0 max = 100></progress>
+	Effective Power
+	<progress id=effectivepower value=0.0 max = 100></progress>
 	<br/><br/>
-  Voting Power
+	Voting Power
 	<progress id=votingpower value=0.0 max = 100></progress>
 	<br/><br/>
 	Downvote Power
