@@ -7,10 +7,20 @@
 <body>
   
 <script>
-let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
-$.getJSON(url, (data) => {
-  $("#steem").html(data[0].trade_price);
-});
+
+function getRC(username) {
+    return new Promise((resolve, reject) => {
+        let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
+        $.getJSON(url, (data) => {
+            $("#steem").html(data[0].trade_price);
+        });
+		    //if (err) reject(err);       
+    });
+}
+  
+  
+  
+
   
 url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
 $.getJSON(url, (data) => {
