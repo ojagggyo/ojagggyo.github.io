@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+  
+<script>
+let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
+$.getJSON(url, (data) => {
+  $("#steem").html(data[0].trade_price);
+});
+  
+let url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
+$.getJSON(url, (data) => {
+  $("#sbd").html(data[0].trade_price);
+});
+  
+</script>
+
+<h1>STEEM価格</h1>
+<b id="steem"></b>ウォン (upbit取引所)
+<br/>
+<b id="sbd"></b>ウォン (upbit取引所)
+
+</body>
+</html>
