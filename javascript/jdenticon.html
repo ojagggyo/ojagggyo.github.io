@@ -11,7 +11,7 @@ function clickBtn(){
     jdenticon.update("#identicon", username);
 }
     
-function inputChange(){
+function inputChange(event){
     let username = document.getElementById("username").value;
     jdenticon.update("#identicon", username);
 }
@@ -19,7 +19,7 @@ function inputChange(){
 </script>  
 </head>
 <body>
-<input type="text" id="username" size="20" value=yasu oninput="inputChange()" />
+<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)" />
 <input type="button" value="identicon表示" onclick="clickBtn()" /><br/>
 <canvas id=identicon width="400" height="400" data-jdenticon-value=""></canvas>
 </body>
