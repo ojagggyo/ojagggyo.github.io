@@ -8,7 +8,7 @@
   
 <script>
 	
-function getSteeｍPrice() {
+function getSteemPrice() {
 	return new Promise((resolve) => {
 		let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
 		$.getJSON(url, (data) => {
@@ -17,16 +17,6 @@ function getSteeｍPrice() {
 		//reject("エラー");
 	});
 };
-	
-function sampleResolve() {
-    return new Promise(resolve => {
-		let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
-		$.getJSON(url, (data) => {
-			resolve(data[0].trade_price);
-		});
-    })
-}
-	
 	
 function getSbdPrice() {
     return new Promise((resolve, reject) => {
@@ -39,7 +29,6 @@ function getSbdPrice() {
 };
   
 async function rate(){
-	const a = await sampleResolve();
 	const steem = await getSteemPrice();
 	const sbd = await getSbdPrice();
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
