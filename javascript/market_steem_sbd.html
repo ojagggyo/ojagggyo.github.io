@@ -12,7 +12,7 @@ $.getJSON(url, (data) => {
   $("#steem").html(data[0].trade_price);
 });
   
-let url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
+url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
 $.getJSON(url, (data) => {
   $("#sbd").html(data[0].trade_price);
 });
