@@ -13,17 +13,14 @@ _vesting_payout = {};
 _steem_payout = {};
 _sbd_payout_count = {};
 _payout = [];
-	
 
-		
+/*
 function makeTable(records){
 
 	let sbd_payout_total = 0;
 	let steem_payout_total = 0;
 	let sp_payout_total = 0;
 
-
-	
 	html = '<table border=1 >';
 	//テーブルのヘッダー
 	html = html + '<tr>';
@@ -48,8 +45,8 @@ function makeTable(records){
 	html = html + '</table>';
 	//console.log(html);
 	document.getElementById("text").innerHTML = html;
-
 }
+*/
 
 		
 async function aaa(days){
@@ -58,23 +55,24 @@ async function aaa(days){
 	document.getElementById("total").innerHTML = '<b></b>';
 	document.getElementById("progress").innerText = '';
 	
+	_count = {};
 	_sbd_payout = {};
-	_sbd_payout_count = {};
-	_vesting_payout = {};
 	_steem_payout = {};
-	_payout = [];
+	_vesting_payout = {};
+	_reward = {};
 	
-	
+	//	_payout = [];
+		
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
   	let firstTimestamp = new Date();
-	let benefactor = document.getElementById("text1").value;
+	let username = document.getElementById("username").value;
 	let now = new Date();
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		
-		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		//console.log(ret);		
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
@@ -83,32 +81,51 @@ async function aaa(days){
 		lastlength = ret.length;
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
-			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
-			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
+			let op = "";
+			let sbd_payout = 0;
+			let vesting_payout = 0;
+			let steem_payout = 0;
+			let reward = 0;
+
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
-				//ret.splice(0, i + 1);//残りの要素を削除
-				//break;//すべて処理済
 			}
-					
-			let author = ret[i][1].op[1].author;
-			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
-			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
-			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
-			if(_sbd_payout[author] === void 0){
-				_sbd_payout[author] = sbd_payout;
-				_sbd_payout_count[author] = 1;
-				_vesting_payout[author] = vesting_payout;
-				_steem_payout[author] = steem_payout;
+			
+			if(ret[i][1].op[0] == "comment_benefactor_reward" && ret[i][1].op[1].benefactor == benefactor){
+				op = "comment_benefactor_reward"
+				sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
+				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+				steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			}else if(ret[i][1].op[0] == "author_reward"){
+				op = "author_reward"
+				sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
+				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+				steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			}else if(ret[i][1].op[0] != "curation_reward"){
+				op = "curation_reward"
+				//sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
+				reward = parseFloat(ret[i][1].op[1].reward);
+				//steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			}else 
+				ret.splice(i,1);
+				continue;
+			}
+			
+	
+			if(_count[op] === void 0){
+				_count[op] = 1;
+				_sbd_payout[op] = sbd_payout;
+				_steem_payout[op] = steem_payout;
+				_vesting_payout[op] = vesting_payout;
+				_reward[op] = reward;
 			}else{
-				_sbd_payout[author] += sbd_payout;
-				_sbd_payout_count[author] += 1;
-				_vesting_payout[author] += vesting_payout;
-				_steem_payout[author] += steem_payout;
+				_count[op] += 1;
+				_sbd_payout[op] += sbd_payout;
+				_steem_payout[op] += steem_payout;
+				_reward[op] += reward;
 			}
-			
-			
+
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			document.getElementById("progress").innerText = "From "+timestamp;
@@ -117,7 +134,7 @@ async function aaa(days){
 		out = ret.concat(out);
 	}
 	
-	
+	/*
 	Object.keys(_sbd_payout).forEach(function (key) {
 	  	//console.log(key + " " + _sbd_payout[key] );
 		let payout = {};
@@ -128,7 +145,9 @@ async function aaa(days){
 		payout['count'] = _sbd_payout_count[key];
 		_payout.push(payout);
 	});
+	*/
 	
+	/*
 	//vestToSteem
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	for(let i=0; i<_payout.length; i++){
@@ -137,7 +156,9 @@ async function aaa(days){
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
 	}
+	*/
 	
+	/*
 	//sort
 	if(_payout.length > 1) {
 		_payout = _payout.sort(function(a,b){
@@ -146,12 +167,11 @@ async function aaa(days){
 			return 0;
 		});
 	}
+	*/
 	
 	//console.log(out);
 	return out;
 };
-
-
 
 function clickBtn(days){
 	aaa(days).then(result => {		
@@ -163,17 +183,12 @@ function clickBtn(days){
 }  
       
 </script>
-      
-    </head>
+</head>
     <body>        
-        <p>報酬の寄付額を表示します。</p>
-	<b>benefactor: </b><input type="text" id="text1" size="20" value=japansteemit>
+        <p>報酬を表示します。</p>
+	<b>benefactor: </b><input type="text" id="username" size="20" value=japansteemit>
 	<br/>
-	<input type="button" value="表示する（過去1日）" onclick="clickBtn(1)" />
-	<input type="button" value="（過去7日）" onclick="clickBtn(7)" />
-	<input type="button" value="（過去30日）" onclick="clickBtn(30)" />
-	<input type="button" value="（過去90日）" onclick="clickBtn(90)" />
-	<input type="button" value="（過去365日）" onclick="clickBtn(365)" />
+	<input type="button" value="表示する" onclick="clickBtn(1)" />
 	<br/>
 	<a id="progress"></a>
         <br/>
