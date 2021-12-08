@@ -8,19 +8,19 @@
   
 <script>
 
-function getRC(username) {
+function getSteeｍPrice() {
     return new Promise((resolve, reject) => {
         let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
         $.getJSON(url, (data) => {
-            $("#steem").html(data[0].trade_price);
+		resolve(data[0].trade_price);
         });
-		    //if (err) reject(err);       
+	reject(”エラー”);       
     });
 }
   
   
   
-
+$("#sbd").html(getSteeｍPrice());
   
 url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
 $.getJSON(url, (data) => {
