@@ -6,21 +6,14 @@
 integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
 crossorigin="anonymous"></script> 
 <script>
-function clickBtn(){
-    let username = document.getElementById("username").value;
-    jdenticon.update("#identicon", username);
-}
-    
 function inputChange(event){
     let username = document.getElementById("username").value;
     jdenticon.update("#identicon", username);
 }
-    
 </script>  
 </head>
 <body>
 <input type="text" id="username" size="20" value=yasu oninput="inputChange(event)" />
-<input type="button" value="identicon表示" onclick="clickBtn()" /><br/>
 <canvas id=identicon width="400" height="400" data-jdenticon-value=""></canvas>
 </body>
 </html>
