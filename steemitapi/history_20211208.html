@@ -166,10 +166,7 @@ function votingpower(username){
 }
 
 window.onload = function() {
-	//steem.api.setOptions({url: 'https://api.steemit.com'});
-	//steem.api.setOptions({url: 'https://steemd.steemworld.org'});
-	steem.api.setOptions({url: 'api.justyy.com'});
-	
+	steem.api.setOptions({url: 'https://api.steemit.com'});	
 	let username = getUserName();
 	document.getElementById("username").innerText = '@'+username;
 	effectivepower(username);
