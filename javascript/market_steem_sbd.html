@@ -18,9 +18,16 @@ function getSteeｍPrice() {
     });
 }
   
+function rc(username){
+	getSteeｍPrice().then(result => {
+		$("#steem").html(result);
+	}).catch(err => {
+		console.log(err);
+	});	
+}
   
   
-$("#steem").html(getSteeｍPrice());
+
   
 url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
 $.getJSON(url, (data) => {
