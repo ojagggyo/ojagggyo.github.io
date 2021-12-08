@@ -8,29 +8,22 @@
   
 <script>
 	
-function getSteemPrice() {
+//markets
+//KRW-STEEM
+//KRW-SBD
+function getPrice(markets) {
 	return new Promise((resolve) => {
-		let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
+		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
 		$.getJSON(url, (data) => {
 			resolve(data[0].trade_price);
 		});
 		//reject("エラー");
 	});
 };
-	
-function getSbdPrice() {
-    return new Promise((resolve, reject) => {
-        let url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
-        $.getJSON(url, (data) => {
-		resolve(data[0].trade_price);
-        });
-	//reject("エラー");       
-    });
-};
-  
+
 async function rate(){
-	const steem = await getSteemPrice();
-	const sbd = await getSbdPrice();
+	const steem = await getPrice('KRW-STEEM');
+	const sbd = await getPrice('KRW-SBD');
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
 };
 	
