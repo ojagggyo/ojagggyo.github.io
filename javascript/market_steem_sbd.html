@@ -45,9 +45,7 @@ async function rate(){
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
 };
 	
-function aaa(){
-	getSteemPrice();
-	
+function aaa(){	
 	rate().then(result => {
 		$("#steem").html(result['steem']);
 		$("#sbd").html(result['sbd']);
