@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>getaccounthistory</title>
+        <meta charset="utf-8">
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>      
+<script>
+	
+steem.api.setOptions({url: 'https://api.steemit.com'})
+let _stok;
+_sbd_payout = {};
+_vesting_payout = {};
+_steem_payout = {};
+_sbd_payout_count = {};
+_payout = [];
+	
+
+		
+function makeTable(records){
+
+	let sbd_payout_total = 0;
+	let steem_payout_total = 0;
+	let sp_payout_total = 0;
+
+
+	
+	html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th></th><th>author</th><th>sbd payout</th><th>steem payout</th><th>sp payout</th><th>count</th>';
+	html = html + '</tr>';
+	for(var i=0;i<records.length;i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=right>' + (i+1) + '</td>';
+		html = html + '<td>' + records[i].author + '</td>';
+		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
+		html = html + '<td align=right>' + records[i].steem_payout + '</td>';
+		html = html + '<td align=right>' + records[i].sp_payout.toFixed(3) + '</td>';		
+		html = html + '<td align=right>' + records[i].count + '</td>';
+		html = html + '</tr>';
+		
+		sbd_payout_total +=  records[i].sbd_payout;
+		sp_payout_total +=  records[i].sp_payout;
+		steem_payout_total +=  records[i].steem_payout;
+		
+		document.getElementById("total").innerHTML = "<b>Payout total: "+sbd_payout_total.toFixed(3)+" SBD, "+sp_payout_total.toFixed(3)+" SP, " + steem_payout_total.toFixed(3) + " STEEM</b>";
+	}
+	html = html + '</table>';
+	//console.log(html);
+	document.getElementById("text").innerHTML = html;
+
+}
+
+		
+async function aaa(days){
+	
+	document.getElementById("text").innerHTML = '<tabel></tabel>';
+	document.getElementById("total").innerHTML = '<b></b>';
+	document.getElementById("progress").innerText = '';
+	
+	_sbd_payout = {};
+	_sbd_payout_count = {};
+	_vesting_payout = {};
+	_steem_payout = {};
+	_payout = [];
+	
+	
+	let out = [];
+	let limit = 100;
+	let lastlength = limit;
+	let firstValue = -1;
+  	let firstTimestamp = new Date();
+	let benefactor = document.getElementById("text1").value;
+	let now = new Date();
+	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
+		
+		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
+		//console.log(ret);		
+		firstValue = ret[0][0];
+    		firstTimestamp = new Date(ret[0][1].timestamp);
+		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
+		ret.shift();
+		lastlength = ret.length;
+		
+		for(var i=ret.length-1;i>=0;i=i-1){
+			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
+			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
+			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
+				ret.splice(i,1);
+				continue;
+				//ret.splice(0, i + 1);//残りの要素を削除
+				//break;//すべて処理済
+			}
+					
+			let author = ret[i][1].op[1].author;
+			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
+			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			if(_sbd_payout[author] === void 0){
+				_sbd_payout[author] = sbd_payout;
+				_sbd_payout_count[author] = 1;
+				_vesting_payout[author] = vesting_payout;
+				_steem_payout[author] = steem_payout;
+			}else{
+				_sbd_payout[author] += sbd_payout;
+				_sbd_payout_count[author] += 1;
+				_vesting_payout[author] += vesting_payout;
+				_steem_payout[author] += steem_payout;
+			}
+			
+			
+			let timestamp = new Date(ret[i][1].timestamp);
+			timestamp.setHours(timestamp.getHours() + 9);
+			document.getElementById("progress").innerText = "From "+timestamp;
+		}
+		
+		out = ret.concat(out);
+	}
+	
+	
+	Object.keys(_sbd_payout).forEach(function (key) {
+	  	//console.log(key + " " + _sbd_payout[key] );
+		let payout = {};
+		payout['author'] = key;
+		payout['sbd_payout'] = _sbd_payout[key];
+		payout['vesting_payout'] = _vesting_payout[key];
+		payout['steem_payout'] = _steem_payout[key];
+		payout['count'] = _sbd_payout_count[key];
+		_payout.push(payout);
+	});
+	
+	//vestToSteem
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
+	for(let i=0; i<_payout.length; i++){
+		_payout[i]['sp_payout'] = steem.formatter.vestToSteem(
+			_payout[i].vesting_payout, 
+			globalProperties.total_vesting_shares, 
+			globalProperties.total_vesting_fund_steem)
+	}
+	
+	//sort
+	if(_payout.length > 1) {
+		_payout = _payout.sort(function(a,b){
+			if(a.sbd_payout < b.sbd_payout) return 1;
+			if(a.sbd_payout > b.sbd_payout) return -1;
+			return 0;
+		});
+	}
+	
+	//console.log(out);
+	return out;
+};
+
+
+
+function clickBtn(days){
+	aaa(days).then(result => {		
+		makeTable(_payout);
+	}).catch(err => {
+		console.log(err);
+		document.getElementById("progress").innerHTML = "<font color=red>"+err+"</font>";
+	});
+}  
+      
+</script>
+      
+    </head>
+    <body>        
+        <p>報酬の寄付額を表示します。</p>
+	<b>benefactor: </b><input type="text" id="text1" size="20" value=japansteemit>
+	<br/>
+	<input type="button" value="表示する（過去1日）" onclick="clickBtn(1)" />
+	<input type="button" value="（過去7日）" onclick="clickBtn(7)" />
+	<input type="button" value="（過去30日）" onclick="clickBtn(30)" />
+	<input type="button" value="（過去90日）" onclick="clickBtn(90)" />
+	<input type="button" value="（過去365日）" onclick="clickBtn(365)" />
+	<br/>
+	<a id="progress"></a>
+        <br/>
+	<span id="total"></span>
+	<br/>
+        <span id="text"></span>
+    </body>
+</html>
