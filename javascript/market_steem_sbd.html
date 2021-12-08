@@ -18,7 +18,7 @@ function getSteeｍPrice() {
     });
 }
   
-function rc(username){
+function steeｍPrice(){
 	getSteeｍPrice().then(result => {
 		$("#steem").html(result);
 	}).catch(err => {
@@ -34,6 +34,7 @@ $.getJSON(url, (data) => {
   $("#sbd").html(data[0].trade_price);
 });
   
+steeｍPrice();
 </script>
 
 <h1>STEEM価格</h1>
