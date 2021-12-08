@@ -28,32 +28,32 @@ function getSbdPrice() {
     });
 }
   
-function steeｍPrice(){
-	let a = await getSbdPrice();
-	/+
-	getSteeｍPrice().then(result => {
-		$("#steem").html(result);
+async function rate(){
+	const steem = await getSteemPrice();
+	const sbd = await getSbdPrice();
+	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
+}
+	
+function aaa(){
+	rate().then(result => {
+		$("#steem").html(result['steem']);
+		$("#sbd").html(result['sbd']);
+		$("#rate").html(result['rate']);
 	}).catch(err => {
 		console.log(err);
 	});
-	*?
 }
   
-  
-
-  
-url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
-$.getJSON(url, (data) => {
-  $("#sbd").html(data[0].trade_price);
-});
-  
-steeｍPrice();
+    
+aaa();
 </script>
 
 <h1>STEEM価格</h1>
 <b id="steem"></b>ウォン (upbit取引所)
 <br/>
 <b id="sbd"></b>ウォン (upbit取引所)
+<br/>
+レート <b id="rate"></b>
 
 </body>
 </html>
