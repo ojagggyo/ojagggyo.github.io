@@ -8,20 +8,9 @@
   
 <script>
 	
-function getNumber(num) {
-    return new Promise(function(resolve, reject) {
-        // numが3以上ならnumを返し、3未満なら"Falied!"のメッセージを返す
-        if (num >= 3) {
-            setTimeout(function() {
-                resolve(num);
-            }, 1000);
-        } else {
-            reject("Falied!");    
-        }
-    });  
-}
 
-function getSteeｍPrice() {
+
+async function getSteeｍPrice() {
     return new Promise((resolve, reject) => {
         let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
         $.getJSON(url, (data) => {
@@ -31,7 +20,7 @@ function getSteeｍPrice() {
     });
 }
 	
-function getSbdPrice() {
+async function getSbdPrice() {
     return new Promise((resolve, reject) => {
         let url = "https://api.upbit.com/v1/ticker?markets=KRW-SBD";
         $.getJSON(url, (data) => {
@@ -42,7 +31,6 @@ function getSbdPrice() {
 }
   
 async function rate(){
-	getNumber(10);
 	const steem = await getSteemPrice();
 	const sbd = await getSbdPrice();
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
