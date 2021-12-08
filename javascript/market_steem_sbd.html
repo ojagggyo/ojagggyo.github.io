@@ -17,7 +17,6 @@ function getPrice(markets) {
 		$.getJSON(url, (data) => {
 			resolve(data[0].trade_price);
 		});
-		//reject("エラー");
 	});
 };
 
@@ -27,18 +26,15 @@ async function rate(){
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
 };
 	
-function aaa(){	
-	rate().then(result => {
-		$("#steem").html(result['steem']);
-		$("#sbd").html(result['sbd']);
-		$("#rate").html(result['rate']);
-	}).catch(err => {
-		console.log(err);
-	});
-};
-  
-    
-aaa();
+	
+rate().then(result => {
+	$("#steem").html(result['steem']);
+	$("#sbd").html(result['sbd']);
+	$("#rate").html(result['rate'].toFixed(2));
+}).catch(err => {
+	console.log(err);
+});
+	
 </script>
 
 <h1>STEEM価格</h1>
