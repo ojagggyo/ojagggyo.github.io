@@ -9,13 +9,13 @@
 <script>
 	
 function getSteeｍPrice() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         let url = "https://api.upbit.com/v1/ticker?markets=KRW-STEEM";
         $.getJSON(url, (data) => {
 		resolve(data[0].trade_price);
 		return data[0].trade_price;
         });
-	reject("エラー");
+	//reject("エラー");
     });
 };
 	
