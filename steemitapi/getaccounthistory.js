@@ -37,11 +37,11 @@ function makeTable(records){
 		
 async function aaa(){
 	let out = [];
-	let limit = 10;
+	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
 	let author = document.getElementById("text1").value;
-	while (firstValue != 0 && out.length < 100){	
+	while (firstValue != 0 && out.length < 1000){	
 		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
 		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
 		console.log(ret);		
