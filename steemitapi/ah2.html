@@ -93,6 +93,17 @@ async function aaa(days){
 		}
 		out = ret.concat(out);
 	}
+	
+	//vestToSteem
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	
+	['comment_benefactor_reward', 'author_reward', 'curation_reward'].forEach(function(op){
+		_sp[op] = steem.formatter.vestToSteem(
+			_vesting_payout[op], 
+			globalProperties.total_vesting_shares, 
+			globalProperties.total_vesting_fund_steem)
+	});
+
 	//console.log(out);
 	console.log(_count);
 	console.log(_sbd_payout);
