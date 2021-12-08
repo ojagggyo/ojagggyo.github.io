@@ -1,24 +1,20 @@
 <html>
 <head>
-    <title>Jdenticon browser test</title>
-    <meta charset="UTF-8">
-    <!-- <script src="jdenticon.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js"
-        integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
-        crossorigin="anonymous"></script> 
-
-    <script>
-    function clickBtn(){
-        let username = document.getElementById("text1").value;
-        //document.getElementById("canvas")['data-jdenticon-value'] = username;
-        
-        jdenticon.update("#canvas", username);
-    }
-     </script>  
+<title>Jdenticon browser test</title>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js"
+integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
+crossorigin="anonymous"></script> 
+<script>
+function clickBtn(){
+    let username = document.getElementById("username").value;
+    jdenticon.update("#identicon", username);
+}
+</script>  
 </head>
 <body>
-    <input type="text" id="text1" size="20" value=yasu />
-    <input type="button" value="identicon表示" onclick="clickBtn()" />
-    <canvas id=canvas width="80" height="80" data-jdenticon-value="1234567890"></canvas>
+<input type="text" id="username" size="20" value=yasu/>
+<input type="button" value="identicon表示" onclick="clickBtn()" />
+<canvas id=identicon width="200" height="200" data-jdenticon-value=""></canvas>
 </body>
 </html>
