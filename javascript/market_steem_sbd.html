@@ -36,6 +36,8 @@ async function rate(){
 };
 	
 function aaa(){
+	await getSteemPrice();
+	
 	rate().then(result => {
 		$("#steem").html(result['steem']);
 		$("#sbd").html(result['sbd']);
