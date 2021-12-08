@@ -107,7 +107,7 @@ async function aaa(days){
 				//sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
 				reward = parseFloat(ret[i][1].op[1].reward);
 				//steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
-			}else 
+			}else {
 				ret.splice(i,1);
 				continue;
 			}
@@ -133,42 +133,6 @@ async function aaa(days){
 		
 		out = ret.concat(out);
 	}
-	
-	/*
-	Object.keys(_sbd_payout).forEach(function (key) {
-	  	//console.log(key + " " + _sbd_payout[key] );
-		let payout = {};
-		payout['author'] = key;
-		payout['sbd_payout'] = _sbd_payout[key];
-		payout['vesting_payout'] = _vesting_payout[key];
-		payout['steem_payout'] = _steem_payout[key];
-		payout['count'] = _sbd_payout_count[key];
-		_payout.push(payout);
-	});
-	*/
-	
-	/*
-	//vestToSteem
-	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
-	for(let i=0; i<_payout.length; i++){
-		_payout[i]['sp_payout'] = steem.formatter.vestToSteem(
-			_payout[i].vesting_payout, 
-			globalProperties.total_vesting_shares, 
-			globalProperties.total_vesting_fund_steem)
-	}
-	*/
-	
-	/*
-	//sort
-	if(_payout.length > 1) {
-		_payout = _payout.sort(function(a,b){
-			if(a.sbd_payout < b.sbd_payout) return 1;
-			if(a.sbd_payout > b.sbd_payout) return -1;
-			return 0;
-		});
-	}
-	*/
-	
 	//console.log(out);
 	return out;
 };
