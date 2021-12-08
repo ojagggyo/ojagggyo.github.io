@@ -13,42 +13,7 @@ _vesting_payout = {};
 _steem_payout = {};
 _sbd_payout_count = {};
 _payout = [];
-
-/*
-function makeTable(records){
-
-	let sbd_payout_total = 0;
-	let steem_payout_total = 0;
-	let sp_payout_total = 0;
-
-	html = '<table border=1 >';
-	//テーブルのヘッダー
-	html = html + '<tr>';
-	html = html + '<th></th><th>author</th><th>sbd payout</th><th>steem payout</th><th>sp payout</th><th>count</th>';
-	html = html + '</tr>';
-	for(var i=0;i<records.length;i=i+1){
-		html = html + '<tr>';
-		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td>' + records[i].author + '</td>';
-		html = html + '<td align=right>' + records[i].sbd_payout.toFixed(3) + '</td>';
-		html = html + '<td align=right>' + records[i].steem_payout + '</td>';
-		html = html + '<td align=right>' + records[i].sp_payout.toFixed(3) + '</td>';		
-		html = html + '<td align=right>' + records[i].count + '</td>';
-		html = html + '</tr>';
-		
-		sbd_payout_total +=  records[i].sbd_payout;
-		sp_payout_total +=  records[i].sp_payout;
-		steem_payout_total +=  records[i].steem_payout;
-		
-		document.getElementById("total").innerHTML = "<b>Payout total: "+sbd_payout_total.toFixed(3)+" SBD, "+sp_payout_total.toFixed(3)+" SP, " + steem_payout_total.toFixed(3) + " STEEM</b>";
-	}
-	html = html + '</table>';
-	//console.log(html);
-	document.getElementById("text").innerHTML = html;
-}
-*/
-
-		
+	
 async function aaa(days){
 	
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
