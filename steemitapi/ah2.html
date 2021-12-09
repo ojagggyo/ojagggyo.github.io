@@ -20,9 +20,9 @@ function makeTable(data){
 	['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
 		html = html + '<tr>';
 		html = html + '<td>' + op + '</td>';//
-		html = html + '<td align=right>' + data["steem_payout"][op] + '</a></td>';
-		html = html + '<td align=right>' + data["sbd_payout"][op] + '</td>';
-		html = html + '<td align=right>' + data["sp_payout"][op] + '</td>';
+		html = html + '<td align=right>' + data["total_steem_payout"][op] + '</a></td>';
+		html = html + '<td align=right>' + data["total_sbd_payout"][op] + '</td>';
+		html = html + '<td align=right>' + data["total_sp_payout"][op] + '</td>';
 		html = html + '<td align=right>' + data["total_count"][op] + '</td>';
 	});
 	
