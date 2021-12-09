@@ -7,12 +7,28 @@
 <script>
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
-//let _stok;
-//_sbd_payout = {};
-//_vesting_payout = {};
-//_steem_payout = {};
-//_sbd_payout_count = {};
-//_sp = {};
+	
+function makeTable(data){
+	console.log(data);
+	let html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th>op</th><th>steem</th><th>sbd</th><th>sp</th><th>count</th>';
+	html = html + '</tr>';
+	
+	
+	['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
+		html = html + '<tr>';
+		html = html + '<td>' + op + '</td>';//
+		html = html + '<td align=right>' + data.steem_payout[op] + '</a></td>';
+		html = html + '<td align=right>' + data.sbd_payout[op] + '</td>';
+		html = html + '<td align=right>' + data.sp_payout[op] + '</td>';
+		html = html + '<td align=right>' + data.count[op] + '</td>';
+	});
+	
+	html = html + '</table>';
+	document.getElementById("text").innerHTML = html;
+}
 	
 async function aaa(days){
 	
@@ -113,7 +129,7 @@ async function aaa(days){
 
 function clickBtn(days){
 	aaa(days).then(result => {		
-		makeTable(_payout);
+		makeTable(result);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerHTML = "<font color=red>"+err+"</font>";
