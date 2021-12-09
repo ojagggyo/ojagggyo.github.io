@@ -7,12 +7,12 @@
 <script>
 	
 steem.api.setOptions({url: 'https://api.steemit.com'})
-let _stok;
-_sbd_payout = {};
-_vesting_payout = {};
-_steem_payout = {};
-_sbd_payout_count = {};
-_sp = {};
+//let _stok;
+//_sbd_payout = {};
+//_vesting_payout = {};
+//_steem_payout = {};
+//_sbd_payout_count = {};
+//_sp = {};
 	
 async function aaa(days){
 	
@@ -20,14 +20,12 @@ async function aaa(days){
 	document.getElementById("total").innerHTML = '<b></b>';
 	document.getElementById("progress").innerText = '';
 	
-	_count = {};
-	_sbd_payout = {};
-	_steem_payout = {};
-	_vesting_payout = {};
-	_reward = {};
-	
-	//	_payout = [];
-		
+	let count = {};
+	let total_sbd_payout = {};
+	let total_steem_payout = {};
+	let total_vesting_payout = {};
+	let total_sp_payout = {};
+			
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -59,15 +57,17 @@ async function aaa(days){
 			if(ret[i][1].op[0] == "comment_benefactor_reward" && ret[i][1].op[1].benefactor == username){
 				op = "comment_benefactor_reward"
 				sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
-				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
 				steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
 			}else if(ret[i][1].op[0] == "author_reward"){
 				op = "author_reward"
 				sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout);
-				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
 				steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+				vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
 			}else if(ret[i][1].op[0] == "curation_reward"){
 				op = "curation_reward"
+				sbd_payout = 0;
+				steem_payout = 0;
 				vesting_payout = parseFloat(ret[i][1].op[1].reward);
 			}else {
 				ret.splice(i,1);
@@ -76,15 +76,15 @@ async function aaa(days){
 			
 	
 			if(_count[op] === void 0){
-				_count[op] = 1;
-				_sbd_payout[op] = sbd_payout;
-				_steem_payout[op] = steem_payout;
-				_vesting_payout[op] = vesting_payout;
+				count[op] = 1;
+				total_sbd_payout[op] = sbd_payout;
+				total_steem_payout[op] = steem_payout;
+				total_vesting_payout[op] = vesting_payout;
 			}else{
-				_count[op] += 1;
-				_sbd_payout[op] += sbd_payout;
-				_steem_payout[op] += steem_payout;
-				_vesting_payout[op] += vesting_payout;
+				count[op] += 1;
+				total_sbd_payout[op] += sbd_payout;
+				total_steem_payout[op] += steem_payout;
+				total_vesting_payout[op] += vesting_payout;
 			}
 
 			let timestamp = new Date(ret[i][1].timestamp);
@@ -98,18 +98,17 @@ async function aaa(days){
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	
 	['comment_benefactor_reward', 'author_reward', 'curation_reward'].forEach(function(op){
-		_sp[op] = steem.formatter.vestToSteem(
-			_vesting_payout[op], 
+		total_sp_payout[op] = steem.formatter.vestToSteem(
+			total_vesting_payout[op], 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
 	});
-
-	//console.log(out);
-	console.log(_count);
-	console.log(_sbd_payout);
-	console.log(_steem_payout);
-	console.log(_vesting_payout);	
-	return out;
+	
+	console.log(count);
+	console.log(total_sbd_payout);
+	console.log(total_steem_payout);
+	console.log(total_vesting_payout);	
+	return {'count': count, 'sbdd_payout': total_sbd_payout, 'steemd_payout': total_steem_payout, 'spd_payout': total_vesting_payout};
 };
 
 function clickBtn(days){
