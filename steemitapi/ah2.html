@@ -115,6 +115,10 @@ async function aaa(days){
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	
 	['comment_benefactor_reward', 'author_reward', 'curation_reward'].forEach(function(op){
+		if(total_count[op] === void 0){total_count[op] = 0}
+		if(total_sbd_payout[op] === void 0){total_sbd_payout[op] = 0}
+		if(total_steem_payout[op] === void 0){total_steem_payout[op] = 0}
+		if(total_vesting_payout[op] === void 0){total_vesting_payout[op] = 0}
 		total_sp_payout[op] = steem.formatter.vestToSteem(
 			total_vesting_payout[op], 
 			globalProperties.total_vesting_shares, 
