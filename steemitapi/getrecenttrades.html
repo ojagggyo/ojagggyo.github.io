@@ -32,7 +32,7 @@ function makeTable(records){
 	html = html + '<th>date</th><th>current_pays</th><th>open_pays</th><th></th>';
 	html = html + '</tr>';
 	for(var i=0;i<records.length;i=i+1){
-		let rate  - 0;
+		let rate = 0;
 			if ( records[i].current_pays.indexOf('STEEM') != -1) {
 				rate = parseFloat(records[i].open_pays / parseFloat(records[i].current_pays))
 			}else{
