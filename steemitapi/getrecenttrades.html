@@ -1,3 +1,14 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+<!-- see https://github.com/steemit/steem-js/tree/master/doc#get-recent-trades -->
+	    <title>getaccounthistory</title>
+        <meta charset="utf-8">
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <!-- <script src="https://ojagggyo.github.io/steemitapi/getaccounthistory.js"></script> -->
+	    
+<script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 function donokuraimae(date){
@@ -13,7 +24,7 @@ function donokuraimae(date){
 }
 		
 function makeTable(records){
-
+/*
 	console.log('☆records☆');
 	console.log(records);
 	html = '<table border=1 >';
@@ -33,33 +44,34 @@ function makeTable(records){
 	html = html + '</table>';
 	console.log(html);
 	document.getElementById("text").innerHTML = html;
+*/
 }
 		
 async function aaa(){
-	let out = [];
+		
 	let limit = 100;
-	let lastlength = limit;
-	let firstValue = -1;
-	let author = document.getElementById("text1").value;
-	while (firstValue != 0 && out.length < 1000){	
-		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
-		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
-		console.log(ret);		
-		firstValue = ret[0][0];
-		ret.shift();
-		lastlength = ret.length;
-		out = ret.concat(out);
-	}
-	console.log("☆");
+	let ret = await steem.api.getRecentTradesAsync(limit);
+
 	console.log(out);
-	return out;
+	return ret;
 };
 
 function clickBtn(){
 	aaa().then(result => {		
 		makeTable(result);
 	}).catch(err => {
-		console.log('☆');
 		console.log(err);
 	});
 }
+</script>
+		
+		
+    </head>
+    <body>        
+        <p>最近の取り引きを表示します。</p>
+	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+	<a id="progress"></a>
+        <br/>
+        <span id="text"></span>
+    </body>
+</html>
