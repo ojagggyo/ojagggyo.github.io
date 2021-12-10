@@ -34,9 +34,9 @@ function makeTable(records){
 	for(var i=0;i<records.length;i=i+1){
 		let rate = 0;
 			if ( records[i].current_pays.indexOf('SBD') != -1) {
-				rate = parseFloat(records[i].open_pays / parseFloat(records[i].current_pays))
+				rate = parseFloat(records[i].open_pays) / parseFloat(records[i].current_pays);
 			}else{
-				rate  =  parseFloat(records[i].current_pays) / parseFloat(records[i].open_pays)
+				rate  =  parseFloat(records[i].current_pays) / parseFloat(records[i].open_pays);
 			}
 				
 			
