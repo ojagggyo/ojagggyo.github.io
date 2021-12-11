@@ -9,11 +9,12 @@
 <script>
 	
 //markets
-//KRW-STEEM
-//KRW-SBD
+//BTC-STEEM
+//BTC-SBD
 function getPrice(markets) {
 	return new Promise((resolve) => {
-		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
+		//let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
+		let url = "https://api.bittrex.com/api/v1.1/public/getticker?market=" + markets;
 		$.getJSON(url, (data) => {
 			resolve(data[0].trade_price);
 		});
@@ -21,8 +22,8 @@ function getPrice(markets) {
 };
 
 async function rate(){
-	const steem = await getPrice('KRW-STEEM');
-	const sbd = await getPrice('KRW-SBD');
+	const steem = await getPrice('BTC-STEEM');
+	const sbd = await getPrice('BTC-SBD');
 	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
 };
 	
@@ -38,9 +39,9 @@ rate().then(result => {
 </script>
 
 <h1>STEEM価格</h1>
-<b id="steem"></b>ウォン (upbit取引所)
+<b id="steem"></b>BTC (bittrex取引所)
 <br/>
-<b id="sbd"></b>ウォン (upbit取引所)
+<b id="sbd"></b>BTC (bittrex取引所)
 <br/>
 レート <b id="rate"></b>
 
