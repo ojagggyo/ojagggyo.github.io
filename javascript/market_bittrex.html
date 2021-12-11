@@ -26,6 +26,9 @@ function getPrice(markets) {
 		    url: url,
 		    success: function(data) {
 			resolve(data[0].trade_price);
+		    },
+		    error: function () {
+			alert("失敗");
 		    }
 		});
 	});
