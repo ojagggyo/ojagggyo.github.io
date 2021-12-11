@@ -15,9 +15,10 @@ function getPrice(markets) {
 	return new Promise((resolve) => {
 		//let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
 		let url = "https://api.bittrex.com/api/v1.1/public/getticker?market=" + markets;
-		//$.getJSON(url, (data) => {
-		//	resolve(data[0].trade_price);
-		//});
+		$.getJSON(url, (data) => {
+			resolve(data.result.Last);
+		});
+		/*
 		$.ajax({
 		    beforeSend: function(request) {
 			request.setRequestHeader("user-agent", 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36');
@@ -25,12 +26,13 @@ function getPrice(markets) {
 		    dataType: "json",
 		    url: url,
 		    success: function(data) {
-			resolve(data[0].trade_price);
+			resolve(data.result.Last);
 		    },
 		    error: function () {
 			alert("失敗");
 		    }
 		});
+		*/
 	});
 };
 
