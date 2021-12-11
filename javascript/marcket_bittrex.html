@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+  
+<script>
+	
+//markets
+//KRW-STEEM
+//KRW-SBD
+function getPrice(markets) {
+	return new Promise((resolve) => {
+		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
+		$.getJSON(url, (data) => {
+			resolve(data[0].trade_price);
+		});
+	});
+};
+
+async function rate(){
+	const steem = await getPrice('KRW-STEEM');
+	const sbd = await getPrice('KRW-SBD');
+	return {'steem': steem, 'sbd': sbd, 'rate': sbd / steem};
+};
+	
+	
+rate().then(result => {
+	$("#steem").html(result['steem']);
+	$("#sbd").html(result['sbd']);
+	$("#rate").html(result['rate'].toFixed(2));
+}).catch(err => {
+	console.log(err);
+});
+	
+</script>
+
+<h1>STEEM価格</h1>
+<b id="steem"></b>ウォン (upbit取引所)
+<br/>
+<b id="sbd"></b>ウォン (upbit取引所)
+<br/>
+レート <b id="rate"></b>
+
+</body>
+</html>
