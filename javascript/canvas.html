@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+window.onload = function() {
+  var cv = document.getElementById('cvs'); //id 名の要素を取得
+  var ctx = cv.getContext('2d'); //2D(平面) Contextを取得
+  if (!cv || !cv.getContext) {
+    return false;
+  }
+  var cvswidth = cv.width;
+  var cvsheight = cv.height;
+
+  ctx.fillStyle = '#217ab7';
+  ctx.fillRect(0, 0, cvswidth/3, cvsheight);
+
+  ctx.fillStyle = '#5bc0de';
+  ctx.fillRect(cvswidth/3, 0, cvswidth/3*2, cvsheight);
+
+  ctx.fillStyle = '#5eb85e';
+  ctx.fillRect(cvswidth/3*2, 0, cvswidth, cvsheight);
+}  
+    </script>
+  </head>
+
+  <body>
+    <canvas id="cvs" width="200" height="100"  style="background-color: #888888;">
+    </canvas>
+  </body>
+
+</html>
