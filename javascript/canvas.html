@@ -4,33 +4,40 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript">
-window.onload = function() {
-  var cv = document.getElementById('cvs'); //id 名の要素を取得
-  var ctx = cv.getContext('2d'); //2D(平面) Contextを取得
-  if (!cv || !cv.getContext) {
-    return false;
-  }
-  var cvswidth = cv.width;
-  var cvsheight = cv.height;
+      window.onload = function() {
+        var cv = document.getElementById('cvs'); //id 名の要素を取得
+        var ctx = cv.getContext('2d'); //2D(平面) Contextを取得
+        if (!cv || !cv.getContext) {
+          return false;
+        }
+var cvswidth = cv.width;
+var cvsheight = cv.height;
+        
+ctx.fillStyle = '#217ab7'; 
+ctx.fillRect(0, 0, cvswidth/3, cvsheight);
+                
+ctx.fillStyle = '#5bc0de';
+ctx.fillRect(cvswidth/3, 0, cvswidth/3*2, cvsheight);
 
-  ctx.fillStyle = '#217ab7';
-  ctx.fillRect(0, 0, cvswidth/3, cvsheight);
+ctx.fillStyle = '#5eb85e';
+ctx.fillRect(cvswidth/3*2, 0, cvswidth, cvsheight);
+    
+      ctx.fillStyle = 'rgba(255, 255, 255)';
+ctx.font = '40pt Arial';
+let metrics = ctx.measureText('Steemit');
 
-  ctx.fillStyle = '#5bc0de';
-  ctx.fillRect(cvswidth/3, 0, cvswidth/3*2, cvsheight);
-
-  ctx.fillStyle = '#5eb85e';
-  ctx.fillRect(cvswidth/3*2, 0, cvswidth, cvsheight);
-
-  ctx.fillStyle = 'rgba(0, 0, 0)';
-  ctx.font = '20pt';
-  ctx.fillText('Hello', 20, 70);  // 座標 (20, 50) にテキスト描画
-}  
+let x = cvswidth/2 - metrics.width/2;
+let y =  metrics.height;
+x = 0;
+y= metrics.height;
+  ctx.fillText('Steemit', x, y);
+     }
+  
     </script>
   </head>
 
   <body>
-    <canvas id="cvs" width="100％" height="100" style="background-color:yellow;>
+    <canvas id="cvs" width="200" height="100"  style="background-color: #888888;">
     </canvas>
   </body>
 
