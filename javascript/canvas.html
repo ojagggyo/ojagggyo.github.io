@@ -5,8 +5,8 @@
     <title></title>
     <script type="text/javascript">
       window.onload = function() {
-        var cv = document.getElementById('cvs');
-        var ctx = cv.getContext('2d');
+        var cv = document.getElementById('cvs'); //id 名の要素を取得
+        var ctx = cv.getContext('2d'); //2D(平面) Contextを取得
         if (!cv || !cv.getContext) {
           return false;
         }
@@ -25,11 +25,11 @@ ctx.fillRect(cvswidth/3*2, 0, cvswidth, cvsheight);
       ctx.fillStyle = 'rgba(255, 255, 255)';
 ctx.font = '40pt Arial';
 let metrics = ctx.measureText('Steemit');
+const  textWidth =  mesure.width;
+const  textHeight =  mesure.actualBoundingBoxAscent + mesure.actualBoundingBoxDescent;
 
-let x = cvswidth/2 - metrics.width/2;
-let y =  metrics.height;
-x = 0;
-y= metrics.height;
+let x = cvswidth/2 - textWidth/2;
+let y =  cvsheight/2 - textHeight/2+textHeight;
   ctx.fillText('Steemit', x, y);
      }
   
