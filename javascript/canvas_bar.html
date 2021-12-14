@@ -18,11 +18,11 @@ let x1 = v1 / (v1 + v2 + v3) * cvswidth;
 let x2 = v2 / (v1 + v2 + v3) * cvswidth;
 let x3 = v3 / (v1 + v2 + v3) * cvswidth;
 ctx.fillStyle = '#217ab7'; 
-ctx.fillRect(0, 0, x1, cvsheight/3);
+ctx.fillRect(0, 0, x1, cvsheight);
 ctx.fillStyle = '#5bc0de';
-ctx.fillRect(x1, cvsheight/3, x2, cvsheight/3);
+ctx.fillRect(x1, 0, x2, cvsheight);
 ctx.fillStyle = '#5eb85e';
-ctx.fillRect(x1 + x2, cvsheight/3*2, x3, cvsheight/3);
+ctx.fillRect(x1 + x2, 0, x3, cvsheight);
 }
     </script>
   </head>
