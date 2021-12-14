@@ -6,35 +6,29 @@
     <script type="text/javascript">
   
       
-function bar(v1, v2, v3){
-  
-        var cv = document.getElementById('cvs');
-        var ctx = cv.getContext('2d');
-        if (!cv || !cv.getContext) {
-          return false;
-        }
+function bar(v1, v2, v3){  
+var cv = document.getElementById('cvs');
+var ctx = cv.getContext('2d');
+if (!cv || !cv.getContext) {
+  return false;
+}
 var cvswidth = cv.width;
 var cvsheight = cv.height;
+let x1 = v1 / (v1, v2, v3) * cvswidth;
+let x2 = v2 / (v1, v2, v3) * cvswidth;
+let x3 = v3 / (v1, v2, v3) * cvswidth;
 ctx.fillStyle = '#217ab7'; 
-ctx.fillRect(0, 0, cvswidth/3, cvsheight);
+ctx.fillRect(0, 0, x1, cvsheight);
 ctx.fillStyle = '#5bc0de';
-ctx.fillRect(cvswidth/3, 0, cvswidth/3*2, cvsheight);
+ctx.fillRect(x1, 0, x1 + x2, cvsheight);
 ctx.fillStyle = '#5eb85e';
-ctx.fillRect(cvswidth/3*2, 0, cvswidth, cvsheight);
+ctx.fillRect(x1 + x2, cvswidth, cvswidth, cvsheight);
 ctx.fillStyle = 'rgba(255, 255, 255)';
 ctx.font = '80pt Arial';
-let mesure = ctx.measureText('Steemit');
-const  textWidth =  mesure.width;
-const  textHeight =  mesure.actualBoundingBoxAscent + mesure.actualBoundingBoxDescent;
-let x = cvswidth/2 - textWidth/2;
-let y =  cvsheight/2 - textHeight/2+textHeight;
-ctx.fillText('Steemit', x, y);
-     }
-  
-  
-  
+}
+   
       
-      window.onload = bar;
+      window.onload = bar(1,2,3);
       
     </script>
   </head>
