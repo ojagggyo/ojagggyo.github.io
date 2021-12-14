@@ -17,12 +17,22 @@ var cvsheight = cv.height;
 let x1 = v1 / (v1 + v2 + v3) * cvswidth;
 let x2 = v2 / (v1 + v2 + v3) * cvswidth;
 let x3 = v3 / (v1 + v2 + v3) * cvswidth;
+ctx.font = '80pt Arial';
+const mesure = ctx.measureText('100%');
+const  textWidth =  mesure.width;
+const  textHeight =  mesure.actualBoundingBoxAscent + mesure.actualBoundingBoxDescent;  
+//
 ctx.fillStyle = '#217ab7'; 
 ctx.fillRect(0, 0, x1, cvsheight);
+ctx.fillText((v1 / (v1 + v2 + v3)).toFixed(0) + '%', 0, textHeight);
+//
 ctx.fillStyle = '#5bc0de';
 ctx.fillRect(x1, 0, x2, cvsheight);
+ctx.fillText((v2 / (v1 + v2 + v3)).toFixed(0) + '%', x1, textHeight);
+//
 ctx.fillStyle = '#5eb85e';
 ctx.fillRect(x1 + x2, 0, x3, cvsheight);
+ctx.fillText((v3 / (v1 + v2 + v3)).toFixed(0) + '%', x1 + x2, textHeight);
 }
     </script>
   </head>
