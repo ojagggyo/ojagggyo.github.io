@@ -24,14 +24,17 @@ const  textHeight =  mesure.actualBoundingBoxAscent + mesure.actualBoundingBoxDe
 //
 ctx.fillStyle = '#217ab7'; 
 ctx.fillRect(0, 0, x1, cvsheight);
+ctx.fillStyle = '#ffffff';
 ctx.fillText((v1 / (v1 + v2 + v3)).toFixed(0) + '%', 0, textHeight);
 //
 ctx.fillStyle = '#5bc0de';
 ctx.fillRect(x1, 0, x2, cvsheight);
+ctx.fillStyle = '#ffffff';
 ctx.fillText((v2 / (v1 + v2 + v3)).toFixed(0) + '%', x1, textHeight);
 //
 ctx.fillStyle = '#5eb85e';
 ctx.fillRect(x1 + x2, 0, x3, cvsheight);
+ctx.fillStyle = '#ffffff';
 ctx.fillText((v3 / (v1 + v2 + v3)).toFixed(0) + '%', x1 + x2, textHeight);
 }
     </script>
