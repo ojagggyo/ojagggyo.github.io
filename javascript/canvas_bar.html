@@ -14,9 +14,9 @@ if (!cv || !cv.getContext) {
 }
 var cvswidth = cv.width;
 var cvsheight = cv.height;
-let x1 = v1 / (v1, v2, v3) * cvswidth;
-let x2 = v2 / (v1, v2, v3) * cvswidth;
-let x3 = v3 / (v1, v2, v3) * cvswidth;
+let x1 = v1 / (v1 + v2 + v3) * cvswidth;
+let x2 = v2 / (v1 + v2 + v3) * cvswidth;
+let x3 = v3 / (v1 + v2 + v3) * cvswidth;
 ctx.fillStyle = '#217ab7'; 
 ctx.fillRect(0, 0, x1, cvsheight);
 ctx.fillStyle = '#5bc0de';
