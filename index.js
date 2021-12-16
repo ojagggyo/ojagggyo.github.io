@@ -99,8 +99,8 @@ window.onload = function() {
     getAccountsAsync();
     getSteemPower();
 
-    setInterval(getAccountsAsync, 5000);
-    setInterval(getSteemPower, 5000);
+    setInterval(getAccountsAsync, 60*1000);
+    setInterval(getSteemPower, 60*1000);
     
     link();
     
