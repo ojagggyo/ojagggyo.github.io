@@ -9,15 +9,11 @@ crossorigin="anonymous"></script>
 <body>
 <canvas id=identicon width="100" height="100" data-jdenticon-value=""></canvas><br/>
 
-  <table border=1 >
-    <tr>
-      <th></th>
-    </tr>
-    <tr>
-      <td><canvas id=231404 width=32 height=32 data-jdenticon-value=yasu></canvas></td>
-    </tr>
-  </table>
-  
-  
+  <span id=text><canvas id=231404 width=32 height=32 data-jdenticon-value=yasu></canvas></span>
+ 
   </body>
+  <script>
+    document.getElementById("text").innnerHtml = '<span id=text><canvas id=231404 width=32 height=32 data-jdenticon-value=yasu></canvas></span>';
+   jdenticon.update("#231404", "");
+  </script>
 </html>
