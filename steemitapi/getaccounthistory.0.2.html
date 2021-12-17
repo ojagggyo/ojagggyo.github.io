@@ -28,7 +28,7 @@ function makeLine(record){
 	let line = '';
 	if(record[1].op[0] == 'vote'){
 		let voter = record[1].op[1].voter;
-		line = '<canvas id=' + record[0] + ' width=16 height=16 data-jdenticon-value=' + voter + '></canvas>'		
+		line = '<canvas id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + voter + '></canvas>'		
 	}
 
 	return line;
