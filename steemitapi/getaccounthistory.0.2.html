@@ -58,7 +58,7 @@ function makeTable(records){
 	console.log(html);
 	document.getElementById("text").innerHTML = html;
 	
-	 jdenticon.update("#231416", 'yasu');
+	
 }
 		
 async function aaa(){
@@ -84,6 +84,7 @@ async function aaa(){
 function clickBtn(){
 	aaa().then(result => {		
 		makeTable(result);
+		 jdenticon.update("#231416", 'yasu');
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
