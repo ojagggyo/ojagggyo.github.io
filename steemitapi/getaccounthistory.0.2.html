@@ -24,8 +24,10 @@ function donokuraimae(date){
 function makeTable(record){
 	let line = '';
 	if(record[1].op[0] == 'vote'){
-		
+		let voter = record[1].op[1].voter;
+		line = '<canvas id=' + record[0] + ' width="16" height="16" data-jdenticon-value=' + voter + '></canvas><br/>'		
 	}
+
 }
 		
 function makeTable(records){
@@ -58,10 +60,10 @@ async function aaa(){
 	let limit = 10;
 	let lastlength = limit;
 	let firstValue = -1;
-	let author = document.getElementById("text1").value;
+	let username = document.getElementById("username").value;
 	while (firstValue != 0 && out.length < 100){	
 		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
-		let ret = await steem.api.getAccountHistoryAsync(author, firstValue, limit);
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		console.log(ret);		
 		firstValue = ret[0][0];
 		ret.shift();
@@ -86,7 +88,7 @@ function clickBtn(){
 	</head>
     <body>        
         <p>アカウントヒストリーを表示します。</p>
-	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
         <span id="text"></span>
