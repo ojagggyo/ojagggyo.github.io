@@ -5,15 +5,8 @@
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js"
 integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
 crossorigin="anonymous"></script> 
-<script>
-function inputChange(event){
-    let username = document.getElementById("username").value;
-    jdenticon.update("#identicon", username);
-}
-</script>  
 </head>
 <body>
 <canvas id=identicon width="400" height="400" data-jdenticon-value=""></canvas><br/>
-<input type="text" id="username" size="20" oninput="inputChange(event)" style="font-size: 2rem; ime-mode:disabled" placeholder="アカウント名を入力します" />
 </body>
 </html>
