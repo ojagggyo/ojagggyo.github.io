@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>getaccounthistory</title>
-        <meta charset="utf-8">
-        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-        <script src="https://ojagggyo.github.io/steemitapi/getaccounthistory.js"></script>
-    </head>
-    <body>        
-        <p>アカウントヒストリーを表示します。</p>
-	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
-	<a id="progress"></a>
-        <br/>
-        <span id="text"></span>
-    </body>
+<head>
+<!--see https://jdenticon.com/js-api/no-icons-rendered.html-->
+<title>getaccounthistory</title>
+<meta charset="utf-8">
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+<script>window.jdenticon_config = {replaceMode: "observe"};</script>
+<script src="https://ojagggyo.github.io/steemitapi/getaccounthistory.js"></script>
+</head>
+<body>        
+<p>アカウントヒストリーを表示します。</p>
+<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+<a id="progress"></a>
+<br/>
+<span id="text"></span>
+</body>
 </html>
