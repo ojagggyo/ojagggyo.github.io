@@ -38,7 +38,7 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		line = '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '></canvas>  ' 
 			+ voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
-			+ ' ' + weight/100 + '%';
+			+ ' (' + weight/100 + '%)';
 	}
 
 	return line;
