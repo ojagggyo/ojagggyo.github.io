@@ -57,7 +57,7 @@ function makeTable(records){
 
 	console.log('☆records☆');
 	console.log(records);
-	html = '<table border=0 cellpadding=0 style="background-color: #808080;">';
+	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
 	//テーブルのヘッダー
 	//html = html + '<tr>';
 	//html = html + '<th></th><th></th>';
@@ -65,7 +65,7 @@ function makeTable(records){
 	//for(var i=0;i<records.length;i=i+1){
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
-		html = html + '<tr>';
+		html = html + '<tr style="background-color: #ffffff;">';
 		html = html + '<td>' + line.identicon + '</td>';
 		html = html + '<td>' + line.body + '</td>';
 		html = html + '</tr>';
