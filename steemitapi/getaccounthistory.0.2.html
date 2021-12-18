@@ -30,8 +30,9 @@ function donokuraimae(date){
 }
 
 function makeLine(record){
-	let detail = '';
-	let voter = '';
+	let body = '';
+	let identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '></canvas>';
+	
 	if(record[1].op[0] == 'vote'){
 		voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
@@ -39,14 +40,14 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		const timestamp = record[1].timestamp;
 
-		detail = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
+		body = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
 			+ ' (' + weight/100 + '%) '
 			+ donokuraimae(timestamp)
-		+ '<br/>'
-		+ record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
+			+ '<br/>'
+			+ record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
 	}
 
-	return {identicon: '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '></canvas>', detail: detail};
+	return {identicon: identicon, body: body};
 }
 		
 function makeTable(records){
@@ -63,7 +64,7 @@ function makeTable(records){
 		const line = makeLine(records[i]);
 		html = html + '<tr>';
 		html = html + '<td>' + line.identicon + '</td>';
-		html = html + '<td>' + line.detail + '</td>';
+		html = html + '<td>' + line.body + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
