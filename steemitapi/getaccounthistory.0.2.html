@@ -39,7 +39,7 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
 		const timestamp = record[1].timestamp;
-		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '  style="background-color:#f00; margin:-1px -1px -8px -1px;"></canvas>';
+		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + ' style="background-color:#f00; margin:0px 0px -7px 0px;"></canvas>';
 		body = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
 			+ ' (' + weight/100 + '%) '
 			+ donokuraimae(timestamp);
