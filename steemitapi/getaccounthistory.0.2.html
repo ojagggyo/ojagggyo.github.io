@@ -35,8 +35,10 @@ function makeLine(record){
 		const voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
+		const weight = record[1].op[1].weight;
 		line = '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '></canvas>  ' 
-			+ voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' ;
+			+ voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
+			+ ' ' + weight/100 + '%';
 	}
 
 	return line;
