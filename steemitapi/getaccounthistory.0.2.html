@@ -44,9 +44,12 @@ function makeLine(record){
 
 		body = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
 			+ ' (' + weight/100 + '%) '
-			+ donokuraimae(timestamp)
-			+ '<br/>'
-			+ record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
+			+ donokuraimae(timestamp);
+	}
+	esle
+	{
+		identicon =  '<canvas></canvas>';
+		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
 	}
 
 	return {identicon: identicon, body: body};
