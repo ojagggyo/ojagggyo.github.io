@@ -31,8 +31,9 @@ function donokuraimae(date){
 
 function makeLine(record){
 	let detail = '';
+	let voter = '';
 	if(record[1].op[0] == 'vote'){
-		const voter = record[1].op[1].voter;
+		voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
