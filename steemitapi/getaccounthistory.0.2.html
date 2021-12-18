@@ -36,7 +36,7 @@ function makeLine(record){
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
-		const timestamp = record[1].op[1].timestamp;
+		const timestamp = record[1].timestamp;
 
 		
 		line = '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + '></canvas>  ' 
@@ -59,7 +59,7 @@ function makeTable(records){
 	html = html + '</tr>';
 	//for(var i=0;i<records.length;i=i+1){
 	for(var i=records.length-1;i>=0;i=i-1){
-		let line = makeLine(records[i]);
+		const line = makeLine(records[i]);
 		html = html + '<tr>';
 		html = html + '<td>' + line + '</td>';
 		//html = html + '<td align=right>' + donokuraimae(records[i][1].timestamp) + '</td>';
