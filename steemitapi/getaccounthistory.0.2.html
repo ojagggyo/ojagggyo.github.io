@@ -97,9 +97,7 @@ function makeTable(records){
 }
 		
 async function aaa(){
-	if(globalProperties === void 0){
-		globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
-	}
+	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	let out = [];
 	let limit = 10;
 	let lastlength = limit;
