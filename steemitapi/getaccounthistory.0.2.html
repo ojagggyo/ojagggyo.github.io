@@ -51,18 +51,6 @@ function makeLine(record){
 			+ ' (' + weight/100 + '%) '
 			+ donokuraimae(timestamp);
 	}
-	else if(record[1].op[0] == 'curation_reward'){
-		const curator = record[1].op[1].curator;
-		const comment_author = record[1].op[1].comment_author;
-		const comment_permlink = record[1].op[1].comment_permlink;
-		const reward = vestToSteem(record[1].op[1].reward);
-		//
-		
-		const timestamp = record[1].timestamp;
-		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + curator + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = curator + ' curation reward ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' 
-			+ donokuraimae(timestamp);
-	}
 	else
 	{
 		identicon =  '<canvas width=32 height=32></canvas>';
