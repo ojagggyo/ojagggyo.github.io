@@ -121,13 +121,14 @@ function inputChange(event){
 </script>
 
 	</head>
-    <body>        
+    <body>
         <p>アカウントヒストリーを表示します。</p>
-	<canvas id=identicon width="32" height="32" data-jdenticon-value="yasu" style="margin:0px 0px -7px 0px;"></canvas>
-	<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
-	<input type="button" value="表示する" onclick="clickBtn()" />
-	<a id="progress"></a>
-        <br/>
+	<div>
+		<canvas id=identicon width="32" height="32" data-jdenticon-value="yasu" style="margin:0px 0px -7px 0px;"></canvas>
+		<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
+		<input type="button" value="表示する" onclick="clickBtn()" />
+		<a id="progress"></a>
+        </div>
         <span id="text"></span>
     </body>
 </html>
