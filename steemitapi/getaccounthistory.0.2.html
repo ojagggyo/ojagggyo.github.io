@@ -113,13 +113,19 @@ function clickBtn(){
 		console.log('☆');
 		console.log(err);
 	});
-}	    
+}
+function inputChange(event){
+    let username = document.getElementById("username").value;
+    jdenticon.update("#identicon", username);
+}
 </script>
 
 	</head>
     <body>        
         <p>アカウントヒストリーを表示します。</p>
-	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+	<canvas id=identicon width="32" height="32" data-jdenticon-value=""></canvas>
+	<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
+	<input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
         <span id="text"></span>
