@@ -28,7 +28,20 @@ function donokuraimae(date){
 	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
 	return 'たった今';
 }
+	
+function vestToSteem(vest){
 
+	//vestToSteem
+	if(globalProperties === void 0){
+		globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
+	}
+
+	return  steem.formatter.vestToSteem(
+		vest, 
+		globalProperties.total_vesting_shares, 
+		globalProperties.total_vesting_fund_steem)	
+}	
+	
 function makeLine(record){
 	let body = '';
 	let identicon =  '';
@@ -48,10 +61,12 @@ function makeLine(record){
 		const curator = record[1].op[1].curator;
 		const comment_author = record[1].op[1].comment_author;
 		const comment_permlink = record[1].op[1].comment_permlink;
-		//reward
+		const reward = vestToSteem(record[1].op[1].reward);
+		//
+		
 		const timestamp = record[1].timestamp;
 		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + curator + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = curator + ' curation reward <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' 
+		body = curator + ' curation reward ' + reward + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' 
 			+ donokuraimae(timestamp);
 	}
 	else
