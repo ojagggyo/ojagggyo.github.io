@@ -33,7 +33,7 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		const timestamp = record[1].timestamp;
 		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
+		body = voter + ' upvote👍 <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
 			+ ' (' + weight/100 + '%) '
 			+ donokuraimae(timestamp);
 	}
