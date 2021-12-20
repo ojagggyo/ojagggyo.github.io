@@ -63,8 +63,7 @@ function makeTable(records){
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
 		html = html + '<tr style="background-color: #ffffff;">';
-		html = html + '<td style="text-align:center; vertical-align:middle;">' + line.identicon + '</td>';
-		html = html + '<td>' + line.body + '</td>';
+		html = html + '<td>' + line.identicon + ' ' + line.body + '</td>';
 		html = html + '</tr>';
 	}
 	html = html + '</table>';
