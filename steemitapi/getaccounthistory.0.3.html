@@ -78,11 +78,11 @@ function makeTable(records){
 async function aaa(){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
 	let out = [];
-	let limit = 10;
+	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
 	let username = document.getElementById("username").value;
-	while (firstValue != 0 && out.length < 100){	
+	while (firstValue != 0 && out.length < 1000){	
 		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
 		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		console.log(ret);		
