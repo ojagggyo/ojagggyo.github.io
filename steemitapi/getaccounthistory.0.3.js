@@ -9,3 +9,17 @@ function donokuraimae(date){
 	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
 	return 'たった今';
 }
+
+function clickBtn(){
+	aaa().then(result => {		
+		makeTable(result);
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
+
+function inputChange(event){
+    let username = document.getElementById("username").value;
+    jdenticon.update("#identicon", username);
+}
