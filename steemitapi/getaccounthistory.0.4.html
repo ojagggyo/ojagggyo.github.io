@@ -73,11 +73,6 @@ function makeTable(records){
 	console.log('☆records☆');
 	console.log(records);
 	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
-	//テーブルのヘッダー
-	//html = html + '<tr>';
-	//html = html + '<th></th><th></th>';
-	//html = html + '</tr>';
-	//for(var i=0;i<records.length;i=i+1){
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
 		html = html + '<tr style="background-color: #ffffff;">';
@@ -114,7 +109,6 @@ async function aaa(){
 function clickBtn(){
 	aaa().then(result => {		
 		makeTable(result);
-		 //jdenticon.update("#231402", 'yasu');
 	}).catch(err => {
 		console.log('☆');
 		console.log(err);
