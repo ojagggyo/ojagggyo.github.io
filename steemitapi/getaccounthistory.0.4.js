@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>getaccounthistory</title>
+<meta charset="utf-8">
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+<script>
+    window.jdenticon_config = {
+        replaceMode: "observe"
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js" 
+	integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx" 
+	crossorigin="anonymous"></script> 
+<script>
+steem.api.setOptions({url: 'https://api.steemit.com'})
+
+function donokuraimae(date){
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
+}	
+	
+function makeLine(record){
+	let body = '';
+	let identicon =  '';
+	if(record[1].op[0] == 'vote'){
+		const voter = record[1].op[1].voter;
+		const author = record[1].op[1].author;
+		const permlink = record[1].op[1].permlink;
+		const weight = record[1].op[1].weight;
+		const timestamp = record[1].timestamp;
+		identicon =  '<canvas id=' + record[0] + ' width=32 height=32 data-jdenticon-value=' + voter + ' style="margin:0px 0px -7px 0px;"></canvas>';
+		body = voter + ' upvote <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
+			+ ' (' + weight/100 + '%) '
+			+ donokuraimae(timestamp);
+	}
+	else
+	{
+		identicon =  '<canvas width=32 height=32></canvas>';
+		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
+	}
+	return {identicon: identicon, body: body};
+}
+		
+function makeTable(records){
+
+	console.log('☆records☆');
+	console.log(records);
+	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
+	//テーブルのヘッダー
+	//html = html + '<tr>';
+	//html = html + '<th></th><th></th>';
+	//html = html + '</tr>';
+	//for(var i=0;i<records.length;i=i+1){
+	for(var i=records.length-1;i>=0;i=i-1){
+		const line = makeLine(records[i]);
+		html = html + '<tr style="background-color: #ffffff;">';
+		html = html + '<td style="text-align:center; vertical-align:middle;">' + line.identicon + '</td>';
+		html = html + '<td>' + line.body + '</td>';
+		html = html + '</tr>';
+	}
+	html = html + '</table>';
+	console.log(html);
+	document.getElementById("text").innerHTML = html;	
+}
+		
+async function aaa(){
+	let out = [];
+	let limit = 10;
+	let lastlength = limit;
+	let firstValue = -1;
+	let username = document.getElementById("username").value;
+	while (firstValue != 0 && out.length < 100){	
+		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
+		console.log(ret);		
+		firstValue = ret[0][0];
+		ret.shift();
+		lastlength = ret.length;
+		out = ret.concat(out);
+	}
+	console.log("☆");
+	console.log(out);
+	return out;
+};
+
+function clickBtn(){
+	aaa().then(result => {		
+		makeTable(result);
+		 //jdenticon.update("#231402", 'yasu');
+	}).catch(err => {
+		console.log('☆');
+		console.log(err);
+	});
+}
+function inputChange(event){
+    let username = document.getElementById("username").value;
+    jdenticon.update("#identicon", username);
+}
+</script>
+</head>
+<body>
+	<p>アカウントヒストリーを表示します。</p>
+	<table>
+	<tr>
+	<td><canvas id=identicon width="32" height="32" data-jdenticon-value="yasu" style="margin:0px 0px -7px 0px;"></canvas></td>
+	<td>
+	<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
+	<input type="button" value="表示する" onclick="clickBtn()" />
+	<a id="progress"></a>
+	</td>
+	</tr>
+	</table>
+	<hr color="#888">
+	<span id="text"></span>
+</body>
+</html>
