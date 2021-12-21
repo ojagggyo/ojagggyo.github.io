@@ -22,3 +22,11 @@ function inputChange(event){
     let username = document.getElementById("username").value;
     jdenticon.update("#identicon", username);
 }
+
+
+function emoji(){
+//emoji_upvote = "👍";
+//emoji_curation_reward = "💰";
+emoji_upvote = "😍";
+emoji_curation_reward = "😁";
+}
