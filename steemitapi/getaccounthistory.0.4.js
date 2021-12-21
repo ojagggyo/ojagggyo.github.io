@@ -25,8 +25,8 @@ function inputChange(event){
 
 
 function emoji(){
-emoji = (emoji === void 0) ? 0 : ++emoji % 2;
-switch(emoji)
+emoji_index = (emoji_index === void 0) ? 0 : ++emoji_index % 2;
+switch(emoji_index)
 {
 case 0:
 emoji_upvote = "👍";
