@@ -52,8 +52,20 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = voter + ' upvote' + emoji_upvote + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
-			+ ' (' + weight/100 + '%)';
+		body = voter 
+			+ ' upvote' 
+			+ emoji_upvote 
+			+ ' <a href=https://steemit.com/@' 
+			+ author 
+			+ '/' + permlink 
+			+ '>@' 
+			+ author 
+			+ '/' 
+			+ permlink 
+			+ '</a>' 
+			+ ' (' 
+			+ weight/100 
+			+ '%)';
 	}
 	else if(record[1].op[0] == 'curation_reward'){
 		const curator = record[1].op[1].curator;
@@ -69,7 +81,6 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		identicon =  '<canvas id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + ' style="margin:0px 0px -7px 0px;"></canvas>';
 		body = author + ' authored a post' + emoji_comment + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' ;
-		time = donokuraimae(timestamp);
 	}
 	else
 	{
