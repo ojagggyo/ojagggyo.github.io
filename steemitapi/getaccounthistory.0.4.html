@@ -71,8 +71,9 @@ function makeTable(records){
 	document.getElementById("text").innerHTML = html;	
 }
 		
-async function aaa(){
+async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();	
+	/*
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -87,8 +88,60 @@ async function aaa(){
 		lastlength = ret.length;
 		out = ret.concat(out);
 	}
-	console.log("☆");
-	console.log(out);
+	*/
+	
+	let out = [];
+	let limit = 100;
+	let lastlength = limit;
+	let firstValue = -1;
+  	let firstTimestamp = new Date();
+	let benefactor = document.getElementById("text1").value;
+	let now = new Date();
+	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
+		
+		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
+		//console.log(ret);		
+		firstValue = ret[0][0];
+    		firstTimestamp = new Date(ret[0][1].timestamp);
+		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
+		ret.shift();
+		lastlength = ret.length;
+		
+		for(var i=ret.length-1;i>=0;i=i-1){
+			if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
+			if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
+			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
+				ret.splice(i,1);
+				continue;
+				//ret.splice(0, i + 1);//残りの要素を削除
+				//break;//すべて処理済
+			}
+					
+			let author = ret[i][1].op[1].author;
+			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
+			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			if(_sbd_payout[author] === void 0){
+				_sbd_payout[author] = sbd_payout;
+				_sbd_payout_count[author] = 1;
+				_vesting_payout[author] = vesting_payout;
+				_steem_payout[author] = steem_payout;
+			}else{
+				_sbd_payout[author] += sbd_payout;
+				_sbd_payout_count[author] += 1;
+				_vesting_payout[author] += vesting_payout;
+				_steem_payout[author] += steem_payout;
+			}
+			
+			let timestamp = new Date(ret[i][1].timestamp);
+			timestamp.setHours(timestamp.getHours() + 9);
+			document.getElementById("progress").innerText = "From "+timestamp;
+		}
+		
+		out = ret.concat(out);
+	}
+	
+	//console.log(out);
 	return out;
 };
 
@@ -101,7 +154,7 @@ async function aaa(){
 	<td><canvas id=identicon width="32" height="32" data-jdenticon-value="yasu" style="margin:0px 0px -7px 0px;"></canvas></td>
 	<td>
 	<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
-	<input type="button" value="表示する" onclick="clickBtn()" />
+	<input type="button" value="表示する" onclick="clickBtn(1)" />
 	<a id="progress"></a>
 	</td>
 	</tr>
