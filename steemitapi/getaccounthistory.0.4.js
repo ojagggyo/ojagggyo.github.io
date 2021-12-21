@@ -10,11 +10,10 @@ function donokuraimae(date){
 	return 'たった今';
 }
 
-function clickBtn(){
-	aaa().then(result => {		
+function clickBtn(days){
+	aaa(days).then(result => {		
 		makeTable(result);
 	}).catch(err => {
-		console.log('☆');
 		console.log(err);
 	});
 }
