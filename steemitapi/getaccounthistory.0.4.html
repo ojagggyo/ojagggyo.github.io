@@ -24,7 +24,7 @@ function vestToSteem(vest){
 }
 	
 function emoji(){
-emoji_index = (emoji_index === void 0) ? 0 : ++emoji_index % 2;
+if(emoji_index === void 0) emoji_index = 0;
 switch(emoji_index)
 {
 case 0:
