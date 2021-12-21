@@ -33,7 +33,7 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		const timestamp = record[1].timestamp;
 		identicon =  '<canvas id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = voter + ' upvote👍 <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
+		body = voter + ' upvote' + emoji_upvote + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
 			+ ' (' + weight/100 + '%)'
 			+ ' ' + donokuraimae(timestamp);
 	}
@@ -44,7 +44,7 @@ function makeLine(record){
 		const reward = vestToSteem(record[1].op[1].reward);		
 		const timestamp = record[1].timestamp;
 		identicon =  '<canvas id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + ' style="margin:0px 0px -7px 0px;"></canvas>';
-		body = curator + ' curation reward💰 ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' 
+		body = curator + ' curation reward' + emoji_curation_reward + ' reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' 
 			+ donokuraimae(timestamp);
 	}
 	else
