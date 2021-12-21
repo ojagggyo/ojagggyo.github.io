@@ -25,7 +25,7 @@ function vestToSteem(vest){
 }
 	
 function ellipsis(s){
-	return s.length > 20 ? (s).slice(0,20)+"…" : s;
+	return s.length > 40 ? (s).slice(0,40)+"…" : s;
 }
 
 
@@ -90,7 +90,8 @@ function makeLine(record){
 		const comment_permlink = record[1].op[1].comment_permlink;
 		const reward = vestToSteem(record[1].op[1].reward);		
 		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
-		body = curator + ' curation reward' + emoji_curation_reward + ' ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>@' + comment_author + '/' + comment_permlink + '</a>' ;
+		body = curator + ' curation reward' + emoji_curation_reward + ' ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
+			+ ellipsis('@' + comment_author + '/' + comment_permlink) + '</a>' ;
 	}
 	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author == ''){
 		const author = record[1].op[1].author;
