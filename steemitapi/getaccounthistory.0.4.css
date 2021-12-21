@@ -4,7 +4,8 @@ canvas.small {
   float: left;
 }
 canvas.large {
-  margin: 2px 2px -7px 2px;
+  //margin: 2px 2px -7px 2px;
+  margin: 2px 2px -5px 2px;
   //background-color: #f0f;
   float: left;
 }
@@ -14,8 +15,7 @@ div.small {
   //background-color: #f88;
 }
 div.large {
-  //margin: 2px 2px 2px 52px;
-  margin: 2px 2px 2px 50px;
+  margin: 2px 2px 2px 52px;
   //background-color: #f88;
 }
 
