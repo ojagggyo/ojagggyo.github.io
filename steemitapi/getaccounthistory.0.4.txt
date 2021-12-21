@@ -1,0 +1,47 @@
+<table border=0 cellpadding=0 style="background-color: #f1f1f1;"><tr style="background-color: #ffffff;"><td>
+<canvas class=small id=232813 width=24 height=24 data-jdenticon-value=yasu></canvas>
+<div class=small>
+<span class=small>yasu upvote👍 <a href=https://steemit.com/@cancerdoctor/stacks-alex>@cancerdoctor/stacks-alex</a> (5%)</span> 6分前
+</div>
+</td></tr></table>
+
+
+<table border=0 cellpadding=0 style="background-color: #f1f1f1;"><tr style="background-color: #ffffff;"><td>
+<canvas class=large id=232815 width=48 height=48 data-jdenticon-value=yasu></canvas>
+<div class=large>
+<span class=large>yasu upvote👍 <a href=https://steemit.com/@cancerdoctor/stacks-alex>@cancerdoctor/stacks-alex</a> (5%)
+</span><br/>6分前
+</div>
+</td></tr></table>
+
+
+-----------------------------------------------------------
+
+canvas.small {
+  margin: 2px 2px -7px 2px;
+  background-color: #f0f;
+  float: left;
+}
+canvas.large {
+  margin: 2px 2px -7px 2px;
+  background-color: #f0f;
+  float: left;
+}
+
+div.small {
+  margin: 2px 2px 2px 28px;
+  background-color: #f88;
+}
+div.large {
+  margin: 2px 2px 2px 52px;
+  background-color: #f88;
+}
+
+span.small{
+  vertical-align: top;
+  background-color: #ff0;
+}
+span.large{
+  vertical-align: top;
+  background-color: #ff0;
+}
