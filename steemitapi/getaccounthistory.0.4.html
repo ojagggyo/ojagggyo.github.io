@@ -83,6 +83,8 @@ function makeTable(records){
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	emoji();
+	document.getElementById("progress").innerText = "";
+	document.getElementById("text").innerText = "";
 	/*
 	let out = [];
 	let limit = 100;
