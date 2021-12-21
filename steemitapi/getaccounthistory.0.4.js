@@ -25,8 +25,8 @@ function inputChange(event){
 
 
 function emoji(){
-const random = Math.floor( Math.random() * 2 );	
-switch(random)
+emoji = (emoji === void 0) ? 0 : ++emoji % 2;
+switch(emoji)
 {
 case 0:
 emoji_upvote = "👍";
@@ -39,5 +39,4 @@ emoji_curation_reward = "😁";
 emoji_comment = "🙂";
 break;		
 }
-
 }
