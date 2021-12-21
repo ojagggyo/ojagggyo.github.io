@@ -24,19 +24,4 @@ function inputChange(event){
 }
 
 
-function emoji(){
-emoji_index = (emoji_index === void 0) ? 0 : ++emoji_index % 2;
-switch(emoji_index)
-{
-case 0:
-emoji_upvote = "👍";
-emoji_curation_reward = "💰";
-emoji_comment = "📮";
-break;
-case 1:
-emoji_upvote = "😍";
-emoji_curation_reward = "😁";
-emoji_comment = "🙂";
-break;		
-}
-}
+
