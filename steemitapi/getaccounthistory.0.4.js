@@ -26,7 +26,7 @@ function inputChange(event){
 
 function emoji(){
 const random = Math.floor( Math.random() * 2 );	
-switch()
+switch(random)
 {
 case 0:
 emoji_upvote = "👍";
