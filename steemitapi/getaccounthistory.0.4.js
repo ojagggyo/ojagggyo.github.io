@@ -27,6 +27,8 @@ function inputChange(event){
 function emoji(){
 //emoji_upvote = "👍";
 //emoji_curation_reward = "💰";
+//emoji_comment = "📮";
 emoji_upvote = "😍";
 emoji_curation_reward = "😁";
+emoji_comment = "🙂";
 }
