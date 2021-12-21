@@ -52,9 +52,9 @@ function makeLine(record){
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
 		const timestamp = record[1].timestamp;
-		identicon =  '<canvas id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + author + ' style="margin:0px 0px -7px 0px;"></canvas>';
+		identicon =  '<canvas id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + ' style="margin:0px 0px -7px 0px;"></canvas>';
 		body = author + ' authored a post' + emoji_comment + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' 
-			+ donokuraimae(timestamp);
+			+ ' ' + donokuraimae(timestamp);
 	}
 	else
 	{
