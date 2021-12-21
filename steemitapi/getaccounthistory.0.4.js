@@ -25,10 +25,19 @@ function inputChange(event){
 
 
 function emoji(){
-//emoji_upvote = "👍";
-//emoji_curation_reward = "💰";
-//emoji_comment = "📮";
+const random = Math.floor( Math.random() * 2 );	
+switch()
+{
+case 0:
+emoji_upvote = "👍";
+emoji_curation_reward = "💰";
+emoji_comment = "📮";
+break;
+case 1:
 emoji_upvote = "😍";
 emoji_curation_reward = "😁";
 emoji_comment = "🙂";
+break;		
+}
+
 }
