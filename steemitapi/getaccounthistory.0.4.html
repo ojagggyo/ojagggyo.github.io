@@ -23,6 +23,10 @@ function vestToSteem(vest){
 		globalProperties.total_vesting_shares, 
 		globalProperties.total_vesting_fund_steem)
 }
+	
+function ellipsis(s){
+	return s.length > 40 ? (s).slice(0,40)+"…" : s;
+}
 
 
 let emoji_index = Math.floor( Math.random() * 4 );	;
@@ -76,7 +80,7 @@ function makeLine(record){
 			+ ' <a href=https://steemit.com/' 
 			+ '@' + author + '/' + permlink 
 			+ '>' 
-			+ '@' + author + '/' + permlink 
+			+ ellipsis('@' + author + '/' + permlink) 
 			+ '</a>' 
 			+ ' (' + weight/100 + '%)';
 	}
@@ -92,7 +96,8 @@ function makeLine(record){
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
 		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
-		body = author + ' authored a post' + emoji_authored + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>@' + author + '/' + permlink + '</a>' ;
+		body = author + ' authored a post' + emoji_authored + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
+			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
 		indenticon_type = 'large';
 	}
 	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author != ''){
@@ -108,7 +113,7 @@ function makeLine(record){
 			+ ' <a href=https://steemit.com/' 
 			+ '@' + parent_author + '/' + parent_permlink + '#' + '@' + author + '/' + permlink 
 			+ '>' 
-			+ '@' + parent_author + '/' + parent_permlink 
+			+ ellipsis('@' + parent_author + '/' + parent_permlink)
 			+ '</a>' ;
 		indenticon_type = 'large';
 	}
