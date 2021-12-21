@@ -1,5 +1,5 @@
 
-* [アカウントヒストリーを表示する](https://ojagggyo.github.io/steemitapi/getaccounthistory.html)
+* [アカウントヒストリーを表示する](https://ojagggyo.github.io/steemitapi/getaccounthistory.0.1.html)
 * [報酬の寄付額を表示します。](https://ojagggyo.github.io/steemitapi/benefactor.html)
 
  
