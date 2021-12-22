@@ -10,6 +10,17 @@ function donokuraimae(date){
 	return 'たった今';
 }
 
+function vestToSteem(vest){
+	return  steem.formatter.vestToSteem(
+		vest, 
+		globalProperties.total_vesting_shares, 
+		globalProperties.total_vesting_fund_steem)
+}
+	
+function ellipsis(s){
+	return s.length > 40 ? (s).slice(0,40)+"…" : s;
+}
+
 function clickBtn(days){
 	aaa(days).then(result => {		
 		makeTable(result);
