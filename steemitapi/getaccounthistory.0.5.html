@@ -132,7 +132,7 @@ function makeTable(records){
 			+ ' <span class=' + line.type + '>' 
 			+ line.body 
 			+ '</span>'
-			+ ' ' + line.time
+			+ (line.type == 'small' ? ' ' : '<br/>')  + line.time
 			+ '</div>'
 			+ '</td>'
 			+ '</tr>';
