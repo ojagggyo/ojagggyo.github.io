@@ -16,12 +16,7 @@
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
-function vestToSteem(vest){
-	return  steem.formatter.vestToSteem(
-		vest, 
-		globalProperties.total_vesting_shares, 
-		globalProperties.total_vesting_fund_steem)
-}
+
 	
 function makeLine(record){
 	let body = '';
