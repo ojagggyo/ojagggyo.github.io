@@ -24,12 +24,14 @@ switch(emoji_index)
 {
 case 0:
 emoji_upvote = "👍";
+emoji_downvote = "👎";
 emoji_curation_reward = "💰";
 emoji_authored = "🤙";
 emoji_replied = "✋";
 break;
 case 1:
 emoji_upvote = "😍";
+emoji_downvote = "😭";
 emoji_curation_reward = "😁";
 emoji_authored = "🙂";
 emoji_replied = "😄";
@@ -37,6 +39,7 @@ break;
 case 2:
 		//🚀🛰️🛸🌌�🛰️📡🚀 🛸🪐⭐"
 emoji_upvote = "🛰️";
+emoji_downvote = "🕳️";
 emoji_curation_reward = "🪐";
 emoji_authored = "🚀";
 emoji_replied = "🛸";
@@ -44,6 +47,7 @@ break;
 case 3:
 		//🍓🍉🍈🍇🍊🍒🍓"
 emoji_upvote = "🍉";
+emoji_downvote = "🍏";
 emoji_curation_reward = "🍊";
 emoji_authored = "🍇";
 emoji_replied = "🍒";
@@ -63,8 +67,8 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>';
 		body = voter 
-			+ ' upvote' 
-			+ emoji_upvote 
+			+ (weight >= 0) ? ' upvote' : ' downvote' 
+			+ (weight >= 0) ? emoji_upvote : emoji_downvote 
 			+ ' <a href=https://steemit.com/' 
 			+ '@' + author + '/' + permlink 
 			+ '>' 
