@@ -17,18 +17,6 @@
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
-function vestToSteem(vest){
-	return  steem.formatter.vestToSteem(
-		vest, 
-		globalProperties.total_vesting_shares, 
-		globalProperties.total_vesting_fund_steem)
-}
-	
-function ellipsis(s){
-	return s.length > 40 ? (s).slice(0,40)+"…" : s;
-}
-
-
 let emoji_index = Math.floor( Math.random() * 4 );	;
 function emoji(){
 emoji_index = ++emoji_index % 4;
@@ -155,23 +143,7 @@ async function aaa(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
 	document.getElementById("text").innerText = "";
-	/*
-	let out = [];
-	let limit = 100;
-	let lastlength = limit;
-	let firstValue = -1;
-	let username = document.getElementById("username").value;
-	while (firstValue != 0 && out.length < 1000){	
-		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
-		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
-		console.log(ret);		
-		firstValue = ret[0][0];
-		ret.shift();
-		lastlength = ret.length;
-		out = ret.concat(out);
-	}
-	*/
-	
+
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
