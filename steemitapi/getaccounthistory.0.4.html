@@ -106,7 +106,6 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const parent_author = record[1].op[1].parent_author;
 		const parent_permlink = record[1].op[1].parent_permlink;
-		//https://steemit.com/hive-161179/@yasu/5ffedu
 		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
 		body = author 
 			+ ' replied to' 
@@ -155,23 +154,7 @@ async function aaa(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
 	document.getElementById("text").innerText = "";
-	/*
-	let out = [];
-	let limit = 100;
-	let lastlength = limit;
-	let firstValue = -1;
-	let username = document.getElementById("username").value;
-	while (firstValue != 0 && out.length < 1000){	
-		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
-		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
-		console.log(ret);		
-		firstValue = ret[0][0];
-		ret.shift();
-		lastlength = ret.length;
-		out = ret.concat(out);
-	}
-	*/
-	
+
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -198,34 +181,12 @@ async function aaa(days){
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
 			}
-
-			/*
-			let author = ret[i][1].op[1].author;
-			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
-			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
-			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
-			if(_sbd_payout[author] === void 0){
-				_sbd_payout[author] = sbd_payout;
-				_sbd_payout_count[author] = 1;
-				_vesting_payout[author] = vesting_payout;
-				_steem_payout[author] = steem_payout;
-			}else{
-				_sbd_payout[author] += sbd_payout;
-				_sbd_payout_count[author] += 1;
-				_vesting_payout[author] += vesting_payout;
-				_steem_payout[author] += steem_payout;
-			}
-			*/
-			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			document.getElementById("progress").innerText = "From "+timestamp;
-		}
-		
+		}	
 		out = ret.concat(out);
 	}
-	
-	//console.log(out);
 	return out;
 };
 
