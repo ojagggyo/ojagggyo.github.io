@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>getaccounthistory</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./getaccounthistory.0.5.css">
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+<script>
+    window.jdenticon_config = {
+        replaceMode: "observe"
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js" 
+	integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx" 
+	crossorigin="anonymous"></script> 
+<script src="./getaccounthistory.0.5.js"></script>
+<script>
+steem.api.setOptions({url: 'https://api.steemit.com'})
+
+function vestToSteem(vest){
+	return  steem.formatter.vestToSteem(
+		vest, 
+		globalProperties.total_vesting_shares, 
+		globalProperties.total_vesting_fund_steem)
+}
+	
+function ellipsis(s){
+	return s.length > 40 ? (s).slice(0,40)+"…" : s;
+}
+
+
+let emoji_index = Math.floor( Math.random() * 4 );	;
+function emoji(){
+emoji_index = ++emoji_index % 4;
+switch(emoji_index)
+{
+case 0:
+emoji_upvote = "👍";
+emoji_curation_reward = "💰";
+emoji_authored = "🤙";
+emoji_replied = "✋";
+break;
+case 1:
+emoji_upvote = "😍";
+emoji_curation_reward = "😁";
+emoji_authored = "🙂";
+emoji_replied = "😄";
+break;	
+case 2:
+		//🚀🛰️🛸🌌�🛰️📡🚀 🛸🪐⭐"
+emoji_upvote = "🛰️";
+emoji_curation_reward = "🪐";
+emoji_authored = "🚀";
+emoji_replied = "🛸";
+break;
+case 3:
+		//🍓🍉🍈🍇🍊🍒🍓"
+emoji_upvote = "🍉";
+emoji_curation_reward = "🍊";
+emoji_authored = "🍇";
+emoji_replied = "🍒";
+break;
+}
+}
+	
+function makeLine(record){
+	let indenticon_type = 'small';//small, large
+	let body = '';
+	let identicon =  '';
+	let time = donokuraimae(record[1].timestamp);
+	if(record[1].op[0] == 'vote'){
+		const voter = record[1].op[1].voter;
+		const author = record[1].op[1].author;
+		const permlink = record[1].op[1].permlink;
+		const weight = record[1].op[1].weight;
+		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>';
+		body = voter 
+			+ ' upvote' 
+			+ emoji_upvote 
+			+ ' <a href=https://steemit.com/' 
+			+ '@' + author + '/' + permlink 
+			+ '>' 
+			+ ellipsis('@' + author + '/' + permlink) 
+			+ '</a>' 
+			+ ' (' + weight/100 + '%)';
+	}
+	else if(record[1].op[0] == 'curation_reward'){
+		const curator = record[1].op[1].curator;
+		const comment_author = record[1].op[1].comment_author;
+		const comment_permlink = record[1].op[1].comment_permlink;
+		const reward = vestToSteem(record[1].op[1].reward);		
+		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
+		body = curator + ' curation reward' + emoji_curation_reward + ' ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
+			+ ellipsis('@' + comment_author + '/' + comment_permlink) + '</a>' ;
+	}
+	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author == ''){
+		const author = record[1].op[1].author;
+		const permlink = record[1].op[1].permlink;
+		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
+		body = author + ' authored a post' + emoji_authored + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
+			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
+		indenticon_type = 'large';
+	}
+	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author != ''){
+		const author = record[1].op[1].author;
+		const permlink = record[1].op[1].permlink;
+		const parent_author = record[1].op[1].parent_author;
+		const parent_permlink = record[1].op[1].parent_permlink;
+		//https://steemit.com/hive-161179/@yasu/5ffedu
+		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
+		body = author 
+			+ ' replied to' 
+			+ emoji_replied 
+			+ ' <a href=https://steemit.com/' 
+			+ '@' + parent_author + '/' + parent_permlink + '#' + '@' + author + '/' + permlink 
+			+ '>' 
+			+ ellipsis('@' + parent_author + '/' + parent_permlink)
+			+ '</a>' ;
+		indenticon_type = 'large';
+	}
+	else
+	{
+		identicon =  '<canvas width=32 height=32></canvas>';
+		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
+	}
+	return {identicon: identicon, body: body, time: time, type: indenticon_type};
+}
+		
+function makeTable(records){
+
+	console.log('☆records☆');
+	console.log(records);
+	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
+	for(var i=records.length-1;i>=0;i=i-1){
+		const line = makeLine(records[i]);
+		html = html + '<tr style="background-color: #ffffff;">'
+			+ '<td>' 
+			+ line.identicon 
+			+ '<div class=' + line.type + '>'
+			+ ' <span class=' + line.type + '>' 
+			+ line.body 
+			+ '</span>'
+			+ ' ' + line.time
+			+ '</div>'
+			+ '</td>'
+			+ '</tr>';
+	}
+	html = html + '</table>';
+	console.log(html);
+	document.getElementById("text").innerHTML = html;	
+}
+		
+async function aaa(days){
+	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	emoji();
+	document.getElementById("progress").innerText = "";
+	document.getElementById("text").innerText = "";
+	/*
+	let out = [];
+	let limit = 100;
+	let lastlength = limit;
+	let firstValue = -1;
+	let username = document.getElementById("username").value;
+	while (firstValue != 0 && out.length < 1000){	
+		if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
+		console.log(ret);		
+		firstValue = ret[0][0];
+		ret.shift();
+		lastlength = ret.length;
+		out = ret.concat(out);
+	}
+	*/
+	
+	let out = [];
+	let limit = 100;
+	let lastlength = limit;
+	let firstValue = -1;
+  	let firstTimestamp = new Date();
+	let benefactor = document.getElementById("username").value;
+	let now = new Date();
+	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
+		
+		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
+		//console.log(ret);		
+		firstValue = ret[0][0];
+    		firstTimestamp = new Date(ret[0][1].timestamp);
+		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
+		ret.shift();
+		lastlength = ret.length;
+		
+		for(var i=ret.length-1;i>=0;i=i-1){
+			//if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
+			//if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
+			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
+				ret.splice(i,1);
+				continue;
+				//ret.splice(0, i + 1);//残りの要素を削除
+				//break;//すべて処理済
+			}
+
+			/*
+			let author = ret[i][1].op[1].author;
+			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
+			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
+			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
+			if(_sbd_payout[author] === void 0){
+				_sbd_payout[author] = sbd_payout;
+				_sbd_payout_count[author] = 1;
+				_vesting_payout[author] = vesting_payout;
+				_steem_payout[author] = steem_payout;
+			}else{
+				_sbd_payout[author] += sbd_payout;
+				_sbd_payout_count[author] += 1;
+				_vesting_payout[author] += vesting_payout;
+				_steem_payout[author] += steem_payout;
+			}
+			*/
+			
+			let timestamp = new Date(ret[i][1].timestamp);
+			timestamp.setHours(timestamp.getHours() + 9);
+			document.getElementById("progress").innerText = "From "+timestamp;
+		}
+		
+		out = ret.concat(out);
+	}
+	
+	//console.log(out);
+	return out;
+};
+
+</script>
+</head>
+<body>
+	<p>アカウントヒストリーを表示します。</p>
+	<table>
+	<tr>
+	<td><canvas id=identicon width="24" height="24" data-jdenticon-value="yasu" style="margin:0px 0px -7px 0px;"></canvas></td>
+	<td>
+	<input type="text" id="username" size="20" value=yasu oninput="inputChange(event)">
+	<input type="button" value="表示(1日)" onclick="clickBtn(1)" />
+	<input type="button" value="(3日)" onclick="clickBtn(3)" />
+	<input type="button" value="(7日)" onclick="clickBtn(7)" />
+	<a id="progress"></a>
+	</td>
+	</tr>
+	</table>
+	<hr color="#888">
+	<span id="text"></span>
+</body>
+</html>
