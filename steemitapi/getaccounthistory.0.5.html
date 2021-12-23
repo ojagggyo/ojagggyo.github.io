@@ -84,10 +84,10 @@ function makeLine(record){
 		const curator = record[1].op[1].curator;
 		const comment_author = record[1].op[1].comment_author;
 		const comment_permlink = record[1].op[1].comment_permlink;
-		const reward = vestToSteem(record[1].op[1].reward);		
+		const reward = record[1].op[1].reward;		
 		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
 		body = curator + ' curation reward' + emoji_curation_reward 
-			+ ' ' + reward.toFixed(3) + ' SP' 
+			+ ' ' + vestToSteem(reward).toFixed(3) + ' SP' 
 			+ ' for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
 			+ ellipsis('@' + comment_author + '/' + comment_permlink) + '</a>' ;
 	}
@@ -121,7 +121,7 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const sbd_payout = record[1].op[1].sbd_payout;
 		const steem_payout = record[1].op[1].steem_payout;
-		const vesting_payout = vestToSteem(record[1].op[1].vesting_payout);
+		const vesting_payout = record[1].op[1].vesting_payout;
 		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
 		body = author 
 			+ '  author reward' + emoji_author_reward 
