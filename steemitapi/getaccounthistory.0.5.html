@@ -120,7 +120,7 @@ function makeLine(record){
 		const sbd_payout = record[1].op[1].sbd_payout;
 		const steem_payout = record[1].op[1].steem_payout;
 		const vesting_payout = vestToSteem(record[1].op[1].vesting_payout);
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
+		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + author + '></canvas>';
 		body = author 
 			+ '  author reward' + emoji_author_reward 
 			+ ' ' + sbd_payout + ' and ' + vesting_payout
