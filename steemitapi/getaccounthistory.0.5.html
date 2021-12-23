@@ -86,7 +86,9 @@ function makeLine(record){
 		const comment_permlink = record[1].op[1].comment_permlink;
 		const reward = vestToSteem(record[1].op[1].reward);		
 		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
-		body = curator + ' curation reward' + emoji_curation_reward + ' ' + reward.toFixed(3) + 'SP for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
+		body = curator + ' curation reward' + emoji_curation_reward 
+			+ ' ' + reward.toFixed(3) + ' SP' 
+			+ ' for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
 			+ ellipsis('@' + comment_author + '/' + comment_permlink) + '</a>' ;
 	}
 	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author == ''){
@@ -123,7 +125,7 @@ function makeLine(record){
 		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
 		body = author 
 			+ '  author reward' + emoji_author_reward 
-			+ ' ' + sbd_payout + ' and ' + vesting_payout
+			+ ' ' + sbd_payout + ' and ' + vestToSteem(vesting_payout).toFixed(3) + ' SP'
 			+ ' for <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
 			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
 		indenticon_type = 'large';
