@@ -106,8 +106,8 @@ function makeLine(record){
 		const sbd_payout = record[1].op[1].sbd_payout;
 		const steem_payout = record[1].op[1].steem_payout;
 		const vesting_payout = record[1].op[1].vesting_payout;
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
-		body = curator + ' curation reward' + emoji_comment_benefactor_reward
+		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + benefactor + '></canvas>';
+		body = benefactor + ' comment benefactor reward' + emoji_comment_benefactor_reward
 			+ ' ' + sbd_payout + ' and ' + vestToSteem(vesting_payout).toFixed(3) + ' SP'
 			+ ' for <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
 			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
