@@ -88,7 +88,7 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>';
-		body = (voter == author ? voter : '<a href=https://steemit.com/@' + voter + '>' + voter +  '</a>') 
+		body = (voter == username ? voter : '<a href=https://steemit.com/@' + voter + '>' + voter +  '</a>') 
 			+ (weight >= 0 ? ' upvote' : ' downvote')
 			+ (weight >= 0 ? emoji_upvote : emoji_downvote)
 			+ ' <a href=https://steemit.com/'
@@ -271,7 +271,7 @@ async function aaa(days){
 window.onload = function() {
 	username = getUserName();
 	document.getElementById("username").value = username;
-	window.location.hash = '#' + username;
+	//window.location.hash = '#' + username;
 };
 	
 </script>
