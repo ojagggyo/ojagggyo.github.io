@@ -20,8 +20,7 @@ steem.api.setOptions({url: 'https://api.steemit.com'})
 function getUserName(){
   let hash = window.location.hash;// #username
   if (hash == null || hash.trim().length == 0){
-      //username = "#steemitblog";
-	  return;
+	  return "";
   }
   hash = hash.substr(1);//#を取る
   hash = decodeURI(hash).trim();//デコード、トリム]
