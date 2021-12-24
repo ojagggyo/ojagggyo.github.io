@@ -17,6 +17,16 @@
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
+function getUserName(){
+  username = window.location.hash;// #username
+  if (username == null || username.trim().length == 0){
+      username = "#steemitblog";
+  }
+  username = username.substr(1);//#を取る
+  username = decodeURI(username).trim();//デコード、トリム]
+  return username;
+}
+	
 let emoji_index = Math.floor( Math.random() * 4 );	;
 function emoji(){
 emoji_index = ++emoji_index % 4;
@@ -258,6 +268,11 @@ async function aaa(days){
 	return out;
 };
 
+window.onload = function() {
+	username = getUserName();
+	$("#username").text(username);
+};
+	
 </script>
 </head>
 <body>
