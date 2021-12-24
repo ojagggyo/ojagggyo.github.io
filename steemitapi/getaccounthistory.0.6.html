@@ -208,10 +208,6 @@ function makeTable(records){
 		
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-	emoji();
-	document.getElementById("progress").innerText = "";
-	document.getElementById("text").innerText = "";
-
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -272,7 +268,6 @@ async function aaa(days){
 window.onload = function() {
 	username = getUserName();
 	document.getElementById("username").value = username;
-	//window.location.hash = '#' + username;
 };
 	
 </script>
