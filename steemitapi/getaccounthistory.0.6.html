@@ -267,7 +267,9 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	document.getElementById("username").value = getUserName();
+	let username = getUserName();
+	if(username == '') return;
+	document.getElementById("username").value = username;
 };
 	
 </script>
