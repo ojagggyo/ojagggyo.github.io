@@ -25,8 +25,7 @@ function clickBtn(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
 	document.getElementById("text").innerText = "";
-	username = document.getElementById("username").value;
-	window.location.hash = '#' + username;
+	window.location.hash = '#' + document.getElementById("username").value;
 	aaa(days).then(result => {
 		makeTable(result);
 	}).catch(err => {
@@ -35,6 +34,5 @@ function clickBtn(days){
 }
 
 function inputChange(event){
-    let username = document.getElementById("username").value;
-    jdenticon.update("#identicon", username);
+    jdenticon.update("#identicon", document.getElementById("username").value);
 }
