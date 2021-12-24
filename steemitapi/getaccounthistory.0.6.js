@@ -22,7 +22,11 @@ function ellipsis(s){
 }
 
 function clickBtn(days){
-	aaa(days).then(result => {		
+	emoji();
+	document.getElementById("progress").innerText = "";
+	document.getElementById("text").innerText = "";
+	window.location.hash = '#' + username;
+	aaa(days).then(result => {
 		makeTable(result);
 	}).catch(err => {
 		console.log(err);
