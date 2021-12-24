@@ -89,7 +89,7 @@ function makeLine(record){
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>';
 		//body = (voter == username ? voter : '<a href=https://steemit.com/@' + voter + '>' + voter +  '</a>') 
-		body = (voter == username ? voter : '<a href=window.location.pathname + '#' + voter + '>' + voter +  '</a>') 
+		body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + '>' + voter +  '</a>') 
 		//
 			+ (weight >= 0 ? ' upvote' : ' downvote')
 			+ (weight >= 0 ? emoji_upvote : emoji_downvote)
