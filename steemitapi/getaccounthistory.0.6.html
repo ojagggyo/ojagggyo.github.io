@@ -18,13 +18,14 @@
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 function getUserName(){
-  username = window.location.hash;// #username
-  if (username == null || username.trim().length == 0){
+  let hash = window.location.hash;// #username
+  if (hash == null || hash.trim().length == 0){
       //username = "#steemitblog";
+	  return;
   }
-  username = username.substr(1);//#を取る
-  username = decodeURI(username).trim();//デコード、トリム]
-  return username;
+  hash = hash.substr(1);//#を取る
+  hash = decodeURI(hash).trim();//デコード、トリム]
+  return hash;
 }
 	
 let emoji_index = Math.floor( Math.random() * 4 );	;
@@ -83,12 +84,12 @@ function makeLine(record){
 	let identicon =  '';
 	let time = donokuraimae(record[1].timestamp);
 	if(record[1].op[0] == 'vote'){
+		const username = document.getElementById("username").value;
 		const voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
-		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>';
-		//body = (voter == username ? voter : '<a href=https://steemit.com/@' + voter + '>' + voter +  '</a>') 
+		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>'; 
 		body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>') 
 			+ (weight >= 0 ? ' upvote' : ' downvote')
 			+ (weight >= 0 ? emoji_upvote : emoji_downvote)
@@ -266,8 +267,7 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	username = getUserName();
-	document.getElementById("username").value = username;
+	document.getElementById("username").value = getUserName();
 };
 	
 </script>
