@@ -25,6 +25,7 @@ function clickBtn(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
 	document.getElementById("text").innerText = "";
+	username; = document.getElementById("username").value
 	window.location.hash = '#' + username;
 	aaa(days).then(result => {
 		makeTable(result);
