@@ -41,7 +41,7 @@ emoji_authored = "🤙";
 emoji_replied = "✋";
 emoji_transfer = "";
 emoji_delegate_vesting_shares = "";
-emoji_claim_reward = "";
+emoji_undelegate_vesting_shares = "";
 emoji_comment_benefactor_reward = "";
 break;
 case 1:
@@ -53,6 +53,7 @@ emoji_authored = "🙂";
 emoji_replied = "😄";
 emoji_transfer = "";
 emoji_delegate_vesting_shares = "";
+emoji_undelegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;	
@@ -66,6 +67,7 @@ emoji_authored = "🚀";
 emoji_replied = "🛸";
 emoji_transfer = "";
 emoji_delegate_vesting_shares = "";
+emoji_undelegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;
@@ -79,6 +81,7 @@ emoji_authored = "🍇";
 emoji_replied = "🍒";
 emoji_transfer = "";
 emoji_delegate_vesting_shares = "";
+emoji_undelegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;
@@ -198,9 +201,10 @@ function makeLine(record){
 		const delegatee = record[1].op[1].delegatee;
 		const vesting_shares = record[1].op[1].vesting_shares;
 		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + delegator + '></canvas>';
-		body = delegator 
-			+ '  delegate' + emoji_delegate_vesting_shares 
-			+ ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' + ' to ' + delegatee;
+		body = delegator
+			+ (vesting_shares > 0 ? ' delegate' : ' undelegate')
+			+ (vesting_shares > 0 ? emoji_delegate_vesting_shares : emoji_undelegate_vesting_shares)
+			+ (vesting_shares > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' + ' to ' + delegatee : '');
 		indenticon_type = 'large';
 	} 
 	else
