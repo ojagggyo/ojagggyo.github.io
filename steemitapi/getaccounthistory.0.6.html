@@ -40,6 +40,7 @@ emoji_curation_reward = "💰";
 emoji_authored = "🤙";
 emoji_replied = "✋";
 emoji_transfer = "";
+emoji_delegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;
@@ -51,6 +52,7 @@ emoji_curation_reward = "😁";
 emoji_authored = "🙂";
 emoji_replied = "😄";
 emoji_transfer = "";
+emoji_delegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;	
@@ -63,6 +65,7 @@ emoji_curation_reward = "🪐";
 emoji_authored = "🚀";
 emoji_replied = "🛸";
 emoji_transfer = "";
+emoji_delegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;
@@ -75,6 +78,7 @@ emoji_curation_reward = "🍊";
 emoji_authored = "🍇";
 emoji_replied = "🍒";
 emoji_transfer = "";
+emoji_delegate_vesting_shares = "";
 emoji_claim_reward = "";
 emoji_comment_benefactor_reward = "";
 break;
@@ -186,6 +190,18 @@ function makeLine(record){
 		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + account + '></canvas>';
 		body = account + ' claim reward' + emoji_claim_reward
 			+ ' ' + reward_sbd + ' and ' + vestToSteem(reward_vests).toFixed(3) + ' SP'
+	} 
+	else if(record[1].op[0] == 'delegate_vesting_shares'){
+		//{"delegator":"deimage","delegatee":"japansteemit","vesting_shares":"368173.275664 VESTS"}
+		//deimage delegate 200.002 SP to japansteemit
+		const delegator = record[1].op[1].delegator;
+		const delegatee = record[1].op[1].delegatee;
+		const vesting_shares = record[1].op[1].vesting_shares;
+		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + delegator + '></canvas>';
+		body = delegator 
+			+ '  delegate' + emoji_delegate_vesting_shares 
+			+ ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' + ' to ' + delegatee;
+		indenticon_type = 'large';
 	} 
 	else
 	{
