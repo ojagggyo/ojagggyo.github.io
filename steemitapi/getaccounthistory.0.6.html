@@ -202,10 +202,11 @@ function makeLine(record){
 		const delegatee = record[1].op[1].delegatee;
 		const vesting_shares = record[1].op[1].vesting_shares;
 		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + delegator + '></canvas>';
+		const v = parseFloat(vesting_shares);
 		body = delegator
-			+ (vesting_shares > 0 ? ' delegate' : ' undelegate')
-			+ (vesting_shares > 0 ? emoji_delegate_vesting_shares : emoji_undelegate_vesting_shares)
-			+ (vesting_shares > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' : '')
+			+ (v > 0 ? ' delegate' : ' undelegate')
+			+ (v > 0 ? emoji_delegate_vesting_shares : emoji_undelegate_vesting_shares)
+			+ (v > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' : '')
 			+ ' to ' + delegatee;
 		indenticon_type = 'large';
 	} 
