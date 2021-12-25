@@ -204,7 +204,8 @@ function makeLine(record){
 		body = delegator
 			+ (vesting_shares > 0 ? ' delegate' : ' undelegate')
 			+ (vesting_shares > 0 ? emoji_delegate_vesting_shares : emoji_undelegate_vesting_shares)
-			+ (vesting_shares > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' + ' to ' + delegatee : '');
+			+ (vesting_shares > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' : '')
+			+ ' to ' + delegatee;
 		indenticon_type = 'large';
 	} 
 	else
