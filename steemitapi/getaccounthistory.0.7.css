@@ -1,1 +1,32 @@
+a {
+   text-decoration:none;
+}
 
+canvas.small {
+  margin: 2px 2px -7px 2px;
+  float: left;
+  //background-color: #f0f;
+}
+canvas.large {
+  margin: 2px 2px 2px 2px;
+  float: left;
+  //background-color: #f0f;
+}
+
+div.small {
+  margin: 2px 2px 2px 28px;
+  //background-color: #f88;
+}
+div.large {
+  margin: 2px 2px 2px 52px;
+  //background-color: #f88;
+}
+
+span.small{
+  vertical-align: top;
+  //background-color: #ff0;
+}
+span.large{
+  vertical-align: top;
+  //background-color: #ff0;
+}
