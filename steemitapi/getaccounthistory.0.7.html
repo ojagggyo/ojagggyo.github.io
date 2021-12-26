@@ -88,6 +88,47 @@ emoji_comment_benefactor_reward = "";
 break;
 }
 }
+
+let total_count = {};
+let total_sbd_payout = {};
+let total_steem_payout = {};
+let total_vesting_payout = {};
+let total_sp_payout = {};
+function getReward(record){
+	let sbd_payout = 0;
+	let steem_payout = 0;
+	let vesting_payout = 0;
+	let op = record[1].op[0];
+	if(op == "comment_benefactor_reward" && record[1].op[1].benefactor == username){
+		sbd_payout = parseFloat(record[1].op[1].sbd_payout);
+		steem_payout = parseFloat(record[1].op[1].steem_payout);
+		vesting_payout = parseFloat(record[1].op[1].vesting_payout);
+	}else if(op == "author_reward"){
+		sbd_payout = parseFloat(record[1].op[1].sbd_payout);
+		steem_payout = parseFloat(record[1].op[1].steem_payout);
+		vesting_payout = parseFloat(record[1].op[1].vesting_payout);
+	}else if(op == "curation_reward"){
+		sbd_payout = 0;
+		steem_payout = 0;
+		vesting_payout = parseFloat(record[1].op[1].reward);
+	}else {
+	}
+	
+	if(total_count[op] === void 0){
+		total_count[op] = 1;
+		total_sbd_payout[op] = sbd_payout;
+		total_steem_payout[op] = steem_payout;
+		total_vesting_payout[op] = vesting_payout;
+	}else{
+		total_count[op] += 1;
+		total_sbd_payout[op] += sbd_payout;
+		total_steem_payout[op] += steem_payout;
+		total_vesting_payout[op] += vesting_payout;
+	}
+}
+	
+	
+
 	
 function makeLine(record){
 	let indenticon_type = 'small';//small, large
@@ -214,6 +255,7 @@ function makeLine(record){
 	{
 		identicon =  '<canvas width=32 height=32></canvas>';
 		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
+		indenticon_type = 'large';
 	}
 	return {identicon: identicon, body: body, time: time, type: indenticon_type};
 }
@@ -262,32 +304,14 @@ async function aaa(days){
 		lastlength = ret.length;
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
-			//if(ret[i][1].op[0] != "comment_benefactor_reward"){ret.splice(i,1);continue;}
-			//if(ret[i][1].op[1].benefactor != benefactor){ret.splice(i,1);continue;}
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
 			}
-
-			/*
-			let author = ret[i][1].op[1].author;
-			let sbd_payout = parseFloat(ret[i][1].op[1].sbd_payout.slice(0,-4));//" SBD"を除く
-			let vesting_payout = parseFloat(ret[i][1].op[1].vesting_payout);
-			let steem_payout = parseFloat(ret[i][1].op[1].steem_payout);
-			if(_sbd_payout[author] === void 0){
-				_sbd_payout[author] = sbd_payout;
-				_sbd_payout_count[author] = 1;
-				_vesting_payout[author] = vesting_payout;
-				_steem_payout[author] = steem_payout;
-			}else{
-				_sbd_payout[author] += sbd_payout;
-				_sbd_payout_count[author] += 1;
-				_vesting_payout[author] += vesting_payout;
-				_steem_payout[author] += steem_payout;
-			}
-			*/
+			
+			getReward(ret[i]);//報酬の計算
 			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
