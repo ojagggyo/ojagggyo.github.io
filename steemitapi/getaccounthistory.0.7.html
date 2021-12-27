@@ -118,6 +118,13 @@ function getReward(record){
 		total_steem_payout[op] += steem_payout;
 		total_vesting_payout[op] += vesting_payout;
 	}
+	
+	//['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
+	['author_reward'].forEach(function(op){	
+			let s = total_sbd_payout[op]  + '/' + total_steem_payout[op]  + '/' + total_vesting_payout[op];
+			document.getElementById("reward").innerText = s;
+		});
+	
 	return true;
 }
 	
@@ -308,10 +315,12 @@ async function aaa(days){
 			}
 			
 			if(getReward(ret[i])){
+				/*
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
 					let s = total_sbd_payout[op]  + '/' + total_steem_payout[op]  + '/' + total_vesting_payout[op];
 					document.getElementById("reward").innerText = s;
 				});
+				*/
 			}
 			
 			let timestamp = new Date(ret[i][1].timestamp);
