@@ -21,6 +21,16 @@ function ellipsis(s){
 	return s.length > 40 ? (s).slice(0,40)+"…" : s;
 }
 
+function getUserName(){
+  let hash = window.location.hash;// #username
+  if (hash == null || hash.trim().length == 0){
+	  return "";
+  }
+  hash = hash.substr(1);//#を取る
+  hash = decodeURI(hash).trim();//デコード、トリム]
+  return hash;
+}
+
 function clickBtn(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
