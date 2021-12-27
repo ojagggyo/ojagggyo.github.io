@@ -321,7 +321,7 @@ async function aaa(days){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{
-						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD/' + total_steem_payout[op].toFixed(3) + ' STEEM/' + total_sp_payout[op].toFixed(3)  + ' SP' ;
+						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD and ' + total_sp_payout[op].toFixed(3)  + ' SP' ;
 						document.getElementById(op).innerText = s;
 					}
 				});
