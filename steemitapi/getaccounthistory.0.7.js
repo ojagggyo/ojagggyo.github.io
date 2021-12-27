@@ -39,6 +39,12 @@ function clickBtn(days){
 	document.getElementById("comment_benefactor_reward").innerText = "";
 	document.getElementById("text").innerText = "";
 	
+	total_count = {};
+	total_sbd_payout = {};
+	total_steem_payout = {};
+	total_vesting_payout = {};
+	total_sp_payout = {};
+	
 	window.location.hash = '#' + document.getElementById("username").value;
 	aaa(days).then(result => {
 		makeTable(result);
