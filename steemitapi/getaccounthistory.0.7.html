@@ -283,6 +283,8 @@ function makeTable(records){
 	console.log(html);
 	document.getElementById("text").innerHTML = html;	
 }
+	
+
 		
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
@@ -312,6 +314,10 @@ async function aaa(days){
 			}
 			
 			getReward(ret[i]);//報酬の計算
+			['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
+				let s = total_sbd_payout[op] + total_steem_payout[op] + total_vesting_payout[op];
+				document.getElementById("reward").innerText = s;
+			});
 			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
@@ -344,6 +350,9 @@ window.onload = function() {
 	<input type="button" value="表示(1日)" onclick="clickBtn(1)" />
 	<input type="button" value="(3日)" onclick="clickBtn(3)" />
 	<input type="button" value="(7日)" onclick="clickBtn(7)" />
+	<hr/>
+	<a id="reward"></a>
+	<hr/>
 	<a id="progress"></a>
 	</td>
 	</tr>
