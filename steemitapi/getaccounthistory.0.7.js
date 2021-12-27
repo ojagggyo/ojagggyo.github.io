@@ -24,7 +24,9 @@ function ellipsis(s){
 function clickBtn(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
+	document.getElementById("reward").innerText = "";
 	document.getElementById("text").innerText = "";
+	
 	window.location.hash = '#' + document.getElementById("username").value;
 	aaa(days).then(result => {
 		makeTable(result);
