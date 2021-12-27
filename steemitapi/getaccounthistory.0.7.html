@@ -17,15 +17,7 @@
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
-function getUserName(){
-  let hash = window.location.hash;// #username
-  if (hash == null || hash.trim().length == 0){
-	  return "";
-  }
-  hash = hash.substr(1);//#を取る
-  hash = decodeURI(hash).trim();//デコード、トリム]
-  return hash;
-}
+
 	
 let emoji_index = Math.floor( Math.random() * 4 );	;
 function emoji(){
