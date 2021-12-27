@@ -315,7 +315,7 @@ async function aaa(days){
 			
 			getReward(ret[i]);//報酬の計算
 			['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
-				let s = total_sbd_payout[op] + total_steem_payout[op] + total_vesting_payout[op];
+				let s = total_sbd_payout[op]  + '/' + total_steem_payout[op]  + '/' + total_vesting_payout[op];
 				document.getElementById("reward").innerText = s;
 			});
 			
