@@ -112,6 +112,7 @@ function getReward(record){
 		steem_payout = 0;
 		vesting_payout = parseFloat(record[1].op[1].reward);
 	}else {
+		return false;
 	}
 	
 	if(total_count[op] === void 0){
@@ -125,6 +126,7 @@ function getReward(record){
 		total_steem_payout[op] += steem_payout;
 		total_vesting_payout[op] += vesting_payout;
 	}
+	return true;
 }
 	
 	
@@ -313,11 +315,12 @@ async function aaa(days){
 				//break;//すべて処理済
 			}
 			
-			getReward(ret[i]);//報酬の計算
-			['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
-				let s = total_sbd_payout[op]  + '/' + total_steem_payout[op]  + '/' + total_vesting_payout[op];
-				document.getElementById("reward").innerText = s;
-			});
+			if(getReward(ret[i])){
+				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){		
+					let s = total_sbd_payout[op]  + '/' + total_steem_payout[op]  + '/' + total_vesting_payout[op];
+					document.getElementById("reward").innerText = s;
+				});
+			}
 			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
