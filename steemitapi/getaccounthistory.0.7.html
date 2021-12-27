@@ -121,7 +121,7 @@ function getReward(record){
 	
 	['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 	//['author_reward'].forEach(function(op){	
-		let s = total_sbd_payout[op].toFixed(3)   + '/' + total_steem_payout[op].toFixed(3)   + '/' + total_vesting_payout[op].toFixed(3) ;
+		let s = total_sbd_payout[op].toFixed(3)  + '/' + total_steem_payout[op].toFixed(3) + '/' + total_vesting_payout[op].toFixed(3) ;
 		document.getElementById(op).innerText = s;
 	});
 	
