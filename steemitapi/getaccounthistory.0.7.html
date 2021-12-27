@@ -87,6 +87,7 @@ let total_steem_payout = {};
 let total_vesting_payout = {};
 let total_sp_payout = {};
 function getReward(record){
+	const username = document.getElementById("username").value
 	let sbd_payout = 0;
 	let steem_payout = 0;
 	let vesting_payout = 0;
