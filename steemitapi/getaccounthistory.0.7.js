@@ -34,7 +34,9 @@ function getUserName(){
 function clickBtn(days){
 	emoji();
 	document.getElementById("progress").innerText = "";
-	document.getElementById("reward").innerText = "";
+	document.getElementById("author_reward").innerText = "";
+	document.getElementById("curation_reward").innerText = "";
+	document.getElementById("comment_benefactor_reward").innerText = "";
 	document.getElementById("text").innerText = "";
 	
 	window.location.hash = '#' + document.getElementById("username").value;
