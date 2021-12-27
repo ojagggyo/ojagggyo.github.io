@@ -107,16 +107,23 @@ function getReward(record){
 		return false;
 	}
 	
+	total_sp_payout[op] = steem.formatter.vestToSteem(
+			total_vesting_payout[op], 
+			globalProperties.total_vesting_shares, 
+			globalProperties.total_vesting_fund_steem)
+	
 	if(total_count[op] === void 0){
 		total_count[op] = 1;
 		total_sbd_payout[op] = sbd_payout;
 		total_steem_payout[op] = steem_payout;
 		total_vesting_payout[op] = vesting_payout;
+		total_sp_payout[op] = vestToSteem(vesting_payout);
 	}else{
 		total_count[op] += 1;
 		total_sbd_payout[op] += sbd_payout;
 		total_steem_payout[op] += steem_payout;
 		total_vesting_payout[op] += vesting_payout;
+		total_sp_payout[op] += vestToSteem(vesting_payout);
 	}
 	
 
@@ -314,7 +321,7 @@ async function aaa(days){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{
-						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + '/' + total_steem_payout[op].toFixed(3) + '/' + total_vesting_payout[op].toFixed(3) ;
+						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD/' + total_steem_payout[op].toFixed(3) + ' STEEM/' + total_sp_payout[op].toFixed(3)  + ' SP' ;
 						document.getElementById(op).innerText = s;
 					}
 				});
