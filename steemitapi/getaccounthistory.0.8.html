@@ -305,6 +305,7 @@ async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
+	document.getElementById('price').innerHTML = krwsteem + ' ' + krwsbd;
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -363,7 +364,7 @@ window.onload = function() {
 </script>
 </head>
 <body>
-	<div class=right id=price>aaaaa<br/>bbbbb</div>
+	<div class=right id=price>aaaaa<br/></div>
 	<p>アカウントヒストリーを表示します。</p>
 	<form action="javascript:clickBtn(1);">
 	<table>
