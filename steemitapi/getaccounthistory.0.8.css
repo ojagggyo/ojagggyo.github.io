@@ -7,6 +7,10 @@ a.gray {
    color: gray;
 }
 
+.right {
+    float: right;
+}
+
 canvas.small {
   margin: 2px 2px -7px 2px;
   float: left;
