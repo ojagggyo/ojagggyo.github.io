@@ -432,8 +432,8 @@ async function aaa(days){
 						+ total_sp_payout[op].toFixed(3) 
 						+ ' SP' 
 						+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
-						+ ' won)</a>';
-						//+ '<br/>';
+						+ ' won)</a>'
+						+ '<br/>';
 						document.getElementById(op).innerHTML = s;
 					}
 				});
