@@ -424,8 +424,15 @@ async function aaa(days){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{
-						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD and ' + total_sp_payout[op].toFixed(3)  + ' SP' 
-							+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) + ' won)</a>';
+						let s = op 
+						+ ' ' 
+						+ total_sbd_payout[op].toFixed(3) 
+						+ ' SBD and ' 
+						+ total_sp_payout[op].toFixed(3) 
+						+ ' SP' 
+						+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
+						+ ' won)</a>'
+						+ '<br/>';
 						document.getElementById(op).innerHTML = s;
 					}
 				});
@@ -479,9 +486,9 @@ window.onload = function() {
 	<br/>
 		
 	<a id="progress"></a><br/>		
-	<a class=marker id="author_reward"></a><br/>
-	<a class=marker id="curation_reward"></a><br/>
-	<a class=marker id="comment_benefactor_reward"></a><br/>
+	<a class=marker id="author_reward"></a>
+	<a class=marker id="curation_reward"></a>
+	<a class=marker id="comment_benefactor_reward"></a>
 	<span id="text"></span>
 	</form>
 </body>
