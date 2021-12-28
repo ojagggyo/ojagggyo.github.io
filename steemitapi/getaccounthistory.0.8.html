@@ -335,7 +335,7 @@ async function aaa(days){
 					if(total_count[op] === void 0){
 					}else{
 						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD and ' + total_sp_payout[op].toFixed(3)  + ' SP' 
-							+ ' (' + (total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0) + ' won)';
+							+ ' (' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) + ' won)';
 						document.getElementById(op).innerText = s;
 					}
 				});
