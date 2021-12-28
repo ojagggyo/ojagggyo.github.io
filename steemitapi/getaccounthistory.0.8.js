@@ -51,6 +51,7 @@ function clickBtn(days){
 		makeTable(result);
 	}).catch(err => {
 		console.log(err);
+		alart(err);
 	});
 }
 
