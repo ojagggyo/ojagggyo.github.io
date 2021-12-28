@@ -48,8 +48,10 @@ function clickBtn(days){
 	
 	window.location.hash = '#' + document.getElementById("username").value;
 	aaa(days).then(result => {
+		document.getElementById("text").innerText = 'processing...';
 		makeTable(result);
 	}).catch(err => {
+		document.getElementById("text").innerText = err;
 		console.log(err);
 		alart(err);
 	});
