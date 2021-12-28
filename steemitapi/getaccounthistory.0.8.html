@@ -88,7 +88,6 @@ let total_sbd_payout = {};
 let total_steem_payout = {};
 let total_vesting_payout = {};
 let total_sp_payout = {};
-let globalProperties;
 function getReward(record){
 	const username = document.getElementById("username").value
 	let sbd_payout = 0;
@@ -135,8 +134,7 @@ function getReward(record){
 	return true;
 }
 	
-let krwsteem;
-let krwsbd;
+
 function getPrice(markets) {
 	return new Promise((resolve) => {
 		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
@@ -300,8 +298,9 @@ function makeTable(records){
 }
 
 
-	
-		
+let globalProperties;
+let krwsteem;
+let krwsbd;
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
