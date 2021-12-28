@@ -4,6 +4,34 @@
 <title>getaccounthistory</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./getaccounthistory.0.9.css">
+
+<style>	
+#effectivepowerdetail {
+  color: gray;
+}
+
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3rem;
+}
+::-webkit-progress-bar {
+  background-color: lightglay;
+}
+#effectivepower::-webkit-progress-value {
+  background-color: orange;
+}
+#votingpower::-webkit-progress-value {
+  background-color: #217ab7;
+}
+#downvotepower::-webkit-progress-value {
+  background-color: #5bc0de;
+}
+#resourcecredits::-webkit-progress-value {
+  background-color: #5eb85e;
+}
+</style>
+	
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script>
