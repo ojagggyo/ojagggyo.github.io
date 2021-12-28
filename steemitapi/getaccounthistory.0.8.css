@@ -8,7 +8,8 @@ a.gray {
 }
 
 .right {
-    float: right;
+   float: right;
+   background-color: #f0f;
 }
 
 canvas.small {
