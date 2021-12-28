@@ -1,6 +1,10 @@
 
 a {
-   text-decoration:none;
+   text-decoration: none;
+}
+
+a.gray {
+   color: gray;
 }
 
 canvas.small {
