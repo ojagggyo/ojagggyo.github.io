@@ -426,11 +426,11 @@ async function aaa(days){
 					if(total_count[op] === void 0){
 					}else{
 						let s = op 
-						+ ' ' 
+						+ ' <b>' 
 						+ total_sbd_payout[op].toFixed(3) 
-						+ ' SBD and ' 
+						+ ' SBD</b> and <b>' 
 						+ total_sp_payout[op].toFixed(3) 
-						+ ' SP' 
+						+ ' SP</b>' 
 						+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
 						+ ' won)</a>'
 						+ '<br/>';
