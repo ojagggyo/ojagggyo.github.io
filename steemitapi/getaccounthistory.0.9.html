@@ -442,8 +442,7 @@ async function aaa(days){
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			timestamp = timestamp.toLocaleString('ja-JP');
-			document.getElementById("progress").innerText = "From " + timestamp
-			+ ' to now';
+			document.getElementById("progress").innerText = timestamp + 'to now';
 		}
 		
 		out = ret.concat(out);
