@@ -12,13 +12,11 @@ a.gray {
 }
 
 .marker {
-   //background:linear-gradient(transparent 60%, #ff6 60%);//yellow
-   background:linear-gradient(transparent 60%, #6f6 60%);//green
-   //background:linear-gradient(transparent 60%, #6cf 60%);//blue
-   //background:linear-gradient(transparent 60%, #f6c 60%);//pink
+   //background: linear-gradient(transparent 60%, #ff6 60%);//yellow
+   background: linear-gradient(transparent 60%, #6f6 60%);//green
+   //background: linear-gradient(transparent 60%, #6cf 60%);//blue
+   //background: linear-gradient(transparent 60%, #f6c 60%);//pink
 }
-
-
 
 canvas.small {
   margin: 2px 2px -7px 2px;
