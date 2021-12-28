@@ -12,7 +12,8 @@ a.gray {
 }
 
 .marker {
-   background:linear-gradient(transparent 60%, #ff6 60%);
+   //background:linear-gradient(transparent 60%, #ff6 60%);//yellow
+   background:linear-gradient(transparent 60%, #6f6 60%);//green
 }
 
 
