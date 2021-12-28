@@ -11,6 +11,12 @@ a.gray {
    float: right;
 }
 
+.marker {
+   background:linear-gradient(transparent 60%, #ff6 60%);
+}
+
+
+
 canvas.small {
   margin: 2px 2px -7px 2px;
   float: left;
