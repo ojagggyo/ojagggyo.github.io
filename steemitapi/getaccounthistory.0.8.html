@@ -81,11 +81,13 @@ break;
 }
 }
 
+	
 let total_count = {};
 let total_sbd_payout = {};
 let total_steem_payout = {};
 let total_vesting_payout = {};
 let total_sp_payout = {};
+let globalProperties;
 function getReward(record){
 	const username = document.getElementById("username").value
 	let sbd_payout = 0;
@@ -132,7 +134,16 @@ function getReward(record){
 	return true;
 }
 	
-	
+let krwsteem;
+let krwsteem;
+function getPrice(markets) {
+	return new Promise((resolve) => {
+		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
+		$.getJSON(url, (data) => {
+			resolve(data[0].trade_price);
+		});
+	});
+};
 
 	
 function makeLine(record){
@@ -286,11 +297,14 @@ function makeTable(records){
 	console.log(html);
 	document.getElementById("text").innerHTML = html;	
 }
-	
 
+
+	
 		
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	krwsteem = await getPrice('KRW-STEEM');
+	krwsbd = await getPrice('KRW-SBD');
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
@@ -320,7 +334,8 @@ async function aaa(days){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{
-						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD and ' + total_sp_payout[op].toFixed(3)  + ' SP' ;
+						let s = op + ' ' + total_sbd_payout[op].toFixed(3)  + ' SBD and ' + total_sp_payout[op].toFixed(3)  + ' SP' 
+							+ ' (' + (total_sbd_payout[op] + kresbd + total_sp_payout[op] + krwsteem).toFixed(3) + ' won)';
 						document.getElementById(op).innerText = s;
 					}
 				});
