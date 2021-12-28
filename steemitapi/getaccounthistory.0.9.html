@@ -82,6 +82,59 @@ break;
 }
 }
 
+async function getEffectivePower(username){
+	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
+	console.log(globalProperties);
+	let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
+	let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
+	let k = total_vesting_fund_steem / total_vesting_shares;
+	let accounts = await steem.api.getAccountsAsync([username]);
+	console.log(accounts);
+	let vesting_shares = parseFloat(accounts[0].vesting_shares.replace(" VESTS", ""));
+	let received_vesting_shares = parseFloat(accounts[0].received_vesting_shares.replace(" VESTS", ""));
+	let delegated_vesting_shares = parseFloat(accounts[0].delegated_vesting_shares.replace(" VESTS", ""));
+	sp = vesting_shares * k;//保持しているSP
+	sp1 = received_vesting_shares * k;//委任されたSP
+	sp2 = delegated_vesting_shares * k;//委任したSP
+	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
+}
+	
+ function effectivepower(username){
+	getEffectivePower(username).then(result => {
+		document.getElementById("effectivepowervalue").text = 
+			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
+		document.getElementById("effectivepowerdetail").text = 
+			steem.formatter.numberWithCommas((result.sp).toFixed(0)) + 
+			' + ' + 
+			steem.formatter.numberWithCommas((result.received_sp).toFixed(0)) + 
+			' - ' + 
+			steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0));
+		document.getElementById("effectivepower").max = result.sp + result.received_sp;
+		document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+	
+function getVotingPower(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+            if (err) reject(err);
+            const voting_power  = response[0].voting_power;
+            resolve(voting_power / 100);
+        });          
+    });
+}
+	
+function votingpower(username){
+	getVotingPower(username).then(result => {
+		document.getElementById("votingpowervalue").text = result.toFixed(0) + ' %';
+		document.getElementById("votingpower").value = result;
+	}).catch(err => {
+		console.log(err);
+	});
+}
+
 	
 let total_count = {};
 let total_sbd_payout = {};
@@ -308,16 +361,20 @@ async function aaa(days){
 	document.getElementById('price').innerHTML = 
 		'<a class=right>STEEM ' + krwsteem + ' won</a>' 
 		+ '<br/><a class=right>SBD ' + krwsbd + ' won</a>';
+	//
+	let username = document.getElementById("username").value;
+	effectivepower(username);
+  	votingpower(username);
+	//
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
 	let firstValue = -1;
   	let firstTimestamp = new Date();
-	let benefactor = document.getElementById("username").value;
 	let now = new Date();
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		
-		let ret = await steem.api.getAccountHistoryAsync(benefactor, firstValue, limit);
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		//console.log(ret);		
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
@@ -383,6 +440,17 @@ window.onload = function() {
 	</table>
 	<a id="progress"></a><br/>
 	<hr color="#888" />
+		
+	Effective Power <b><a id=effectivepowervalue></a></b><br/>
+	<a id=effectivepowerdetail></a>
+	<progress id=effectivepower></progress><br/>
+	<br/>
+	Voting Power <b><a id=votingpowervalue></a></b><br/>
+	<progress id=votingpower max=100></progress><br/>
+	<br/>
+		
+		
+		
 	<a class=marker id="author_reward"></a><br/>
 	<a class=marker id="curation_reward"></a><br/>
 	<a class=marker id="comment_benefactor_reward"></a><br/>
