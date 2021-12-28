@@ -305,7 +305,7 @@ async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
-	document.getElementById('price').innerHTML = krwsteem + ' ' + krwsbd;
+	document.getElementById('price').innerHTML = 'STEEM ' + krwsteem + ' won' + '<br/>SBD ' + krwsbd + ' won';
 	let out = [];
 	let limit = 100;
 	let lastlength = limit;
