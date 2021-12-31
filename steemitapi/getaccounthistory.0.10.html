@@ -25,61 +25,7 @@ steem.api.setOptions({url: 'https://api.steemit.com'})
 	
 
 
-//power
-async function getEffectivePower(username){
-	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-	console.log(globalProperties);
-	let total_vesting_shares = parseFloat(globalProperties.total_vesting_shares.replace(" VESTS", ""));
-	let total_vesting_fund_steem = parseFloat(globalProperties.total_vesting_fund_steem.replace(" STEEM", ""));
-	let k = total_vesting_fund_steem / total_vesting_shares;
-	let accounts = await steem.api.getAccountsAsync([username]);
-	console.log(accounts);
-	let vesting_shares = parseFloat(accounts[0].vesting_shares.replace(" VESTS", ""));
-	let received_vesting_shares = parseFloat(accounts[0].received_vesting_shares.replace(" VESTS", ""));
-	let delegated_vesting_shares = parseFloat(accounts[0].delegated_vesting_shares.replace(" VESTS", ""));
-	sp = vesting_shares * k;//保持しているSP
-	sp1 = received_vesting_shares * k;//委任されたSP
-	sp2 = delegated_vesting_shares * k;//委任したSP
-	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
-}
-	
- function effectivepower(username){
-	getEffectivePower(username).then(result => {
-		document.getElementById("effectivepowervalue").text = 
-			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
-		document.getElementById("effectivepowerdetail").text = 
-			'('
-			+ steem.formatter.numberWithCommas((result.sp).toFixed(0))
-			+ ' + '
-			+ steem.formatter.numberWithCommas((result.received_sp).toFixed(0))
-			+ ' - ' 
-			+ steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0))
-			+ ')';
-		document.getElementById("effectivepower").max = result.sp + result.received_sp;
-		document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
-	}).catch(err => {
-		console.log(err);
-	});	
-}
-	
-function getVotingPower(username) {
-    return new Promise((resolve, reject) => {
-        steem.api.getAccounts([username], function(err, response) {
-            if (err) reject(err);
-            const voting_power  = response[0].voting_power;
-            resolve(voting_power / 100);
-        });          
-    });
-}
-	
-function votingpower(username){
-	getVotingPower(username).then(result => {
-		document.getElementById("votingpowervalue").text = result.toFixed(0) + ' %';
-		document.getElementById("votingpower").value = result;
-	}).catch(err => {
-		console.log(err);
-	});
-}
+
 	
 //reputation
 function log10(str) {
