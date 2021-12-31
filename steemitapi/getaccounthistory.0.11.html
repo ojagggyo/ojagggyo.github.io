@@ -227,11 +227,15 @@ function getPrice(markets) {
 			resolve(data[0].trade_price);
 		})
 		.done(function() { 
-			console.log('getJSON request succeeded!'); })
+			console.log('getJSON request succeeded!'); 
+		})
 		.fail(function(jqXHR, textStatus, errorThrown) { 
-			console.log('getJSON request failed! ' + textStatus); })
+			console.log('getJSON request failed! ' + textStatus);
+			reject('getJSON request failed! ' + textStatus);
+		})
 		.always(function() { 
-			console.log('getJSON request ended!'); });
+			console.log('getJSON request ended!'); 
+		});
 		
 		setTimeout(function(){ 
 			p.abort(); 
