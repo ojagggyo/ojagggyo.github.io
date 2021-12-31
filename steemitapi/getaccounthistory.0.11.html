@@ -412,6 +412,7 @@ async function aaa(days){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{
+						/*
 						let s = op 
 						+ ' <b>' 
 						+ total_sbd_payout[op].toFixed(3) 
@@ -421,6 +422,12 @@ async function aaa(days){
 						+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
 						+ ' won)</a>'
 						+ '<br/>';
+						*/
+						
+						let s = 
+						    (op == "author_reward" ? "author " : (op == "curation_reward" ? "curation " : "comment benefactor "))
+							+ steemAmountFormat(total_transfer_steem[op], total_sbd_payout[op], total_sp_payout[op])
+							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
 				});
