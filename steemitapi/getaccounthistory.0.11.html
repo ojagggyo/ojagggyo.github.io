@@ -132,25 +132,41 @@ function getReward(record){
 	return true;
 }
 	
-//reward
-let total_transfer = {};
+//transfer
+let total_transfer_count = {};
+let total_transfer_steem = {};
+let total_transfer_sbd = {};
 function getTransferAmount(record){
 	const username = document.getElementById("username").value
+	let amount = record[1].op[1].amount;
 	let op = record[1].op[0];
 	if(op == "transfer" && record[1].op[1].from == username){
-		op = op + "_from";
-		transfer_amount = parseFloat(record[1].op[1].amount);
+		op = op + "_out";
+		if(amount.endsWith('STEEM')){
+			transfer_amount_steem = parseFloat(record[1].op[1].amount);
+		}else{
+			transfer_amount_sbd = parseFloat(record[1].op[1].amount);
+		}
 	}else if(op == "transfer" && record[1].op[1].to == username){
-		op = op + "_to";
-		transfer_amount = parseFloat(record[1].op[1].amount);
+		op = op + "_in";
+		if(amount.endsWith('STEEM')){
+			transfer_amount_steem = parseFloat(record[1].op[1].amount);
+		}else{
+			transfer_amount_sbd = parseFloat(record[1].op[1].amount);
+		}
 	}else {
 		return false;
 	}
 	
-	if(total_transfer[op] === void 0){
-		total_transfer[op] = transfer_amount;
+	if(total_transfer_count[op] === void 0){
+		total_transfer_count[op] = 1;
+		total_transfer_steem[op] = transfer_amount;
+		total_transfer_sbd[op] = transfer_amount;
+		
 	}else{
-		total_transfer[op] += transfer_amount;
+		total_transfer_count[op] += 1;
+		total_transfer_steem[op] += transfer_amount;
+		total_transfer_sbd[op] += transfer_amount;
 	}
 	return true;
 }
@@ -381,13 +397,15 @@ async function aaa(days){
 			}
 			
 			if(getTransferAmount(ret[i])){
-				['transfer_from', 'transfer_to'].forEach(function(op){
+				['transfer_in', 'transfer_out'].forEach(function(op){
 					if(total_transfer[op] === void 0){
 					}else{
 						let s = op 
 						+ ' <b>' 
-						+ total_transfer[op]
-						+ '</b>' 
+						+ total_transfer_sbd[op].toFixed(3)
+						+ ' SBD</b> and <b>' 
+						+ total_transfer_steem[op].toFixed(3) 
+						+ ' SP</b>' 
 						+ '<br/>';
 						document.getElementById(op).innerHTML = s;
 					}
@@ -450,8 +468,8 @@ window.onload = function() {
 	<a id="comment_benefactor_reward"></a>
 
 	<br/><b>Transfer</b><br/>
-	<a id="transfer_from"></a>
-	<a id="transfer_to"></a>
+	<a id="transfer_in"></a>
+	<a id="transfer_out"></a>
 		
 	<!--<hr color="#888" />-->
 	<br/><b>History</b><br/>
