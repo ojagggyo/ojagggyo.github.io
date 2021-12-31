@@ -478,7 +478,7 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	let w = document.getElementsByClassName("wrapper").getAttribute('width');
+	let w = document.getElementsByClassName("wrapper")[0].getAttribute('width');
 	document.getElementById("cvs").setAttribute('width',w);
 	
 	let username = getUserName();
