@@ -26,7 +26,7 @@
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 	
-function steemAmountFormat(steem, sbd, vest) {
+function steemAmountFormat(steem, sbd, sp) {
 	let s = "";
 	let lines = [];
 	if(steem > 0){
@@ -36,7 +36,7 @@ function steemAmountFormat(steem, sbd, vest) {
 		lines.push(sbd.toFixed(3) + " SBD");
 	}
 	if(vest > 0){
-		lines.push(vest.toFixed(3) + " SP");
+		lines.push(sp.toFixed(3) + " SP");
 	}
 	switch(lines.length){
 	case 1:
@@ -52,6 +52,11 @@ function steemAmountFormat(steem, sbd, vest) {
 	return s;
 }	
 	
+function krwAmountFormat(steem, sbd, sp, krw_steem, krw_sbd) {
+	return ' <a class=gray>(' 
+		+ steem.formatter.numberWithCommas((steem * krw_steem + sbd * krw_sbd + sp * krw_steem).toFixed(0)) 
+		+ ' won)</a>'
+}
 	
 //reputation
 function log10(str) {
@@ -208,7 +213,10 @@ function getTransferAmount(record){
 	return true;
 }
 	
+
 	
+	
+
 	
 //Price
 function getPrice(markets) {
@@ -418,25 +426,14 @@ async function aaa(days){
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
-					}else{
-						/*
-						let s = op 
-						+ ' <b>' 
-						+ total_sbd_payout[op].toFixed(3) 
-						+ ' SBD</b> and <b>' 
-						+ total_sp_payout[op].toFixed(3) 
-						+ ' SP</b>' 
-						+ ' <a class=gray>(' + steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
-						+ ' won)</a>'
-						+ '<br/>';
-						*/
-						
+					}else{						
 						let s = 
 						    (op == "author_reward" ? "author " : (op == "curation_reward" ? "curation " : "comment benefactor "))
 							+ steemAmountFormat(total_transfer_steem[op], total_sbd_payout[op], total_sp_payout[op])
-							+ ' <a class=gray>(' 
-							+ steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
-							+ ' won)</a>'	
+							//+ ' <a class=gray>(' 
+							//+ steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
+							//+ ' won)</a>'	
+							+ krwAmountFormat(0, total_sbd_payout[op], total_sp_payout[op], krwsteem, krwsbd)
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
@@ -446,17 +443,7 @@ async function aaa(days){
 			if(getTransferAmount(ret[i])){
 				['transfer_in', 'transfer_out'].forEach(function(op){
 					if(total_transfer_count[op] === void 0){
-					}else{
-						/*
-						let s = op 
-						+ ' <b>' 
-						+ total_transfer_sbd[op].toFixed(3)
-						+ ' SBD</b> and <b>' 
-						+ total_transfer_steem[op].toFixed(3) 
-						+ ' STEEM</b>' 
-						+ '<br/>';
-						*/
-						
+					}else{						
 						let s = 
 						    (op == "transfer_in" ? "in " : "out ")
 							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0)
