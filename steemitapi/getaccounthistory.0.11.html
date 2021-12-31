@@ -438,11 +438,12 @@ async function aaa(days){
 						+ total_transfer_steem[op].toFixed(3) 
 						+ ' STEEM</b>' 
 						+ '<br/>';
-						document.getElementById(op).innerHTML = s;
 						*/
+						
 						let s = 
-						    (op == transfer_in ? "in" : "out")
+						    (op == "transfer_in" ? "in" : "out")
 							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0);
+						document.getElementById(op).innerHTML = s;
 					}
 				});
 			}
