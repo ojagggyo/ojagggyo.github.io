@@ -17,6 +17,33 @@
 <script src="./getaccounthistory.0.11.js"></script>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
+
+	
+function steemAmountFormat(steem, sbd, vest) {
+	let s = "";
+	let lines = [];
+	if(steem > 0){
+		lines.push(steem.toFixed(3) + " STEEM");
+	}
+	if(sbd > 0){
+		lines.push(sbd.toFixed(3) + " SBD");
+	}
+	if(vest > 0){
+		lines.push(vest.toFixed(3) + " SP");
+	}
+	switch(lines.length){
+	case 1:
+		s = lines[0];
+		break;
+	case 2:
+		s = lines[0] + ' and ' + lines[1];
+		break;
+	case 3:
+		s = lines[0] + ', ' + lines[1] + ' and ' + lines[2];
+		break;
+	}
+}	
+	
 	
 //reputation
 function log10(str) {
@@ -402,6 +429,7 @@ async function aaa(days){
 				['transfer_in', 'transfer_out'].forEach(function(op){
 					if(total_transfer_count[op] === void 0){
 					}else{
+						/*
 						let s = op 
 						+ ' <b>' 
 						+ total_transfer_sbd[op].toFixed(3)
@@ -410,6 +438,10 @@ async function aaa(days){
 						+ ' STEEM</b>' 
 						+ '<br/>';
 						document.getElementById(op).innerHTML = s;
+						*/
+						let s = 
+						    (op == transfer_in ? "in" : "out")
+							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0);
 					}
 				});
 			}
