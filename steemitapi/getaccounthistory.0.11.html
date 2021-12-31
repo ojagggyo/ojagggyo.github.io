@@ -225,9 +225,12 @@ function getPrice(markets) {
 		$.getJSON(url, (data) => {
 			resolve(data[0].trade_price);
 		})
-		.done(function() { console.log('getJSON request succeeded!'); })
-		.fail(function(jqXHR, textStatus, errorThrown) { console.log('getJSON request failed! ' + textStatus); })
-		.always(function() { console.log('getJSON request ended!'); });
+		.done(function() { 
+			console.log('getJSON request succeeded!'); })
+		.fail(function(jqXHR, textStatus, errorThrown) { 
+			console.log('getJSON request failed! ' + textStatus); })
+		.always(function() { 
+			console.log('getJSON request ended!'); });
 	});
 };
 
