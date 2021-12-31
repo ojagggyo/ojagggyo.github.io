@@ -478,9 +478,10 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	let ele = document.getElementsByClassName("wrapper")[0];
-	let w = ele.getAttribute('width');
-	document.getElementById("cvs").setAttribute('width',w);
+	let ele1 = document.getElementsByClassName("wrapper")[0];
+	let w = ele1.getAttribute('width');
+	let ele2 = document.getElementById("cvs");
+	ele2.setAttribute('width',w);
 	
 	let username = getUserName();
 	if(username == '') return;
