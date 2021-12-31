@@ -484,7 +484,7 @@ window.onload = function() {
 	//let w = ele1.getAttribute('width');
 	let ele = document.getElementById("cvs");
 	let width = ele.parentNode.getBoundingClientRect().width;
-	ele.style.width = width;
+	ele.style.width = width + 'px';
 	
 	let username = getUserName();
 	if(username == '') return;
