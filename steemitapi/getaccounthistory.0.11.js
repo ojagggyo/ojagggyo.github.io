@@ -169,6 +169,10 @@ function clickBtn(days){
 	total_vesting_payout = {};
 	total_sp_payout = {};
 	
+	total_transfer_count = {};
+	total_transfer_sbd = {};
+	total_transfer_steem = {};
+	
 	window.location.hash = '#' + document.getElementById("username").value;
 	aaa(days).then(result => {
 		document.getElementById("text").innerText = 'processing...';
