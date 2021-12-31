@@ -111,6 +111,7 @@ break;
 }
 }
 
+//power
 async function getEffectivePower(username){
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	console.log(globalProperties);
@@ -165,7 +166,41 @@ function votingpower(username){
 		console.log(err);
 	});
 }
+	
+//reputation
+function log10(str) {
+    const leadingDigits = parseInt(str.substring(0, 4));
+    const log = Math.log(leadingDigits) / Math.LN10 + 0.00000001;
+    const n = str.length - 1;
+    return n + (log - parseInt(log));
+}
 
+function repLog10(str) {
+    let rep = String(str);
+    const neg = rep.charAt(0) === '-';
+    rep = neg ? rep.substring(1) : rep;
+    let out = log10(rep);
+    if (isNaN(out)) out = 0;
+    out = Math.max(out - 9, 0); // @ -9, $0.50 earned is approx magnitude 1
+    out = (neg ? -1 : 1) * out;
+    out = out * 9 + 25; // 9 points per magnitude. center at 25  
+    return out;
+};
+
+async function getReputation(username){
+	steem.api.getAccounts(["yasu"], function(e1, accounts) {
+	    reputation = repLog10(accounts[0].reputation); 
+
+	});
+}
+
+ function reputation(username){
+	getReputation(username).then(result => {
+		document.getElementById("reputation").value = result;
+	}).catch(err => {
+		console.log(err);
+	});	
+}
 	
 let total_count = {};
 let total_sbd_payout = {};
@@ -483,6 +518,9 @@ window.onload = function() {
 	<progress id=effectivepower></progress><br/>
 	Voting Power <b><a id=votingpowervalue></a></b><br/>
 	<progress id=votingpower max=100></progress><br/>
+	
+	<br/><b>Reputation</b><a id="reputation"></a> <b>Age</b><a id="age"></a><br/>
+		
 	<br/><b>Period</b><br/>
 	<a id="progress"></a><br/>
 	<br/><b>Reward</b><br/>
