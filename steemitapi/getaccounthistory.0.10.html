@@ -221,7 +221,7 @@ async function getAge(username){
 
  function age(username){
 	getAge(username).then(result => {
-		document.getElementById("age").text = result.toFixed(3) + ' MOONS';
+		document.getElementById("age").text = result.toFixed(3) + ' MOON';
 	}).catch(err => {
 		console.log(err);
 	});	
