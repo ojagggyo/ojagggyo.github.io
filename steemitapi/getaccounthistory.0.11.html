@@ -465,6 +465,7 @@ async function aaa(days){
 						let s = 
 						    (op == "transfer_in" ? "in " : "out ")
 							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0)
+							+ krwAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0, krwsteem, krwsbd)
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
