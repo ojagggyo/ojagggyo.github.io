@@ -189,8 +189,7 @@ function repLog10(str) {
 
 async function getReputation(username){
 	steem.api.getAccounts(["yasu"], function(e1, accounts) {
-	    reputation = repLog10(accounts[0].reputation); 
-
+	    return repLog10(accounts[0].reputation); 
 	});
 }
 
