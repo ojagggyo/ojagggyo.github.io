@@ -427,6 +427,9 @@ async function aaa(days){
 						let s = 
 						    (op == "author_reward" ? "author " : (op == "curation_reward" ? "curation " : "comment benefactor "))
 							+ steemAmountFormat(total_transfer_steem[op], total_sbd_payout[op], total_sp_payout[op])
+							+ ' <a class=gray>(' 
+							+ steem.formatter.numberWithCommas((total_sbd_payout[op] * krwsbd + total_sp_payout[op] * krwsteem).toFixed(0)) 
+							+ ' won)</a>'	
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
