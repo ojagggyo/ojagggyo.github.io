@@ -226,7 +226,9 @@ function getPrice(markets) {
 		var p = $.getJSON(url, function(data) {
 			resolve(data[0].trade_price);
 		})
-		setTimeout(function(){ p.abort(); }, 2000);
+		setTimeout(function(){ 
+			p.abort(); 
+		}, 2000);
 		
 		/*
 		.done(function() { 
