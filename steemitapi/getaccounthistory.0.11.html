@@ -479,7 +479,7 @@ async function aaa(days){
 
 window.onload = function() {
 	let ele = document.getElementsByClassName("wrapper")[0]
-	let w = ele.getAttribute('width');
+	let w = ele.getAttribute('clientwidth');
 	document.getElementById("cvs").setAttribute('width',w);
 	
 	let username = getUserName();
