@@ -231,7 +231,8 @@ function getPrice(markets) {
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) { 
 			console.log('getJSON request failed! ' + textStatus);
-			reject('getJSON request failed! ' + textStatus);
+			//reject('getJSON request failed! ' + textStatus);
+			resolve(0);
 		})
 		.always(function() { 
 			console.log('getJSON request ended!'); 
@@ -239,7 +240,7 @@ function getPrice(markets) {
 		
 		setTimeout(function(){ 
 			p.abort(); 
-		}, 2000);
+		}, 5000);
 			
 	});
 };
