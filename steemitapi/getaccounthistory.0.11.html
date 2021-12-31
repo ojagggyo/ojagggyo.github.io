@@ -83,6 +83,7 @@ async function getAge(username){
 	});	
 }
 	
+//reward
 let total_count = {};
 let total_sbd_payout = {};
 let total_steem_payout = {};
@@ -131,7 +132,32 @@ function getReward(record){
 	return true;
 }
 	
-
+//reward
+let total_transfer = {};
+function getTransferAmount(record){
+	const username = document.getElementById("username").value
+	let op = record[1].op[0];
+	if(op == "transfer" && record[1].op[1].from == username){
+		op = op + "_from";
+		transfer_amount = parseFloat(record[1].op[1].amount);
+	}else if(op == "transfer" && record[1].op[1].to == username){
+		op = op + "_to";
+		transfer_amount = parseFloat(record[1].op[1].amount);
+	}else {
+		return false;
+	}
+	
+	if(total_transfer[op] === void 0){
+		total_transfer[op] = transfer_amount;
+	}else{
+		total_transfer[op] += transfer_amount;
+	}
+	return true;
+}
+	
+	
+	
+//Price
 function getPrice(markets) {
 	return new Promise((resolve) => {
 		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
@@ -354,6 +380,20 @@ async function aaa(days){
 				});
 			}
 			
+			if(getTransferAmount(ret[i])){
+				['transfer_from', 'transfer_to'].forEach(function(op){
+					if(total_transfer[op] === void 0){
+					}else{
+						let s = op 
+						+ ' <b>' 
+						+ total_transfer[op]
+						+ '</b>' 
+						+ '<br/>';
+						document.getElementById(op).innerHTML = s;
+					}
+				});
+			}
+			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			timestamp = timestamp.toLocaleString('ja-JP');
@@ -403,10 +443,16 @@ window.onload = function() {
 		
 	<br/><b>Period</b><br/>
 	<a id="progress"></a><br/>
+		
 	<br/><b>Reward</b><br/>
 	<a id="author_reward"></a>
 	<a id="curation_reward"></a>
 	<a id="comment_benefactor_reward"></a>
+
+	<br/><b>Transfer</b><br/>
+	<a id="transfer_from"></a>
+	<a id="transfer_to"></a>
+		
 	<!--<hr color="#888" />-->
 	<br/><b>History</b><br/>
 	<span id="text"></span>
