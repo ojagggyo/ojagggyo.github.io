@@ -480,10 +480,9 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	//let width = ele.parentNode.getBoundingClientRect().width;
-	
-	let width = document.getElementById("effectivepowerdetail").getBoundingClientRect().width;
-	document.getElementById("cvs").style.width = width + 'px';
+	let ele = document.getElementById("cvs");
+	let width = ele.parentNode.getBoundingClientRect().width;
+	ele.style.width = width + 'px';
 	
 	let username = getUserName();
 	if(username == '') return;
@@ -529,8 +528,7 @@ window.onload = function() {
 	<br/><b>Transfer</b><br/>
 	<a id="transfer_in"></a>
 	<a id="transfer_out"></a>
-	<!--<div style="width: 100%"><canvas id="cvs" height="16" style="background-color: gray;"></canvas></div>-->
-	<canvas id="cvs" height="16" style="background-color: gray;"></canvas>
+	<div style="width: 100%"><canvas id="cvs" height="16" style="background-color: gray;"></canvas></div>
 		
 	<!--<hr color="#888" />-->
 	<br/><b>History</b><br/>
