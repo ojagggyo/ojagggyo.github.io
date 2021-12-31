@@ -180,7 +180,7 @@ function clickBtn(days){
 	}).catch(err => {
 		document.getElementById("text").innerText = err;
 		console.log(err);
-		alart(err);
+		alert(err);
 	});
 }
 
