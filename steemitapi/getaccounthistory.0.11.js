@@ -159,6 +159,8 @@ function clickBtn(days){
 	document.getElementById("author_reward").innerText = "";
 	document.getElementById("curation_reward").innerText = "";
 	document.getElementById("comment_benefactor_reward").innerText = "";
+	document.getElementById("transfer_in").innerText = "";
+	document.getElementById("transfer_out").innerText = "";
 	document.getElementById("text").innerText = "";
 	
 	total_count = {};
