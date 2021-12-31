@@ -478,6 +478,9 @@ async function aaa(days){
 };
 
 window.onload = function() {
+	let w = document.getElementsByClassName("wrapper").getAttribute('width');
+	document.getElementById("cvs").setAttribute('width',w);
+	
 	let username = getUserName();
 	if(username == '') return;
 	document.getElementById("username").value = username;
@@ -523,11 +526,7 @@ window.onload = function() {
 	<a id="transfer_in"></a>
 	<a id="transfer_out"></a>
 	<div class=wrapper><canvas id="cvs" height="16" style="background-color: gray;"></canvas></div>
-<script>
-//var w = $('.wrapper').width();
-//$('#cvs').attr('width', w);
-document.getElementById("cvs").setAttribute('width','400');
-		</script>
+
 	<!--<hr color="#888" />-->
 	<br/><b>History</b><br/>
 	<span id="text"></span>
