@@ -226,17 +226,16 @@ function getPrice(markets) {
 		var p = $.getJSON(url, function(data) {
 			resolve(data[0].trade_price);
 		})
-		setTimeout(function(){ 
-			p.abort(); 
-		}, 2000);
-		
-		
 		.done(function() { 
 			console.log('getJSON request succeeded!'); })
 		.fail(function(jqXHR, textStatus, errorThrown) { 
 			console.log('getJSON request failed! ' + textStatus); })
 		.always(function() { 
 			console.log('getJSON request ended!'); });
+		
+		setTimeout(function(){ 
+			p.abort(); 
+		}, 2000);
 			
 	});
 };
