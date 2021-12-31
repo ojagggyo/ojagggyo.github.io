@@ -54,7 +54,8 @@ function steemAmountFormat(steem, sbd, sp) {
 	
 function krwAmountFormat(steem, sbd, sp, krw_steem, krw_sbd) {
 	return ' <a class=gray>(' 
-		+ steem.formatter.numberWithCommas((steem * krw_steem + sbd * krw_sbd + sp * krw_steem).toFixed(0)) 
+		//+ steem.formatter.numberWithCommas((steem * krw_steem + sbd * krw_sbd + sp * krw_steem).toFixed(0)) 
+		+ (steem * krw_steem + sbd * krw_sbd + sp * krw_steem).toFixed(0) 
 		+ ' won)</a>'
 }
 	
