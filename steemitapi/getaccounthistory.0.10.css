@@ -18,7 +18,7 @@ a.gray {
    /*background: linear-gradient(transparent 60%, #f6c 60%);/*pink*/
 }
 
-// ---------- identicon ----------
+/* ---------- identicon ---------- */
 canvas.small {
   margin: 2px 2px -7px 2px;
   float: left;
@@ -42,7 +42,7 @@ span.large{
   vertical-align: top;
 }
 
-// ---------- progress ----------
+/* ---------- progress ---------- */
 #effectivepowerdetail {
   color: gray;
 }
