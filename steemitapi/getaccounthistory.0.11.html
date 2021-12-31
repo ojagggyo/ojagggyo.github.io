@@ -5,9 +5,11 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./getaccounthistory.0.11.css">
 <style>
+	/*
 .wrapper{
   width: 100%;
 }
+	*/
 </style>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
@@ -478,10 +480,11 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	let ele1 = document.getElementsByClassName("wrapper")[0];
-	let w = ele1.getAttribute('width');
-	let ele2 = document.getElementById("cvs");
-	ele2.setAttribute('width',w);
+	//let ele1 = document.getElementsByClassName("wrapper")[0];
+	//let w = ele1.getAttribute('width');
+	let ele = document.getElementById("cvs");
+	let width = ele.parentNode.getBoundingClientRect().width;
+	ele.style.width = width;
 	
 	let username = getUserName();
 	if(username == '') return;
@@ -527,7 +530,7 @@ window.onload = function() {
 	<br/><b>Transfer</b><br/>
 	<a id="transfer_in"></a>
 	<a id="transfer_out"></a>
-	<div class=wrapper><canvas id="cvs" width="100%" height="16" style="background-color: gray;"></canvas></div>
+	<div style="width: 100%"><canvas id="cvs" width="100%" height="16" style="background-color: gray;"></canvas></div>
 
 	<!--<hr color="#888" />-->
 	<br/><b>History</b><br/>
