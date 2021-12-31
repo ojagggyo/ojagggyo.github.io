@@ -400,7 +400,7 @@ async function aaa(days){
 			
 			if(getTransferAmount(ret[i])){
 				['transfer_in', 'transfer_out'].forEach(function(op){
-					if(total_transfer[op] === void 0){
+					if(total_transfer_count[op] === void 0){
 					}else{
 						let s = op 
 						+ ' <b>' 
