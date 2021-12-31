@@ -409,8 +409,8 @@ async function aaa(days){
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
 	document.getElementById('price').innerHTML = 
-		'<a class=right>STEEM ' + krwsteem + ' won</a>' 
-		+ '<br/><a class=right>SBD ' + krwsbd + ' won</a>';
+		'<a class=right>STEEM ' + (krwsteem == 0 ? "---" : krwsteem) + ' won</a>' 
+		+ '<br/><a class=right>SBD ' + (krwsbd == 0 ? "---" : krwsbd) + ' won</a>';
 	//
 	let username = document.getElementById("username").value;
 	effectivepower(username);
