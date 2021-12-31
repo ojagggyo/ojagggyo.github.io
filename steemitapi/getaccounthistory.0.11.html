@@ -160,13 +160,13 @@ function getTransferAmount(record){
 	
 	if(total_transfer_count[op] === void 0){
 		total_transfer_count[op] = 1;
-		total_transfer_steem[op] = transfer_amount;
-		total_transfer_sbd[op] = transfer_amount;
+		total_transfer_steem[op] = transfer_amount_steem;
+		total_transfer_sbd[op] = transfer_amount_sbd;
 		
 	}else{
 		total_transfer_count[op] += 1;
-		total_transfer_steem[op] += transfer_amount;
-		total_transfer_sbd[op] += transfer_amount;
+		total_transfer_steem[op] += transfer_amount_steem;
+		total_transfer_sbd[op] += transfer_amount_sbd;
 	}
 	return true;
 }
