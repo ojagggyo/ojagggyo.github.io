@@ -214,14 +214,19 @@ async function getAge(username){
 			date1.setHours(date1.getHours() + 9);
 			var now = new Date();
 			sa = now - date1;
-			resolve(sa / 86400000 / 27.3217);
+			resolve({moons: sa / 86400000 / 27.3217, days: sa / 86400000});
 		});
 	});
 }
 
  function age(username){
 	getAge(username).then(result => {
-		document.getElementById("age").text = result.toFixed(3) + ' moons';
+		if(result.moons < 1){
+			document.getElementById("age").text = result.days.toFixed(3) + ' days';
+		}else{
+			document.getElementById("age").text = result.moons.toFixed(3) + ' moons';
+		}
+
 	}).catch(err => {
 		console.log(err);
 	});	
