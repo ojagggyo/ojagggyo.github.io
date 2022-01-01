@@ -267,7 +267,7 @@ function userlink(){
     s = s + "<a href=#" + name + ">" + name + "</a> ";
   }
   console.log(s);
-  document.getElementById("cookie").text = s;
+  document.getElementById("cookie").innerText = s;
 }
 
 	
@@ -511,11 +511,6 @@ async function aaa(days){
 };
 
 window.onload = function() {
-	//let ele = document.getElementById("cvs");
-	//let clientRect = ele.parentNode.getBoundingClientRect();
-	//ele.style.width = clientRect.width + 'px';
-	//ele.style.hight = clientRect.hight + 'px';
-	
 	let username = getUserName();
 	if(username == '') return;
 	document.getElementById("username").value = username;
