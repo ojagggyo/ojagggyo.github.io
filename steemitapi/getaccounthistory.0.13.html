@@ -74,7 +74,8 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>'; 
-		body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>' + indicator(voter)) 
+		//body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>' + indicator(voter)) 
+		body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>') 
 			+ (weight >= 0 ? ' upvote' : ' downvote')
 			+ (weight >= 0 ? (voter == username ? '' : emoji_upvote) : emoji_downvote)
 			+ ' <a href=https://steemit.com/'
