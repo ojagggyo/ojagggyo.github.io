@@ -73,3 +73,6 @@ progress.small {
 #resourcecredits::-webkit-progress-value {
   background-color: #5eb85e;
 }
+::-webkit-progress-value.small  {
+  background-color: gray;
+}
