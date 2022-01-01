@@ -5,8 +5,7 @@
   <script>
     function clickWriteBtn(){
       let username = document.getElementById("username").value;
-      //document.cookie = 'username=' + encodeURIComponent(username) + ";max-age=10";
-      document.cookie = username + ";max-age=10";
+      document.cookie = 'username=' + encodeURIComponent(username) + ";max-age=10";
     }
 
     function clickReadBtn(){
