@@ -4,13 +4,6 @@
 <title>getaccounthistory</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./getaccounthistory.0.11.css">
-<style>
-	/*
-.wrapper{
-  width: 100%;
-}
-	*/
-</style>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script>
@@ -26,32 +19,7 @@
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
 	
-function steemAmountFormat(steem, sbd, sp) {
-	let s = "";
-	let lines = [];
-	if(steem > 0){ lines.push(steem.toFixed(3) + " STEEM"); }
-	if(sbd > 0){ lines.push(sbd.toFixed(3) + " SBD"); }
-	if(sp > 0){ lines.push(sp.toFixed(3) + " SP"); }
-	switch(lines.length){
-	case 1:
-		s = lines[0];
-		break;
-	case 2:
-		s = lines[0] + ' and ' + lines[1];
-		break;
-	case 3:
-		s = lines[0] + ', ' + lines[1] + ' and ' + lines[2];
-		break;
-	}
-	return s;
-}	
-	
-function krwAmountFormat(steemAmount, sbdAmount, spAmount, krw_steem, krw_sbd) {
-	if(krw_steem == 0) return "";
-	return ' <a class=gray>(' 
-		+ steem.formatter.numberWithCommas((steemAmount * krw_steem + sbdAmount * krw_sbd + spAmount * krw_steem).toFixed(0)) 
-		+ ' won)</a>';
-}
+
 	
 //reputation
 function log10(str) {
@@ -214,11 +182,6 @@ function getTransferAmount(record){
 	}
 	return true;
 }
-	
-
-	
-	
-
 	
 //Price
 function getPrice(markets) {
