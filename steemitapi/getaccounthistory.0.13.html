@@ -56,7 +56,8 @@ function userlink(){
 
 // ---------- indicator ----------
 function indicator(username){
-	let s = "<progress id=votingPowerSmall class=small max=100 value="+ votingPowerIndicator[username]/100 +" ></progress>";
+	//let s = "<progress id=votingPowerSmall class=small max=100 value="+ votingPowerIndicator[username]/100 +" ></progress>";
+	let s = "<progress id=votingPowerSmall class=small max=100 value=50></progress>";
 	return s;
 }
 	
@@ -259,6 +260,7 @@ async function aaa(days){
 				//break;//すべて処理済
 			}
 			
+			/*
 			if(ret[i][1].op[0] == 'vote'){
 				let voter = ret[i][1].op[1].voter;
 				if(voter != username){
@@ -267,7 +269,8 @@ async function aaa(days){
 						votingPowerIndicator[voter] = v;
 					}
 				}
-			}			
+			}
+			*/
 			
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
