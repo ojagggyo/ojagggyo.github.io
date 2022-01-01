@@ -157,8 +157,8 @@ function votingpower(username){
 function clickBtn(days){
 	
 	let username = document.getElementById("username").value;
-	var isValidUsername = steem.utils.validateAccountName(username);
-	if(!isValidUsername) return ;
+	//var isValidUsername = steem.utils.validateAccountName(username);
+	//if(!isValidUsername) return ;
 	
 	emoji();
 	document.getElementById("progress").innerText = "";
