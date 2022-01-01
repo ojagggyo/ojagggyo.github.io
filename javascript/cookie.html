@@ -7,9 +7,10 @@
       let username = document.getElementById("username").value;
       document.cookie = 'username=' + encodeURIComponent(username);
     }
+
     function clickReadBtn(){
       let usernames = document.cookie;
-      let document.getElementById("cookie").value = usernames;
+      document.getElementById("cookie").value = usernames;
       
       }
     </script>
@@ -18,7 +19,7 @@
 クッキーを焼く。<br/>
 <input type="text" id="username" size="20" value="">
 <input type="button" value="書く" onclick="clickWriteBtn()" />
-  <input type="button" value="読む" onclick="clickReadBtn()" /><br/>
+<input type="button" value="読む" onclick="clickReadBtn()" /><br/>
 <a id="cookie"></a>
 </body>
 </html>
