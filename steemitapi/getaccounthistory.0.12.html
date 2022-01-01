@@ -264,8 +264,7 @@ function userlink(){
   let s = "";
   let name = "";
   while(name = nameList.pop()){
-	  //clickUserLink(username){
-    s = s + "<a href=javascript:clickUserLink('" + name + "');>" + name + "</a> ";
+  	s = s + "<a href=javascript:clickUserLink('" + name + "');>" + name + "</a> ";
   }
   console.log(s);
   document.getElementById("userlink").innerHTML = s;
@@ -521,7 +520,7 @@ window.onload = function() {
 	if(username == ''){
 		let userList = getUsernames();
 		if(userList.length == 0) return;
-		username = userList[0];
+		username = userList.pop();
 	}
 	document.getElementById("username").value = username;
 	clickBtn(1);
