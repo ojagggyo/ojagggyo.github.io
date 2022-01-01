@@ -265,7 +265,7 @@ function userlink(){
   let name = "";
   while(name = nameList.pop()){
 	  //clickUserLink(username){
-    s = s + "<a href=javascript:clickUserLink(" + name + ");>" + name + "</a> ";
+    s = s + "<a href=javascript:clickUserLink('" + name + "');>" + name + "</a> ";
   }
   console.log(s);
   document.getElementById("userlink").innerHTML = s;
