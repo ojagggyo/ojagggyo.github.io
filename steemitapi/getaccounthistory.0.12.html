@@ -518,7 +518,11 @@ function clickUserLink(username){
 
 window.onload = function() {
 	let username = getUserName();
-	if(username == '') return;
+	if(username == ''){
+		let userList = getUsernames();
+		if(userList.length == 0) return;
+		username = userList[0];
+	}
 	document.getElementById("username").value = username;
 	clickBtn(1);
 };
