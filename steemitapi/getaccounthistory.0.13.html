@@ -259,7 +259,7 @@ async function aaa(days){
 				//break;//すべて処理済
 			}
 			
-			if(ret[i][1].op[0] == 'vote' && ret[i][1].op[1].voter == username){
+			if(ret[i][1].op[0] == 'vote' && ret[i][1].op[1].voter != username){
 				if(votingPowerIndicator[username] === void 0){
 					v = await getVotingPower(username);
 					votingPowerIndicator[username] = v;
