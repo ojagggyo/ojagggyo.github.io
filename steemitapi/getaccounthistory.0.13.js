@@ -1,6 +1,3 @@
-
-
-
 function donokuraimae(date){
 	date1 = new Date(date);
 	date1.setHours(date1.getHours() + 9);
