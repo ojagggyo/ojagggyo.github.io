@@ -177,6 +177,16 @@ steem.api.getState("/@yasu/2021-12-23", function(err, data)
 	console.log(data); 
 });
 	
+
+var isValidUsername = steem.utils.validateAccountName(username);
+	
+steem.utils.validateAccountName("yasu", function(err, data) 
+{ 
+	console.log(data); 
+});
+		
+	
+	
 </script>
 	
 	
