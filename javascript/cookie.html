@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
   <script>
@@ -27,25 +25,22 @@ function getUsernames(){
     return [];
 }
     
-    function clickWriteBtn(){
-      let username = document.getElementById("username").value;    
-      setUsername(username);
-    }
+function clickWriteBtn(){
+  let username = document.getElementById("username").value;    
+  setUsername(username);
+}
 
-    function clickReadBtn(){
-        let nameList = getUsernames();
-      //let usernames = document.cookie;
-      //document.getElementById("cookie").text = usernames;
-
-        let s = "";
-      let name = "";
-      while(name = nameList.pop()){
-          s = s + name;
-      }
-        console.log(s);
-       document.getElementById("cookie").text = "["+s+"]";
-    }
-    </script>
+function clickReadBtn(){
+  let nameList = getUsernames();
+  let s = "";
+  let name = "";
+  while(name = nameList.pop()){
+    s = s + name;
+  }
+  console.log(s);
+  document.getElementById("cookie").text = "["+s+"]";
+}
+</script>
 </head>
 <body>
 クッキーを焼く。<br/>
