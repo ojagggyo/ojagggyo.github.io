@@ -4,13 +4,6 @@
 <title>getaccounthistory</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./getaccounthistory.0.12.css">
-<style>
-	/*
-.wrapper{
-  width: 100%;
-}
-	*/
-</style>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script>
@@ -215,12 +208,7 @@ function getTransferAmount(record){
 	return true;
 }
 	
-
-	
-	
-
-	
-//Price
+// ---------- Price ----------
 function getPrice(markets) {
 	return new Promise((resolve, reject) => {
 		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
@@ -247,7 +235,43 @@ function getPrice(markets) {
 	});
 };
 
+// ---------- userlink ----------
+function setUsername(username){
+    let nameList = getUsernames(); 
+    let index = nameList.indexOf( username );
+    if(index >= 0){
+        nameList.splice(index, 1);  
+    }
+    nameList.push(username);
+    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=60*60";//秒   
+}
+    
+function getUsernames(){
+    cookies = document.cookie;
+    let lines = cookies.split(';');
+    for(var line of lines){
+        let elementList = line.split('=');
+        let key = elementList[0];
+        if( key != 'usernames'){continue;}
+        let csv = decodeURIComponent(elementList[1]);        
+        return csv.split(',');
+    }
+    return [];
+}
+
+function userlink(){
+  let nameList = getUsernames();
+  let s = "";
+  let name = "";
+  while(name = nameList.pop()){
+    s = s + "<a href=#" + name + ">" + name + "</a> ";
+  }
+  console.log(s);
+  document.getElementById("cookie").text = s;
+}
+
 	
+// ---------- ----------
 function makeLine(record){
 	let indenticon_type = 'small';//small, large
 	let body = '';
@@ -417,6 +441,9 @@ async function aaa(days){
   	votingpower(username);
 	reputation(username);
 	age(username);
+	setUsername(username);
+	userlink();
+	
 	//
 	let out = [];
 	let limit = 100;
@@ -513,6 +540,7 @@ window.onload = function() {
 	</td>
 	</tr>
 	</table>
+	<a id="userlink"></a><br/>
 	<br/><b>Power</b><br/>
 	Effective Power <b><a id=effectivepowervalue></a></b>
 	<a id=effectivepowerdetail></a><br/>
