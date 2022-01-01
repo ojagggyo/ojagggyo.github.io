@@ -261,10 +261,8 @@ async function aaa(days){
 			
 			if(ret[i][1].op[0] == 'vote' && ret[i][1].op[1].voter == username){
 				if(votingPowerIndicator[username] === void 0){
-					let v = getVotingPower(username);
+					v = await getVotingPower(username);
 					votingPowerIndicator[username] = v;
-				}else{
-					v = votingPowerIndicator[username];
 				}
 			}			
 			
