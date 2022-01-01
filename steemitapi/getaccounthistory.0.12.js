@@ -155,6 +155,11 @@ function votingpower(username){
 
 // ---------- ----------
 function clickBtn(days){
+	
+	let username = document.getElementById("username").value;
+	var isValidUsername = steem.utils.validateAccountName(username);
+	if(!isValidUsername) return ;
+	
 	emoji();
 	document.getElementById("progress").innerText = "";
 	document.getElementById("author_reward").innerText = "";
@@ -174,7 +179,7 @@ function clickBtn(days){
 	total_transfer_sbd = {};
 	total_transfer_steem = {};
 	
-	window.location.hash = '#' + document.getElementById("username").value;
+	window.location.hash = '#' + username;
 	aaa(days).then(result => {
 		document.getElementById("text").innerText = 'processing...';
 		makeTable(result);
