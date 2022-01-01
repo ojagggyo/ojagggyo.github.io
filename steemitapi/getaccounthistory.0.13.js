@@ -152,6 +152,8 @@ function votingpower(username){
 
 
 
+
+
 	
 function steemAmountFormat(steem, sbd, sp) {
 	let s = "";
