@@ -264,7 +264,8 @@ function userlink(){
   let s = "";
   let name = "";
   while(name = nameList.pop()){
-    s = s + "<a href=#" + name + ">" + name + "</a> ";
+	  //clickUserLink(username){
+    s = s + "<a href=javascript:clickUserLink(" + name + ");>" + name + "</a> ";
   }
   console.log(s);
   document.getElementById("userlink").innerHTML = s;
@@ -509,6 +510,11 @@ async function aaa(days){
 	//console.log(out);
 	return out;
 };
+
+function clickUserLink(username){
+	document.getElementById("username").value = username;
+	clickBtn(1);
+}
 
 window.onload = function() {
 	let username = getUserName();
