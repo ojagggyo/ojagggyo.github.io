@@ -121,6 +121,34 @@ break;
 }
 }
 
+// ----------  Price ---------- 
+function getPrice(markets) {
+	return new Promise((resolve, reject) => {
+		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
+		//$.getJSON(url, (data) => {
+		var p = $.getJSON(url, function(data) {
+			resolve(data[0].trade_price);
+		})
+		.done(function() { 
+			console.log('getJSON request succeeded!'); 
+		})
+		.fail(function(jqXHR, textStatus, errorThrown) { 
+			console.log('getJSON request failed! ' + textStatus);
+			//reject('getJSON request failed! ' + textStatus);
+			resolve(0);
+		})
+		.always(function() { 
+			console.log('getJSON request ended!'); 
+		});
+		
+		setTimeout(function(){ 
+			p.abort(); 
+		}, 5000);
+			
+	});
+};
+
+
 // ---------- power ---------- 
 async function getEffectivePower(username){
 	let globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
