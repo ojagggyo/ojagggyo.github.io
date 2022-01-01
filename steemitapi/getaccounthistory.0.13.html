@@ -56,7 +56,7 @@ function userlink(){
 
 // ---------- indicator ----------
 async function votingpowerAsync(username){
-	let v = wait getVotingPower(username);
+	let v = await getVotingPower(username);
 	return v;
 }
 
