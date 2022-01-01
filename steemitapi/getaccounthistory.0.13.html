@@ -55,12 +55,25 @@ function userlink(){
 }
 
 // ---------- indicator ----------
+async function votingpowerAsync(username){
+	let v = wait getVotingPower(username);
+	return v;
+}
+
+let votingPower = {};
 function indicator(username){
-	let s = "<progress id=votingPowerSmall class=small></progress>";
+	if(votingPower[username] === void 0){
+		v = votingpowerAsync(username);
+		votingPower[username] = v;
+	}else{
+		v = votingPower[username];
+	}
+	
+	let s = "<progress id=votingPowerSmall class=small max=100 value="+ v/100 +" ></progress>";
 	return s;
 }
 	
-// ---------- indicator ----------
+// ----------  ----------
 function makeLine(record){
 	let indenticon_type = 'small';//small, large
 	let body = '';
