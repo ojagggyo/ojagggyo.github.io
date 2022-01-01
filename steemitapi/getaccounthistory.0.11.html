@@ -107,7 +107,11 @@ async function getAge(username){
 			var now = new Date();
 			sa = now - date1;
 			
-			resolve({moons: sa / 86400000 / 27.3217, days: sa / 86400000, earths: sa / 86400000 / 365.242});
+			resolve({
+				moons: sa / 86400000 / 27.3217, 
+				days: sa / 86400000, 
+				earths: sa / 86400000 / 365.242
+			});
 		});
 	});
 }
@@ -118,7 +122,7 @@ async function getAge(username){
 			document.getElementById("age").text = result.days.toFixed(3) + ' days';
 		}else if(result.earths < 1){
 			document.getElementById("age").text = result.moons.toFixed(3) + ' moons';
-		}else[
+		}else{
 			document.getElementById("age").text = result.earths.toFixed(3) + ' earths';
 		}
 
