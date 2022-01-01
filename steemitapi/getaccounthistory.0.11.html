@@ -53,7 +53,6 @@ function steemAmountFormat(steem, sbd, sp) {
 }	
 	
 function krwAmountFormat(steemAmount, sbdAmount, spAmount, krw_steem, krw_sbd) {
-	steem.
 	if(krw_steem == 0) return "";
 	return ' <a class=gray>(' 
 		+ steem.formatter.numberWithCommas((steemAmount * krw_steem + sbdAmount * krw_sbd + spAmount * krw_steem).toFixed(0)) 
