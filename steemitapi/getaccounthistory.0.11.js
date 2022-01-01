@@ -1,5 +1,3 @@
-
-
 function donokuraimae(date){
 	date1 = new Date(date);
 	date1.setHours(date1.getHours() + 9);
@@ -31,6 +29,33 @@ function getUserName(){
   hash = hash.substr(1);//#を取る
   hash = decodeURI(hash).trim();//デコード、トリム]
   return hash;
+}
+
+function steemAmountFormat(steem, sbd, sp) {
+	let s = "";
+	let lines = [];
+	if(steem > 0){ lines.push(steem.toFixed(3) + " STEEM"); }
+	if(sbd > 0){ lines.push(sbd.toFixed(3) + " SBD"); }
+	if(sp > 0){ lines.push(sp.toFixed(3) + " SP"); }
+	switch(lines.length){
+	case 1:
+		s = lines[0];
+		break;
+	case 2:
+		s = lines[0] + ' and ' + lines[1];
+		break;
+	case 3:
+		s = lines[0] + ', ' + lines[1] + ' and ' + lines[2];
+		break;
+	}
+	return s;
+}	
+	
+function krwAmountFormat(steemAmount, sbdAmount, spAmount, krw_steem, krw_sbd) {
+	if(krw_steem == 0) return "";
+	return ' <a class=gray>(' 
+		+ steem.formatter.numberWithCommas((steemAmount * krw_steem + sbdAmount * krw_sbd + spAmount * krw_steem).toFixed(0)) 
+		+ ' won)</a>';
 }
 
 // ---------- emoji ----------
