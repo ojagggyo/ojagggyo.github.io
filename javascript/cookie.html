@@ -3,16 +3,46 @@
 <html>
 <head>
   <script>
+
+function setUsername(username){
+    let nameList = getUsernames(); 
+    let index = nameList.indexOf( username );
+    if(index >= 0){
+        nameList.splice(index, 1);  
+    }
+    nameList.push(username);
+    document.cookie = encodeURIComponent(nameList.join(",")) + ";max-age=10";   
+}
+    
+function getUsernames(){
+    cookies = document.cookie;
+    let lines = cookies.split(';');
+    for(var line of lines){
+        let elementList = line.split('=');
+        let key = elementList[0];
+        if( key != 'usernames'){continue;}
+        let csv = decodeURIComponent(elementList[1]);        
+        return csv.split(',');
+    }
+    return [];
+}
+    
     function clickWriteBtn(){
-      let username = document.getElementById("username").value;
-      document.cookie = 'username=' + encodeURIComponent(username) + ";max-age=10";
+      let username = document.getElementById("username").value;    
+      setUsername(username);
     }
 
     function clickReadBtn(){
-      let usernames = document.cookie;
-      document.getElementById("cookie").text = usernames;
-      
+        let nameList = getUsernames();
+      //let usernames = document.cookie;
+      //document.getElementById("cookie").text = usernames;
+
+        let s = "";
+      while(let name = nameList.pop()){
+          s = s + name;
       }
+        console.log(s);
+    }
     </script>
 </head>
 <body>
