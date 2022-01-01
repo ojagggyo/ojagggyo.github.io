@@ -11,7 +11,7 @@ function setUsername(username){
         nameList.splice(index, 1);  
     }
     nameList.push(username);
-    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=30";//30秒   
+    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=60*60";//秒   
 }
     
 function getUsernames(){
