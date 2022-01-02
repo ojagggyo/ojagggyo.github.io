@@ -35,10 +35,10 @@ function clickReadBtn(){
   let s = "";
   let name = "";
   while(name = nameList.pop()){
-    s = s + name;
+    s += name + " ";
   }
   console.log(s);
-  document.getElementById("cookie").text = "["+s+"]";
+  document.getElementById("cookie").text = s;
 }
 </script>
 </head>
