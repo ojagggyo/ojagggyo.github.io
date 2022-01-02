@@ -232,7 +232,7 @@ async function getAge(username){
 			sa = now - date1;
 			
 			resolve({
-				moons: sa / 86400000 / 27.3217//月の公転周期 27.3217日
+				moons: sa / 86400000 / 27.3217,//月の公転周期 27.3217日
 				days: sa / 86400000, 
 				earths: sa / 86400000 / 365.242//地球の公転周期365.242日
 			});
