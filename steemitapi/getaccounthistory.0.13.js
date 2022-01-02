@@ -219,7 +219,10 @@ async function getReputation(username){
 	});	
 }
 	
-//age
+// ---------- age ----------
+let age_index = Math.floor( Math.random() * 3 );	;
+function emoji(){
+age_index = ++age_index % 3;
 //27.3217
 async function getAge(username){
 	return new Promise((resolve, reject) => {
@@ -231,9 +234,9 @@ async function getAge(username){
 			sa = now - date1;
 			
 			resolve({
-				moons: sa / 86400000 / 27.3217, 
+				moons: sa / 86400000 / 27.3217//月の公転周期 27.3217日
 				days: sa / 86400000, 
-				earths: sa / 86400000 / 365.242
+				earths: sa / 86400000 / 365.242//地球の公転周期365.242日
 			});
 		});
 	});
@@ -241,9 +244,9 @@ async function getAge(username){
 
  function age(username){
 	getAge(username).then(result => {
-		if(result.moons < 1){
+		if(result.moons < 1 || Math.floor( Math.random() * 3 == 0)){
 			document.getElementById("age").text = result.days.toFixed(3) + ' days';
-		}else if(result.earths < 1){
+		}else if(result.earths < 1 || Math.floor( Math.random() * 2 == 0)){
 			document.getElementById("age").text = result.moons.toFixed(3) + ' moons';
 		}else{
 			document.getElementById("age").text = result.earths.toFixed(3) + ' earths';
