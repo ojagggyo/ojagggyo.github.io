@@ -220,9 +220,6 @@ async function getReputation(username){
 }
 	
 // ---------- age ----------
-let age_index = Math.floor( Math.random() * 3 );	;
-function emoji(){
-age_index = ++age_index % 3;
 //27.3217
 async function getAge(username){
 	return new Promise((resolve, reject) => {
