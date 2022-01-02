@@ -242,9 +242,9 @@ async function getAge(username){
 
  function age(username){
 	getAge(username).then(result => {
-		if(result.moons < 1 || Math.floor( Math.random() * 3 == 0)){
+		if(result.moons < 1 || Math.floor( Math.random() * 3) == 0){
 			document.getElementById("age").text = result.days.toFixed(3) + ' days';
-		}else if(result.earths < 1 || Math.floor( Math.random() * 2 == 0)){
+		}else if(result.earths < 1 || Math.floor( Math.random()) * 2 == 0){
 			document.getElementById("age").text = result.moons.toFixed(3) + ' moons';
 		}else{
 			document.getElementById("age").text = result.earths.toFixed(3) + ' earths';
