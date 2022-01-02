@@ -70,4 +70,5 @@ function makeTable(records){
 
 steem.api.setOptions({url: 'https://api.steemit.com'});
 if(!('DOMAIN' in window)){DOMAIN = 'steemit.com';}
-const GETBLOG_LIMIT = 500;
+//const GETBLOG_LIMIT = 500;
+const GETBLOG_LIMIT = 100;
