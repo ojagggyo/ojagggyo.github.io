@@ -242,7 +242,7 @@ async function getAge(username){
 
  function age(username){
 	getAge(username).then(result => {
-		let index = Math.floor( Math.random() * 3) == 0;
+		let index = Math.floor( Math.random() * 3);
 		if(result.moons < 1 || index == 0){
 			document.getElementById("age").text = result.days.toFixed(3) + ' days';
 		}else if(result.earths < 1 || index == 1){
