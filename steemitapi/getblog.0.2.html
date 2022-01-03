@@ -41,12 +41,14 @@ async function aaa(){
 		if(entry_id + 1 < limit){
 			limit = entry_id + 1;
 		}
-		for(i=0;i<3;i++){
+		let retry = 3;
+		for(true){
 			try{
 				ret = await steem.api.getBlogAsync(author, entry_id, limit);
 				break;
 			} catch(e) {
  				console.log( e.message );
+				if(--retry == 0) throw e.message;
 				await _sleep(1000);
 			}
 		}
