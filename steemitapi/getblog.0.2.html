@@ -42,7 +42,7 @@ async function aaa(){
 			limit = entry_id + 1;
 		}
 		let retry = 3;
-		for(true){
+		while(true){
 			try{
 				ret = await steem.api.getBlogAsync(author, entry_id, limit);
 				break;
