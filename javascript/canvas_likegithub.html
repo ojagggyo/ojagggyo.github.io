@@ -13,9 +13,6 @@
       return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     }
 
-
-    var now = new Date(2022, 0, 4);
-
     function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
       //headr
       ctx.fillStyle = 'white';
@@ -23,9 +20,6 @@
       
       let cur = new Date();
       cur.setDate(cur.getDate() + (6 - cur.getDay()));
-
-      console.log("---");
-      console.log(cur.toString());
 
 	ctx.font = '8pt Arial';
       const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -95,24 +89,15 @@
 	    data.push({date: new Date(2021, 6, 1),v: 100});
 	    data.push({date: new Date(2021, 5, 1),v: 100});
       
-      
-      
       while (d = data.pop()) {
         let p = getXY(d.date);
-
         let wx = (cv.width - size) - p.x * size;
-
         if (wx < 0) {
-          continue;
+          continue;//範囲外なら描写しない
         }
-
         box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
       }
-
     }
-
-
-
 
     draw();
 
