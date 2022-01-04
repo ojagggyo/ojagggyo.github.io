@@ -40,8 +40,8 @@
       while (x > 0) {
         for (let i = 0; i < 7; i++) {
           if (cur.getDate() == 1) {//月始めなら
-							ctx.fillStyle = "rgb(40, 40, 40)"; 
-              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY-2);
+		  ctx.fillStyle = "rgb(40, 40, 40)"; 
+              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY - 4);
           }
           box2(ctx, x, y + i * size, size);
           cur.setDate(cur.getDate() - 1);//1日減算
