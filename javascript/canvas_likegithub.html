@@ -1,0 +1,182 @@
+<body>
+  <canvas id="cvs" width="450" height="150" style="background-color: #888888;">
+  </canvas>
+
+  <script>
+    Date.prototype.getWeek = function() {
+      var onejan = new Date(this.getFullYear(), 0, 1);
+      return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    }
+
+    Date.prototype.getWeek2 = function() {
+      var onejan = new Date(2016, 0, 1);
+      return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    }
+
+    var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    var now = new Date(2022, 0, 4);
+
+    /*
+        document.write(
+          dayNames[now.getDay()] +
+          " (" +
+          now.getWeek() +
+          ")." +
+          now.getWeek2()
+        );*/
+
+
+
+
+
+    function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
+      //headr
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
+      
+      /*
+
+//
+ctx.fillStyle = '#217ab7'; 
+ctx.fillRect(0, 0, x1, cvsheight);
+ctx.fillStyle = '#ffffff';
+ctx.fillText((v1 / (v1 + v2 + v3) * 100).toFixed(0) + '%', 0, textHeight);
+      */
+      
+      let cur = new Date();
+      cur.setDate(cur.getDate() + (6 - cur.getDay()));
+
+      console.log("---");
+      console.log(cur.toString());
+
+			ctx.font = '8pt Arial';
+      const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
+
+
+      let x = headerSizeX - size;
+      let y = headerSizeY;
+      while (x > 0) {
+        for (let i = 0; i < 7; i++) {
+          if (cur.getDate() == 1) {//月始めなら
+							ctx.fillStyle = "rgb(40, 40, 40)"; 
+              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY-2);
+          }
+          box2(ctx, x, y + i * size, size);
+          cur.setDate(cur.getDate() - 1);//1日減算
+        }
+        x -= size;
+
+      }
+    }
+
+    function box(ctx, x, y, size) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(x, y, size, size);
+      ctx.fillStyle = "rgb(64, 196, 99)"; //'green';//64,196,99
+      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
+    }
+
+    function box2(ctx, x, y, size) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(x, y, size, size);
+      ctx.fillStyle = "rgb(224, 224, 224)";
+      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
+    }
+    
+    function xxx(ctx, x, y, size) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(x, y, size, size);
+      ctx.fillStyle = "rgb(64, 196, 99)"; //'green';//64,196,99
+      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
+    }
+
+
+    function getXY(date) {
+      let getday = date.getDay(); //0;sun - 6:sat
+      let getweek = date.getWeek2();
+      let now = new Date();
+      let getweek_now = now.getWeek2();
+      //document.write(""+getweek_now);
+      console.log(getweek_now + ' ' + getweek);
+      let x = getweek_now - getweek;
+      let y = getday;
+      return {
+        x: x,
+        y: y
+      };
+    }
+
+
+    function draw() {
+      var cv = document.getElementById('cvs');
+      var ctx = cv.getContext('2d');
+      if (!cv || !cv.getContext) {
+        return false;
+      }
+      let head = 20;
+      let size = (cv.height - head) / 7;
+      let x = cv.width - size;
+      let y = head;
+
+      boxHeaderAndBody(ctx, cv.width, head, size);
+
+      let data = [];
+      data.push({
+        date: new Date(2022, 0, 1),
+        v: 100
+      });
+      data.push({
+        date: new Date(2022, 0, 2),
+        v: 100
+      });
+      data.push({
+        date: new Date(2022, 0, 4),
+        v: 100
+      });
+      data.push({
+        date: new Date(2021, 11, 31),
+        v: 100
+      });
+      data.push({
+        date: new Date(2021, 11, 1),
+        v: 100
+      });
+      data.push({
+        date: new Date(2021, 10, 1),
+        v: 100
+      });
+      data.push({
+        date: new Date(2021, 9, 1),
+        v: 100
+      });
+      data.push({
+        date: new Date(2021, 8, 1),
+        v: 100
+      });
+      
+      
+      
+      while (d = data.pop()) {
+        let p = getXY(d.date);
+
+        let wx = (cv.width - size) - p.x * size;
+
+        if (wx < 0) {
+          continue;
+        }
+
+        box(ctx, wx, y + p.y * size, size);
+      }
+
+    }
+
+
+
+
+    draw();
+
+  </script>
+</body>
