@@ -22,22 +22,18 @@
       ctx.fillStyle = 'white';
       ctx.fillRect(0, 0, headerSizeX, headerSizeY);
       
-      
       let cur = new Date();
       cur.setDate(cur.getDate() + (6 - cur.getDay()));
 
       console.log("---");
       console.log(cur.toString());
 
-			ctx.font = '8pt Arial';
+	ctx.font = '8pt Arial';
       const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-
-
 
       let x = headerSizeX - size;
       let y = headerSizeY;
-      while (x > 0) {
+      while (x >= 0) {
         for (let i = 0; i < 7; i++) {
           if (cur.getDate() == 1) {//月始めなら
 		  ctx.fillStyle = "rgb(40, 40, 40)"; 
