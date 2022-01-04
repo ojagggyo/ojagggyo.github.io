@@ -8,12 +8,11 @@
       return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     }
 
-    Date.prototype.getWeek2 = function() {
-      var onejan = new Date(2016, 0, 1);
+    Date.prototype.getWeek = function(year) {
+      var onejan = new Date(year, 0, 1);
       return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     }
 
-    var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     var now = new Date(2022, 0, 4);
 
@@ -53,21 +52,13 @@
       ctx.fillStyle = color;//"rgb(64, 196, 99)"; //'green';//64,196,99
       ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
     }
-/*
-    function box2(ctx, x, y, size) {
-      ctx.fillStyle = 'white';
-      ctx.fillRect(x, y, size, size);
-      ctx.fillStyle = "rgb(244, 244, 244)";
-      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
-    }
-  */  
-   
+ 
 
     function getXY(date) {
       let getday = date.getDay(); //0;sun - 6:sat
-      let getweek = date.getWeek2();
+      let getweek = date.getWeek(2016);
       let now = new Date();
-      let getweek_now = now.getWeek2();
+      let getweek_now = now.getWeek(2016);
       console.log(getweek_now + ' ' + getweek);
       let x = getweek_now - getweek;
       let y = getday;
