@@ -16,16 +16,15 @@
     }
 
     function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
-      //headr
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
-      
-      let cur = new Date();
-      cur.setDate(cur.getDate() + (6 - cur.getDay()));
-
 	ctx.font = '8pt Arial';
       const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	    //headr
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
 
+	//body
+      let cur = new Date();
+      cur.setDate(cur.getDate() + (6 - cur.getDay()));
       let x = headerSizeX - size;
       let y = headerSizeY;
       while (x >= 0) {
@@ -38,10 +37,10 @@
           cur.setDate(cur.getDate() - 1);//1日減算
         }
         x -= size;
-
       }
     }
 
+	  //ボックスを表示する
     function box(ctx, x, y, size, color) {
       ctx.fillStyle = 'white';
       ctx.fillRect(x, y, size, size);
@@ -49,7 +48,7 @@
       ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
     }
  
-
+//日付から座標インデックスを求める
     function getXY(date) {
       let getday = date.getDay(); //0;sun - 6:sat
       let getweek = date.getWeek(2016);
@@ -64,7 +63,7 @@
       };
     }
 
-
+//チャートを表示する
     function draw(id) {
       var cv = document.getElementById(id);
       var ctx = cv.getContext('2d');
@@ -78,6 +77,7 @@
 
       boxHeaderAndBody(ctx, cv.width, head, size);
 
+	    //仮データ
       let data = [];
       data.push({date: new Date(2022, 0, 1),v: 100});
       data.push({date: new Date(2022, 0, 2),v: 100});
@@ -92,10 +92,10 @@
 	    data.push({date: new Date(2021, 5, 1),v: 100});
       
       while (d = data.pop()) {
-        let p = getXY(d.date);
-        let wx = (cv.width - size) - p.x * size;
-        if (wx < 0) {
-          continue;//範囲外なら描写しない
+        let p = getXY(d.date);//座標インデクスを求める
+        let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
+        if (wx < 0) {//範囲外なら描写しない
+          continue;
         }
         box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
       }
