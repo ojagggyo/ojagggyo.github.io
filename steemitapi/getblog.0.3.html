@@ -63,6 +63,8 @@ async function aaa(){
 function clickBtn(){;
 	aaa().then(result => {		
 		makeTable(result);
+		
+		 draw("cvs", result);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -93,12 +95,132 @@ steem.api.setOptions({url: 'https://api.steemit.com'});
 if(!('DOMAIN' in window)){DOMAIN = 'steemit.com';}
 const GETBLOG_LIMIT = 500;
 </script>
+	    
+	    
+<script>
+    Date.prototype.getWeek = function() {
+      var onejan = new Date(this.getFullYear(), 0, 1);
+      return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    }
+
+    Date.prototype.getWeek = function(year) {
+      var onejan = new Date(year, 0, 1);
+      return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    }
+
+    function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
+	ctx.font = '8pt Arial';
+      const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	    //headr
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
+
+	//body
+      let cur = new Date();
+      cur.setDate(cur.getDate() + (6 - cur.getDay()));
+      let x = headerSizeX - size;
+      let y = headerSizeY;
+      while (x >= 0) {
+        for (let i = 0; i < 7; i++) {
+          if (cur.getDate() == 1) {//月始めなら
+		  ctx.fillStyle = "rgb(40, 40, 40)"; 
+              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY - 4);
+          }
+          box(ctx, x, y + i * size, size, "rgb(244, 244, 244)");
+          cur.setDate(cur.getDate() - 1);//1日減算
+        }
+        x -= size;
+      }
+    }
+
+	  //ボックスを表示する
+    function box(ctx, x, y, size, color) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(x, y, size, size);
+      ctx.fillStyle = color;//"rgb(64, 196, 99)"; //'green';//64,196,99
+      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
+    }
+ 
+//日付から座標インデックスを求める
+    function getXY(date) {
+      let getday = date.getDay(); //0;sun - 6:sat
+      let getweek = date.getWeek(2016);
+      let now = new Date();
+      let getweek_now = now.getWeek(2016);
+      console.log(getweek_now + ' ' + getweek);
+      let x = getweek_now - getweek;
+      let y = getday;
+      return {
+        x: x,
+        y: y
+      };
+    }
+
+//チャートを表示する
+    function draw(id,records) {
+      var cv = document.getElementById(id);
+      var ctx = cv.getContext('2d');
+      if (!cv || !cv.getContext) {
+        return false;
+      }
+      let head = 20;
+      let size = (cv.height - head) / 7;
+      let x = cv.width - size;
+      let y = head;
+
+      boxHeaderAndBody(ctx, cv.width, head, size);
+
+	    //仮データ
+	    /*
+      let data = [];
+      data.push({date: new Date(2022, 0, 1),v: 100});
+      data.push({date: new Date(2022, 0, 2),v: 100});
+      data.push({date: new Date(2022, 0, 4),v: 100});
+      data.push({date: new Date(2021, 11, 31),v: 100});
+      data.push({date: new Date(2021, 11, 1),v: 100});
+      data.push({date: new Date(2021, 10, 1),v: 100});
+      data.push({date: new Date(2021, 9, 1),v: 100});
+	    data.push({date: new Date(2021, 8, 1),v: 100});
+	    data.push({date: new Date(2021, 7, 1),v: 100});
+	    data.push({date: new Date(2021, 6, 1),v: 100});
+	    data.push({date: new Date(2021, 5, 1),v: 100});
+      */
+	    
+	    
+	for(let i=0; i<records.length; i=i+1){
+	
+		let p = getXY(records[i].comment.created);//座標インデクスを求める
+		let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
+		if (wx < 0) {//範囲外なら描写しない
+			continue;
+		}
+		box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
+	}
+
+	    /*
+      while (d = data.pop()) {
+        let p = getXY(d.date);//座標インデクスを求める
+        let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
+        if (wx < 0) {//範囲外なら描写しない
+          continue;
+        }
+        box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
+      }
+      */
+    }
+
+
+	  //draw("cvs");
+
+
+  </script>
     </head>
     <body>        
         <p>ブログを表示します。</p>
 	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
-        <span id="text"></span>
+<canvas id="cvs" width="525" height="125" style="background-color: #888888;"></canvas><br/>
+	    <span id="text"></span>
     </body>
 </html>
