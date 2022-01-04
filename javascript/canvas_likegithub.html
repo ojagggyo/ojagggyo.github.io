@@ -1,7 +1,9 @@
 <body>
   <canvas id="cvs" width="525" height="125" style="background-color: #888888;">
   </canvas>
-
+  <canvas id="cvs2" width="300" height="125" style="background-color: #888888;">
+  </canvas>
+	
   <script>
     Date.prototype.getWeek = function() {
       var onejan = new Date(this.getFullYear(), 0, 1);
@@ -63,8 +65,8 @@
     }
 
 
-    function draw() {
-      var cv = document.getElementById('cvs');
+    function draw(id) {
+      var cv = document.getElementById(id);
       var ctx = cv.getContext('2d');
       if (!cv || !cv.getContext) {
         return false;
@@ -99,7 +101,9 @@
       }
     }
 
-    draw();
+
+	  draw("cvs");
+	draw("cvs2");
 
   </script>
 </body>
