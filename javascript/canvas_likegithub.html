@@ -17,32 +17,11 @@
 
     var now = new Date(2022, 0, 4);
 
-    /*
-        document.write(
-          dayNames[now.getDay()] +
-          " (" +
-          now.getWeek() +
-          ")." +
-          now.getWeek2()
-        );*/
-
-
-
-
-
     function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
       //headr
       ctx.fillStyle = 'white';
       ctx.fillRect(0, 0, headerSizeX, headerSizeY);
       
-      /*
-
-//
-ctx.fillStyle = '#217ab7'; 
-ctx.fillRect(0, 0, x1, cvsheight);
-ctx.fillStyle = '#ffffff';
-ctx.fillText((v1 / (v1 + v2 + v3) * 100).toFixed(0) + '%', 0, textHeight);
-      */
       
       let cur = new Date();
       cur.setDate(cur.getDate() + (6 - cur.getDay()));
@@ -86,13 +65,7 @@ ctx.fillText((v1 / (v1 + v2 + v3) * 100).toFixed(0) + '%', 0, textHeight);
       ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
     }
     
-    function xxx(ctx, x, y, size) {
-      ctx.fillStyle = 'white';
-      ctx.fillRect(x, y, size, size);
-      ctx.fillStyle = "rgb(64, 196, 99)"; //'green';//64,196,99
-      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
-    }
-
+   
 
     function getXY(date) {
       let getday = date.getDay(); //0;sun - 6:sat
