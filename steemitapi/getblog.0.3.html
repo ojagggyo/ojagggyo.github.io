@@ -1,1 +1,104 @@
 
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>getblog</title>
+        <meta charset="utf-8">
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <!--<script src="https://ojagggyo.github.io/steemitapi/getblog.js"></script>-->
+<script>
+function donokuraimae(date){
+	date1 = new Date(date);
+	date1.setHours(date1.getHours() + 9);
+	var now = new Date();
+	sa = now - date1;
+	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
+	if(sa >= 3600000){return Math.floor(sa / 3600000)+'時間前';}
+	if(sa >= 60000){return Math.floor(sa / 60000)+'分前';}
+	if(sa >= 1000){return Math.floor(sa / 1000)+'秒前';}
+	return 'たった今';
+}
+      
+const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+	
+async function aaa(){
+	let blogs = [];
+	let total = 0;
+	let limit = GETBLOG_LIMIT - 1;
+	let entry_id = 0;
+	let author = document.getElementById("text1").value
+	document.getElementById("text").innerHTML = '<tabel></tabel>';
+	//件数取得
+	let　ret = await steem.api.getBlogAsync(author, entry_id, 1);
+	entry_id = ret[0].entry_id;
+	total = entry_id + 1;
+	document.getElementById("progress").innerText = ' 0 / ' + total;
+	
+	while (entry_id != 0){
+		if(blogs.length > 0){
+			limit = GETBLOG_LIMIT;
+		}
+		if(entry_id + 1 < limit){
+			limit = entry_id + 1;
+		}
+		let retry = 3;
+		while(true){
+			try{
+				ret = await steem.api.getBlogAsync(author, entry_id, limit);
+				break;
+			} catch(e) {
+ 				console.log( e.message );
+				if(--retry == 0) throw e.message;
+				await _sleep(1000);
+			}
+		}
+		entry_id = ret[ret.length - 1].entry_id;
+		blogs.pop();
+		blogs = blogs.concat(ret);
+		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
+	}
+	return blogs;
+};
+
+function clickBtn(){;
+	aaa().then(result => {		
+		makeTable(result);
+	}).catch(err => {
+		console.log(err);
+		document.getElementById("progress").innerText = JSON.stringify(err);
+	});
+}
+	
+function makeTable(records){
+	console.log('☆records☆');
+	console.log(records);
+	let html = '<table border=1 >';
+	//テーブルのヘッダー
+	html = html + '<tr>';
+	html = html + '<th>entry id</th><th>author</th><th>created</th><th>title</th>';
+	html = html + '</tr>';
+	for(let i=0; i<records.length; i=i+1){
+		html = html + '<tr>';
+		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
+		//html = html + '<td>' + records[i].blog + '</td>';
+		html = html + '<td>' + records[i].comment.author + '</td>';
+		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
+		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+	}
+	html = html + '</table>';
+	document.getElementById("text").innerHTML = html;
+}
+
+steem.api.setOptions({url: 'https://api.steemit.com'});
+if(!('DOMAIN' in window)){DOMAIN = 'steemit.com';}
+const GETBLOG_LIMIT = 500;
+</script>
+    </head>
+    <body>        
+        <p>ブログを表示します。</p>
+	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+	<a id="progress"></a>
+        <br/>
+        <span id="text"></span>
+    </body>
+</html>
