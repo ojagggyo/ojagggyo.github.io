@@ -62,7 +62,16 @@
 
       function alertName(e) {
         //alert('Welcome to ' + e.target.getAttribute('auther'));
-        location.href = e.target.getAttribute('auther');
+        //location.href = e.target.getAttribute('auther');
+        
+        // Code by @qiao
+var a = document.createElement('a');
+a.href = e.target.getAttribute('auther');
+a.target = '_blank';
+document.body.appendChild(a);
+a.click();
+// Added code
+document.body.removeChild(a);
       };
 
       /*
