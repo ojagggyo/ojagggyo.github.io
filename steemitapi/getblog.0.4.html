@@ -138,6 +138,10 @@ const GETBLOG_LIMIT = 500;
 		if(url != "" ){
 			rect.setAttribute("url", url);
 			rect.onclick = setOnClick;
+			
+			rect.setAttribute("text", url);
+			rect.onmousemove = showTooltip;
+			rect.onmouseout = hideTooltip;	
 		}
 		return rect;
 	}
@@ -225,7 +229,29 @@ const GETBLOG_LIMIT = 500;
 
 	
 	
+function showTooltip(e) {
+	let text = e.target.getAttribute('text');
+  let tooltip = document.getElementById("tooltip");
+  tooltip.innerHTML = text;
+  tooltip.style.display = "block";
+  tooltip.style.left = evt.pageX + 10 + 'px';
+  tooltip.style.top = evt.pageY + 10 + 'px';
+}
+
+function hideTooltip(e) {
+  var tooltip = document.getElementById("tooltip");
+  tooltip.style.display = "none";
+}
+	
   </script>
+	    <style>
+		    #tooltip {
+  background: cornsilk;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+		    </style>
     </head>
     <body>        
         <p>ブログを表示します。</p>
