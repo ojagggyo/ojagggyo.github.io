@@ -143,10 +143,10 @@ const GETBLOG_LIMIT = 500;
  
 //日付から座標インデックスを求める
     function getXY(date) {
-	const y = date.getFullYear();
+	const fullYear = date.getFullYear();
 	const m = date.getMonth();
   	const d = date.getDate();
-	    date = new Date(y,m,d);
+	    date = new Date(fullYear,m,d);
 	    
       let getday = date.getDay(); //0;sun - 6:sat
       let getweek = date.getWeek(2016);
