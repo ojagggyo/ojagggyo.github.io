@@ -69,7 +69,7 @@ async function aaa(){
 };
 
 function clickBtn(){;
-	draw1(result);
+	draw1();
 	aaa().then(result => {		
 		makeTable(result);
 		draw2(result);
@@ -207,7 +207,7 @@ const GETBLOG_LIMIT = 500;
     }
 
 //チャートを表示する
-    function draw1(records) {
+    function draw1() {
 		let clientRect = svg.getBoundingClientRect();
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
