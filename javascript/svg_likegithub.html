@@ -33,7 +33,7 @@
 		return text;
 	}
     
-	function createRect(x, y, width, height, color) {
+	function createRect(x, y, width, height, color, url) {
 		//rect
 		const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		rect.setAttribute('x', x);
@@ -43,15 +43,21 @@
 		rect.setAttribute('fill', color);
 		rect.setAttribute('stroke', '#ffffff');
 		rect.setAttribute('stroke-width', 2);
-		rect.setAttribute("url", "https://steemit.com/@yasu/posts");
+		rect.setAttribute("url", url);
 		rect.onclick = setOnClick;
         return rect;
 	}
     
 	//ボックスを表示する
 	function box(svg, x, y, width, height , color) {
-		svg.appendChild(createRect(x, y, width, height, color));
+		svg.appendChild(createRect(x, y, width, height, color,""));
 	}
+	function boxAndClick(svg, x, y, width, height , color, url) {
+		svg.appendChild(createRect(x, y, width, height, color, url));
+	}
+		
+		"https://steemit.com/@yasu/posts"
+		
 	function text(svg, x, y, s) {
 		svg.appendChild(createText(x, y, s));
 	}    
@@ -98,27 +104,25 @@
 
 		//仮データ
 		let data = [];
-		data.push({date: new Date(2022, 0, 1),v: 100});
-		data.push({date: new Date(2022, 0, 2),v: 100});
-		data.push({date: new Date(2022, 0, 4),v: 100});
-		data.push({date: new Date(2021, 11, 31),v: 100});
-		data.push({date: new Date(2021, 11, 1),v: 100});
-		data.push({date: new Date(2021, 10, 1),v: 100});
-		data.push({date: new Date(2021, 9, 1),v: 100});
-		data.push({date: new Date(2021, 8, 1),v: 100});
-		data.push({date: new Date(2021, 7, 1),v: 100});
-		data.push({date: new Date(2021, 6, 1),v: 100});
-		data.push({date: new Date(2021, 5, 1),v: 100});
+		data.push({date: new Date(2022, 0, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2022, 0, 2),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2022, 0, 4),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 11, 31),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 11, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 10, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 9, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 8, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 7, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 6, 1),url: "https://steemit.com/@yasu/posts"});
+		data.push({date: new Date(2021, 5, 1),url: "https://steemit.com/@yasu/posts"});
       
 		while (d = data.pop()) {
 			let p = getXY(d.date);//座標インデクスを求める
-			//let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				continue;
 			}
-			//box(ctx, wx, y + p.y * size, size, "#40c463");
-			box(svg, wx, y + p.y * size, size, size, "#40c463");
+			boxAndClick(svg, wx, y + p.y * size, size, size, "#40c463", d.url);
 		}
 	}
 	draw("svg");
