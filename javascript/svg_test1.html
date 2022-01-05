@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+    </script>
+  </head>
+
+  <body>
+    <svg id=svg width="300px" height="200px" style="background-color:#0000ff;"></svg>
+
+
+    <script>
+      function createText(x, y, s) {
+        var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+
+        text.setAttribute('x', x);
+        text.setAttribute('y', y);
+        text.setAttribute("fill", "#ff00ff");
+        text.setAttribute("font-family", "Verdana");
+        text.textContent = s;
+       return text;
+      }
+
+function createRect(x, y, width, height,color) {
+//rect
+const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+rect.setAttribute( 'x', x);
+rect.setAttribute( 'y', y);
+rect.setAttribute('width', width);
+rect.setAttribute('height', height);
+rect.setAttribute('fill', color);
+//rect.setAttribute('stroke', '#ff0000');
+//rect.setAttribute('stroke-width', 5);
+//rect.setAttribute('stroke-dasharray', "none");//破線 10,10 etc
+//rect.setAttribute('stroke-linejoin', 'miter'); //角 miter round bevel inherit
+//rect.setAttribute('stroke-linecap', 'butt'); //切れ目 butt round square inherit
+//rect.setAttribute('opacity', 1);
+//rect.setAttribute('fill-opacity', 1);
+//rect.setAttribute('stroke-opacity', 1);
+//rect.setAttribute('transform', "rotate(0)");
+return rect;
+}
+      //
+
+let p = svg.getBoundingClientRect();
+let s = 'x='+ p.x.toFixed(1) +  ' y=' +  p.y.toFixed(1) +  ' w='+p.width.toFixed(1) +  ' h=' + p.height.toFixed(1);
+
+
+
+ svg.appendChild(createText(0, 20, s));
+ svg.appendChild(createRect(0, 50, 100,100,"green"));
+
+
+    </script>
+
+  </body>
+
+</html>
