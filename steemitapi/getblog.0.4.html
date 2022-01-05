@@ -206,15 +206,15 @@ const GETBLOG_LIMIT = 500;
 		let y = head;
 		boxHeaderAndBody(svg, clientRect.width, head, size);
 
-	    for(let i=0; i<records.length; i=i+1){
-		let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
-		let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
-		if (wx < 0) {//範囲外なら描写しない
-			continue;
-		}
-		//box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
-		    boxAndClick(svg, wx, y + p.y * size, size, size, "#40c463", d.url);
-	}
+	    	for(let i=0; i<records.length; i=i+1){
+			let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
+			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
+			if (wx < 0) {//範囲外なら描写しない
+				continue;
+			}
+			//box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
+			boxAndClick(svg, wx, y + p.y * size, size, size, "#40c463", "https://" + DOMAIN + records[i].comment.url );
+		}	
     }
 
 	
