@@ -26,10 +26,10 @@ async function aaa(){
 	let total = 0;
 	let limit = GETBLOG_LIMIT - 1;
 	let entry_id = 0;
-	let author = document.getElementById("text1").value
+	let username = document.getElementById("username").value
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	//件数取得
-	let　ret = await steem.api.getBlogAsync(author, entry_id, 1);
+	let　ret = await steem.api.getBlogAsync(username, entry_id, 1);
 	entry_id = ret[0].entry_id;
 	total = entry_id + 1;
 	document.getElementById("progress").innerText = ' 0 / ' + total;
@@ -44,7 +44,14 @@ async function aaa(){
 		let retry = 3;
 		while(true){
 			try{
-				ret = await steem.api.getBlogAsync(author, entry_id, limit);
+				ret = await steem.api.getBlogAsync(username, entry_id, limit);
+				
+				for(var i=ret.length-1;i>=0;i=i-1){
+					if(ret[i].comment.author != username){
+						ret.splice(i,1);
+						continue;
+					}
+				}
 				break;
 			} catch(e) {
  				console.log( e.message );
@@ -63,7 +70,6 @@ async function aaa(){
 function clickBtn(){;
 	aaa().then(result => {		
 		makeTable(result);
-		
 		 draw("svg", result);
 	}).catch(err => {
 		console.log(err);
@@ -221,7 +227,7 @@ const GETBLOG_LIMIT = 500;
     </head>
     <body>        
         <p>ブログを表示します。</p>
-	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
+	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
 <svg id="svg" width="100%" height="125" style="background-color: #888888;"></svg><br/>
