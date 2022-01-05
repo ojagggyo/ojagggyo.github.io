@@ -1,7 +1,5 @@
 <body>
-  <canvas id="cvs" width="525" height="125" style="background-color: #888888;">
-  </canvas><br/>
-
+ 
   <svg id=svg width="525px" height="125px" style="background-color:#888888;"></svg>
 	
   <script>
@@ -15,39 +13,7 @@
       return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     }
 
-    function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
-	ctx.font = '8pt Arial';
-      const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	    //headr
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
 
-	//body
-      let cur = new Date();
-      cur.setDate(cur.getDate() + (6 - cur.getDay()));
-      let x = headerSizeX - size;
-      let y = headerSizeY;
-      while (x >= 0) {
-        for (let i = 0; i < 7; i++) {
-          if (cur.getDate() == 1) {//月始めなら
-		  ctx.fillStyle = "rgb(40, 40, 40)"; 
-              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY - 4);
-          }
-          box(ctx, x, y + i * size, size, "rgb(244, 244, 244)");
-          cur.setDate(cur.getDate() - 1);//1日減算
-        }
-        x -= size;
-      }
-    }
-
-	  //ボックスを表示する
-    function box(ctx, x, y, size, color) {
-      ctx.fillStyle = 'white';
-      ctx.fillRect(x, y, size, size);
-      ctx.fillStyle = color;//"rgb(64, 196, 99)"; //'green';//64,196,99
-      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
-    }
- 
 //日付から座標インデックスを求める
     function getXY(date) {
       let getday = date.getDay(); //0;sun - 6:sat
@@ -63,44 +29,6 @@
       };
     }
 
-//チャートを表示する
-    function draw(id) {
-      var cv = document.getElementById(id);
-      var ctx = cv.getContext('2d');
-      if (!cv || !cv.getContext) {
-        return false;
-      }
-      let head = 20;
-      let size = (cv.height - head) / 7;
-      let x = cv.width - size;
-      let y = head;
-
-      boxHeaderAndBody(ctx, cv.width, head, size);
-
-	    //仮データ
-      let data = [];
-      data.push({date: new Date(2022, 0, 1),v: 100});
-      data.push({date: new Date(2022, 0, 2),v: 100});
-      data.push({date: new Date(2022, 0, 4),v: 100});
-      data.push({date: new Date(2021, 11, 31),v: 100});
-      data.push({date: new Date(2021, 11, 1),v: 100});
-      data.push({date: new Date(2021, 10, 1),v: 100});
-      data.push({date: new Date(2021, 9, 1),v: 100});
-	    data.push({date: new Date(2021, 8, 1),v: 100});
-	    data.push({date: new Date(2021, 7, 1),v: 100});
-	    data.push({date: new Date(2021, 6, 1),v: 100});
-	    data.push({date: new Date(2021, 5, 1),v: 100});
-      
-      while (d = data.pop()) {
-        let p = getXY(d.date);//座標インデクスを求める
-        let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
-        if (wx < 0) {//範囲外なら描写しない
-          continue;
-        }
-        box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
-      }
-    }
-	  //draw("cvs");
   </script>
   
   
@@ -135,39 +63,35 @@ function createRect(x, y, width, height, color) {
 }
     
 //ボックスを表示する
+/*
 function box2(svg, x, y, size, color) {
-      //ctx.fillStyle = 'white';
-      //ctx.fillRect(x, y, size, size);
-      //ctx.fillStyle = color;//"rgb(64, 196, 99)";
-      //ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
-      svg.appendChild(createRect(x, y, size, size, color));
+
+console.log('x=' + x + ',y=' + y+ ',size=' + size);
+
+	svg.appendChild(createRect(x, y, size, size, color));
 }
+*/
  
 
-function box2(svg, x, y, width, height , color) {
-      svg.appendChild(createRect(x, y, width, height, color));
+function box(svg, x, y, width, height , color) {
+
+console.log('x=' + x + ',y=' + y + ',width=' + width + ',height=' + height + ',color=' + color);
+
+	svg.appendChild(createRect(x, y, width, height, color));
 }
     
-function text2(svg, x, y, s) {
-   svg.appendChild(createText(x, y, s));
+function text(svg, x, y, s) {
+	svg.appendChild(createText(x, y, s));
 }    
-   
     
     
     
     
-    
-    
-    
-    
-    
-function boxHeaderAndBody2(svg, headerSizeX, headerSizeY, size) {
+function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size) {
   //ctx.font = '8pt Arial';
   const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   // --- headr ---
-  //ctx.fillStyle = 'white';
-  //ctx.fillRect(0, 0, headerSizeX, headerSizeY);
-  box2(svg, 0,0, headerSizeX, headerSizeY, 'white');
+  box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 
 	// --- body ---
       let cur = new Date();
@@ -177,12 +101,13 @@ function boxHeaderAndBody2(svg, headerSizeX, headerSizeY, size) {
       while (x >= 0) {
         for (let i = 0; i < 7; i++) {
           if (cur.getDate() == 1) {//月始めなら
-		        //ctx.fillStyle = "rgb(40, 40, 40)"; 
-            //ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY - 4);
-            text2(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
+            text(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
           }
-          //box(ctx, x, y + i * size, size, "rgb(244, 244, 244)");
-          box2(svg, x, y + i * size, size, "#f4f4f4");
+          
+         
+          
+          
+          box(svg, x, y + i * size, size, size, "#f4f4f4");
           cur.setDate(cur.getDate() - 1);//1日減算
         }
         x -= size;
@@ -191,7 +116,7 @@ function boxHeaderAndBody2(svg, headerSizeX, headerSizeY, size) {
     
     
 //チャートを表示する
-    function draw2(id) {
+    function draw(id) {
 
       let clientRect = svg.getBoundingClientRect();
       let s = 'x=' + clientRect.x.toFixed(1) + ' y=' + clientRect.y.toFixed(1) + ' w=' + clientRect.width.toFixed(1) + ' h=' + clientRect.height.toFixed(1);
@@ -201,7 +126,7 @@ function boxHeaderAndBody2(svg, headerSizeX, headerSizeY, size) {
       let x = clientRect.width - size;
       let y = head;
 
-      boxHeaderAndBody2(svg, p.width, head, size);
+      boxHeaderAndBody(svg, clientRect.width, head, size);
 
 	    //仮データ
       let data = [];
@@ -225,12 +150,13 @@ function boxHeaderAndBody2(svg, headerSizeX, headerSizeY, size) {
           continue;
         }
         //box(ctx, wx, y + p.y * size, size, "#40c463");
-        box2(svg, wx, y + p.y * size, size, "rgb(64, 196, 99)");
+        box(svg, wx, y + p.y * size, size, size, "#40c463");
       }
+  
     }
 	  
     //draw("cvs");
-    draw2("svg");
+    draw("svg");
     
   </script>
   
