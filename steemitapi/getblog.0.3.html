@@ -143,6 +143,11 @@ const GETBLOG_LIMIT = 500;
  
 //日付から座標インデックスを求める
     function getXY(date) {
+	const y = date.getFullYear();
+	const m = date.getMonth();
+  	const d = date.getDate();
+	    date = new Date(y,m,d);
+	    
       let getday = date.getDay(); //0;sun - 6:sat
       let getweek = date.getWeek(2016);
       let now = new Date();
@@ -188,7 +193,6 @@ const GETBLOG_LIMIT = 500;
 	    
 	    
 	for(let i=0; i<records.length; i=i+1){
-	
 		let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
 		let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
 		if (wx < 0) {//範囲外なら描写しない
