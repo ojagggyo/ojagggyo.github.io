@@ -125,7 +125,7 @@ const GETBLOG_LIMIT = 500;
 		return text;
 	}
     
-	function createRect(x, y, width, height, color, url) {
+	function createRect(x, y, width, height, color, url, title) {
 		//rect
 		const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		rect.setAttribute('x', x);
@@ -139,7 +139,7 @@ const GETBLOG_LIMIT = 500;
 			rect.setAttribute("url", url);
 			rect.onclick = setOnClick;
 			
-			rect.setAttribute("text", url);
+			rect.setAttribute("text", title);
 			rect.onmousemove = showTooltip;
 			rect.onmouseout = hideTooltip;	
 		}
@@ -148,10 +148,10 @@ const GETBLOG_LIMIT = 500;
     
 	//ボックスを表示する
 	function box(svg, x, y, width, height , color) {
-		svg.appendChild(createRect(x, y, width, height, color,""));
+		svg.appendChild(createRect(x, y, width, height, color,""/*url*/,""/*title*/));
 	}
-	function boxAndClick(svg, x, y, width, height , color, url) {
-		svg.appendChild(createRect(x, y, width, height, color, url));
+	function boxAndClick(svg, x, y, width, height , color, url, title) {
+		svg.appendChild(createRect(x, y, width, height, color, url, title));
 	}
 		
 	function text(svg, x, y, s) {
@@ -223,12 +223,12 @@ const GETBLOG_LIMIT = 500;
 			}
 			//box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
 			//#40c463 #98e9a8
-			boxAndClick(svg, wx, y + p.y * size, size, size, "#98e9a8", "https://" + DOMAIN + records[i].comment.url );
+			boxAndClick(svg, wx, y + p.y * size, size, size, "#98e9a8"
+				    , "https://" + DOMAIN + records[i].comment.url
+				    , records[i].comment.title );
 		}	
     }
 
-	
-	
 function showTooltip(e) {
 	let text = e.target.getAttribute('text');
   let tooltip = document.getElementById("tooltip");
