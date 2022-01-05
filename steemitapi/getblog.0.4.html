@@ -143,7 +143,6 @@ const GETBLOG_LIMIT = 500;
 		svg.appendChild(createRect(x, y, width, height, color, url));
 	}
 		
-		"https://steemit.com/@yasu/posts"
 		
 	function text(svg, x, y, s) {
 		svg.appendChild(createText(x, y, s));
@@ -226,7 +225,7 @@ const GETBLOG_LIMIT = 500;
 	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
-<svg id="svg" width="525" height="125" style="background-color: #888888;"></svg><br/>
+<svg id="svg" width="100%" height="125" style="background-color: #888888;"></svg><br/>
 	    <span id="text"></span>
     </body>
 </html>
