@@ -43,9 +43,11 @@
 		rect.setAttribute('fill', color);
 		rect.setAttribute('stroke', '#ffffff');
 		rect.setAttribute('stroke-width', 2);
-		rect.setAttribute("url", url);
-		rect.onclick = setOnClick;
-        return rect;
+		if(url != "" ){
+			rect.setAttribute("url", url);
+			rect.onclick = setOnClick;
+		}
+		return rect;
 	}
     
 	//ボックスを表示する
