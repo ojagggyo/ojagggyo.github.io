@@ -49,6 +49,7 @@ async function aaa(){
 				for(var i=ret.length-1;i>=0;i=i-1){
 					if(ret[i].comment.author != username){
 						ret.splice(i,1);
+						total--; 
 						continue;
 					}
 				}
