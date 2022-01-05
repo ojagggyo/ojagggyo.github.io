@@ -64,7 +64,7 @@ function clickBtn(){;
 	aaa().then(result => {		
 		makeTable(result);
 		
-		 draw("cvs", result);
+		 draw("svg", result);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -107,39 +107,77 @@ const GETBLOG_LIMIT = 500;
       var onejan = new Date(year, 0, 1);
       return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     }
-
-    function boxHeaderAndBody(ctx, headerSizeX, headerSizeY, size) {
-	ctx.font = '8pt Arial';
-      const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	    //headr
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, headerSizeX, headerSizeY);
-
-	//body
-      let cur = new Date();
-      cur.setDate(cur.getDate() + (6 - cur.getDay()));
-      let x = headerSizeX - size;
-      let y = headerSizeY;
-      while (x >= 0) {
-        for (let i = 0; i < 7; i++) {
-          if (cur.getDate() == 1) {//月始めなら
-		  ctx.fillStyle = "rgb(40, 40, 40)"; 
-              ctx.fillText(monthNames[cur.getMonth()], x, headerSizeY - 4);
-          }
-          box(ctx, x, y + i * size, size, "rgb(244, 244, 244)");
-          cur.setDate(cur.getDate() - 1);//1日減算
-        }
-        x -= size;
-      }
-    }
-
-	  //ボックスを表示する
-    function box(ctx, x, y, size, color) {
-      ctx.fillStyle = 'white';
-      ctx.fillRect(x, y, size, size);
-      ctx.fillStyle = color;//"rgb(64, 196, 99)"; //'green';//64,196,99
-      ctx.fillRect(x + 2, y + 2, size - 4, size - 4);
-    }
+	function createText(x, y, s) {
+		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.setAttribute('x', x);
+		text.setAttribute('y', y);
+		text.setAttribute("fill", "#282828");
+		text.setAttribute("font-family", "Arial");
+		text.setAttribute("font-size", 12);
+		text.textContent = s;
+		return text;
+	}
+    
+	function createRect(x, y, width, height, color, url) {
+		//rect
+		const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		rect.setAttribute('x', x);
+		rect.setAttribute('y', y);
+		rect.setAttribute('width', width);
+		rect.setAttribute('height', height);
+		rect.setAttribute('fill', color);
+		rect.setAttribute('stroke', '#ffffff');
+		rect.setAttribute('stroke-width', 2);
+		if(url != "" ){
+			rect.setAttribute("url", url);
+			rect.onclick = setOnClick;
+		}
+		return rect;
+	}
+    
+	//ボックスを表示する
+	function box(svg, x, y, width, height , color) {
+		svg.appendChild(createRect(x, y, width, height, color,""));
+	}
+	function boxAndClick(svg, x, y, width, height , color, url) {
+		svg.appendChild(createRect(x, y, width, height, color, url));
+	}
+		
+		"https://steemit.com/@yasu/posts"
+		
+	function text(svg, x, y, s) {
+		svg.appendChild(createText(x, y, s));
+	}    
+    
+	function setOnClick(e) {
+		var a = document.createElement('a');
+		a.href = e.target.getAttribute('url');
+		a.target = '_blank';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+      	};
+	
+	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size) {
+		const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+		// --- headr ---
+  		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
+		// --- body ---
+		let cur = new Date();
+		cur.setDate(cur.getDate() + (6 - cur.getDay()));
+		let x = headerSizeX - size;
+		let y = headerSizeY;
+		while (x >= 0) {
+			for (let i = 0; i < 7; i++) {
+				if (cur.getDate() == 1) {//月始めなら
+					text(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
+				}
+				box(svg, x, y + i * size, size, size, "#f4f4f4");
+          		cur.setDate(cur.getDate() - 1);//1日減算
+			}
+			x -= size;
+		}
+	}
  
 //日付から座標インデックスを求める
     function getXY(date) {
@@ -155,37 +193,32 @@ const GETBLOG_LIMIT = 500;
       console.log(getweek_now + ' ' + getweek);
       let x = getweek_now - getweek;
       let y = getday;
-      return {
-        x: x,
-        y: y
-      };
+      return {x: x,y: y};
     }
 
 //チャートを表示する
     function draw(id,records) {
-      var cv = document.getElementById(id);
-      var ctx = cv.getContext('2d');
-      if (!cv || !cv.getContext) {
-        return false;
-      }
-      let head = 20;
-      let size = (cv.height - head) / 7;
-      let x = cv.width - size;
-      let y = head;
+		let clientRect = svg.getBoundingClientRect();
+		let s = 'x=' + clientRect.x.toFixed(1) + ' y=' + clientRect.y.toFixed(1) + ' w=' + clientRect.width.toFixed(1) + ' h=' + clientRect.height.toFixed(1);
+		let head = 20;
+		let size = (clientRect.height - head) / 7;
+		let x = clientRect.width - size;
+		let y = head;
+		boxHeaderAndBody(svg, clientRect.width, head, size);
 
-      boxHeaderAndBody(ctx, cv.width, head, size);
-
-	    
-	for(let i=0; i<records.length; i=i+1){
-		let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
-		let wx = (cv.width - size) - p.x * size;//実際のx座標を求める
-		if (wx < 0) {//範囲外なら描写しない
-			continue;
-		}
-		box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
-	}
+	    	for(let i=0; i<records.length; i=i+1){
+			let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
+			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
+			if (wx < 0) {//範囲外なら描写しない
+				continue;
+			}
+			//box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
+			boxAndClick(svg, wx, y + p.y * size, size, size, "#40c463", "https://" + DOMAIN + records[i].comment.url );
+		}	
     }
 
+	
+	
   </script>
     </head>
     <body>        
@@ -193,7 +226,7 @@ const GETBLOG_LIMIT = 500;
 	<input type="text" id="text1" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
         <br/>
-		<svg id=svg width="100%" height="125px" style="background-color:#888888;"></svg><br/>
+<svg id="svg" width="100%" height="125" style="background-color: #888888;"></svg><br/>
 	    <span id="text"></span>
     </body>
 </html>
