@@ -60,6 +60,8 @@ async function aaa(){
 				if(--retry == 0) {
 					throw e.message;
 					//break;
+					document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
+					return blogs;
 				}
 				await _sleep(1000);
 			}
