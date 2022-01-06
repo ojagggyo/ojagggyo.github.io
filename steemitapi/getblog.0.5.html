@@ -58,12 +58,12 @@ async function aaa(){
 			} catch(e) {
  				console.log( e.message );
 				if(--retry == 0) {
-					throw e.message;
+					//throw e.message;
 					//break;
 					document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total + " 未取得データあり";
 					return blogs;
 				}
-				await _sleep(500);
+				await _sleep(300);
 			}
 		}
 		entry_id = ret[ret.length - 1].entry_id;
