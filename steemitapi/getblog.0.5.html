@@ -298,10 +298,10 @@ function hideTooltip(e) {
     </head>
     <body>
 <div style="position: fixed;">
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<p>ブログを表示します。</p>
 	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a><br/>
-	<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<svg id="svg" width="100%" height="125" style="background-color: #888888;"></svg><br/>
 </div>
 	    <span id="text"></span>
