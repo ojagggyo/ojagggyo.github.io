@@ -235,9 +235,8 @@ function draw2(records) {
 				lastP.y = p.y;
 				lastP.count = 1;
 			}
-			let color =  colors[(lastP.count > 4) ? 4 : lastP.count];
 			boxAndClick(svg, wx, y + p.y * size, size, size
-				    , color
+				    , colors[(lastP.count > 4) ? 4 : lastP.count]
 				    , "https://" + DOMAIN + records[i].comment.url
 				    , records[i].comment.title );
 		}	
