@@ -8,8 +8,9 @@
         <!--<script src="https://ojagggyo.github.io/steemitapi/getblog.js"></script>-->
 <script>
 function donokuraimae(date){
-	date1 = new Date(date);
-	date1.setHours(date1.getHours() + 9);
+	//date1 = new Date(date);
+	//date1.setHours(date1.getHours() + 9);
+	date1 = new Date(date+"z");
 	var now = new Date();
 	sa = now - date1;
 	if(sa >= 86400000){return Math.floor(sa / 86400000)+'日前';}
@@ -223,7 +224,7 @@ function draw2(records) {
 		let y = head;
 		let lastP = {x:-1, y:-1, count: 0};
 	    	for(let i=0; i<records.length; i=i+1){
-			let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
+			let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				continue;
