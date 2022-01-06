@@ -175,20 +175,21 @@ const GETBLOG_LIMIT = 500;
 	function setOnClick(e) {
 		let urls = e.target.getAttribute('url').split('\n');
 		//if(urls.length == 1){
+		if(false){
 			var a = document.createElement('a');
 			a.href = urls[0];
 			a.target = '_blank';
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
-		//}
-		//else{
+		}
+		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
 			entryids.forEach(function(id){
 				document.getElementById(id).style.backgroundColor = '#98e9a8';
 			})
 			document.getElementById(entryids[0]).scrollIntoView({behavior: 'smooth', block: 'center'})
-		//}
+		}
       	}
 
 	
