@@ -58,8 +58,8 @@ async function aaa(){
 			} catch(e) {
  				console.log( e.message );
 				if(--retry == 0) {
-					//throw e.message;
-					break;
+					throw e.message;
+					//break;
 				}
 				await _sleep(1000);
 			}
