@@ -278,8 +278,8 @@ function showTooltip(e) {
 	tooltip.innerHTML = title.split('\n').join('<hr/>');
   tooltip.style.display = "block";
   tooltip.style.left = e.pageX + 10 + 'px';
-  tooltip.style.top = e.pageY + 10 + 'px';
-	tooltip.focus();
+  //tooltip.style.top = e.pageY + 10 + 'px';
+	tooltip.style.top = e.y + 10 + 'px';
 }
 
 function hideTooltip(e) {
