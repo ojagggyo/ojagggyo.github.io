@@ -157,8 +157,8 @@ const GETBLOG_LIMIT = 500;
 	function boxAndClick(svg, x, y, width, height , color, url, title, update) {
 		if(update){
 			let lastChild = svg.lastElementChild;
-			url = lastNode.getAttribute('url') + "\n" + url;
-			title = lastTitle = lastNode.getAttribute('title') + "\n" + title;
+			url = lastChild.getAttribute('url') + "\n" + url;
+			title = lastChild.getAttribute('title') + "\n" + title;
 			svg.removeChild(lastChild);
 		}
 		svg.appendChild(createRect(x, y, width, height, color, url, title));
