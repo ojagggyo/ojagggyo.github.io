@@ -92,10 +92,10 @@ function makeTable(records){
 	html = html + '<th>entry id</th><th>author</th><th>created</th><th>title</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
-		html = html + '<tr>';
-		//html = html + '<tr id=' + records[i].entry_id +'>';
-		//html = html + '<td align=right>' + records[i].entry_id + '</td>';//
-		html = html + '<td align=right><a id=' + records[i].entry_id + '>' + records[i].entry_id + '</a></td>';//
+		//html = html + '<tr>';
+		html = html + '<tr id=' + records[i].entry_id +'>';
+		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
+		//html = html + '<td align=right><a id=' + records[i].entry_id + '>' + records[i].entry_id + '</a></td>';//
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
@@ -188,7 +188,7 @@ const GETBLOG_LIMIT = 500;
 			
 			entryids.forEach(function(id){
 				var element = document.getElementById(id);
-				element.style.backgroundColor = '#e8edf0';
+				element.style.backgroundColor = '#98e9a8';
 				element.scrollIntoView(true);
 			})
 		}
