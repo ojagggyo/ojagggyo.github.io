@@ -48,7 +48,7 @@ async function aaa(){
 				ret = await steem.api.getBlogAsync(username, entry_id, limit);
 				
 				for(var i=ret.length-1;i>=0;i=i-1){
-					if(ret[i].comment.author != username){
+					if(ret[i].comment.author != username){//Resteemなら
 						ret.splice(i,1);
 						total--; 
 						continue;
@@ -57,7 +57,10 @@ async function aaa(){
 				break;
 			} catch(e) {
  				console.log( e.message );
-				if(--retry == 0) throw e.message;
+				if(--retry == 0) {
+					//throw e.message;
+					break;
+				}
 				await _sleep(1000);
 			}
 		}
@@ -91,7 +94,6 @@ function makeTable(records){
 	for(let i=0; i<records.length; i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
-		//html = html + '<td>' + records[i].blog + '</td>';
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
@@ -152,8 +154,13 @@ const GETBLOG_LIMIT = 500;
 	function box(svg, x, y, width, height , color) {
 		svg.appendChild(createRect(x, y, width, height, color,""/*url*/,""/*title*/));
 	}
-	function boxAndClick(svg, x, y, width, height , color, url, title) {
-		svg.appendChild(createRect(x, y, width, height, color, url, title));
+	function boxAndClick(svg, x, y, width, height , color, url, title, update) {
+		if(update){
+			
+		}
+		else{
+			svg.appendChild(createRect(x, y, width, height, color, url, title));//追加
+		}
 	}
 		
 	function text(svg, x, y, s) {
@@ -240,7 +247,9 @@ function draw2(records) {
 			boxAndClick(svg, wx, y + p.y * size, size, size
 				    , colors[(lastP.count > 4) ? 4 : lastP.count]
 				    , "https://" + DOMAIN + records[i].comment.url
-				    , records[i].comment.title );
+				    , records[i].comment.title
+				   , (lastP.count == 1)//true:更新,false:追加
+				   );
 		}	
     }
 
