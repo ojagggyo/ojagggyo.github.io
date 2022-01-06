@@ -170,6 +170,11 @@ const GETBLOG_LIMIT = 500;
     
 	function setOnClick(e) {
 		e.target.getAttribute('url').split('\n').forEach(function(url){
+			openUrl(url);
+		});
+      	};
+	
+	async openUrl(){
 			var a = document.createElement('a');
 			a.href = url;
 			a.target = '_blank';
@@ -177,8 +182,8 @@ const GETBLOG_LIMIT = 500;
 			a.click();
 			document.body.removeChild(a);
 			await _sleep(1000);
-			});
-      	};
+	}
+	
 	
 	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size) {
 		const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
