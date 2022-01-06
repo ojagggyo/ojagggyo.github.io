@@ -256,8 +256,12 @@ function draw2(records) {
 
 function showTooltip(e) {
 	let title = e.target.getAttribute('title');
+	
+let titles = )
+	
   let tooltip = document.getElementById("tooltip");
-  tooltip.innerHTML = title;
+  //tooltip.innerHTML = title;
+	tooltip.innerHTML = title.split('\n').join('<hr/>');
   tooltip.style.display = "block";
   tooltip.style.left = e.pageX + 10 + 'px';
   tooltip.style.top = e.pageY + 10 + 'px';
