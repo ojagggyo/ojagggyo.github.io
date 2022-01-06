@@ -249,7 +249,7 @@ function draw2(records) {
 				    , colors[(lastP.count > 4) ? 4 : lastP.count]
 				    , "https://" + DOMAIN + records[i].comment.url
 				    , records[i].comment.title
-				   , (lastP.count == 1)//true:更新,false:追加
+				   , (lastP.count > 1)//true:更新,false:追加
 				   );
 		}	
     }
