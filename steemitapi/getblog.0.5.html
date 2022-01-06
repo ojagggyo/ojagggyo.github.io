@@ -294,10 +294,20 @@ function hideTooltip(e) {
   border-radius: 5px;
   padding: 5px;
 }
+		    
+		   #fixed {
+position: fixed; /* 要素の位置を固定する */
+top: 0; /* 基準の位置を画面の一番上に指定する */
+left: 0; /* 基準の位置を画面の一番左に指定する */
+margin: 0; /* 要素の余白を０にする */
+padding: 0px; /* 要素内側の余白を指定する */
+width: 100%;
+background-color: white;
+} 
 		    </style>
     </head>
     <body>
-<div style="position: fixed;width: 100%;background-color: white;">
+<div id=fixed>
 	<p>ブログを表示します。</p>
 	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a><br/>
