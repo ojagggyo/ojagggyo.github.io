@@ -215,20 +215,30 @@ const GETBLOG_LIMIT = 500;
 
     }
 function draw2(records) {
+	const colors = ['216e39', '#e8edf0', '#98e9a8', '#40c463', '#30a14e'];
 		let clientRect = svg.getBoundingClientRect();
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
 		let x = clientRect.width - size;
 		let y = head;
+		let lastP = {x:-1, y:-1, count: 0};
 	    	for(let i=0; i<records.length; i=i+1){
 			let p = getXY(new Date(records[i].comment.created));//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				continue;
 			}
-			//box(ctx, wx, y + p.y * size, size, "rgb(64, 196, 99)");
-			//#40c463 #98e9a8
-			boxAndClick(svg, wx, y + p.y * size, size, size, "#98e9a8"
+			if(p.x == lastP.x && p.y == lastP.y){
+				lastP.count++;
+			}
+			else{
+				lastP.x = p.x;
+				lastP.y = p.y;
+				lastP.count = 1;
+			}
+			let color =  (lastP.count > 4) ? 4 : lastP.count;
+			boxAndClick(svg, wx, y + p.y * size, size, size
+				    , color
 				    , "https://" + DOMAIN + records[i].comment.url
 				    , records[i].comment.title );
 		}	
