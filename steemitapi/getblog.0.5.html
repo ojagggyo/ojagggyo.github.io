@@ -174,7 +174,7 @@ const GETBLOG_LIMIT = 500;
     
 	function setOnClick(e) {
 		let urls = e.target.getAttribute('url').split('\n');
-		if(urls == 1){
+		if(urls.length == 1){
 			var a = document.createElement('a');
 			a.href = url;
 			a.target = '_blank';
