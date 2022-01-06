@@ -185,7 +185,7 @@ const GETBLOG_LIMIT = 500;
 		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
 			var element = document.getElementById(entryids[0]);
-			element.focus();
+			element.scrollIntoView(true);
 		}
       	}
 
