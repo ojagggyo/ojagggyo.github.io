@@ -175,6 +175,7 @@ const GETBLOG_LIMIT = 500;
 			a.target = '_blank';
 			document.body.appendChild(a);
 			a.click();
+			a.focus();
 			document.body.removeChild(a);
 			return false;
 		});
