@@ -188,7 +188,7 @@ const GETBLOG_LIMIT = 500;
 		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
 			entryids.forEach(function(id){
-				document.getElementById(id).style.backgroundColor = '#98e9a8';//cornsilk';
+				document.getElementById(id).style.backgroundColor = 'rgb(213,247,219)';//'#98e9a8';//cornsilk';
 			})
 			document.getElementById(entryids[0]).scrollIntoView({behavior: 'smooth', block: 'center'})
 		}
