@@ -184,13 +184,10 @@ const GETBLOG_LIMIT = 500;
 		}
 		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
-			//var element = document.getElementById(entryids[0]);
-			
 			entryids.forEach(function(id){
-				var element = document.getElementById(id);
-				element.style.backgroundColor = '#98e9a8';
-				element.scrollIntoView(true);
+				document.getElementById(id).style.backgroundColor = '#98e9a8';
 			})
+			document.getElementById(entryids[0]).scrollIntoView({behavior: 'smooth', block: 'center'})
 		}
       	}
 
