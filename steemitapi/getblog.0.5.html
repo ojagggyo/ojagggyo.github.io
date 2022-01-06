@@ -92,7 +92,8 @@ function makeTable(records){
 	html = html + '<th>entry id</th><th>author</th><th>created</th><th>title</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
-		html = html + '<tr>';
+		//html = html + '<tr>';
+		html = html + '<tr id=' + records[i].entry_id +'>';
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
@@ -129,7 +130,7 @@ const GETBLOG_LIMIT = 500;
 		return text;
 	}
     
-	function createRect(x, y, width, height, color, url, title) {
+	function createRect(x, y, width, height, color, url, title, entryid) {
 		//rect
 		const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		rect.setAttribute('x', x);
@@ -145,23 +146,25 @@ const GETBLOG_LIMIT = 500;
 			
 			rect.setAttribute("title", title);
 			rect.onmousemove = showTooltip;
-			rect.onmouseout = hideTooltip;	
+			rect.onmouseout = hideTooltip;
+			rect.setAttribute("entryid", entryid);
 		}
 		return rect;
 	}
     
 	//ボックスを表示する
 	function box(svg, x, y, width, height , color) {
-		svg.appendChild(createRect(x, y, width, height, color,""/*url*/,""/*title*/));
+		svg.appendChild(createRect(x, y, width, height, color,""/*url*/,""/*title*/,-1));
 	}
-	function boxAndClick(svg, x, y, width, height , color, url, title, update) {
+	function boxAndClick(svg, x, y, width, height , color, url, title, update, entryid) {
 		if(update){
 			let lastChild = svg.lastElementChild;
 			url = lastChild.getAttribute('url') + "\n" + url;
 			title = lastChild.getAttribute('title') + "\n" + title;
+			entryid = lastChild.getAttribute('entryid') + "\n" + entryid;
 			svg.removeChild(lastChild);
 		}
-		svg.appendChild(createRect(x, y, width, height, color, url, title));
+		svg.appendChild(createRect(x, y, width, height, color, url, title, entryid));
 	}
 		
 	function text(svg, x, y, s) {
@@ -169,14 +172,20 @@ const GETBLOG_LIMIT = 500;
 	}    
     
 	function setOnClick(e) {
-		e.target.getAttribute('url').split('\n').forEach(function(url){
+		let urls = e.target.getAttribute('url').split('\n');
+		if(urls == 1){
 			var a = document.createElement('a');
 			a.href = url;
 			a.target = '_blank';
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
-			window.focus();
+		}
+		else{
+		}
+			let entryids = e.target.getAttribute('entryid').split('\n');
+			var element = document.getElementById(entryids[0]);
+			element.focus();
 		});
       	}
 
@@ -225,7 +234,6 @@ const GETBLOG_LIMIT = 500;
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
 		boxHeaderAndBody(svg, clientRect.width, head, size);
-
     }
 function draw2(records) {
 	const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
@@ -254,7 +262,8 @@ function draw2(records) {
 				    , colors[(lastP.count > 4) ? 4 : lastP.count]
 				    , "https://" + DOMAIN + records[i].comment.url
 				    , records[i].comment.title
-				   , (lastP.count > 1)//true:更新,false:追加
+				    , (lastP.count > 1)//true:更新,false:追加
+				    , records[i].entry_id 
 				   );
 		}	
     }
