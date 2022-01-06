@@ -170,19 +170,16 @@ const GETBLOG_LIMIT = 500;
     
 	function setOnClick(e) {
 		e.target.getAttribute('url').split('\n').forEach(function(url){
-			openUrl(url);
-		});
-      	}
-	
-	async openUrl(url){
 			var a = document.createElement('a');
 			a.href = url;
 			a.target = '_blank';
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
-			await _sleep(1000);
-	}
+			return false;
+		});
+      	}
+
 	
 	
 	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size) {
