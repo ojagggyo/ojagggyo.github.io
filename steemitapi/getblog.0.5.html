@@ -184,8 +184,13 @@ const GETBLOG_LIMIT = 500;
 		}
 		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
-			var element = document.getElementById(entryids[0]);
-			element.scrollIntoView(true);
+			//var element = document.getElementById(entryids[0]);
+			
+			entryids.forEach(function(id){
+				var element = document.getElementById(id);
+				element.style.backgroundColor = '#e8edf0';
+				element.scrollIntoView(true);
+			})
 		}
       	}
 
