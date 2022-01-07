@@ -249,7 +249,11 @@ const GETBLOG_LIMIT = 500;
 		while (x >= 0) {
 			for (let i = 0; i < 7; i++) {
 				if (cur.getDate() == 1) {//月始めなら
-					text(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
+					if(cur.getMonth() == 0){1月なら
+						text(svg, x, headerSizeY - 4, cur.getMonth() + 1);
+					}else{
+						text(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
+					}
 				}
 				box(svg, x, y + i * size, size, size, "#f4f4f4");
           			cur.setDate(cur.getDate() - 1);//1日減算
