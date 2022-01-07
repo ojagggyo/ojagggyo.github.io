@@ -80,7 +80,7 @@ function clickBtn(){;
 	aaa().then(result => {
 		last_records = result;//★保存
 		makeTable(result);
-		draw2(result);
+		draw2(result,0);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -92,7 +92,7 @@ let last_index;
 function clickBackBtn(){
 	let cur = new Date(last_records[last_index].comment.created+"z");
 	draw1(cur);
-	draw2(last_records);
+	draw2(last_records, last_index);
 }
 function clickForwardBtn(){
 }
@@ -252,7 +252,7 @@ const GETBLOG_LIMIT = 500;
 		let size = (clientRect.height - head) / 7;
 		boxHeaderAndBody(svg, clientRect.width, head, size, cur);
     }
-function draw2(records) {
+function draw2(records, index) {
 	const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
 	//const colors = ['black', 'blue', 'red', 'magenta', 'green'];
 		let clientRect = svg.getBoundingClientRect();
@@ -261,7 +261,7 @@ function draw2(records) {
 		let x = clientRect.width - size;
 		let y = head;
 		let lastP = {x:-1, y:-1, count: 0};
-	    	for(let i=0; i<records.length; i=i+1){
+	    	for(let i=index; i<records.length; i=i+1){
 			let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
