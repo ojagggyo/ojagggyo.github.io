@@ -79,11 +79,12 @@ let end_index;
 function clickBtn(){
 	//初期設定
 	start_index = 0;
+	start_index_stack.length = 0;
+	let now = new Date();
 	//
 	while (svg.lastChild) {
 	   svg.removeChild(svg.lastChild);
 	}
-	let now = new Date();
 	aaa().then(result => {
 		stok_records = result;//★保存
 		makeTable(result);
