@@ -75,14 +75,35 @@ async function aaa(){
 };
 
 function clickBtn(){;
-	draw1();
-	aaa().then(result => {		
+	let cur = new Date();
+	draw1(cur);
+	aaa().then(result => {
+		last_result = result;//★保存
 		makeTable(result);
 		draw2(result);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
 	});
+}
+
+let last_records;
+let last_index;
+function clickBackBtn(){
+	let cur = new Date(last_records[last_index].comment.created+"z");
+	draw1(cur);
+	/*
+	aaa().then(result => {
+		last_result = result;//★保存
+		makeTable(result);
+		draw2(result);
+	}).catch(err => {
+		console.log(err);
+		document.getElementById("progress").innerText = JSON.stringify(err);
+	});
+	*/
+}
+function clickForwardBtn(){
 }
 	
 function makeTable(records){
@@ -196,12 +217,12 @@ const GETBLOG_LIMIT = 500;
 
 	
 	
-	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size) {
+	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size, cur) {
 		const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		// --- headr ---
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
-		let cur = new Date();
+		//let cur = new Date();
 		cur.setDate(cur.getDate() + (6 - cur.getDay()));
 		let x = headerSizeX - size;
 		let y = headerSizeY;
@@ -234,11 +255,11 @@ const GETBLOG_LIMIT = 500;
     }
 
 //チャートを表示する
-    function draw1() {
+    function draw1(cur) {
 		let clientRect = svg.getBoundingClientRect();
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
-		boxHeaderAndBody(svg, clientRect.width, head, size);
+		boxHeaderAndBody(svg, clientRect.width, head, size, cur);
     }
 function draw2(records) {
 	const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
@@ -253,6 +274,7 @@ function draw2(records) {
 			let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
+				last_index = i;//★保存
 				continue;
 			}
 			if(p.x == lastP.x && p.y == lastP.y){
@@ -315,7 +337,11 @@ background-color: white;
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<a>ブログを表示します。</a><br/>
 	<input type="text" id="username" size="20" value=yasu> <input type="button" value="表示する" onclick="clickBtn()" />
-	<a id="progress"></a><br/>
+	<a id="progress"></a>
+	<input type="button" value="戻る" onclick="clickBackBtn()" />
+	<input type="button" value="進む" onclick="clickForwardBtn()" />
+
+	<br/>
 	<svg id="svg" width="95%" height="125" style="background-color: #e8edf0;"></svg><br/>
 </div>
 	    <div id="text" style="margin: 190px 0px 0px 0px;"></div>
