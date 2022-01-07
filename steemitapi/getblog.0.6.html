@@ -275,7 +275,8 @@ function draw2(records) {
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				last_index = i;//★保存
-				continue;
+				break;
+				//continue;
 			}
 			if(p.x == lastP.x && p.y == lastP.y){
 				lastP.count++;
