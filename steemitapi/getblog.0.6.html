@@ -214,7 +214,7 @@ const GETBLOG_LIMIT = 500;
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
 		//let cur = new Date();
-		let cur = startDate;
+		let cur =  new Date(startDate.getTime());
 		cur.setDate(cur.getDate() + (6 - cur.getDay()));
 		let x = headerSizeX - size;
 		let y = headerSizeY;
