@@ -73,14 +73,14 @@ async function aaa(){
 };
 
 function clickBtn(){;
-	start_index = 0;
 	let now = new Date();
 	draw1(now);
 	aaa().then(result => {
 		stok_records = result;//★保存
 		makeTable(result);
 		draw1(now);
-		draw2(result,0,now);
+		start_index = 0;
+		draw2(result,start_index,now);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -93,7 +93,8 @@ let end_index;
 function clickBackBtn(){
 	let cur = new Date(stok_records[end_index+1].comment.created+"z");
 	draw1(cur);
-	draw2(stok_records, end_index+1, cur);
+	start_index = end_index + 1;
+	draw2(stok_records, start_index, cur);
 }
 function clickForwardBtn(){
 }
