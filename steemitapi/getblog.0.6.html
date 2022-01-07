@@ -92,16 +92,7 @@ let last_index;
 function clickBackBtn(){
 	let cur = new Date(last_records[last_index].comment.created+"z");
 	draw1(cur);
-	/*
-	aaa().then(result => {
-		last_result = result;//★保存
-		makeTable(result);
-		draw2(result);
-	}).catch(err => {
-		console.log(err);
-		document.getElementById("progress").innerText = JSON.stringify(err);
-	});
-	*/
+	draw2(last_records);
 }
 function clickForwardBtn(){
 }
