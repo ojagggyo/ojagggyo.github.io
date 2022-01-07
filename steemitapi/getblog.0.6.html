@@ -76,7 +76,8 @@ async function aaa(){
 let stok_records = [];
 let start_index = [];
 let end_index;
-function clickBtn(){;
+function clickBtn(){
+	start_index.length = 0;
 	let now = new Date();
 	draw1(now);
 	aaa().then(result => {
