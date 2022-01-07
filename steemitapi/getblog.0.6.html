@@ -91,7 +91,7 @@ let stok_records;
 let start_index;
 let end_index;
 function clickBackBtn(){
-	let cur = new Date(last_records[end_index+1].comment.created+"z");
+	let cur = new Date(stok_records[end_index+1].comment.created+"z");
 	draw1(cur);
 	draw2(stok_records, end_index+1, cur);
 }
