@@ -97,6 +97,9 @@ function clickBtn(){
 }
 function clickBackBtn(){
 	if(end_index + 1 > stok_records.length - 1) return;
+	while (svg.lastChild) {
+	   svg.removeChild(svg.lastChild);
+	}
 	let index = end_index + 1;
 	let cur = new Date(stok_records[index].comment.created+"z");
 	draw1(cur);
@@ -105,6 +108,9 @@ function clickBackBtn(){
 }
 function clickForwardBtn(){
 	if(start_index_stack.length <= 1) return;
+	while (svg.lastChild) {
+	   svg.removeChild(svg.lastChild);
+	}
 	start_index_stack.pop();
 	let index = start_index_stack[start_index_stack.length-1];
 	let cur = new Date(stok_records[index].comment.created+"z");
