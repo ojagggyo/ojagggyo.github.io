@@ -79,6 +79,7 @@ function clickBtn(){;
 	aaa().then(result => {
 		stok_records = result;//★保存
 		makeTable(result);
+		draw1(now);
 		draw2(result,0,now);
 	}).catch(err => {
 		console.log(err);
