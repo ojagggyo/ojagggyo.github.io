@@ -3,7 +3,7 @@
 <head>
 <title>getaccounthistory</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="./getaccounthistory.0.13.css">
+<link rel="stylesheet" type="text/css" href="./getaccounthistory.0.12.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script>
@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js" 
 	integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx" 
 	crossorigin="anonymous"></script> 
-<script src="./getaccounthistory.0.13.js"></script>
+<script src="./getaccounthistory.0.12.js"></script>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
 
@@ -27,7 +27,7 @@ function setUsername(username){
         nameList.splice(index, 1);  
     }
     nameList.push(username);
-    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=60*60";//秒   
+    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=86400";//60*60*24秒   
 }
     
 function getUsernames(){
@@ -54,14 +54,8 @@ function userlink(){
   document.getElementById("userlink").innerHTML = s;
 }
 
-// ---------- indicator ----------
-function indicator(username){
-	//let s = "<progress id=votingPowerSmall class=small max=100 value="+ votingPowerIndicator[username]/100 +" ></progress>";
-	let s = "<progress id=votingPowerSmall class=small max=100 value=50></progress>";
-	return s;
-}
 	
-// ----------  ----------
+// ---------- ----------
 function makeLine(record){
 	let indenticon_type = 'small';//small, large
 	let body = '';
@@ -74,7 +68,6 @@ function makeLine(record){
 		const permlink = record[1].op[1].permlink;
 		const weight = record[1].op[1].weight;
 		identicon =  '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + voter + '></canvas>'; 
-		//body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>' + indicator(voter)) 
 		body = (voter == username ? voter : '<a href=' + window.location.pathname + '#' + voter + ' target=' + voter + '>' + voter +  '</a>') 
 			+ (weight >= 0 ? ' upvote' : ' downvote')
 			+ (weight >= 0 ? (voter == username ? '' : emoji_upvote) : emoji_downvote)
@@ -219,7 +212,6 @@ function makeTable(records){
 let globalProperties;
 let krwsteem;
 let krwsbd;
-let votingPowerIndicator = {};
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
@@ -260,18 +252,6 @@ async function aaa(days){
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
 			}
-			
-			/*
-			if(ret[i][1].op[0] == 'vote'){
-				let voter = ret[i][1].op[1].voter;
-				if(voter != username){
-					if(votingPowerIndicator[voter] === void 0){
-						v = await getVotingPower(voter);
-						votingPowerIndicator[voter] = v;
-					}
-				}
-			}
-			*/
 			
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
@@ -352,7 +332,7 @@ window.onload = function() {
 	<br/><b>Power</b><br/>
 	Effective Power <b><a id=effectivepowervalue></a></b>
 	<a id=effectivepowerdetail></a><br/>
-	<progress id=effectivepower ></progress><br/>
+	<progress id=effectivepower></progress><br/>
 	Voting Power <b><a id=votingpowervalue></a></b><br/>
 	<progress id=votingpower max=100></progress><br/>
 	
