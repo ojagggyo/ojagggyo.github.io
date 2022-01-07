@@ -75,12 +75,12 @@ async function aaa(){
 };
 
 function clickBtn(){;
-	let cur = new Date();
-	draw1(cur);
+	let now = new Date();
+	draw1(now);
 	aaa().then(result => {
 		last_records = result;//★保存
 		makeTable(result);
-		draw2(result,0,cur);
+		draw2(result,0,now);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -208,12 +208,13 @@ const GETBLOG_LIMIT = 500;
 
 	
 	
-	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size, cur) {
+	function boxHeaderAndBody(svg, headerSizeX, headerSizeY, size, startDate) {
 		const monthNames = ['Jun', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		// --- headr ---
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
 		//let cur = new Date();
+		let cur = startDate;
 		cur.setDate(cur.getDate() + (6 - cur.getDay()));
 		let x = headerSizeX - size;
 		let y = headerSizeY;
