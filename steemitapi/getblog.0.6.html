@@ -91,8 +91,8 @@ let stok_records;
 let start_index = [];
 let end_index;
 function clickBackBtn(){
-	if(stok_records.lebgth <= index) return;
 	let index = end_index+1;
+	if(stok_records.lebgth <= index) return;
 	let cur = new Date(stok_records[index].comment.created+"z");
 	draw1(cur);
 	start_index.push(index);
