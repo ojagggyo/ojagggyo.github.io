@@ -8,8 +8,6 @@
         <!--<script src="https://ojagggyo.github.io/steemitapi/getblog.js"></script>-->
 <script>
 function donokuraimae(date){
-	//date1 = new Date(date);
-	//date1.setHours(date1.getHours() + 9);
 	date1 = new Date(date+"z");
 	var now = new Date();
 	sa = now - date1;
@@ -216,7 +214,13 @@ const GETBLOG_LIMIT = 500;
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
 		//let cur = new Date();
-		let cur =  new Date(startDate.getTime());//日付をコピー
+		//let cur =  new Date(startDate.getTime());//日付をコピー
+		
+		const fullYear = startDate.getFullYear();
+		const m = startDate.getMonth();
+		const d = startDate.getDate();
+		cur = new Date(fullYear,m,d);//00時00分00秒にする。
+		
 		cur.setDate(cur.getDate() + (6 - cur.getDay()));//開始日を微調整
 		let x = headerSizeX - size;
 		let y = headerSizeY;
