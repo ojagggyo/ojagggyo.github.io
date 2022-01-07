@@ -1,3 +1,4 @@
+
 a {
 	text-decoration: none;
 	/*color: black;*/
@@ -48,15 +49,10 @@ span.large{
 }
 
 progress {
-	-webkit-appearance: none;
-	width: 100%;
-	height: 1rem;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
 }
-progress.small {
-	width: 50px;
-	height: 16px;
-}
-
 ::-webkit-progress-bar {
 	/*background-color: lightglay;*/
 	background-color: whitesmoke;
@@ -72,7 +68,4 @@ progress.small {
 }
 #resourcecredits::-webkit-progress-value {
   background-color: #5eb85e;
-}
-::-webkit-progress-value.small  {
-  background-color: gray;
 }
