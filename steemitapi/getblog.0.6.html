@@ -273,8 +273,9 @@ function draw2(records, index, cur) {
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				end_index = i-1;//★保存
-				break;
+				//break;
 				//continue;
+				return;
 			}
 			if(p.x == lastP.x && p.y == lastP.y){
 				lastP.count++;
@@ -290,8 +291,9 @@ function draw2(records, index, cur) {
 				    , records[i].comment.title
 				    , (lastP.count > 1)//true:更新,false:追加
 				    , records[i].entry_id 
-				   );
-		}	
+				   );	
+		}
+		end_index = i;
     }
 
 function showTooltip(e) {
