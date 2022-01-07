@@ -80,7 +80,7 @@ function clickBtn(){;
 	aaa().then(result => {
 		last_records = result;//★保存
 		makeTable(result);
-		draw2(result,0);
+		draw2(result,0,cur);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -92,7 +92,7 @@ let last_index;
 function clickBackBtn(){
 	let cur = new Date(last_records[last_index].comment.created+"z");
 	draw1(cur);
-	draw2(last_records, last_index);
+	draw2(last_records, last_index, cur);
 }
 function clickForwardBtn(){
 }
@@ -230,7 +230,7 @@ const GETBLOG_LIMIT = 500;
 	}
  
 //日付から座標インデックスを求める
-    function getXY(date) {
+    function getXY(date, lastDate) {
 	const fullYear = date.getFullYear();
 	const m = date.getMonth();
   	const d = date.getDate();
@@ -238,7 +238,8 @@ const GETBLOG_LIMIT = 500;
 	    
       let getday = date.getDay(); //0;sun - 6:sat
       let getweek = date.getWeek(2016);
-      let now = new Date();
+      //let now = new Date();
+	    now = lastDate;
       let getweek_now = now.getWeek(2016);
       let x = getweek_now - getweek;
       let y = getday;
@@ -252,7 +253,7 @@ const GETBLOG_LIMIT = 500;
 		let size = (clientRect.height - head) / 7;
 		boxHeaderAndBody(svg, clientRect.width, head, size, cur);
     }
-function draw2(records, index) {
+function draw2(records, index, cur) {
 	const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
 	//const colors = ['black', 'blue', 'red', 'magenta', 'green'];
 		let clientRect = svg.getBoundingClientRect();
@@ -262,7 +263,8 @@ function draw2(records, index) {
 		let y = head;
 		let lastP = {x:-1, y:-1, count: 0};
 	    	for(let i=index; i<records.length; i=i+1){
-			let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
+			//let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
+			let p = getXY(new Date(records[i].comment.created+"z"), cur);//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				last_index = i;//★保存
