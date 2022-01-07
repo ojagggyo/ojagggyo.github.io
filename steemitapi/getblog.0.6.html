@@ -75,10 +75,11 @@ async function aaa(){
 };
 
 function clickBtn(){;
+	start_index = 0;
 	let now = new Date();
 	draw1(now);
 	aaa().then(result => {
-		last_records = result;//★保存
+		stok_records = result;//★保存
 		makeTable(result);
 		draw2(result,0,now);
 	}).catch(err => {
@@ -87,12 +88,13 @@ function clickBtn(){;
 	});
 }
 
-let last_records;
-let last_index;
+let stok_records;
+let start_index;
+let end_index;
 function clickBackBtn(){
-	let cur = new Date(last_records[last_index].comment.created+"z");
+	let cur = new Date(last_records[end_index+1].comment.created+"z");
 	draw1(cur);
-	draw2(last_records, last_index, cur);
+	draw2(stok_records, end_index+1, cur);
 }
 function clickForwardBtn(){
 }
@@ -214,8 +216,8 @@ const GETBLOG_LIMIT = 500;
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
 		//let cur = new Date();
-		let cur =  new Date(startDate.getTime());
-		cur.setDate(cur.getDate() + (6 - cur.getDay()));
+		let cur =  new Date(startDate.getTime());//日付をコピー
+		cur.setDate(cur.getDate() + (6 - cur.getDay()));//開始日を微調整
 		let x = headerSizeX - size;
 		let y = headerSizeY;
 		while (x >= 0) {
@@ -224,7 +226,7 @@ const GETBLOG_LIMIT = 500;
 					text(svg, x, headerSizeY - 4, monthNames[cur.getMonth()]);
 				}
 				box(svg, x, y + i * size, size, size, "#f4f4f4");
-          		cur.setDate(cur.getDate() - 1);//1日減算
+          			cur.setDate(cur.getDate() - 1);//1日減算
 			}
 			x -= size;
 		}
@@ -266,7 +268,7 @@ function draw2(records, index, cur) {
 			let p = getXY(new Date(records[i].comment.created+"z"), cur);//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
-				last_index = i;//★保存
+				end_index = i-1;//★保存
 				break;
 				//continue;
 			}
