@@ -80,8 +80,10 @@ function clickBtn(){
 	//初期設定
 	start_index = 0;
 	//
+	while (svg.lastChild) {
+	   svg.removeChild(svg.lastChild);
+	}
 	let now = new Date();
-	draw1(now);
 	aaa().then(result => {
 		stok_records = result;//★保存
 		makeTable(result);
