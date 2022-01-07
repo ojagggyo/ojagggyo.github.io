@@ -231,19 +231,17 @@ const GETBLOG_LIMIT = 500;
 	}
  
 //日付から座標インデックスを求める
-    function getXY(date, lastDate) {
-	const fullYear = date.getFullYear();
-	const m = date.getMonth();
-  	const d = date.getDate();
-	    date = new Date(fullYear,m,d);
+    function getXY(curDate, startDate) {
+	const fullYear = curDate.getFullYear();
+	const m = curDate.getMonth();
+  	const d = curDate.getDate();
+	curDate = new Date(fullYear,m,d);//00時00分00秒にする。
 	    
-      let getday = date.getDay(); //0;sun - 6:sat
-      let getweek = date.getWeek(2016);
-      //let now = new Date();
-	    now = lastDate;
-      let getweek_now = now.getWeek(2016);
-      let x = getweek_now - getweek;
-      let y = getday;
+      let day_cur = curDate.getDay(); //0;sun - 6:sat
+      let week_cur = curDate.getWeek(2016);
+      let week_start = startDate.getWeek(2016);
+      let x = week_start - week_cur;
+      let y = day_cur;
       return {x: x,y: y};
     }
 
