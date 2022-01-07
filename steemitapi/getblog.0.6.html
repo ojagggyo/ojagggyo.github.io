@@ -94,6 +94,7 @@ function clickBtn(){
 	});
 }
 function clickBackBtn(){
+	if(end_index + 1 < 0) return;
 	let index = end_index + 1;
 	let cur = new Date(stok_records[index].comment.created+"z");
 	draw1(cur);
