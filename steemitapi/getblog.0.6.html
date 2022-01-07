@@ -101,6 +101,7 @@ function clickBackBtn(){
 	start_index_stack.push(index);
 }
 function clickForwardBtn(){
+	if(start_index_stack.length <= 1) return;
 	start_index_stack.pop();
 	let index = start_index_stack[start_index_stack.length-1];
 	let cur = new Date(stok_records[index].comment.created+"z");
