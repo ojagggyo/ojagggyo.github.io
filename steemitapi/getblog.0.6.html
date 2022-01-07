@@ -78,7 +78,7 @@ function clickBtn(){;
 	let cur = new Date();
 	draw1(cur);
 	aaa().then(result => {
-		last_result = result;//★保存
+		last_records = result;//★保存
 		makeTable(result);
 		draw2(result);
 	}).catch(err => {
