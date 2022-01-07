@@ -72,6 +72,10 @@ async function aaa(){
 	return blogs;
 };
 
+
+let stok_records = [];
+let start_index = [];
+let end_index;
 function clickBtn(){;
 	let now = new Date();
 	draw1(now);
@@ -86,12 +90,8 @@ function clickBtn(){;
 		document.getElementById("progress").innerText = JSON.stringify(err);
 	});
 }
-
-let stok_records = [];
-let start_index = [];
-let end_index;
 function clickBackBtn(){
-	let index = end_index+1;
+	let index = end_index + 1;
 	if(stok_records.length <= index) return;
 	let cur = new Date(stok_records[index].comment.created+"z");
 	draw1(cur);
