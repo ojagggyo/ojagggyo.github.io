@@ -79,8 +79,8 @@ function clickBtn(){;
 		stok_records = result;//★保存
 		makeTable(result);
 		draw1(now);
-		start_index = 0;
-		draw2(result,start_index,now);
+		start_index.push(0);
+		draw2(result,0,now);
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -88,15 +88,22 @@ function clickBtn(){;
 }
 
 let stok_records;
-let start_index;
+let start_index = [];
 let end_index;
 function clickBackBtn(){
-	let cur = new Date(stok_records[end_index+1].comment.created+"z");
+	if(stok_records.lebgth =< index) return;
+	let index = end_index+1;
+	let cur = new Date(stok_records[index].comment.created+"z");
 	draw1(cur);
-	start_index = end_index + 1;
-	draw2(stok_records, start_index, cur);
+	start_index.push(index);
+	draw2(stok_records, index, cur);
 }
 function clickForwardBtn(){
+	if(start_index.length == 0) return;
+	let index = start_index.pop();
+	let cur = new Date(stok_records[index].comment.created+"z");
+	draw1(cur);
+	draw2(stok_records, index, cur);	
 }
 	
 function makeTable(records){
