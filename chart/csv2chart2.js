@@ -8,10 +8,12 @@ function clickBtn() {
   //2次元を2個の1次元に変換する。
   let labels = [];
   let datas = [];
+  let total = 0;
   for(var i=0;i<csv.length;i=i+1){
     row = csv[i].split(/,/);
     labels.push(row[0]);
-    datas.push(row[1]);
+    datas.push(row[1] - total);
+    total +=  row[1];
   }
   console.log(labels);
   console.log(datas);
@@ -19,7 +21,7 @@ function clickBtn() {
   const data = {
     labels: labels,
     datasets: [{
-      label: '新規陽性者数',
+      label: '',
       backgroundColor: 'rgb(51, 221, 204)',
       borderColor: 'rgb(51, 221, 204)',
       data: datas,
