@@ -144,6 +144,13 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 |学習|[Python学習](./archive/python.html)|
 ||[Javascript学習](./archive/javascript.html)|
 
+# Tool
+
+|名前||
+|---|---|
+|アカウントヒストリー表示|[🚀](https://ojagggyo.github.io/steemitapi/getaccounthistory.0.12.html)|
+|ブログ表示|[🚀](https://ojagggyo.github.io/steemitapi/getblog.0.5.html)|
+
 
 
 
