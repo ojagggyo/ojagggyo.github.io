@@ -326,7 +326,7 @@ function showTooltip(e) {
 	let tooltip_w = parseInt(window.getComputedStyle(tooltip).width);
 	let tooltip_h = parseInt(window.getComputedStyle(tooltip).height);
 	
-	tooltip.style.left = e.pageX + 10 + tooltip_w > document_w ? document_w - tooltip_w : e.pageX + 10;
+	tooltip.style.left = (e.pageX + 10 + tooltip_w > document_w ? document_w - tooltip_w : e.pageX + 10) + 'px';;
 }
 
 function hideTooltip(e) {
