@@ -10,7 +10,7 @@ function clickBtn() {
   let datas = [];
   let before = 0;
   if(csv.length > 0){
-    before = csv[0].split(/,/);
+    before = csv[0].split(/,/)[1];
     for(var i=1; i<csv.length; i=i+1){
       row = csv[i].split(/,/);
       labels.push(row[0]);
