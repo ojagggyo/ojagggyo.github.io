@@ -326,7 +326,7 @@ function showTooltip(e) {
 	let tooltip_w = parseInt(window.getComputedStyle(tooltip).width);
 	let tooltip_h = parseInt(window.getComputedStyle(tooltip).height);
 	let left = 0;
-	if(e.pageX + 10 + tooltip_w < document_w){
+	if(e.pageX + 10 + tooltip_w < document_w - 20){
 		left = e.pageX + 10;
 	}else if(e.pageX - 10 - tooltip_w > 0){
 		left = e.pageX - 10 - tooltip_w;
