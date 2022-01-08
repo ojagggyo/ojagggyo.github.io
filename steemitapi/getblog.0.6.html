@@ -33,7 +33,8 @@ async function aaa(){
 	total = entry_id + 1;
 	document.getElementById("progress").innerText = ' 0 / ' + total;
 	
-	while (entry_id != 0){
+	let finish_flag = false;
+	while (entry_id != 0  && !finish_flag){
 		if(blogs.length > 0){
 			limit = GETBLOG_LIMIT;
 		}
@@ -47,6 +48,9 @@ async function aaa(){
 				
 				for(var i=ret.length-1;i>=0;i=i-1){
 					if(ret[i].comment.author != username){//Resteemなら
+						if(ret[i].entry_id == 0){
+							finish_flag = true;
+						} 
 						ret.splice(i,1);
 						total--; 
 						continue;
