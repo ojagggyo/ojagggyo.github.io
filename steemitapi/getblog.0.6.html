@@ -41,7 +41,6 @@ async function aaa(){
 			limit = entry_id + 1;
 		}
 		let retry = 3;
-		let next_entry_id = -1;
 		while(true){
 			try{
 				ret = await steem.api.getBlogAsync(username, entry_id, limit);
@@ -68,8 +67,6 @@ async function aaa(){
 				await _sleep(300);
 			}
 		}
-		//entry_id = ret[ret.length - 1].entry_id;
-		//blogs.pop();
 		blogs = blogs.concat(ret);
 		document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total;
 	}
@@ -132,10 +129,8 @@ function makeTable(records){
 	html = html + '<th>entry</th><th>author</th><th>created</th><th>title</th>';
 	html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
-		//html = html + '<tr>';
 		html = html + '<tr id=' + records[i].entry_id +'>';
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
-		//html = html + '<td align=right><a id=' + records[i].entry_id + '>' + records[i].entry_id + '</a></td>';//
 		html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
@@ -239,14 +234,10 @@ const GETBLOG_LIMIT = 500;
 		// --- headr ---
   		box(svg, 0,0, headerSizeX, headerSizeY, 'white');
 		// --- body ---
-		//let cur = new Date();
-		//let cur =  new Date(startDate.getTime());//日付をコピー
-		
 		const fullYear = startDate.getFullYear();
 		const m = startDate.getMonth();
 		const d = startDate.getDate();
 		cur = new Date(fullYear,m,d);//00時00分00秒にする。
-		
 		cur.setDate(cur.getDate() + (6 - cur.getDay()));//開始日を微調整
 		let x = headerSizeX - size;
 		let y = headerSizeY;
@@ -282,9 +273,6 @@ const GETBLOG_LIMIT = 500;
 //チャートを表示する
     function draw1(cur) {
 	    	//全要素削除
-		//while (svg.lastChild) {
-		//    svg.removeChild(svg.lastChild);
-		//}
 		let clientRect = svg.getBoundingClientRect();
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
@@ -305,8 +293,6 @@ function draw2(records, index, cur) {
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
 			if (wx < 0) {//範囲外なら描写しない
 				end_index = i-1;//★保存
-				//break;
-				//continue;
 				return;
 			}
 			if(p.x == lastP.x && p.y == lastP.y){
@@ -330,31 +316,27 @@ function draw2(records, index, cur) {
 
 function showTooltip(e) {
 	let title = e.target.getAttribute('title');	
-  let tooltip = document.getElementById("tooltip");
-  //tooltip.innerHTML = title;
+	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = title.split('\n').join('<hr/>');
-  tooltip.style.display = "block";
-  tooltip.style.left = e.pageX + 10 + 'px';
-  //tooltip.style.top = e.pageY + 10 + 'px';
+	tooltip.style.display = "block";
+	tooltip.style.left = e.pageX + 10 + 'px';
 	tooltip.style.top = e.y + 10 + 'px';
 }
 
 function hideTooltip(e) {
   var tooltip = document.getElementById("tooltip");
   tooltip.style.display = "none";
-}
+}	
+</script>
 
-	
-  </script>
-	    <style>
-		#tooltip {
+<style>
+#tooltip {
   background: cornsilk;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
 }
-		    
-		   #fixed {
+#fixed {
 position: fixed; /* 要素の位置を固定する */
 top: 0; /* 基準の位置を画面の一番上に指定する */
 left: 0; /* 基準の位置を画面の一番左に指定する */
@@ -363,7 +345,8 @@ padding: 10px 10px 0px 10px; /* 要素内側の余白を指定する */
 width: 100%;
 background-color: white;
 } 
-		    </style>
+</style>
+
     </head>
     <body>
 <div id=fixed>
