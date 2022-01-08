@@ -16,7 +16,7 @@ function clickBtn() {
   let before = 0;
 
   if(csv.length > 0){
-    before = parseFloat(csv[0].split(/,/)[1]);
+    before = parseFloat('0' + csv[0].split(/,/)[1]);
     for(var i=1; i<csv.length; i=i+1){
       row = csv[i].split(/,/);
       labels.push(row[0]);
