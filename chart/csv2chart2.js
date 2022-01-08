@@ -8,12 +8,12 @@ function clickBtn() {
   //2次元を2個の1次元に変換する。
   let labels = [];
   let datas = [];
-  let total = 0;
+  let before = 0;
   for(var i=0;i<csv.length;i=i+1){
     row = csv[i].split(/,/);
     labels.push(row[0]);
-    datas.push(parseFloat(row[1]) - total);
-    total +=  parseFloat(row[1]);
+    datas.push(parseFloat(row[1]) - before);
+    before = parseFloat(row[1]);
   }
   console.log(labels);
   console.log(datas);
