@@ -33,6 +33,13 @@ async function aaa(){
 	total = entry_id + 1;
 	document.getElementById("progress").innerText = ' 0 / ' + total;
 	
+	//投稿が１件だけの場合
+	if(entry_id == 0){
+		blogs = blogs.concat(ret);
+		document.getElementById("progress").innerText = ' 1 / 1';	
+		return ret;
+	}
+	
 	while (entry_id != 0){
 		if(blogs.length > 0){
 			limit = GETBLOG_LIMIT;
