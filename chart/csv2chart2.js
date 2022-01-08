@@ -12,8 +12,8 @@ function clickBtn() {
   for(var i=0;i<csv.length;i=i+1){
     row = csv[i].split(/,/);
     labels.push(row[0]);
-    datas.push(row[1] - total);
-    total +=  row[1];
+    datas.push(parseFloat(row[1] - total));
+    total +=  parseFloat(row[1]);
   }
   console.log(labels);
   console.log(datas);
