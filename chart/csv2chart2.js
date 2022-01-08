@@ -9,12 +9,16 @@ function clickBtn() {
   let labels = [];
   let datas = [];
   let before = 0;
-  for(var i=0;i<csv.length;i=i+1){
-    row = csv[i].split(/,/);
-    labels.push(row[0]);
-    datas.push(parseFloat(row[1]) - before);
-    before = parseFloat(row[1]);
+  if(csv.length > 0){
+    before = csv[0].split(/,/);
+    for(var i=1; i<csv.length; i=i+1){
+      row = csv[i].split(/,/);
+      labels.push(row[0]);
+      datas.push(parseFloat(row[1]) - before);
+      before = parseFloat(row[1]);
+    }
   }
+
   console.log(labels);
   console.log(datas);
 
