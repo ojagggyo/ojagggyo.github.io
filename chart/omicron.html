@@ -4,7 +4,7 @@
 <script>
 let myChart;
 
-function clickBtn() {
+function clickBtn(days) {
   let t1 = document.getElementById("text1").value;
   let csv = t1.split(/\n/);//改行で分割する
   console.log(csv);
@@ -27,6 +27,11 @@ function clickBtn() {
       data: datas,
     }]
   };
+	
+if(days > 0){
+	labels = labels.slice(labels.length - day, labels.length);
+	datas = datas.slice(datas.length - day, datas.length);
+}
 
   // === include 'setup' then 'config' above ===
   const config = {
