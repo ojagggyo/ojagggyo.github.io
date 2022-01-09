@@ -213,7 +213,7 @@ let globalProperties;
 let krwsteem;
 let krwsbd;
 async function aaa(days){
-	try{
+
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
@@ -236,6 +236,8 @@ async function aaa(days){
 	let firstValue = -1;
   	let firstTimestamp = new Date();
 	let now = new Date();
+	
+	try{	
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		try{
 		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
