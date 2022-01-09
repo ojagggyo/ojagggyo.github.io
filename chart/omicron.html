@@ -100,7 +100,10 @@ window.onload = function() {
 // HTTP でファイルを読み込むための XMLHttpRequest オブジェクトを生成します。
 	var req = new XMLHttpRequest();
   req.open("get", "./omicron_20220109_1.js", true);	// アクセスするファイルを指定
-	req.send(null);		
+	req.send(null);
+	if(req)
+	{
+	}
 }
   
 </script>
