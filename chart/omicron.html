@@ -98,32 +98,35 @@ function clickBtn2() {
   <!-- -------------------------------------------------------------- -->
   
   <body>
-<div>  
-<div style="background-color: red; float: left;">
-  <p>新規陽性者数データを入力してください。</p>
-  <textarea id="text1" rows="10" cols="20">2021/10/26,309.0
+
+<table border=0>
+<tr>
+<td>
+<p>新規陽性者数データを入力してください。</p>
+<textarea id="text1" rows="10" cols="20">2021/10/26,309.0
 2021/10/27,310.0
 2021/10/28,268.0
 2021/10/29,291.0
 2021/10/30,283.0
 2021/10/31,215.0
 2021/11/1,80.0</textarea>
-  <br/>
-  <input type="button" value="チャートを表示する" onclick="clickBtn()" />
+<br/>
+<input type="button" value="チャートを表示する" onclick="clickBtn()" />
+</td> 
+<td>
+<div>
+<canvas id="myChart"></canvas>
 </div>
-  <div>
-    <canvas id="myChart"></canvas>
-</div>
-</div>
-  
-<!-- ------------------------------------------------------ -->
+</td>  
+</tr>  
 
-<div style="background-color: blue;">
-  <p>死亡者数データを入力してください。</p>
-    <span>例）<br/>
-      日付,累計値<br/>
-      日付,累計値<br/></span>
-  <textarea id="text2" rows="10" cols="20">2021/12/23,18378.0
+<tr>
+<td>
+<p>死亡者数データを入力してください。</p>
+<span>例）<br/>
+日付,累計値<br/>
+日付,累計値<br/></span>
+<textarea id="text2" rows="10" cols="20">2021/12/23,18378.0
 2021/12/24,18378.0
 2021/12/25,18379.0
 2021/12/26,18379.0
@@ -139,12 +142,21 @@ function clickBtn2() {
 2022/1/5,18390.0
 2022/1/6,18390.0
 2022/1/7,18392.0</textarea>
-  <br/>
-  <input type="button" value="チャートを表示する" onclick="clickBtn2()" />
+<br/>
+<input type="button" value="チャートを表示する" onclick="clickBtn2()" />
+</td>
+<td>
+<div>
+<canvas id="myChart2"></canvas>
 </div
-  <div>
-    <canvas id="myChart2"></canvas>
-  </div
+</td>
+</tr>
+ 
+</table>  
+  
+<!-- ------------------------------------------------------ -->
+
+
 
     
     
