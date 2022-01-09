@@ -237,10 +237,14 @@ async function aaa(days){
   	let firstTimestamp = new Date();
 	let now = new Date();
 	
+
+	
 	try{	
+	let ret; 
+		
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		try{
-		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
+		ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		//console.log(ret);		
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
