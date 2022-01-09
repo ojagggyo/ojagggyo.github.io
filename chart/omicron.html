@@ -44,35 +44,12 @@ function clickBtn() {
   myChart = new Chart(
       document.getElementById('myChart'), config);
 }
-</script>
-    
-  </head>
-  <body>
-  <p>新規陽性者数データを入力してください。</p>
-  <textarea id="text1" rows="10" cols="20">2021/10/26,309.0
-2021/10/27,310.0
-2021/10/28,268.0
-2021/10/29,291.0
-2021/10/30,283.0
-2021/10/31,215.0
-2021/11/1,80.0</textarea>
-  <br/>
-  <input type="button" value="チャートを表示する" onclick="clickBtn()" />
-
-    <canvas id="myChart"></canvas>
   
-  </body>
-</html>
+  //----------------------------------------------------------
+let myChart2;
 
-<html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!--<script src="./csv2chart2.js"></script>-->
-    <script>
-let myChart;
-
-function clickBtn() {
-  let t1 = document.getElementById("text1").value;
+function clickBtn2() {
+  let t1 = document.getElementById("text2").value;
   let csv = t1.split(/\n/);//改行で分割する
   console.log(csv);
 
@@ -116,16 +93,33 @@ function clickBtn() {
   }
   myChart = new Chart(
       document.getElementById('myChart'), config);
-}
-
-    </script>
+}  
+</script>
   </head>
+  
+  
   <body>
+  <p>新規陽性者数データを入力してください。</p>
+  <textarea id="text1" rows="10" cols="20">2021/10/26,309.0
+2021/10/27,310.0
+2021/10/28,268.0
+2021/10/29,291.0
+2021/10/30,283.0
+2021/10/31,215.0
+2021/11/1,80.0</textarea>
+  <br/>
+  <input type="button" value="チャートを表示する" onclick="clickBtn()" />
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+ 
+<!-- ------------------------------------------------------ -->
+
   <p>データを入力してください。</p>
     <span>例）<br/>
       日付,累計値<br/>
       日付,累計値<br/></span>
-  <textarea id="text1" rows="10" cols="20">2021/12/23,18378.0
+  <textarea id="text2" rows="10" cols="20">2021/12/23,18378.0
 2021/12/24,18378.0
 2021/12/25,18379.0
 2021/12/26,18379.0
@@ -142,9 +136,13 @@ function clickBtn() {
 2022/1/6,18390.0
 2022/1/7,18392.0</textarea>
   <br/>
-  <input type="button" value="チャートを表示する" onclick="clickBtn()" />
+  <input type="button" value="チャートを表示する" onclick="clickBtn2()" />
   <div>
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart2"></canvas>
   </div>
+    
+    
+    
+    
   </body>
 </html>
