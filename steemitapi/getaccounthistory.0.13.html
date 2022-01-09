@@ -243,7 +243,7 @@ async function aaa(days){
 	let ret; 
 		
 	//while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
-	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
+	while (firstValue != 0 && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		try{
 			if(firstValue != -1 && firstValue < limit) {
 				limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
