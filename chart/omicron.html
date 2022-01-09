@@ -18,8 +18,7 @@ function clickBtn() {
     labels.push(row[0]);
     datas.push(row[1]);
   }
-  console.log(labels);
-  console.log(datas);
+
 
   const data = {
     labels: labels,
@@ -68,10 +67,9 @@ function clickBtn2() {
     }
   }
 
-  console.log(labels);
-  console.log(datas);
 
-  const data2 = {
+
+  const data = {
     labels: labels,
     datasets: [{
       label: '',
@@ -82,9 +80,9 @@ function clickBtn2() {
   };
 
   // === include 'setup' then 'config' above ===
-  const config2 = {
+  const config = {
   type: 'bar',
-    data: data2,
+    data: data,
     options: {}
   };
 
@@ -92,7 +90,7 @@ function clickBtn2() {
     myChart.destroy();
   }
   myChart2 = new Chart(
-      document.getElementById('myChart2'), config2);
+      document.getElementById('myChart2'), config);
 }  
 </script>
   </head>
@@ -115,7 +113,7 @@ function clickBtn2() {
  
 <!-- ------------------------------------------------------ -->
 
-  <p>データを入力してください。</p>
+  <p>死亡者数データを入力してください。</p>
     <span>例）<br/>
       日付,累計値<br/>
       日付,累計値<br/></span>
