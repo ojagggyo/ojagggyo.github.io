@@ -213,6 +213,7 @@ let globalProperties;
 let krwsteem;
 let krwsbd;
 async function aaa(days){
+	try{
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
@@ -289,8 +290,11 @@ async function aaa(days){
 		
 		out = ret.concat(out);
 	}
-	
-	//console.log(out);
+
+	}
+	catch(e){
+		console.log(e);
+	}
 	return out;
 };
 
