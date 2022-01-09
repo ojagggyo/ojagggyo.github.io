@@ -237,7 +237,7 @@ async function aaa(days){
   	let firstTimestamp = new Date();
 	let now = new Date();
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
-		
+		try{
 		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		//console.log(ret);		
 		firstValue = ret[0][0];
@@ -245,15 +245,25 @@ async function aaa(days){
 		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
 		ret.shift();
 		lastlength = ret.length;
+		}
+		catch(e){
+		console.log(e);
+		}
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
+			try{
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
 			}
+			}
+			catch(e){
+			console.log(e);
+			}
 			
+			try{
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
@@ -267,7 +277,12 @@ async function aaa(days){
 					}
 				});
 			}
-			
+			}
+			catch(e){
+			console.log(e);
+			}
+				
+			try{
 			if(getTransferAmount(ret[i])){
 				['transfer_in', 'transfer_out'].forEach(function(op){
 					if(total_transfer_count[op] === void 0){
@@ -281,11 +296,20 @@ async function aaa(days){
 					}
 				});
 			}
-			
+			}
+			catch(e){
+			console.log(e);
+			}
+				
+			try{
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			timestamp = timestamp.toLocaleString('ja-JP');
 			document.getElementById("progress").innerText = timestamp + ' to now';
+			}
+			catch(e){
+			console.log(e);
+			}	
 		}
 		
 		out = ret.concat(out);
