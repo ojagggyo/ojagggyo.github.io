@@ -71,7 +71,7 @@ function clickBtn2() {
   console.log(labels);
   console.log(datas);
 
-  const data = {
+  const data2 = {
     labels: labels,
     datasets: [{
       label: '',
@@ -82,17 +82,17 @@ function clickBtn2() {
   };
 
   // === include 'setup' then 'config' above ===
-  const config = {
+  const config2 = {
   type: 'bar',
-    data: data,
+    data: data2,
     options: {}
   };
 
-  if(myChart != null){
+  if(myChart2 != null){
     myChart.destroy();
   }
-  myChart = new Chart(
-      document.getElementById('myChart'), config);
+  myChart2 = new Chart(
+      document.getElementById('myChart2'), config2);
 }  
 </script>
   </head>
