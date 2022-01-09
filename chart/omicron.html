@@ -106,13 +106,13 @@ window.onload = function() {
 	req1.open("get", "./omicron_20220109_1.csv", true);	// アクセスするファイルを指定
 	req1.send(null);
 	req1.onload = function(){
-		document.getElementById('text1').value = req1.responseText.replace(/\s+$/,""));;
+		document.getElementById('text1').value = req1.responseText.replace(/\s+$/,"");
 	}
 	var req2 = new XMLHttpRequest();
 	req2.open("get", "./omicron_20220109_2.csv", true);	// アクセスするファイルを指定
 	req2.send(null);
 	req2.onload = function(){
-		document.getElementById('text2').value = req2.responseText.replace(/\s+$/,""));;
+		document.getElementById('text2').value = req2.responseText.replace(/\s+$/,"");
 	}
 }
   
@@ -161,9 +161,10 @@ window.onload = function() {
 <input type="button" value="7日間" onclick="clickBtn(7);clickBtn2(7);" />
 <input type="button" value="14日間" onclick="clickBtn(14);clickBtn2(14);" />
 <input type="button" value="30日間" onclick="clickBtn(30);clickBtn2(30);" />
-<input type="button" value="60日間" onclick="clickBtn(60);clickBtn2(60);" />
 <input type="button" value="90日間" onclick="clickBtn(90);clickBtn2(90);" />
-<input type="button" value="120日間" onclick="clickBtn(120);clickBtn2(120);" />
 <input type="button" value="150日間" onclick="clickBtn(150);clickBtn2(150);" />
+<input type="button" value="300日間" onclick="clickBtn(300);clickBtn2(300);" />
+<input type="button" value="365日間" onclick="clickBtn(365);clickBtn2(365);" />
+<input type="button" value="全期間" onclick="clickBtn(0);clickBtn2(0);" />
   </body>
 </html>
