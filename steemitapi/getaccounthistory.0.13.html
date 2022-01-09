@@ -242,9 +242,11 @@ async function aaa(days){
 	try{	
 	let ret; 
 		
+	//while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 	while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		try{
-		ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
+			if(firstValue != -1 && firstValue < limit) limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
+			ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		}
 		catch(e){
 		console.log(e);
