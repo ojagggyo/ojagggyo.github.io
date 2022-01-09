@@ -98,7 +98,7 @@ window.onload = function() {
 	req.open("get", "./omicron_20220109_1.js", true);	// アクセスするファイルを指定
 	req.send(null);
 	req.onload = function(){
-		document.getElementById('text1').innerText = req.responseText.split("\r\n").join("\n");	
+		document.getElementById('text1').innerText = req.responseText.split("\n").join("\r\n");	
 	}
 }
   
