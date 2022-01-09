@@ -96,8 +96,13 @@ function clickBtn2() {
   
  
 window.onload = function() {
-document.getElementById('text1').innerText = csv1;
-document.getElementById('text2').innerText = csv2;
+//document.getElementById('text1').innerText = csv1;
+//document.getElementById('text2').innerText = csv2;
+
+// HTTP でファイルを読み込むための XMLHttpRequest オブジェクトを生成します。
+	var req = new XMLHttpRequest();
+  req.open("get", "./omicron_20220109_1.js", true);	// アクセスするファイルを指定
+	req.send(null);		
 }
   
 </script>
