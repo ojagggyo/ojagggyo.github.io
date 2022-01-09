@@ -94,11 +94,17 @@ function clickBtn2() {
   
  
 window.onload = function() {
-	var req = new XMLHttpRequest();
-	req.open("get", "./omicron_20220109_1.js", true);	// アクセスするファイルを指定
-	req.send(null);
-	req.onload = function(){
-		document.getElementById('text1').value = req.responseText;	
+	var req1 = new XMLHttpRequest();
+	req1.open("get", "./omicron_20220109_1.js", true);	// アクセスするファイルを指定
+	req1.send(null);
+	req1.onload = function(){
+		document.getElementById('text1').value = req.responseText;
+	}
+	var req2 = new XMLHttpRequest();
+	req2.open("get", "./omicron_20220109_2.js", true);	// アクセスするファイルを指定
+	req2.send(null);
+	req2.onload = function(){
+		document.getElementById('text2').value = req.responseText;
 	}
 }
   
