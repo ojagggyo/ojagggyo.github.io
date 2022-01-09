@@ -18,6 +18,11 @@ function clickBtn(days) {
     datas.push(row[1]);
   }
 
+if(days > 0){
+	labels = labels.slice(labels.length - days, labels.length);
+	datas = datas.slice(datas.length - days, datas.length);
+}
+	
   const data = {
     labels: labels,
     datasets: [{
@@ -27,11 +32,7 @@ function clickBtn(days) {
       data: datas,
     }]
   };
-	
-if(days > 0){
-	labels = labels.slice(labels.length - days, labels.length);
-	datas = datas.slice(datas.length - days, datas.length);
-}
+
 
   // === include 'setup' then 'config' above ===
   const config = {
