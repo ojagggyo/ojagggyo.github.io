@@ -213,7 +213,6 @@ let globalProperties;
 let krwsteem;
 let krwsbd;
 async function aaa(days){
-
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
@@ -236,69 +235,28 @@ async function aaa(days){
 	let firstValue = -1;
   	let firstTimestamp = new Date();
 	let now = new Date();
-	
-
-	
-	try{	
-	let ret; 
-		
 	//while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 	while (firstValue != 0 && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
-		try{
-			if(firstValue != -1 && firstValue < limit) {
-				limit = firstValue;//limitより小さいfirstValueでエラーになる問題の対応。
-			}
-			ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
+		//limitより小さいfirstValueでエラーになる問題の対応。
+		if(firstValue != -1 && firstValue < limit) {
+			limit = firstValue;
 		}
-		catch(e){
-		console.log(e);
-		}
-		try{
+		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 		//console.log(ret);		
 		firstValue = ret[0][0];
-		}
-		catch(e){
-		console.log(e);
-		}
-		try{
     		firstTimestamp = new Date(ret[0][1].timestamp);
-		}
-		catch(e){
-		console.log(e);
-		}
-		try{
 		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
-		}
-		catch(e){
-		console.log(e);
-		}
-		try{
-			ret.shift();
-		}
-		catch(e){
-		console.log(e);
-		}
-		try{
-			lastlength = ret.length;
-		}
-		catch(e){
-		console.log(e);
-		}
+		ret.shift();
+		lastlength = ret.length;
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
-			try{
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
 			}
-			}
-			catch(e){
-			console.log(e);
-			}
 			
-			try{
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
@@ -312,12 +270,7 @@ async function aaa(days){
 					}
 				});
 			}
-			}
-			catch(e){
-			console.log(e);
-			}
-				
-			try{
+			
 			if(getTransferAmount(ret[i])){
 				['transfer_in', 'transfer_out'].forEach(function(op){
 					if(total_transfer_count[op] === void 0){
@@ -331,29 +284,17 @@ async function aaa(days){
 					}
 				});
 			}
-			}
-			catch(e){
-			console.log(e);
-			}
-				
-			try{
+			
 			let timestamp = new Date(ret[i][1].timestamp);
 			timestamp.setHours(timestamp.getHours() + 9);
 			timestamp = timestamp.toLocaleString('ja-JP');
 			document.getElementById("progress").innerText = timestamp + ' to now';
-			}
-			catch(e){
-			console.log(e);
-			}	
 		}
 		
 		out = ret.concat(out);
 	}
-
-	}
-	catch(e){
-		console.log(e);
-	}
+	
+	//console.log(out);
 	return out;
 };
 
