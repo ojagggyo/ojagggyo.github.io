@@ -381,7 +381,7 @@ function userlink(){
   let s = "";
   let name = "";
   while(name = nameList.pop()){
-  	s = s + "<a href=javascript:clickUserLink('" + name + "'); class=lightgray>" + name + "</a> ";
+  	s = s + "<a href=javascript:clickUserLink('" + name + "'); class=darkgray>" + name + "</a> ";
   }
   console.log(s);
   document.getElementById("userlink").innerHTML = s;
@@ -443,7 +443,14 @@ background-color: white;
 .lightgray {
 	color: lightgray;
 }
+.darkgray {
+	color: darkgray;
+}
 .lightgray:hover {
+	text-decoration:none;
+	color: gray;
+}
+.darkgray:hover {
 	text-decoration:none;
 	color: gray;
 }
