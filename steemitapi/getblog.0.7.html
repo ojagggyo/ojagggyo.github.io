@@ -391,6 +391,11 @@ function clickUserLink(username){
 	document.getElementById("username").value = username;
 	clickBtn();
 }
+
+function clickAppLink(appname){
+	username = document.getElementById("username").value;
+	location.href = appname + username;
+}
 	
 // ----------  ----------
 function getUserName(){
@@ -413,8 +418,8 @@ window.onload = function() {
 	document.getElementById("username").value = username;
 	clickBtn();
 	
-	document.getElementById("steemiturl").href = "https://steemit.com/@" + username + "/posts";
-	document.getElementById("steemworldurl").href = "https://steemworld.org/@" + username;
+	//document.getElementById("steemiturl").href = "https://steemit.com/@" + username + "/posts";
+	//document.getElementById("steemworldurl").href = "https://steemworld.org/@" + username;
 };
 </script>
 
@@ -442,8 +447,8 @@ background-color: white;
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<a style="font-size: xx-large">Blog</a>
 	| <a href="./getaccounthistory.0.13.html">Account History</a>
-	| <a href="" id=steemiturl>steemit</a>
-	| <a href="" id=steemworldurl>steemworld</a>
+	| <a href="clickAppLink('https://steemit.com/@')" >steemit</a>
+	| <a href="clickAppLink('https://steemworld.org/@')" >steemworld</a>
 	| <br/>
 	<input type="text" id="username" size="20"> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
