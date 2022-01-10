@@ -107,6 +107,7 @@ function clickBtn(){
 		draw1(now);
 		draw2(result,0,now);
 		start_index_stack.push(0);
+		setUsername(username);//クッキーに保存。
 	}).catch(err => {
 		console.log(err);
 		document.getElementById("progress").innerText = JSON.stringify(err);
@@ -401,7 +402,7 @@ function getUserName(){
 window.onload = function() {
 	let username = getUserName();
 	if(username == ''){
-		let userList = getUsernames();
+		let userList = getUsernames();//クッキーから取得。
 		if(userList.length == 0) return;
 		username = userList.pop();
 	}
