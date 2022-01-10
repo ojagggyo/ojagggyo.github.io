@@ -1,12 +1,9 @@
-
-
 <!doctype html>
 <html lang="en">
-    <head>
+<head>
         <title>getblog</title>
         <meta charset="utf-8">
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-        <!--<script src="https://ojagggyo.github.io/steemitapi/getblog.js"></script>-->
 <script>
 function donokuraimae(date){
 	date1 = new Date(date+"z");
@@ -434,9 +431,9 @@ width: 100%;
 background-color: white;
 } 
 </style>
-
-    </head>
-    <body>
+</head>
+<body>
+<form action="javascript:clickBtn();">
 <div id=fixed>
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<a>ブログを表示します。</a><br/>
@@ -450,5 +447,6 @@ background-color: white;
 	<svg id="svg" width="95%" height="125" style="background-color: #e8edf0;"></svg><br/>
 </div>
 	    <div id="text" style="margin: 214px 0px 0px 0px;"></div>
-    </body>
+</form>
+</body>
 </html>
