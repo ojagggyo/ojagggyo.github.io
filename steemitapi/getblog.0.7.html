@@ -350,7 +350,28 @@ function showTooltip(e) {
 function hideTooltip(e) {
   var tooltip = document.getElementById("tooltip");
   tooltip.style.display = "none";
-}	
+}
+	
+function getUserName(){
+  let hash = window.location.hash;// #username
+  if (hash == null || hash.trim().length == 0){
+	  return "";
+  }
+  hash = hash.substr(1);//#を取る
+  hash = decodeURI(hash).trim();//デコード、トリム]
+  return hash;
+}
+
+window.onload = function() {
+	let username = getUserName();
+	if(username == ''){
+		let userList = getUsernames();
+		if(userList.length == 0) return;
+		username = userList.pop();
+	}
+	document.getElementById("username").value = username;
+	clickBtn();
+};
 </script>
 
 <style>
