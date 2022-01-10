@@ -380,8 +380,7 @@ function getTransferAmount(record){
 function clickBtn(days){
 	
 	let username = document.getElementById("username").value;
-	//var isValidUsername = steem.utils.validateAccountName(username);
-	//if(!isValidUsername) return ;
+	window.location.hash = '#' + username;
 	
 	emoji();
 	document.getElementById("progress").innerText = "";
@@ -402,7 +401,7 @@ function clickBtn(days){
 	total_transfer_sbd = {};
 	total_transfer_steem = {};
 	
-	window.location.hash = '#' + username;
+
 	aaa(days).then(result => {
 		document.getElementById("text").innerText = 'processing...';
 		makeTable(result);
