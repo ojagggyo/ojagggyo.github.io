@@ -394,6 +394,7 @@ function clickUserLink(username){
 
 function clickAppLink(appname){
 	username = document.getElementById("username").value;
+	location.target = "_blank";
 	location.href = appname + username;
 }
 	
