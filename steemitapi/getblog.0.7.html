@@ -91,6 +91,8 @@ let stok_records = [];
 let start_index_stack = [];
 let end_index;
 function clickBtn(){
+	let username = document.getElementById("username").value;
+	window.location.hash = '#' + username;
 	//初期設定
 	start_index = 0;
 	start_index_stack.length = 0;
@@ -351,7 +353,41 @@ function hideTooltip(e) {
   var tooltip = document.getElementById("tooltip");
   tooltip.style.display = "none";
 }
+
+// ---------- userlink ----------
+function setUsername(username){
+    let nameList = getUsernames(); 
+    let index = nameList.indexOf( username );
+    if(index >= 0){
+        nameList.splice(index, 1);  
+    }
+    nameList.push(username);
+    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=86400";//60*60*24秒   
+}
+function getUsernames(){
+    cookies = document.cookie;
+    let lines = cookies.split(';');
+    for(var line of lines){
+        let elementList = line.split('=');
+        let key = elementList[0];
+        if( key != 'usernames'){continue;}
+        let csv = decodeURIComponent(elementList[1]);        
+        return csv.split(',');
+    }
+    return [];
+}
+function userlink(){
+  let nameList = getUsernames();
+  let s = "";
+  let name = "";
+  while(name = nameList.pop()){
+  	s = s + "<a href=javascript:clickUserLink('" + name + "');>" + name + "</a> ";
+  }
+  console.log(s);
+  document.getElementById("userlink").innerHTML = s;
+}
 	
+// ----------  ----------
 function getUserName(){
   let hash = window.location.hash;// #username
   if (hash == null || hash.trim().length == 0){
