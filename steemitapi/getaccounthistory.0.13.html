@@ -49,7 +49,7 @@ function userlink(){
   let s = "";
   let name = "";
   while(name = nameList.pop()){
-  	s = s + "<a href=javascript:clickUserLink('" + name + "');>" + name + "</a> ";
+  	s = s + "<a href=javascript:clickUserLink('" + name + "'); class=darkgray>" + name + "</a> ";
   }
   console.log(s);
   document.getElementById("userlink").innerHTML = s;
@@ -319,22 +319,31 @@ window.onload = function() {
 	}
 	document.getElementById("username").value = username;
 	clickBtn(1);
-	
-	//document.getElementById("favicon").href = "favicon_getaccounthistory.ico";
 };
 	
 </script>
 <style>
 .lightgray {
-   color: lightgray;
+	color: lightgray;
+}
+.darkgray {
+	color: darkgray;
+}
+//.lightgray:hover {
+//	text-decoration: none;
+//	color: gray;
+//}
+.darkgray:hover {
+	text-decoration: none;
+	color: dimgray;
 }
 </style>
 </head>
 <body>
 	<a style="font-size: xx-large">Account History</a>
-	| <a href="./getblog.0.7.html" class=lightgray>Blog</a>
-	| <a href="javascript:clickAppLink('https://steemit.com/@')" class=lightgray>steemit</a>
-	| <a href="javascript:clickAppLink('https://steemworld.org/@')" class=lightgray>steemworld</a>
+	| <a href="./getblog.0.7.html" class=darkgray>Blog</a>
+	| <a href="javascript:clickAppLink('https://steemit.com/@')" class=darkgray>steemit</a>
+	| <a href="javascript:clickAppLink('https://steemworld.org/@')" class=darkgray>steemworld</a>
 	| <br/>
 	<div class=right id=price></div>
 	<form action="javascript:clickBtn(1);">
