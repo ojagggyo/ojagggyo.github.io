@@ -303,6 +303,12 @@ function clickUserLink(username){
 	document.getElementById("username").value = username;
 	clickBtn(1);
 }
+	
+function clickAppLink(appname){
+	username = document.getElementById("username").value;
+	location.target = "_blank";
+	location.href = appname + username;
+}
 
 window.onload = function() {
 	let username = getUserName();
@@ -321,8 +327,10 @@ window.onload = function() {
 </head>
 <body>
 	<a style="font-size: xx-large">Account History</a>
-	| <a href="./getblog.0.7.html">Blog</a> | 
-	</br>
+	| <a href="./getblog.0.7.html">Blog</a>
+	| <a href="javascript:clickAppLink('https://steemit.com/@')" >steemit</a>
+	| <a href="javascript:clickAppLink('https://steemworld.org/@')" >steemworld</a>
+	| <br/>
 	<div class=right id=price></div>
 	<form action="javascript:clickBtn(1);">
 	<table>
