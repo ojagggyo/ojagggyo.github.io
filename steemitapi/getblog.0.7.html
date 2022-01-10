@@ -440,6 +440,9 @@ padding: 10px 10px 0px 10px; /* 要素内側の余白を指定する */
 width: 100%;
 background-color: white;
 } 
+.gray {
+   color: gray;
+}
 </style>
 </head>
 <body>
@@ -447,9 +450,9 @@ background-color: white;
 <div id=fixed>
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 	<a style="font-size: xx-large">Blog</a>
-	| <a href="./getaccounthistory.0.13.html">Account History</a>
-	| <a href="javascript:clickAppLink('https://steemit.com/@')" >steemit</a>
-	| <a href="javascript:clickAppLink('https://steemworld.org/@')" >steemworld</a>
+	| <a href="./getaccounthistory.0.13.html" class=gray>Account History</a>
+	| <a href="javascript:clickAppLink('https://steemit.com/@')" class=gray>steemit</a>
+	| <a href="javascript:clickAppLink('https://steemworld.org/@')" class=gray>steemworld</a>
 	| <br/>
 	<input type="text" id="username" size="20"> <input type="button" value="表示する" onclick="clickBtn()" />
 	<a id="progress"></a>
