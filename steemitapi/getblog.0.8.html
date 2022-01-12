@@ -132,6 +132,15 @@ function clickForwardBtn(){
 	draw1(cur);
 	draw2(stok_records, index, cur);	
 }
+
+	
+
+const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+function formatDate(dateString){
+	let date = new Date(dateString + "z");
+	return date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+}
+
 	
 function makeTable(records){
 	console.log('☆records☆');
@@ -146,11 +155,11 @@ function makeTable(records){
 		html = html + '<tr id=' + records[i].entry_id +'>';
 		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
 		//html = html + '<td>' + records[i].comment.author + '</td>';
-    html = html + '<td nowrap>' + records[i].comment.created + '</td>';
+		html = html + '<td nowrap>' + formatDate(records[i].comment.created) + '</td>';
 		//html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
-    html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
-    html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
-  }
+		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
+	}
 	html = html + '</table>';
 	document.getElementById("text").innerHTML = html;
 }
