@@ -162,7 +162,7 @@ function makeTable(records){
 		html = html + '<td align=right class=darkgray>' + records[i].entry_id + '</td>';//
 		//html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td align=right nowrap>' + formatDate(records[i].comment.created);
-		html = html + '<a class=darkgray>(' + nannichimae(records[i].comment.created) + ')</a></td>';
+		html = html + ' <a class=darkgray>(' + nannichimae(records[i].comment.created) + ')</a></td>';
 		//html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 		html = html + '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
 		//html = html + '<td align=right nowrap class=darkgray>' + donokuraimae(records[i].comment.created) + '</td>';
