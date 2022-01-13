@@ -159,8 +159,8 @@ function makeTable(records){
 	//html = html + '<th>entry</th><th>created</th><th>title</th><th></th>';
 	//html = html + '</tr>';
 	for(let i=0; i<records.length; i=i+1){
-		html = html + '<tr id=' + records[i].entry_id +' class=line>';
-		html = html + '<td align=right class=line>' + records[i].entry_id + '</td>';//
+		html = html + '<tr id=' + records[i].entry_id +'>';
+		html = html + '<td align=right>' + records[i].entry_id + '</td>';//
 		//html = html + '<td>' + records[i].comment.author + '</td>';
 		html = html + '<td nowrap>' + formatDate(records[i].comment.created) + '</td>';
 		//html = html + '<td nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
@@ -473,9 +473,15 @@ a {
 	text-decoration: none;
 	color: red;
 }
-.line {
+table {
     border-collapse: collapse;
-    border:1px solid #333;
+ }
+td  {
+	border: none;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
 }
 </style>
 </head>
