@@ -165,6 +165,7 @@ function makeTable(records){
 steem.api.setOptions({url: 'https://api.steemit.com'});
 if(!('DOMAIN' in window)){DOMAIN = 'steemit.com';}
 const GETBLOG_LIMIT = 100;
+const COLORS = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
 </script>
 	    
 	    
@@ -244,7 +245,7 @@ const GETBLOG_LIMIT = 100;
 		else{
 			let entryids = e.target.getAttribute('entryid').split('\n');
 			entryids.forEach(function(id){
-				document.getElementById(id).style.backgroundColor = 'rgb(213,247,219)';//'#98e9a8';//cornsilk';
+				document.getElementById(id).style.backgroundColor = COLORS[1];//'rgb(213,247,219)';//'#98e9a8';//cornsilk';
 			})
 			document.getElementById(entryids[0]).scrollIntoView({behavior: 'smooth', block: 'center'})
 		}
@@ -300,8 +301,7 @@ const GETBLOG_LIMIT = 100;
 		boxHeaderAndBody(svg, clientRect.width, head, size, cur);
     }
 function draw2(records, index, cur) {
-	const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
-	//const colors = ['black', 'blue', 'red', 'magenta', 'green'];
+		//const colors = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
 		let clientRect = svg.getBoundingClientRect();
 		let head = 20;
 		let size = (clientRect.height - head) / 7;
@@ -325,7 +325,7 @@ function draw2(records, index, cur) {
 				lastP.count = 1;
 			}
 			boxAndClick(svg, wx, y + p.y * size, size, size
-				    , colors[(lastP.count > 4) ? 4 : lastP.count]
+				    , COLORS[(lastP.count > 4) ? 4 : lastP.count]
 				    , "https://" + DOMAIN + records[i].comment.url
 				    , records[i].comment.title
 				    , (lastP.count > 1)//true:更新,false:追加
@@ -474,6 +474,9 @@ td  {
 	border-right: 0px solid #000;
 }
 </style>
+<!--<script>steem.api.setOptions({url: 'https://api.hive.blog/'});DOMAIN = "hive.blog";</script>-->
+<!--<script>const COLORS = ['#ede8f0', '#e998a8', '#c44063', '#a1304e', '#6e2139'];</script>--><!--hive color-->
+	
 </head>
 <body>
 <form action="javascript:clickBtn();">
