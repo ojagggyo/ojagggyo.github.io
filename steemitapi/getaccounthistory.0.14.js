@@ -285,6 +285,7 @@ function getReward(record){
 		return false;
 	}
 	
+	//vest Steem変換
 	total_sp_payout[op] = steem.formatter.vestToSteem(
 			total_vesting_payout[op], 
 			globalProperties.total_vesting_shares, 
@@ -305,7 +306,52 @@ function getReward(record){
 	}
 	return true;
 }
+	
 
+//Donation
+let total_count_donation = {};
+let total_sbd_donation = {};
+let total_steem_donation = {};
+let total_vesting_donation = {};
+let total_sp_donation = {};
+function getReward_donation(record){
+	const username = document.getElementById("username").value
+	let sbd_donation = 0;
+	let steem_donation = 0;
+	let vesting_donation = 0;
+	let op = record[1].op[0];
+	if(op == "comment_benefactor_reward" && record[1].op[1].benefactor != username){//Donation
+		op = "donation";
+		sbd_donation = parseFloat(record[1].op[1].sbd_payout);
+		steem_donation = parseFloat(record[1].op[1].steem_payout);
+		vesting_donation = parseFloat(record[1].op[1].vesting_payout);
+	}else {
+		return false;
+	}
+	
+	//vest Steem変換
+	total_sp_donation[op] = steem.formatter.vestToSteem(
+			total_vesting_donation[op], 
+			globalProperties.total_vesting_shares, 
+			globalProperties.total_vesting_fund_steem)
+	
+	if(total_count_donation[op] === void 0){
+		total_count_donation[op] = 1;
+		total_sbd_donation[op] = sbd_donation;
+		total_steem_donation[op] = steem_donation;
+		total_vesting_donation[op] = vesting_donation;
+		total_sp_donation[op] = vestToSteem(vesting_donation);
+	}else{
+		total_count_donation[op] += 1;
+		total_sbd_donation[op] += sbd_donation;
+		total_steem_donation[op] += steem_donation;
+		total_vesting_donation[op] += vesting_donation;
+		total_sp_donation[op] += vestToSteem(vesting_payout);
+	}
+	return true;
+}
+	
+	
 // ---------- Price ----------
 function getPrice(markets) {
 	return new Promise((resolve, reject) => {
@@ -389,6 +435,7 @@ function clickBtn(days){
 	document.getElementById("comment_benefactor_reward").innerText = "";
 	document.getElementById("transfer_in").innerText = "";
 	document.getElementById("transfer_out").innerText = "";
+	document.getElementById("donation").innerText = "";
 	document.getElementById("text").innerText = "";
 	
 	total_count = {};
@@ -401,9 +448,15 @@ function clickBtn(days){
 	total_transfer_sbd = {};
 	total_transfer_steem = {};
 	
+	//donation
+	total_count_donation = {};
+	total_sbd_donation = {};
+	total_steem_donation = {};
+	total_vesting_donation = {};
+	total_sp_donation = {};
+	
 
 	aaa(days).then(result => {
-		document.getElementById("text").innerText = 'processing...';
 		makeTable(result);
 	}).catch(err => {
 		document.getElementById("text").innerText = err;
