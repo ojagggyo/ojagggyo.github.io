@@ -276,11 +276,11 @@ async function aaa(days){
 			//donation
 			if(getReward_donation(ret[i])){
 				['donation'].forEach(function(op){
-					if(total_count[op] === void 0){
+					if(total_donation_count[op] === void 0){
 					}else{						
 						let s = op
-							+ steemAmountFormat(total_steem_donation[op], total_sbd_donation[op], total_sp_donation[op])
-							+ krwAmountFormat(0, total_sbd_donation[op], total_sp_donation[op], krwsteem, krwsbd)
+							+ steemAmountFormat(total_donation_steem[op], total_donation_sbd[op], total_donation_sp[op])
+							+ krwAmountFormat(0, total_donation_sbd[op], total_donation_sp[op], krwsteem, krwsbd)
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
