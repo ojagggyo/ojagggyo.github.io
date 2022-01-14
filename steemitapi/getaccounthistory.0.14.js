@@ -346,7 +346,7 @@ function getReward_donation(record){
 		total_sbd_donation[op] += sbd_donation;
 		total_steem_donation[op] += steem_donation;
 		total_vesting_donation[op] += vesting_donation;
-		total_sp_donation[op] += vestToSteem(vesting_payout);
+		total_sp_donation[op] += vestToSteem(vesting_donation);
 	}
 	return true;
 }
