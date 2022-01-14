@@ -278,8 +278,7 @@ async function aaa(days){
 				['donation'].forEach(function(op){
 					if(total_donation_count[op] === void 0){
 					}else{						
-						let s = op
-							+ steemAmountFormat(total_donation_steem[op], total_donation_sbd[op], total_donation_sp[op])
+						let s = steemAmountFormat(total_donation_steem[op], total_donation_sbd[op], total_donation_sp[op])
 							+ krwAmountFormat(0, total_donation_sbd[op], total_donation_sp[op], krwsteem, krwsbd)
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
