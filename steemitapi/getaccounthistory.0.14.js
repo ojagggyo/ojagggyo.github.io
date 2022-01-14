@@ -309,44 +309,44 @@ function getReward(record){
 	
 
 //Donation
-let total_count_donation = {};
-let total_sbd_donation = {};
-let total_steem_donation = {};
-let total_vesting_donation = {};
-let total_sp_donation = {};
+let total_donation_count = {};
+let total_donation_sbd = {};
+let total_donation_steem = {};
+let total_donation_vesting = {};
+let total_donation_sp = {};
 function getReward_donation(record){
 	const username = document.getElementById("username").value
-	let sbd_donation = 0;
-	let steem_donation = 0;
-	let vesting_donation = 0;
+	let sbd = 0;
+	let steem = 0;
+	let vesting = 0;
 	let op = record[1].op[0];
 	if(op == "comment_benefactor_reward" && record[1].op[1].benefactor != username){//Donation
 		op = "donation";
-		sbd_donation = parseFloat(record[1].op[1].sbd_payout);
-		steem_donation = parseFloat(record[1].op[1].steem_payout);
-		vesting_donation = parseFloat(record[1].op[1].vesting_payout);
+		sbd = parseFloat(record[1].op[1].sbd_payout);
+		steem = parseFloat(record[1].op[1].steem_payout);
+		vesting = parseFloat(record[1].op[1].vesting_payout);
 	}else {
 		return false;
 	}
 	
 	//vest Steem変換
-	total_sp_donation[op] = steem.formatter.vestToSteem(
-			total_vesting_donation[op], 
+	total_donation_sp[op] = steem.formatter.vestToSteem(
+			total_donation_vesting[op], 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
 	
-	if(total_count_donation[op] === void 0){
-		total_count_donation[op] = 1;
-		total_sbd_donation[op] = sbd_donation;
-		total_steem_donation[op] = steem_donation;
-		total_vesting_donation[op] = vesting_donation;
-		total_sp_donation[op] = vestToSteem(vesting_donation);
+	if(total_donation_count[op] === void 0){
+		total_donation_count[op] = 1;
+		total_donation_sbd[op] = sbd;
+		total_donation_steem[op] = steem;
+		total_donation_vesting[op] = vesting;
+		total_donation_sp[op] = vestToSteem(vesting);
 	}else{
-		total_count_donation[op] += 1;
-		total_sbd_donation[op] += sbd_donation;
-		total_steem_donation[op] += steem_donation;
-		total_vesting_donation[op] += vesting_donation;
-		total_sp_donation[op] += vestToSteem(vesting_donation);
+		total_donation_count[op] += 1;
+		total_donation_sbd[op] += sbd;
+		total_donation_steem[op] += steem;
+		total_donation_vesting[op] += vesting;
+		total_donation_sp[op] += vestToSteem(vesting);
 	}
 	return true;
 }
@@ -438,22 +438,24 @@ function clickBtn(days){
 	document.getElementById("donation").innerText = "";
 	document.getElementById("text").innerText = "";
 	
+	//payout
 	total_count = {};
 	total_sbd_payout = {};
 	total_steem_payout = {};
 	total_vesting_payout = {};
 	total_sp_payout = {};
 	
+	//transfer
 	total_transfer_count = {};
 	total_transfer_sbd = {};
 	total_transfer_steem = {};
 	
 	//donation
-	total_count_donation = {};
-	total_sbd_donation = {};
-	total_steem_donation = {};
-	total_vesting_donation = {};
-	total_sp_donation = {};
+	total_donation_count = {};
+	total_donation_sbd = {};
+	total_donation_steem = {};
+	total_donation_vesting = {};
+	total_donation_sp = {};
 	
 
 	aaa(days).then(result => {
