@@ -264,8 +264,23 @@ async function aaa(days){
 					}else{						
 						let s = 
 						    (op == "author_reward" ? "author: " : (op == "curation_reward" ? "curation: " : "comment benefactor: "))
-							+ steemAmountFormat(total_transfer_steem[op], total_sbd_payout[op], total_sp_payout[op])
+							+ steemAmountFormat(total_steem_payout[op], total_sbd_payout[op], total_sp_payout[op])
 							+ krwAmountFormat(0, total_sbd_payout[op], total_sp_payout[op], krwsteem, krwsbd)
+							+ '<br/>'
+						document.getElementById(op).innerHTML = s;
+					}
+				});
+			}
+			
+			
+			//donation
+			if(getReward_donation(ret[i])){
+				['donation'].forEach(function(op){
+					if(total_count[op] === void 0){
+					}else{						
+						let s = op
+							+ steemAmountFormat(total_steem_donation[op], total_sbd_donation[op], total_sp_donation[op])
+							+ krwAmountFormat(0, total_sbd_donation[op], total_sp_donation[op], krwsteem, krwsbd)
 							+ '<br/>'
 						document.getElementById(op).innerHTML = s;
 					}
