@@ -330,7 +330,7 @@ function getReward_donation(record){
 	}
 	
 	//vest Steem変換
-	total_donation_sp[op] = steem.formatter.vestToSteem(
+	total_donation_sp[op] = window.steem.formatter.vestToSteem(
 			total_donation_vesting[op], 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
