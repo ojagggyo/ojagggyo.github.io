@@ -318,12 +318,12 @@ async function aaa(days){
 			}
 			
 			let timestamp = new Date(ret[i][1].timestamp + "z");
-			let now = new Date();
+
 			
 			//let timestamp = new Date(ret[i][1].timestamp);
 			//timestamp.setHours(timestamp.getHours() + 9);
 			
-			var termDay = (now - timestamp) / 86400000;
+			let termDay = (now - timestamp) / 86400000;
 
 			document.getElementById("progress").innerText = timestamp.toLocaleString() + ' to now' + '(' + termDay + ')';
 		}
