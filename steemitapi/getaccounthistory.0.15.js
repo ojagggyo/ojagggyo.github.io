@@ -14,7 +14,7 @@ function donokuraimae(date){
 }
 
 function vestToSteem(vest){
-	return  steem.formatter.vestToSteem(
+	return  window.steem.formatter.vestToSteem(
 		vest, 
 		globalProperties.total_vesting_shares, 
 		globalProperties.total_vesting_fund_steem)
@@ -285,11 +285,13 @@ function getReward(record){
 		return false;
 	}
 	
+	/* 不要？
 	//vest Steem変換
-	total_sp_payout[op] = steem.formatter.vestToSteem(
+	total_sp_payout[op] = window.steem.formatter.vestToSteem(
 			total_vesting_payout[op], 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
+	*/
 	
 	if(total_count[op] === void 0){
 		total_count[op] = 1;
@@ -307,7 +309,6 @@ function getReward(record){
 	return true;
 }
 	
-
 //Donation
 let total_donation_count = {};
 let total_donation_sbd = {};
@@ -329,11 +330,13 @@ function getReward_donation(record){
 		return false;
 	}
 	
+	/* 不要？
 	//vest Steem変換
 	total_donation_sp[op] = window.steem.formatter.vestToSteem(
 			total_donation_vesting[op], 
 			globalProperties.total_vesting_shares, 
 			globalProperties.total_vesting_fund_steem)
+	*/
 	
 	if(total_donation_count[op] === void 0){
 		total_donation_count[op] = 1;
@@ -347,6 +350,41 @@ function getReward_donation(record){
 		total_donation_steem[op] += steem;
 		total_donation_vesting[op] += vesting;
 		total_donation_sp[op] += vestToSteem(vesting);
+	}
+	return true;
+}
+
+//Power up/down
+let total_powerupdown_count = {};
+let total_powerupdown_steem = {};
+let total_powerupdown_vesting = {};
+let total_powerupdown_sp = {};
+function getReward_powerupdown(record){
+	//const username = document.getElementById("username").value
+	//let sbd = 0;
+	let steem = 0;
+	let vesting = 0;
+	let op = record[1].op[0];
+	if(op == "withdraw_vesting"){//Power up
+		op = "power_up";
+		vesting = parseFloat(record[1].op[1].vesting_shares);		
+	}else if(op == "fill_vesting_withdraw"){//Power down
+		op = "power_down";
+		steem = parseFloat(record[1].op[1].deposited);
+	}else {
+		return false;
+	}
+	
+	if(total_powerupdown_count[op] === void 0){
+		total_powerupdown_count[op] = 1;
+		total_powerupdown_steem[op] = steem;
+		total_powerupdown_vesting[op] = vesting;
+		total_powerupdown_sp[op] = vestToSteem(vesting);
+	}else{
+		total_powerupdown_count[op] += 1;
+		total_powerupdown_steem[op] += steem;
+		total_powerupdown_vesting[op] += vesting;
+		total_powerupdown_sp[op] += vestToSteem(vesting);
 	}
 	return true;
 }
@@ -436,6 +474,8 @@ function clickBtn(days){
 	document.getElementById("transfer_in").innerText = "";
 	document.getElementById("transfer_out").innerText = "";
 	document.getElementById("donation").innerText = "";
+	document.getElementById("power_up").innerText = "";
+	document.getElementById("power_down").innerText = "";
 	document.getElementById("text").innerText = "";
 	
 	//payout
@@ -457,6 +497,11 @@ function clickBtn(days){
 	total_donation_vesting = {};
 	total_donation_sp = {};
 	
+	//power up/down
+	total_powerupdown_count = {};
+	total_powerupdown_steem = {};
+	total_powerupdown_vesting = {};
+	total_powerupdown_sp = {};
 
 	aaa(days).then(result => {
 		makeTable(result);
