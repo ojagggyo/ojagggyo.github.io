@@ -289,7 +289,7 @@ async function aaa(days){
 			//power up/down
 			if(getReward_powerupdown(ret[i])){
 				['power_up', 'power_down'].forEach(function(op){
-					if(total_count[op] === void 0){
+					if(total_powerupdown_count[op] === void 0){
 					}else{						
 						let s = 
 						    (op == "power_up" ? "power up: " : "power down: ")
