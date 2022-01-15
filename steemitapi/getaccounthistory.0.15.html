@@ -221,7 +221,7 @@ async function aaa(days){
 	krwbtc = await getPrice('KRW-BTC');
 	document.getElementById('price').innerHTML = 
 		'<a class=right>STEEM ' + (krwsteem == 0 ? "---" : krwsteem) + ' won</a>' 
-		+ '<br/><a class=right>SBD ' + (krwsbd == 0 ? "---" : krwsbd) + ' won</a>';
+		+ '<br/><a class=right>SBD ' + (krwsbd == 0 ? "---" : krwsbd) + ' won</a>'
 		+ '<br/><a class=right>BTC ' + (krwbtc == 0 ? "---" : krwbtc) + ' won</a>';
 	//
 	let username = document.getElementById("username").value;
