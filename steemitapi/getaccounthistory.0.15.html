@@ -263,7 +263,7 @@ async function aaa(days){
 					if(total_count[op] === void 0){
 					}else{						
 						let s = 
-						    (op == "author_reward" ? "author: " : (op == "curation_reward" ? "curation: " : "comment benefactor: "))
+						    (op == "author_reward" ? "Author: " : (op == "curation_reward" ? "Curation: " : "Benefactor: "))
 							+ steemAmountFormat(total_steem_payout[op], total_sbd_payout[op], total_sp_payout[op])
 							+ krwAmountFormat(0, total_sbd_payout[op], total_sp_payout[op], krwsteem, krwsbd)
 							+ '<br/>'
@@ -292,7 +292,7 @@ async function aaa(days){
 					if(total_powerupdown_count[op] === void 0){
 					}else{						
 						let s = 
-						    (op == "power_up" ? "power up: " : "power down: ")
+						    (op == "power_up" ? "Power up: " : "Power down: ")
 							+ steemAmountFormat(total_powerupdown_steem[op], 0, total_powerupdown_sp[op])
 							+ krwAmountFormat(total_powerupdown_steem[op], 0, total_powerupdown_sp[op], krwsteem, krwsbd)
 							+ '<br/>'
@@ -308,7 +308,7 @@ async function aaa(days){
 					if(total_transfer_count[op] === void 0){
 					}else{						
 						let s = 
-						    (op == "transfer_in" ? "in: " : "out: ")
+						    (op == "transfer_in" ? "In: " : "Out: ")
 							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0)
 							+ krwAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0, krwsteem, krwsbd)
 							+ '<br/>'
