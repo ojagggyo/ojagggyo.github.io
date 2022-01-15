@@ -308,7 +308,7 @@ async function aaa(days){
 					if(total_transfer_count[op] === void 0){
 					}else{						
 						let s = 
-						    (op == "transfer_in" ? "In: " : "Out: ")
+						    (op == "transfer_in" ? "Incoming: " : "Outgoing: ")
 							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0)
 							+ krwAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0, krwsteem, krwsbd)
 							+ '<br/>'
