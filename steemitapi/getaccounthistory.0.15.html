@@ -213,16 +213,22 @@ function makeTable(records){
 let globalProperties;
 let krwsteem;
 let krwsbd;
+let krwtrx;
 let krwbtc;
+let krweth;
 async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
+	krwtrx = await getPrice('KRW-TRX');
 	krwbtc = await getPrice('KRW-BTC');
+	krweth = await getPrice('KRW-ETH');
 	document.getElementById('price').innerHTML = 
 		'<a class=right>STEEM ' + (krwsteem == 0 ? "---" : krwsteem) + ' won</a>' 
 		+ '<br/><a class=right>SBD ' + (krwsbd == 0 ? "---" : krwsbd) + ' won</a>'
-		+ '<br/><a class=right>BTC ' + (krwbtc == 0 ? "---" : krwbtc) + ' won</a>';
+		+ '<br/><a class=right>SBD ' + (krwtrx == 0 ? "---" : krwtrx) + ' won</a>'
+		+ '<br/><a class=right>BTC ' + (krwbtc == 0 ? "---" : krwbtc) + ' won</a>'
+		+ '<br/><a class=right>ETH ' + (krweth == 0 ? "---" : krweth) + ' won</a>';
 	//
 	let username = document.getElementById("username").value;
 	effectivepower(username);
