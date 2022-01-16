@@ -119,27 +119,6 @@ function effectivepower(username,id1, id2, id3){
 		id3 = "effectivepower";
 	}
 	getEffectivePower(username).then(result => {
-		document.getElementById("effectivepowervalue").text = 
-			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
-		document.getElementById("effectivepowerdetail").text = 
-			'('
-			+ steem.formatter.numberWithCommas((result.sp).toFixed(0))
-			+ ' + '
-			+ steem.formatter.numberWithCommas((result.received_sp).toFixed(0))
-			+ ' - ' 
-			+ steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0))
-			+ ')';
-		if(id3){
-			document.getElementById("effectivepower").max = result.sp + result.received_sp;
-			document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
-		}
-	}).catch(err => {
-		console.log(err);
-	});	
-}
-/*
-function effectivepower(username, id1, id2){
-	getEffectivePower(username).then(result => {
 		document.getElementById(id1).text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
 		document.getElementById(id2).text = 
@@ -150,11 +129,15 @@ function effectivepower(username, id1, id2){
 			+ ' - ' 
 			+ steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0))
 			+ ')';
+		if(id3){
+			document.getElementById(id3).max = result.sp + result.received_sp;
+			document.getElementById(id3).value = result.sp + result.received_sp - result.delegated_sp;
+		}
 	}).catch(err => {
 		console.log(err);
 	});	
 }
-*/
+
 
 	
 function getVotingPower(username) {
