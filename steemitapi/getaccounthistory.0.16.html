@@ -68,7 +68,9 @@ function getPostingJsonMetadata(username) {
 }
  function postingJsonMetadataAbout(username, id){
 	getPostingJsonMetadata(username).then(result => {
-		document.getElementById(id).text = result.about;
+		if(result.profile.about){
+			document.getElementById(id).text = result.profile.about;
+		}
 	}).catch(err => {
 		console.log(err);
 	});	
