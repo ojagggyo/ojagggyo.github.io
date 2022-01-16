@@ -56,6 +56,26 @@ function userlink(){
 }
 
 	
+// ---------- ----------	
+function getPostingJsonMetadata(username) {
+    return new Promise((resolve, reject) => {
+        steem.api.getAccounts([username], function(err, response) {
+		if (err) reject(err);
+		const posting_json_metadata  = response[0].posting_json_metadata ;
+		resolve(JSON.stringify(posting_json_metadata));
+        });          
+    });
+}
+ function postingJsonMetadataAbout(username, id){
+	getPostingJsonMetadata(username).then(result => {
+		document.getElementById(id).text = result.about;
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+
+	
+	
 // ---------- ----------
 function makeLine(record){
 	let indenticon_type = 'small';//small, large
@@ -412,6 +432,7 @@ let s = "<div style='background-color: white; padding: 10px; width: 300;'>"
 	+ "<image src=https://steemitimages.com/u/" + username + "/avatar style='float: left; margin: 4px;'/>"
 	+ "<a style='font-size: xx-large; margin: 4px;'>" + username + "</a>"
 	+ "<br/>"
+	+ "<a id=tooltip_about></a>"
 	+ "<table style='background-color: white;clear: left;'>"
 	+ "<tr><td>Reputation</td><td><a id=tooltip_rep></a></td></tr>"
 	+ "<tr><td>Effective Power</td><td><a id=tooltip_ep1></a> <a id=tooltip_ep2></a></td></tr>"
@@ -423,6 +444,7 @@ tooltip.style.display = "block";
 reputation(username, "tooltip_rep");
 effectivepower(username, "tooltip_ep1", "tooltip_ep2");
 votingpower(username, "tooltip_vp");
+postingJsonMetadataAbout(username, "tooltip_about");
 }
 function moveTooltip(e) {
 }
