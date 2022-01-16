@@ -340,7 +340,6 @@ function showTooltip(e) {
 	let tooltip = document.getElementById("tooltip");
 	tooltip.innerHTML = title.split('\n').join('<hr/>');
 	tooltip.style.display = "block";
-	//tooltip.style.left = e.pageX + 10 + 'px';
 	tooltip.style.top = e.y + 10 + 'px';
 	
 	let document_w = document.documentElement.clientWidth
@@ -437,7 +436,7 @@ window.onload = function() {
 #tooltip {
 	background: red;
 	padding: 10px;
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+	/*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
 #fixed {
 	position: fixed; /* 要素の位置を固定する */
