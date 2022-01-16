@@ -74,7 +74,8 @@ function makeLine(record){
 			+ (weight >= 0 ? (voter == username ? '' : emoji_upvote) : emoji_downvote)
 			+ ' <a href=https://steemit.com/'
 			+ '@' + author + '/' + permlink
-			+ '>' 
+			+ ' onmousemove=showTooltip() onmouseout=showTooltip()'"
+			+ '>'
 			+ ellipsis('@' + author + '/' + permlink) 
 			+ '</a>' 
 			+ ' (' + weight/100 + '%)';
@@ -392,6 +393,35 @@ td  {
 	padding: 4px;
 }
 </style>
+<style>
+function showTooltip(e) {
+	let title = e.target.getAttribute('title');	
+	let tooltip = document.getElementById("tooltip");
+	/*
+	tooltip.innerHTML = title.split('\n').join('<hr/>');
+	*/
+	
+	tooltip.style.display = "block";
+	tooltip.style.top = e.y + 10 + 'px';
+
+	/*
+	let document_w = document.documentElement.clientWidth
+	let tooltip_w = parseInt(window.getComputedStyle(tooltip).width);
+	let tooltip_h = parseInt(window.getComputedStyle(tooltip).height);
+	let left = 0;
+	if(e.pageX + 10 + tooltip_w < document_w - 20){
+		left = e.pageX + 10;
+	}else if(e.pageX - 10 - tooltip_w > 0){
+		left = e.pageX - 10 - tooltip_w;
+	}
+	tooltip.style.left = left + 'px';
+	*/
+}
+function hideTooltip(e) {
+  var tooltip = document.getElementById("tooltip");
+  tooltip.style.display = "none";
+}
+</style>
 </head>
 <body>
 	<!--<image src="favicon_getaccounthistory.ico">-->
@@ -450,5 +480,6 @@ td  {
 	<br/><b>History</b><br/>
 	<span id="text"></span>
 	</form>
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 </body>
 </html>
