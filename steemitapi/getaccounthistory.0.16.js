@@ -112,11 +112,17 @@ async function getEffectivePower(username){
 	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
 }
 
-function effectivepower(username, id1, id2, id3){
+function effectivepower(username){
+	let id1;
+	let id2;
+	let id3;
 	if(arguments.length == 1){
 		id1 = "effectivepowervalue";
 		id2 = "effectivepowerdetail";
 		id3 = "effectivepower";
+	}else arguments.length == 3{
+		id1 = arguments[1];
+		id2 = arguments[2];
 	}
 	getEffectivePower(username).then(result => {
 		document.getElementById("effectivepowervalue").text = 
