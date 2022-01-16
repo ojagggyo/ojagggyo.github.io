@@ -111,8 +111,13 @@ async function getEffectivePower(username){
 	sp2 = delegated_vesting_shares * k;//委任したSP
 	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
 }
-	
-function effectivepower(username){
+
+function effectivepower(username, id1, id2, id3){
+	if(arguments.length == 1){
+		id1 = "effectivepowervalue";
+		id2 = "effectivepowerdetail";
+		id3 = "effectivepower";
+	}
 	getEffectivePower(username).then(result => {
 		document.getElementById("effectivepowervalue").text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
@@ -124,12 +129,15 @@ function effectivepower(username){
 			+ ' - ' 
 			+ steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0))
 			+ ')';
-		document.getElementById("effectivepower").max = result.sp + result.received_sp;
-		document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
+		if(id3){
+			document.getElementById("effectivepower").max = result.sp + result.received_sp;
+			document.getElementById("effectivepower").value = result.sp + result.received_sp - result.delegated_sp;
+		}
 	}).catch(err => {
 		console.log(err);
 	});	
 }
+/*
 function effectivepower(username, id1, id2){
 	getEffectivePower(username).then(result => {
 		document.getElementById(id1).text = 
@@ -146,6 +154,7 @@ function effectivepower(username, id1, id2){
 		console.log(err);
 	});	
 }
+*/
 
 	
 function getVotingPower(username) {
