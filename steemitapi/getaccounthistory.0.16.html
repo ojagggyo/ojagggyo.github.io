@@ -402,10 +402,10 @@ td  {
 <script>
 function showTooltip(e) {
 	let tooltip = document.getElementById("tooltip");
-	tooltip.innerHTML = e.y;
+	tooltip.innerHTML = e.y + "<hr/>ああああ";
 	tooltip.style.display = "block";
-	tooltip.style.top = e.y + 10 + 'px';
-	tooltip.style.left = e.x + 10 + 'px';
+	tooltip.style.top = e.pageY + 10 + 'px';
+	tooltip.style.left = e.pageX + 10 + 'px';
 }
 function hideTooltip(e) {
   var tooltip = document.getElementById("tooltip");
