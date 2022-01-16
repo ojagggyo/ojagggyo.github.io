@@ -151,13 +151,17 @@ function effectivepower(username, id1, id2){
 function getVotingPower(username) {
     return new Promise((resolve, reject) => {
         steem.api.getAccounts([username], function(err, response) {
-            if (err) reject(err);
+		if (err) reject(err);
 		const voting_power  = response[0].voting_power + (10000 * ((new Date - new Date(response[0].last_vote_time + "Z")) / 1000) / 432000);
 		resolve(voting_power / 100);
         });          
     });
 }
-	
+
+
+
+
+
 function votingpower(username){
 	getVotingPower(username).then(result => {
 		document.getElementById("votingpowervalue").text = result.toFixed(0) + ' %';
@@ -477,7 +481,11 @@ function getTransferAmount(record){
 	}
 	return true;
 }
-	
+
+
+//
+
+
 
 // ---------- ----------
 function clickBtn(days){
