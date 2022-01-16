@@ -406,7 +406,7 @@ let tooltip = document.getElementById("tooltip");
 let username = e.target.getAttribute('data-username');
 tooltip.style.top = e.pageY + 10 + 'px';
 tooltip.style.left = e.pageX + 10 + 'px';
-let s = "<div style='background-color: #ff0000;width: 300px'><image src=https://steemitimages.com/u/" + username + "/avatar/small style='float: left; margin: 4px;'/><p>あああ<br/>いいいいいいいいいい</p><table style='background-color: #00ff00;clear: left;'><tr><td>Reputation</td><td>xx</td></tr><tr><td>Effective Power</td><td>xxxx SP</td></tr><tr><td>Voting Power</td><td>xx %</td></tr></table></div>" 
+let s = "<div style='background-color: #ff0000;width: 300px'><image src=https://steemitimages.com/u/" + username + "/avatar style='float: left; margin: 4px;'/><p>あああ<br/>いいいいいいいいいい</p><table style='background-color: #00ff00;clear: left;'><tr><td>Reputation</td><td>xx</td></tr><tr><td>Effective Power</td><td>xxxx SP</td></tr><tr><td>Voting Power</td><td>xx %</td></tr></table></div>" 
 tooltip.innerHTML = s;
 tooltip.style.display = "block";
 }
