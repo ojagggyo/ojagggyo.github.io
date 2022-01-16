@@ -1,6 +1,3 @@
-
-
-
 function donokuraimae(date){
 	date1 = new Date(date);
 	date1.setHours(date1.getHours() + 9);
@@ -115,7 +112,7 @@ async function getEffectivePower(username){
 	return {sp:sp, received_sp: sp1, delegated_sp: sp2};
 }
 	
- function effectivepower(username){
+function effectivepower(username){
 	getEffectivePower(username).then(result => {
 		document.getElementById("effectivepowervalue").text = 
 			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
@@ -133,6 +130,23 @@ async function getEffectivePower(username){
 		console.log(err);
 	});	
 }
+function effectivepower(username, id1, id2){
+	getEffectivePower(username).then(result => {
+		document.getElementById(id1).text = 
+			steem.formatter.numberWithCommas((result.sp + result.received_sp - result.delegated_sp).toFixed(0)) + " SP" ;
+		document.getElementById(id2).text = 
+			'('
+			+ steem.formatter.numberWithCommas((result.sp).toFixed(0))
+			+ ' + '
+			+ steem.formatter.numberWithCommas((result.received_sp).toFixed(0))
+			+ ' - ' 
+			+ steem.formatter.numberWithCommas((result.delegated_sp).toFixed(0))
+			+ ')';
+	}).catch(err => {
+		console.log(err);
+	});	
+}
+
 	
 function getVotingPower(username) {
     return new Promise((resolve, reject) => {
