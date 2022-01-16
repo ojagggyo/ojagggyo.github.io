@@ -213,9 +213,9 @@ async function getReputation(username){
 	});
 }
 
- function reputation(username){
+ function reputation(username, id){
 	getReputation(username).then(result => {
-		document.getElementById("reputation").text = result.toFixed(3);
+		document.getElementById(id).text = result.toFixed(3);
 	}).catch(err => {
 		console.log(err);
 	});	
