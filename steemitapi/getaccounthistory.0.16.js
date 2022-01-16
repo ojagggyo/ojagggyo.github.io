@@ -150,26 +150,20 @@ function getVotingPower(username) {
     });
 }
 
-
-
-
-
-function votingpower(username){
+function votingpower(username, id1, id2){
+	if(arguments.length == 1){
+		id1 = "votingpowervalue";
+		id2 = "votingpower";
+	}
 	getVotingPower(username).then(result => {
-		document.getElementById("votingpowervalue").text = result.toFixed(0) + ' %';
-		document.getElementById("votingpower").value = result;
+		document.getElementById(id1).text = result.toFixed(0) + ' %';
+		if(id2){
+			document.getElementById(id2).value = result;
+		}
 	}).catch(err => {
 		console.log(err);
 	});
 }
-function votingpower(username, id){
-	getVotingPower(username).then(result => {
-		document.getElementById(id).text = result.toFixed(0) + ' %';
-	}).catch(err => {
-		console.log(err);
-	});
-}
-
 
 	
 function steemAmountFormat(steem, sbd, sp) {
