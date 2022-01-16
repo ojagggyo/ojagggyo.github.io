@@ -406,10 +406,6 @@ let tooltip = document.getElementById("tooltip");
 let username = e.target.getAttribute('data-username');
 	
 	
-	reputation(username, "tooltip_rep");
-	
-	
-	
 tooltip.style.top = e.pageY + 10 + 'px';
 tooltip.style.left = e.pageX + 10 + 'px';
 let s = "<div style='background-color: #ff0000;width: 300;'>"
@@ -425,6 +421,7 @@ let s = "<div style='background-color: #ff0000;width: 300;'>"
 	+ "</div>" 
 tooltip.innerHTML = s;
 tooltip.style.display = "block";
+reputation(username, "tooltip_rep");
 }
 function moveTooltip(e) {
 }
