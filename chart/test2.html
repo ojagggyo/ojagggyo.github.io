@@ -11,7 +11,7 @@ $(function() {
   getData.then(
     function(data) {
       console.log('取得内容:', data);
-      alert(data);
+      alert(data["name"]);
     },
     function(error) {
       console.log('エラー内容:', error);
