@@ -11,9 +11,11 @@ $(function() {
   getData.then(
     function(data) {
       console.log('取得内容:', data);
+      alert('取得内容:', data);
     },
     function(error) {
       console.log('エラー内容:', error);
+      alert('エラー内容:', error);
     }
   );
 });
