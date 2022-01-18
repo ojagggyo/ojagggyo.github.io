@@ -10,12 +10,12 @@ $(function() {
   });
   getData.then(
     function(data) {
-      console.log(data);
-      alert('取得内容:', data);
+      console.log('取得内容:', data);
+      alert(data);
     },
     function(error) {
-      console.log(error);
-      alert('エラー内容:', error);
+      console.log('エラー内容:', error);
+      alert(error);
     }
   );
 });
