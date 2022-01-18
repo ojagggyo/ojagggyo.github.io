@@ -10,11 +10,11 @@ $(function() {
   });
   getData.then(
     function(data) {
-      console.log('取得内容:', data);
+      console.log(data);
       alert('取得内容:', data);
     },
     function(error) {
-      console.log('エラー内容:', error);
+      console.log(error);
       alert('エラー内容:', error);
     }
   );
