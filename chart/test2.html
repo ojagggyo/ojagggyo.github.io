@@ -1,0 +1,23 @@
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+$(function() {
+  const getData = $.ajax({
+    url: 'https://share.streamlit.io/ojagggyo/streamlit/main.py',
+    //url: 'https://ojagggyo.github.io/chart/test2.dat',
+    //url: 'http://127.0.0.1:5000/',
+    dataType: 'jsonp',
+    jsonpCallback: 'callback'
+  });
+  getData.then(
+    function(data) {
+      console.log('取得内容:', data);
+      alert(data["name"]);
+    },
+    function(error) {
+      console.log('エラー内容:', error);
+      alert(error);
+    }
+  );
+});
+</script>
