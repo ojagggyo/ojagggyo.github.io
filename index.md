@@ -154,8 +154,8 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 |名前||
 |---|---|
-|アカウントヒストリー表示|[🚀](https://ojagggyo.github.io/steemitapi/getaccounthistory.0.12.html)|
-|ブログ表示|[🚀](https://ojagggyo.github.io/steemitapi/getblog.0.5.html)|
+|アカウントヒストリー表示|[🚀](https://ojagggyo.github.io/steemitapi/getaccounthistory.0.16.html)|
+|ブログ表示|[🚀](https://ojagggyo.github.io/steemitapi/getblog.0.10.html)|
 
 
 
@@ -164,5 +164,3 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script src="./index.js"></script>
-
-
