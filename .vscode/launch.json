@@ -4,15 +4,25 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:52330/steemitapi/benefactor.0.3.html",
+            "webRoot": "${workspaceFolder}"
+        }
+
+        
+        
         
 
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:52330/chart/omicron.html",
-            "webRoot": "${workspaceFolder}"
-        },
+        // {
+        //     "type": "chrome",
+        //     "request": "launch",
+        //     "name": "Launch Chrome",
+        //     "url": "http://localhost:52330/chart/omicron.html",
+        //     "webRoot": "${workspaceFolder}"
+        // },
 
     ]
 }
