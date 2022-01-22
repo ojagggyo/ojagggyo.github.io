@@ -22,7 +22,6 @@ let krwsbd;
 function getPrice(markets) {
 	return new Promise((resolve, reject) => {
 		let url = "https://api.upbit.com/v1/ticker?markets=" + markets;
-		//$.getJSON(url, (data) => {
 		var p = $.getJSON(url, function(data) {
 			resolve(data[0].trade_price);
 		})
@@ -31,7 +30,6 @@ function getPrice(markets) {
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) { 
 			console.log('getJSON request failed! ' + textStatus);
-			//reject('getJSON request failed! ' + textStatus);
 			resolve(0);
 		})
 		.always(function() { 
@@ -188,8 +186,7 @@ async function aaa(days){
 
 
 function clickBtn(days){
-	aaa(days).then(result => {		
-		//makeTable(_payout);
+	aaa(days).then(result => {
 		MakeChartTable();
 	}).catch(err => {
 		console.log(err);
