@@ -15,7 +15,6 @@ _steem_payout = {};
 _sbd_payout_count = {};
 
 //v.0.3
-_payout = [];
 _data = [];
 
 //v.0.3
@@ -84,7 +83,7 @@ function MakeChartTable(){
 		let total = 0;
 		dates.forEach(function (key) {
 			if(_data[key][key2] === void 0){
-				_data[key][key2] = 0;
+				_data[key][key2] = total;
 			}else{
 				_data[key][key2] += total;
 				total = _data[key][key2];
@@ -98,11 +97,11 @@ function MakeChartTable(){
 	let header = "Date"
 	authers.forEach(function (key2) {
 		header += "," + key2;
-		lines.push(header);
 	});
+	lines.push(header);
 	//console.log(header);
 	dates.forEach(function (key) {
-		let line = key;
+		let line = "\""+key+"\"";
 		authers.forEach(function (key2) {
 			line += "," + _data[key][key2];
 		});
@@ -110,7 +109,7 @@ function MakeChartTable(){
 		lines.push(line);
 	});
 
-	console.log(lines.join("\n"));	
+	//console.log(lines.join("\n"));	
 	document.getElementById("text").innerHTML = lines.join("<br/>");
 }
 		
@@ -155,7 +154,8 @@ async function aaa(days){
 	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
 	krwsteem = await getPrice('KRW-STEEM');
 	krwsbd = await getPrice('KRW-SBD');
-	
+	_data = [];
+
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	document.getElementById("total").innerHTML = '<b></b>';
 	document.getElementById("progress").innerText = '';
@@ -165,6 +165,7 @@ async function aaa(days){
 	_vesting_payout = {};
 	_steem_payout = {};
 	_payout = [];
+	
 	
 	
 	let out = [];
@@ -208,10 +209,10 @@ async function aaa(days){
 				+ steem_payout * krwsteem
 			let date = new Date(ret[i][1].timestamp+"z")
 			dateString = date.getFullYear()
-				+"/"
-				+(''+date.getMonth()+1).padStart(2, '0')
-				+"/"
-				+(''+date.getDate()).padStart(2, '0');
+				+ "/"
+				+ (date.getMonth()+1).toFixed().padStart(2, '0')
+				+ "/"
+				+ date.getDate().toFixed().padStart(2, '0');
 			if(_data[dateString] === void 0){
 				_data[dateString]={};
 			}			
@@ -281,7 +282,7 @@ async function aaa(days){
 
 function clickBtn(days){
 	aaa(days).then(result => {		
-		makeTable(_payout);
+		//makeTable(_payout);
 		MakeChartTable();
 	}).catch(err => {
 		console.log(err);
