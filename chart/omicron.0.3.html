@@ -8,11 +8,6 @@
 <!--<link rel="icon" href="favicon.ico" id="favicon">-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
- 
-  
-  
-  
-  
 <script>
 let myChart;
 function clickBtn(days) {
@@ -135,6 +130,14 @@ function pcr2_read(){
 window.onload = function() {
 	pcr1_read();
 	pcr2_read();
+	
+	
+	const cvs = document.getElementById("myChart");
+	cvs.style.height = (window.innerHeight - 50)/2 + "px";
+	
+	const cvs2 = document.getElementById("myChart2");
+	cvs2.style.height = (window.innerHeight - 50)/2 + "px";
+	
 }
   
 </script>
