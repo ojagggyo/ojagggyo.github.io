@@ -99,19 +99,23 @@ function clickBtn2(days) {
 
   
   
-function abc(arr){
-	
+function pcr1(arr){
 let s = "";
-	arr['csv'].forEach(function(elem, index) {
-		s += elem.join(",") + "\n";
-	});
-	
-  //alert(s);
-//document.getElementById('text1').value = req1.responseText.replace(/\s+$/,"");
-	document.getElementById('text1').value = s;
+arr['csv'].forEach(function(elem, index) {
+s += elem.join(",") + "\n";
+});
+document.getElementById('text1').value = s;
 clickBtn(0);	
 }
-  
+
+function pcr2(arr){
+let s = "";
+arr['csv'].forEach(function(elem, index) {
+s += elem.join(",") + "\n";
+});
+document.getElementById('text2').value = s;
+clickBtn(0);	
+} 
 
  
 window.onload = function() {
@@ -125,6 +129,7 @@ window.onload = function() {
 		clickBtn(0);	
 	}
 */
+/*
 	var req2 = new XMLHttpRequest();
 	req2.open("get", "./omicron_2.csv", true);	// アクセスするファイルを指定
 	req2.send(null);
@@ -132,6 +137,7 @@ window.onload = function() {
 		document.getElementById('text2').value = req2.responseText.replace(/\s+$/,"");
 		clickBtn2(0);
 	}
+*/
 	
 	
 	//document.getElementById('favicon').href = "favicon_omicron.ico";
