@@ -99,7 +99,13 @@ function clickBtn2(days) {
 
   
   
-function abc(s){
+function abc(arr){
+	
+let s = "";
+	arr.forEach(function(elem, index) {
+		s += elem.join("," );
+	});
+	
   alert(s);
 }
   
