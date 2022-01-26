@@ -100,10 +100,10 @@ function clickBtn2(days) {
   
   
 function pcr1_init(){
-  window.pcr1(arr){
+  window.pcr1 = function(arr){
     let s = "";
     arr['csv'].forEach(function(elem, index) {
-    s += elem.join(",") + "\n";
+    	s += elem.join(",") + "\n";
     });
     document.getElementById('text1').value = s;
     clickBtn(0);	
