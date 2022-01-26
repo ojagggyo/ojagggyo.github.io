@@ -103,17 +103,20 @@ function abc(arr){
 	
 let s = "";
 	arr['csv'].forEach(function(elem, index) {
-		s += elem.join("," );
+		s += elem.join(",") + "\n";
 	});
 	
-  alert(s);
+  //alert(s);
+//document.getElementById('text1').value = req1.responseText.replace(/\s+$/,"");
+	document.getElementById('text1').value = s;
+clickBtn(0);	
 }
   
 
  
 window.onload = function() {
   
- 
+ /*
 	var req1 = new XMLHttpRequest();
 	req1.open("get", "./omicron_1.csv", true);	// アクセスするファイルを指定
 	req1.send(null);
@@ -121,6 +124,7 @@ window.onload = function() {
 		document.getElementById('text1').value = req1.responseText.replace(/\s+$/,"");
 		clickBtn(0);	
 	}
+*/
 	var req2 = new XMLHttpRequest();
 	req2.open("get", "./omicron_2.csv", true);	// アクセスするファイルを指定
 	req2.send(null);
