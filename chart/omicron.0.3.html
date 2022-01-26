@@ -132,14 +132,16 @@ window.onload = function() {
 	pcr2_read();
 	
 	let height = (window.innerHeight - 100)/2;
+	let width = (window.innerWidth - 100)/2;
 	const cvs = document.getElementById("myChart");
 	//cvs.style.height = height + "px";
-	cvs.height = height;
+	//cvs.height = height;
+	cvs.width = width;
 	
 	const cvs2 = document.getElementById("myChart2");
 	//cvs2.style.height = height + "px";
-	cvs2.height = height;
-	
+	//cvs2.height = height;
+	cvs2.width = width;
 }
   
 </script>
