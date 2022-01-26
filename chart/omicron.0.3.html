@@ -99,8 +99,8 @@ function clickBtn2(days) {
 
   
   
-function pcr1_init(){
-  window.pcr1 = function(arr){
+function pcr1_read(){
+  window["pcr1"] = function(arr){
     let s = "";
     arr['csv'].forEach(function(elem, index) {
     	s += elem.join(",") + "\n";
@@ -115,18 +115,27 @@ function pcr1_init(){
   document.getElementById(sc.id).remove();
 }
 
-function pcr2(arr){
-let s = "";
-arr['csv'].forEach(function(elem, index) {
-s += elem.join(",") + "\n";
-});
-document.getElementById('text2').value = s;
-clickBtn2(0);
-} 
+function pcr2_read(){
+  window["pcr2] = function(arr){
+    let s = "";
+    arr['csv'].forEach(function(elem, index) {
+    	s += elem.join(",") + "\n";
+    });
+    document.getElementById('text2).value = s;
+    clickBtn2);	
+  }
+  let sc = document.createElement("script");
+  sc.id = "pcr2;
+  sc.src = "https://ojagggyo-1.herokuapp.com/pcr2php";
+  document.body.appendChild(sc);
+  document.getElementById(sc.id).remove();
+}
+	
 
  
 window.onload = function() {
-  pcr1_init();
+	pcr1_read();
+	pcr2_read();
 }
   
 </script>
