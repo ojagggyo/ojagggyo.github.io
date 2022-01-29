@@ -374,9 +374,12 @@ function getReward_powerupdown(record){
 	let steem = 0;
 	let vesting = 0;
 	let op = record[1].op[0];
-	if(op == "withdraw_vesting"){//Power up
+	//if(op == "withdraw_vesting"){//Power up
+	//	op = "power_up";
+	//	vesting = parseFloat(record[1].op[1].vesting_shares);
+	if(op == "transfer_to_vesting"){//Power up
 		op = "power_up";
-		vesting = parseFloat(record[1].op[1].vesting_shares);		
+		steem = parseFloat(record[1].op[1].amount);
 	}else if(op == "fill_vesting_withdraw"){//Power down
 		op = "power_down";
 		steem = parseFloat(record[1].op[1].deposited);
