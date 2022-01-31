@@ -160,7 +160,8 @@ function makeTable(records){
 		html +=　'<tr id=' + records[i].entry_id +'>';
 		html += '<td align=right>' + records[i].entry_id + '</td>';
 		html += '<td nowrap>' + formatDate(records[i].comment.created) + '</td>';
-		html += '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		//html += '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		html += '<td><a href=https://' + DOMAIN + "/" + records[i].comment.author + "/" + records[i].comment.permlink + ' target=_blank>' + records[i].comment.title + '</a></td>';
 		html += '<td align=right nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 	}
 	html += '</table>';
