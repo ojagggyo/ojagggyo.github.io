@@ -39,8 +39,12 @@ async function aaa(){
 		document.getElementById("progress").innerText = ' データなし';	
 		return [];
 	}
+	else if(ret.length == 1){
+		entry_id = ret[0].entry_id;
+	}else if(ret.length == 2){
+		entry_id = ret[1].entry_id;
+	}
 	
-	entry_id = ret[0].entry_id;
 	total = entry_id + 1;
 	document.getElementById("progress").innerText = ' 0 / ' + total;
 	
