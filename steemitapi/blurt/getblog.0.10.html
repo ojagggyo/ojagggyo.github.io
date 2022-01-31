@@ -70,7 +70,11 @@ async function aaa(){
 				if(entry_id != 0){
 					ret.pop();
 				} 
-								
+				
+				if(ret.length == 0){
+					return blogs;
+				}
+							
 				for(var i=ret.length-1;i>=0;i=i-1){
 					if(ret[i].comment.author != username){//Resteemなら
 						ret.splice(i,1);
