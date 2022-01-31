@@ -161,7 +161,7 @@ function makeTable(records){
 		html += '<td align=right>' + records[i].entry_id + '</td>';
 		html += '<td nowrap>' + formatDate(records[i].comment.created) + '</td>';
 		//html += '<td><a href=https://' + DOMAIN + records[i].comment.url + ' target=_blank>' + records[i].comment.title + '</a></td>';
-		html += '<td><a href=https://' + DOMAIN + "/" + records[i].comment.author + "/" + records[i].comment.permlink + ' target=_blank>' + records[i].comment.title + '</a></td>';
+		html += '<td><a href=https://' + DOMAIN + "/@" + records[i].comment.author + "/" + records[i].comment.permlink + ' target=_blank>' + records[i].comment.title + '</a></td>';
 		html += '<td align=right nowrap>' + donokuraimae(records[i].comment.created) + '</td>';
 	}
 	html += '</table>';
@@ -333,7 +333,7 @@ function draw2(records, index, cur) {
 			boxAndClick(svg, wx, y + p.y * size, size, size
 				    , COLORS[(lastP.count > 4) ? 4 : lastP.count]
 				    //, "https://" + DOMAIN + records[i].comment.url
-				    , "https://" + DOMAIN + "/" + records[i].comment.author + "/" + records[i].comment.permlink
+				    , "https://" + DOMAIN + "/@" + records[i].comment.author + "/" + records[i].comment.permlink
 				    , records[i].comment.title
 				    , (lastP.count > 1)//true:更新,false:追加
 				    , records[i].entry_id 
