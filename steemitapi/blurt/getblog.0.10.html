@@ -475,7 +475,14 @@ td  {
 <script>steem.api.setOptions({url: 'https://rpc.blurt.world'});DOMAIN = "blurt.blog";</script>
 <script>COLORS = ['#edf0e8', '#e9a898', '#c46340', '#a14e30', '#6e3921'];</script><!-- -->
 	
-</head>
+	<script>
+               steem.api.setOptions({ url: 'https://rpc.blurt.world', useAppbaseApi: true });
+                steem.config.set('address_prefix','BLT');
+                steem.config.set('chain_id','cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f');
+                steem.config.set('alternative_api_endpoints', ['https://blurtd.privex.io', 'https://api.blurt.blog']);
+</script>
+		
+		</head>
 <body>
 <form action="javascript:clickBtn();">
 <div id=fixed>
