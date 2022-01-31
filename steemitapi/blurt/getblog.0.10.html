@@ -35,7 +35,7 @@ async function aaa(){
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	//件数取得
 	let ret = await steem.api.getBlogAsync(username, entry_id, 1);
-	ret.splice(0,1);
+	ret.splice(0,ret.length/2);
 	
 	if(ret.length == 0){
 		document.getElementById("progress").innerText = ' データなし';	
@@ -64,7 +64,7 @@ async function aaa(){
 		while(true){
 			try{
 				ret = await steem.api.getBlogAsync(username, entry_id, limit);
-				ret.splice(0,limit);
+				ret.splice(0,ret.length/2);
 				
 				entry_id = ret[ret.length - 1].entry_id;
 				if(entry_id != 0){
