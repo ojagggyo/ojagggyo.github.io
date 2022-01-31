@@ -35,16 +35,14 @@ async function aaa(){
 	document.getElementById("text").innerHTML = '<tabel></tabel>';
 	//件数取得
 	let ret = await steem.api.getBlogAsync(username, entry_id, 1);
+	ret.splice(0,1);
+	
 	if(ret.length == 0){
 		document.getElementById("progress").innerText = ' データなし';	
 		return [];
 	}
-	else if(ret.length == 1){
-		entry_id = ret[0].entry_id;
-	}else if(ret.length == 2){
-		entry_id = ret[1].entry_id;
-	}
 	
+	entry_id = ret[0].entry_id;
 	total = entry_id + 1;
 	document.getElementById("progress").innerText = ' 0 / ' + total;
 	
@@ -66,6 +64,7 @@ async function aaa(){
 		while(true){
 			try{
 				ret = await steem.api.getBlogAsync(username, entry_id, limit);
+				ret.splice(0,limit);
 				
 				entry_id = ret[ret.length - 1].entry_id;
 				if(entry_id != 0){
@@ -318,7 +317,7 @@ function draw2(records, index, cur) {
 			//let p = getXY(new Date(records[i].comment.created+"z"));//座標インデクスを求める
 			let p = getXY(new Date(records[i].comment.created+"z"), cur);//座標インデクスを求める
 			let wx = (clientRect.width - size) - p.x * size;//実際のx座標を求める
-			if (wx < 0) {//範囲外なら描写しない
+			if (wx < 0) {//範囲外なら描写しな
 				end_index = i-1;//★保存
 				return;
 			}
