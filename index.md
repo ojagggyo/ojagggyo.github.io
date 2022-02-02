@@ -155,7 +155,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 ## [![アカウントヒストリー](./steemitapi/favicon_getaccounthistory.ico)](./steemitapi/getaccounthistory.0.17.html)
 
-## [![](./steemitapi/favicon_getblog.ico) ブログ表示](./steemitapi/getblog.0.11.html)
+## [![ブログ表示](./steemitapi/favicon_getblog.ico)](./steemitapi/getblog.0.11.html)
 
 ## [![ブログ表示 Hive版](./steemitapi/hive/favicon_getblog_h.ico)](./steemitapi/hive/getblog.0.11.html)
 
