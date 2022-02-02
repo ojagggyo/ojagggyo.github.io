@@ -11,6 +11,10 @@ a {
 }
 </style>
 
+# Tool
+
+[![アカウントヒストリー](./steemitapi/favicon_getaccounthistory.ico)](./steemitapi/getaccounthistory.0.17.html) [![ブログ表示](./steemitapi/favicon_getblog.ico)](./steemitapi/getblog.0.11.html) [![ブログ表示 Hive版](./steemitapi/hive/favicon_getblog_h.ico)](./steemitapi/hive/getblog.0.11.html) [![ブログ表示 Blurt](./steemitapi/blurt/favicon_getblog_b.ico)](./steemitapi/blurt/getblog.0.11.html) [![PCR陽性者数と死亡者数の比較](./chart/favicon_omicron.ico)](./steemitapi/blurt/omicron.0.2.html)
+
 # Steemit 
 Steemitは、世界で最初にブロックチェーンによるブログを実現したソーシャルメディアのWebサイトです。コンテンツの公開とキュレーションに対して、暗号通貨であるSTEEMとSBDおよびTRXが報酬として得られます。
 
@@ -151,9 +155,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 |学習|[Python学習](./archive/python.html)|
 ||[Javascript学習](./archive/javascript.html)|
 
-# Tool
 
-[![アカウントヒストリー](./steemitapi/favicon_getaccounthistory.ico)](./steemitapi/getaccounthistory.0.17.html) [![ブログ表示](./steemitapi/favicon_getblog.ico)](./steemitapi/getblog.0.11.html) [![ブログ表示 Hive版](./steemitapi/hive/favicon_getblog_h.ico)](./steemitapi/hive/getblog.0.11.html) [![ブログ表示 Blurt](./steemitapi/blurt/favicon_getblog_b.ico)](./steemitapi/blurt/getblog.0.11.html) [![PCR陽性者数と死亡者数の比較](./chart/favicon_omicron.ico)](./steemitapi/blurt/omicron.0.2.html)
 
 
 
