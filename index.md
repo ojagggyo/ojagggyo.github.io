@@ -157,7 +157,8 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
   font-size: x-large;
   text-decoration: none;
 }
-</style<base href="https://ojagggyo.github.io/steemitapi/">
+</style>
+<base href="https://ojagggyo.github.io/steemitapi/">
 <a class=large href=./getaccounthistory.0.17.html><image src="./favicon_getaccounthistory.ico"/> アカウントヒストリー</a><br/>
 <a class=large href=./getblog.0.11.html><image src="./favicon_getblog.ico"/>ブログ表示</a><br/>
 <a class=large href=./hive/getblog.0.11.html><image src="./hive/favicon_getblog_h.ico"/>ブログ表示 Hive版</a><br/>
