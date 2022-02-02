@@ -154,13 +154,13 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 # ![](./steemitapi/favicon_getaccounthistory.ico) [アカウントヒストリー](./steemitapi/getaccounthistory.0.17.html)
 
-||
-|-----|
-|![](./steemitapi/favicon_getaccounthistory.ico)[# アカウントヒストリー](./steemitapi/getaccounthistory.0.17.html)|
-|![](./steemitapi/favicon_getblog.ico)[ブログ表示](./steemitapi/getblog.0.11.html)|
-|![](./steemitapi/hive/favicon_getblog_h.ico)[ブログ表示 Hive版](./steemitapi/hive/getblog.0.11.html)|
-|![](./steemitapi/blurt/favicon_getblog_b.ico)[ブログ表示 Blurt](./steemitapi/blurt/getblog.0.11.html)|
-|![](./chart/favicon_omicron.ico)[PCR陽性者数と死亡者数の比較](./steemitapi/blurt/omicron.0.2.html)|
+# ![](./steemitapi/favicon_getblog.ico) [ブログ表示](./steemitapi/getblog.0.11.html)
+
+# ![](./steemitapi/hive/favicon_getblog_h.ico) [ブログ表示 Hive版](./steemitapi/hive/getblog.0.11.html)|
+
+# ![](./steemitapi/blurt/favicon_getblog_b.ico) [ブログ表示 Blurt](./steemitapi/blurt/getblog.0.11.html)|
+
+# ![](./chart/favicon_omicron.ico) [PCR陽性者数と死亡者数の比較](./steemitapi/blurt/omicron.0.2.html)|
 
 
 
