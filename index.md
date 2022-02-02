@@ -145,6 +145,7 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 ||[月観測](./archive/moon.html)|
 |手続き|[再入国手続き](./archive/hikorea.html)|
 ||古い [国際結婚生活マニュアル](./kokusai/)|
+
 ||[渡航手続き](./archive/travel.html)|
 |操作|[Windows知識](./archive/windowstips.html)|
 |学習|[Python学習](./archive/python.html)|
@@ -155,9 +156,12 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 ## [![アカウントヒストリー](./steemitapi/favicon_getaccounthistory.ico)](./steemitapi/getaccounthistory.0.17.html)
 
 ## [![](./steemitapi/favicon_getblog.ico) ブログ表示](./steemitapi/getblog.0.11.html)
+
 ## [![ブログ表示 Hive版](./steemitapi/hive/favicon_getblog_h.ico)](./steemitapi/hive/getblog.0.11.html)
-## ![](./steemitapi/blurt/favicon_getblog_b.ico) [ブログ表示 Blurt](./steemitapi/blurt/getblog.0.11.html)
-## ![](./chart/favicon_omicron.ico) [PCR陽性者数と死亡者数の比較](./steemitapi/blurt/omicron.0.2.html)
+
+## [![ブログ表示 Blurt](./steemitapi/blurt/favicon_getblog_b.ico)](./steemitapi/blurt/getblog.0.11.html)
+
+## [![PCR陽性者数と死亡者数の比較](./chart/favicon_omicron.ico)](./steemitapi/blurt/omicron.0.2.html)
 
 
 
