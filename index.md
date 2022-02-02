@@ -152,16 +152,12 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 # Tool
 
-<style>
-.large {
-  font-size: x-large;
-  text-decoration: none;
-}
-</style>
+|||
+|-----|-----|
+|[./favicon_getaccounthistory.ico](./getaccounthistory.0.17.html)||
 
-<base href="https://ojagggyo.github.io/steemitapi/">
 
-<a class=large href=./getaccounthistory.0.17.html><image src="./favicon_getaccounthistory.ico"/> アカウントヒストリー</a><br/>
+<a class=large href=><image src=""/> アカウントヒストリー</a><br/>
 <a class=large href=./getblog.0.11.html><image src="./favicon_getblog.ico"/>ブログ表示</a><br/>
 <a class=large href=./hive/getblog.0.11.html><image src="./hive/favicon_getblog_h.ico"/>ブログ表示 Hive版</a><br/>
 <a class=large href=./blurt/getblog.0.11.html><image src="./blurt/favicon_getblog_b.ico"/>ブログ表示 Blurt版</a><br/>
