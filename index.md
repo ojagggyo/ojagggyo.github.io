@@ -154,14 +154,16 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 ||
 |-----|
-|![](./steemitapi/favicon_getaccounthistory.ico)[アカウントヒストリー](./steemitapi/getaccounthistory.0.17.html)|
+|![](./steemitapi/favicon_getaccounthistory.ico)[# アカウントヒストリー](./steemitapi/getaccounthistory.0.17.html)|
 
+|![](./steemitapi/favicon_getblog.ico)[ブログ表示](./steemitapi/getblog.0.11.html)|
 
-<a class=large href=><image src=""/> </a><br/>
-<a class=large href=./getblog.0.11.html><image src="./favicon_getblog.ico"/>ブログ表示</a><br/>
-<a class=large href=./hive/getblog.0.11.html><image src="./hive/favicon_getblog_h.ico"/>ブログ表示 Hive版</a><br/>
-<a class=large href=./blurt/getblog.0.11.html><image src="./blurt/favicon_getblog_b.ico"/>ブログ表示 Blurt版</a><br/>
-<a class=large href=./omicron.0.2.html><image src="../chart/favicon_omicron.ico"/>PCR陽性者数と死亡者数の比較</a><br/>
+|![](./steemitapi/hive/favicon_getblog_h.ico)[ブログ表示 Hive版](./steemitapi/hive/getblog.0.11.html)|
+
+|![](./steemitapi/blurt/favicon_getblog_b.ico)[ブログ表示 Blurt](./steemitapi/blurt/getblog.0.11.html)|
+
+|![](./chart/favicon_omicron.ico)[PCR陽性者数と死亡者数の比較](./steemitapi/blurt/omicron.0.2.html)|
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
