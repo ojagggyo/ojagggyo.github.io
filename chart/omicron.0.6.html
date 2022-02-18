@@ -9,58 +9,27 @@
 
 <script>
 
-function clickBtn_1(days, myChart, chart_id, csv_id, title, color) {
+function clickBtn(type, days, myChart, chart_id, csv_id, title, color) {
 	let t1 = document.getElementById(csv_id).value;
 	let csv = t1.split(/\n/);//改行で分割する
 	//2次元を2個の1次元に変換する。
 	let labels = [];
 	let datas = [];
-	for(var i=0;i<csv.length;i=i+1){
-		row = csv[i].split(/,/);
-		labels.push(row[0]);
-		datas.push(row[1]);
-	}
-	//必要な期間のデータを切り抜く
-	if(days > 0){
-		labels = labels.slice(labels.length - days, labels.length);
-		datas = datas.slice(datas.length - days, datas.length);
-	}
-	//
-	const data = {
-		labels: labels,
-		datasets: [{
-		label: title,
-		backgroundColor: color,
-		borderColor: color,
-		data: datas,
-		}]
-	};
-	// === include 'setup' then 'config' above ===
-	const config = {
-		type: 'bar',
-		data: data,
-		options: {}
-	};
-	if(myChart != null){
-		myChart.destroy();
-	}
-	myChart = new Chart(document.getElementById(chart_id), config);
-}
-
-function clickBtn_2(days, myChart, chart_id, csv_id, title, color) {
-	let t1 = document.getElementById(csv_id).value;
-	let csv = t1.split(/\n/);//改行で分割する
-	//2次元を2個の1次元に変換する。
-	let labels = [];
-	let datas = [];
-	let before = 0;
-	if(csv.length > 0){
-		before = parseFloat('0' + csv[0].split(/,/)[1]);
-		for(var i=1; i<csv.length; i=i+1){
+	if(type != '累計'){//日ごと
+		for(var i=0;i<csv.length;i=i+1){
 			row = csv[i].split(/,/);
 			labels.push(row[0]);
-			datas.push(parseFloat(row[1]) - before);
-			before = parseFloat(row[1]);
+			datas.push(row[1]);
+		}
+	}else{//累計
+		if(csv.length > 0){
+			let before = parseFloat('0' + csv[0].split(/,/)[1]);
+			for(var i=1; i<csv.length; i=i+1){
+				row = csv[i].split(/,/);
+				labels.push(row[0]);
+				datas.push(parseFloat(row[1]) - before);
+				before = parseFloat(row[1]);
+			}
 		}
 	}
 	//
@@ -91,24 +60,25 @@ function clickBtn_2(days, myChart, chart_id, csv_id, title, color) {
 	myChart = new Chart(document.getElementById(chart_id), config);
 }  
 
+
 let myChart1;
 function clickBtn1(days) {
-    return clickBtn_1(days, myChart1, 'myChart1', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
+    return clickBtn('', days, myChart1, 'myChart1', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
 }
 
 let myChart2;
 function clickBtn2(days) {
-    return clickBtn_2(days, myChart2, 'myChart2', 'text2', '死亡者数', 'orange');
+    return clickBtn('累計', days, myChart2, 'myChart2', 'text2', '死亡者数', 'orange');
 }
 
 let myChart3;
 function clickBtn3(days) {
-    return clickBtn_1(days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
+    return clickBtn('', days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
 }
 
 let myChart4;
 function clickBtn4(days) {
-    return clickBtn_2(days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
+    return clickBtn('累計', days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
 }
 
 </script>
