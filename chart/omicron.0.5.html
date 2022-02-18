@@ -86,7 +86,8 @@ function clickBtn2(days) {
 		options: {}
 	};
 	//
-	if(myChart2 != null){myChart2.destroy();
+	if(myChart2 != null){
+		myChart2.destroy();
 	}
 	myChart2 = new Chart(document.getElementById('myChart2'), config);
 }  
@@ -123,7 +124,7 @@ function pcr2_read(){
   let sc = document.createElement("script");
   sc.id = "pcr2";
   //sc.src = "https://ojagggyo-1.herokuapp.com/pcr2.php";
-	sc.src = "https://ojagggyo-4.herokuapp.com/pcr2";
+  sc.src = "https://ojagggyo-4.herokuapp.com/pcr2";
   document.body.appendChild(sc);
   document.getElementById(sc.id).remove();
 }
