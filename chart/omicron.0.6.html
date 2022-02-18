@@ -54,31 +54,36 @@ function clickBtn(type, days, myChart, chart_id, csv_id, title, color) {
 		options: {}
 	};
 	//
-	if(myChart != null){
-		myChart.destroy();
-	}
-	myChart = new Chart(document.getElementById(chart_id), config);
+	// if(myChart != null){
+	// 	myChart.destroy();
+	// }
+	//myChart = new Chart(document.getElementById(chart_id), config);
+	return new Chart(document.getElementById(chart_id), config);
 }  
 
 
 let myChart1;
 function clickBtn1(days) {
-    return clickBtn('', days, myChart1, 'myChart1', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
+	if(myChart1 != null){myChart1.destroy();}
+    myChart1 = clickBtn('', days, myChart1, 'myChart1', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
 }
 
 let myChart2;
 function clickBtn2(days) {
-    return clickBtn('累計', days, myChart2, 'myChart2', 'text2', '死亡者数', 'orange');
+	if(myChart2 != null){myChart2.destroy();}
+    myChart2 = clickBtn('累計', days, myChart2, 'myChart2', 'text2', '死亡者数', 'orange');
 }
 
 let myChart3;
 function clickBtn3(days) {
-    return clickBtn('', days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
+	if(myChart3 != null){myChart3.destroy();}
+    myChart3 = clickBtn('', days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
 }
 
 let myChart4;
 function clickBtn4(days) {
-    return clickBtn('累計', days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
+	if(myChart4 != null){myChart4.destroy();}
+    myChart4 = clickBtn('累計', days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
 }
 
 </script>
