@@ -162,12 +162,7 @@ function pcr4_read(){
   document.getElementById(sc.id).remove();
 }
 
-window.onload = function() {
-	pcr1_read();
-	pcr2_read();
-    pcr3_read();
-    pcr4_read();
-}
+
   
 </script>
 
@@ -255,42 +250,6 @@ window.onload = function() {
 		myChart4 = new Chart(document.getElementById('myChart4'), config);
 	}  
 	
-	  
-	// PCR陽性者数
-	function pcr1_read(){
-	  window["pcr1"] = function(arr){
-		let s = "";
-		arr['csv'].forEach(function(elem, index) {
-			s += elem.join(",") + "\n";
-		});
-		document.getElementById('text1').value = s;
-		clickBtn(0);	
-	  }
-	  let sc = document.createElement("script");
-	  sc.id = "pcr1";
-	  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr1.php";
-	  sc.src = "https://ojagggyo-4.herokuapp.com/pcr1";
-	  document.body.appendChild(sc);
-	  document.getElementById(sc.id).remove();
-	}
-	
-	// 死亡者数
-	function pcr2_read(){
-	  window["pcr2"] = function(arr){
-		let s = "";
-		arr['csv'].forEach(function(elem, index) {
-			s += elem.join(",") + "\n";
-		});
-		document.getElementById('text2').value = s;
-		clickBtn2(0);	
-	  }
-	  let sc = document.createElement("script");
-	  sc.id = "pcr2";
-	  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr2.php";
-		sc.src = "https://ojagggyo-4.herokuapp.com/pcr2";
-	  document.body.appendChild(sc);
-	  document.getElementById(sc.id).remove();
-	}
 	
 	// 重症者数
 	function pcr3_read(){
@@ -326,15 +285,18 @@ window.onload = function() {
 	  document.getElementById(sc.id).remove();
 	}
 	
-	window.onload = function() {
-		pcr1_read();
-		pcr2_read();
-		pcr3_read();
-		pcr4_read();
-	}
-	  
+ 
 	</script>
 
+
+<script>
+window.onload = function() {
+	pcr1_read();
+	pcr2_read();
+    pcr3_read();
+    pcr4_read();
+}
+</script>
 </head>
 <body>
 <a style="font-size: xx-large">PCR陽性者数と死亡者数の比較</a><br/>
