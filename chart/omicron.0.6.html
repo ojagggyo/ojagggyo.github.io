@@ -91,9 +91,9 @@ function clickBtn_2(days, myChart, chart_id, csv_id, title, color) {
 	myChart2 = new Chart(document.getElementById(chart_id), config);
 }  
 
-let myChart;
+let myChart1;
 function clickBtn1(days) {
-    return clickBtn_1(days, myChart, 'myChart', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
+    return clickBtn_1(days, myChart1, 'myChart1', 'text1', '新規陽性者数', 'rgb(51, 221, 204)');
 }
 
 let myChart2;
@@ -219,7 +219,7 @@ window.onload = function() {
 </td> 
 <td width=100%>
 <div>
-<canvas id="myChart"></canvas>
+<canvas id="myChart1"></canvas>
 </div>
 </td>
 </tr>
