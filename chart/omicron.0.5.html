@@ -1,0 +1,268 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<link rel="icon" href="favicon_omicron.ico" id="favicon">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let myChart;
+function clickBtn(days) {
+	let t1 = document.getElementById("text1").value;
+	let csv = t1.split(/\n/);//改行で分割する
+	//2次元を2個の1次元に変換する。
+	let labels = [];
+	let datas = [];
+	for(var i=0;i<csv.length;i=i+1){
+		row = csv[i].split(/,/);
+		labels.push(row[0]);
+		datas.push(row[1]);
+	}
+	//必要な期間のデータを切り抜く
+	if(days > 0){
+		labels = labels.slice(labels.length - days, labels.length);
+		datas = datas.slice(datas.length - days, datas.length);
+	}
+	//
+	const data = {
+		labels: labels,
+		datasets: [{
+		label: '新規陽性者数',
+		backgroundColor: 'rgb(51, 221, 204)',
+		borderColor: 'rgb(51, 221, 204)',
+		data: datas,
+		}]
+	};
+	// === include 'setup' then 'config' above ===
+	const config = {
+		type: 'bar',
+		data: data,
+		options: {}
+	};
+	if(myChart != null){
+		myChart.destroy();
+	}
+	myChart = new Chart(document.getElementById('myChart'), config);
+}
+
+let myChart2;
+function clickBtn2(days) {
+	let t1 = document.getElementById("text2").value;
+	let csv = t1.split(/\n/);//改行で分割する
+	//2次元を2個の1次元に変換する。
+	let labels = [];
+	let datas = [];
+	let before = 0;
+	if(csv.length > 0){
+		before = parseFloat('0' + csv[0].split(/,/)[1]);
+		for(var i=1; i<csv.length; i=i+1){
+			row = csv[i].split(/,/);
+			labels.push(row[0]);
+			datas.push(parseFloat(row[1]) - before);
+			before = parseFloat(row[1]);
+		}
+	}
+	//
+	if(days > 0){
+		labels = labels.slice(labels.length - days, labels.length);
+		datas = datas.slice(datas.length - days, datas.length);
+	}
+	//
+	const data = {
+		labels: labels,
+		datasets: [{
+			label: '死亡者数',
+			backgroundColor: 'orange',
+			borderColor: 'orange',
+			data: datas,
+		}]
+	};
+	// === include 'setup' then 'config' above ===
+	const config = {
+		type: 'bar',
+		data: data,
+		options: {}
+	};
+	//
+	if(myChart2 != null){myChart2.destroy();
+	}
+	myChart2 = new Chart(document.getElementById('myChart2'), config);
+}  
+
+  
+// PCR陽性者数
+function pcr1_read(){
+  window["pcr1"] = function(arr){
+    let s = "";
+    arr['csv'].forEach(function(elem, index) {
+    	s += elem.join(",") + "\n";
+    });
+    document.getElementById('text1').value = s;
+    clickBtn(0);	
+  }
+  let sc = document.createElement("script");
+  sc.id = "pcr1";
+  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr1.php";
+  sc.src = "https://ojagggyo-4.herokuapp.com/pcr1";
+  document.body.appendChild(sc);
+  document.getElementById(sc.id).remove();
+}
+
+// 死亡者数
+function pcr2_read(){
+  window["pcr2"] = function(arr){
+    let s = "";
+    arr['csv'].forEach(function(elem, index) {
+    	s += elem.join(",") + "\n";
+    });
+    document.getElementById('text2').value = s;
+    clickBtn2();	
+  }
+  let sc = document.createElement("script");
+  sc.id = "pcr2";
+  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr2.php";
+	sc.src = "https://ojagggyo-4.herokuapp.com/pcr2";
+  document.body.appendChild(sc);
+  document.getElementById(sc.id).remove();
+}
+
+// 重症者数
+function pcr3_read(){
+  window["pcr3"] = function(arr){
+    let s = "";
+    arr['csv'].forEach(function(elem, index) {
+    	s += elem.join(",") + "\n";
+    });
+    document.getElementById('text3').value = s;
+    clickBtn(0);	
+  }
+  let sc = document.createElement("script");
+  sc.id = "pcr3";
+  sc.src = "https://ojagggyo-4.herokuapp.com/pcr3";
+  document.body.appendChild(sc);
+  document.getElementById(sc.id).remove();
+}
+
+// 入院治療等を要する者の数
+function pcr4_read(){
+  window["pcr4"] = function(arr){
+    let s = "";
+    arr['csv'].forEach(function(elem, index) {
+    	s += elem.join(",") + "\n";
+    });
+    document.getElementById('text4').value = s;
+    clickBtn2();	
+  }
+  let sc = document.createElement("script");
+  sc.id = "pcr4";
+  sc.src = "https://ojagggyo-4.herokuapp.com/pcr4";
+  document.body.appendChild(sc);
+  document.getElementById(sc.id).remove();
+}
+
+window.onload = function() {
+	pcr1_read();
+	pcr2_read();
+}
+  
+</script>
+</head>
+<body>
+<a style="font-size: xx-large">PCR陽性者数と死亡者数の比較</a><br/>
+<input type="button" value="全期間" onclick="clickBtn(0);clickBtn2(0);clickBtn3(0);clickBtn4(0);" />
+<input type="button" value="1年間" onclick="clickBtn(365);clickBtn2(365);clickBtn3(365);clickBtn4(365);" />
+<input type="button" value="9ヵ日間" onclick="clickBtn(270);clickBtn2(270);clickBtn3(270);clickBtn4(270);" />
+<input type="button" value="6ヵ月間" onclick="clickBtn(180);clickBtn2(180);clickBtn3(180);clickBtn4(180);" />
+<input type="button" value="3ヵ月間" onclick="clickBtn(90);clickBtn2(90);clickBtn3(60);clickBtn4(60);" />
+<input type="button" value="1ヵ月間" onclick="clickBtn(30);clickBtn2(30);clickBtn3(30);clickBtn4(30);" />
+<input type="button" value="2週間" onclick="clickBtn(14);clickBtn2(14);clickBtn3(14);clickBtn4(14);" />
+<input type="button" value="7日間" onclick="clickBtn(7);clickBtn2(7);clickBtn3(7);clickBtn4(7);" />
+
+<table border=0>
+<!-- -------------------- PCR陽性者数 START -------------------- -->
+<tr>
+<td style="vertical-align: top;" width=0%>
+新規陽性者数データを入力してください。
+<textarea id="text1" rows="20" cols="20"></textarea>
+<br/>
+</td> 
+<td width=100%>
+<div>
+<canvas id="myChart"></canvas>
+</div>
+</td>
+</tr>
+<!-- -------------------- PCR陽性者数 END -------------------- -->
+<!-- -------------------- 死亡者数 START -------------------- -->  
+<tr>
+<td style="vertical-align: top;">
+死亡者数データを入力してください。<br/>
+<span>例）<br/>
+日付,累計値<br/></span>
+<textarea id="text2" rows="20" cols="20"></textarea>
+<br/>
+</td>
+<td>
+<div>
+<canvas id="myChart2"></canvas>
+</div>
+</td>
+</tr>
+<!-- -------------------- 死亡者数 END -------------------- -->
+</table>  
+最新のデータで比較する場合は、下記のURLからダウンロードして画面にあるボックスに貼り付けます。
+<br/>
+厚生労働省オープンデータ「陽性者数」
+<a href="https://toyokeizai.net/sp/visual/tko/covid19/csv/pcr_positive_daily.csv" 
+target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/pcr_positive_daily.csv</a>
+<br/>
+厚生労働省オープンデータ「死亡者数」
+<a href="https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv" 
+target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv</a>
+
+<table border=0>
+	<!-- -------------------- 重症者数 START -------------------- -->
+	<tr>
+	<td style="vertical-align: top;" width=0%>
+	新規陽性者数データを入力してください。
+	<textarea id="text3" rows="20" cols="20"></textarea>
+	<br/>
+	</td> 
+	<td width=100%>
+	<div>
+	<canvas id="myChart3"></canvas>
+	</div>
+	</td>
+	</tr>
+	<!-- -------------------- 重症者数 END -------------------- -->
+	<!-- -------------------- 入院治療等を要する者の数 START -------------------- -->  
+	<tr>
+	<td style="vertical-align: top;">
+	死亡者数データを入力してください。<br/>
+	<span>例）<br/>
+	日付,累計値<br/></span>
+	<textarea id="text4" rows="20" cols="20"></textarea>
+	<br/>
+	</td>
+	<td>
+	<div>
+	<canvas id="myChart4"></canvas>
+	</div>
+	</td>
+	</tr>
+	<!-- -------------------- 入院治療等を要する者の数 END -------------------- -->
+	</table>  
+	最新のデータで比較する場合は、下記のURLからダウンロードして画面にあるボックスに貼り付けます。
+	<br/>
+	厚生労働省オープンデータ「重症者数」
+	<a href="https://toyokeizai.net/sp/visual/tko/covid19/csv/severe_daily.csv" 
+	target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/severe_daily.csv</a>
+	<br/>
+	厚生労働省オープンデータ「入院治療等を要する者の数」
+	<a href="https://toyokeizai.net/sp/visual/tko/covid19/csv/cases_total.csv" 
+	target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/cases_total.csv</a>
+
+</body>
+</html>
