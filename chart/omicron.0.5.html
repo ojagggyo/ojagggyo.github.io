@@ -170,6 +170,171 @@ window.onload = function() {
 }
   
 </script>
+
+<script>
+	let myChart3;
+	function clickBtn3(days) {
+		let t1 = document.getElementById("text3").value;
+		let csv = t1.split(/\n/);//改行で分割する
+		//2次元を2個の1次元に変換する。
+		let labels = [];
+		let datas = [];
+		for(var i=0;i<csv.length;i=i+1){
+			row = csv[i].split(/,/);
+			labels.push(row[0]);
+			datas.push(row[1]);
+		}
+		//必要な期間のデータを切り抜く
+		if(days > 0){
+			labels = labels.slice(labels.length - days, labels.length);
+			datas = datas.slice(datas.length - days, datas.length);
+		}
+		//
+		const data = {
+			labels: labels,
+			datasets: [{
+			label: '重症者数',
+			backgroundColor: 'rgb(51, 221, 204)',
+			borderColor: 'rgb(51, 221, 204)',
+			data: datas,
+			}]
+		};
+		// === include 'setup' then 'config' above ===
+		const config = {
+			type: 'bar',
+			data: data,
+			options: {}
+		};
+		if(myChart3 != null){
+			myChart3.destroy();
+		}
+		myChart3 = new Chart(document.getElementById('myChart3'), config);
+	}
+	
+	let myChart4;
+	function clickBtn4(days) {
+		let t1 = document.getElementById("text4").value;
+		let csv = t1.split(/\n/);//改行で分割する
+		//2次元を2個の1次元に変換する。
+		let labels = [];
+		let datas = [];
+		let before = 0;
+		if(csv.length > 0){
+			before = parseFloat('0' + csv[0].split(/,/)[1]);
+			for(var i=1; i<csv.length; i=i+1){
+				row = csv[i].split(/,/);
+				labels.push(row[0]);
+				datas.push(parseFloat(row[1]) - before);
+				before = parseFloat(row[1]);
+			}
+		}
+		//
+		if(days > 0){
+			labels = labels.slice(labels.length - days, labels.length);
+			datas = datas.slice(datas.length - days, datas.length);
+		}
+		//
+		const data = {
+			labels: labels,
+			datasets: [{
+				label: '入院治療等を要する者の数',
+				backgroundColor: 'orange',
+				borderColor: 'orange',
+				data: datas,
+			}]
+		};
+		// === include 'setup' then 'config' above ===
+		const config = {
+			type: 'bar',
+			data: data,
+			options: {}
+		};
+		//
+		if(myChart4 != null){myChart4.destroy();
+		}
+		myChart4 = new Chart(document.getElementById('myChart4'), config);
+	}  
+	
+	  
+	// PCR陽性者数
+	function pcr1_read(){
+	  window["pcr1"] = function(arr){
+		let s = "";
+		arr['csv'].forEach(function(elem, index) {
+			s += elem.join(",") + "\n";
+		});
+		document.getElementById('text1').value = s;
+		clickBtn(0);	
+	  }
+	  let sc = document.createElement("script");
+	  sc.id = "pcr1";
+	  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr1.php";
+	  sc.src = "https://ojagggyo-4.herokuapp.com/pcr1";
+	  document.body.appendChild(sc);
+	  document.getElementById(sc.id).remove();
+	}
+	
+	// 死亡者数
+	function pcr2_read(){
+	  window["pcr2"] = function(arr){
+		let s = "";
+		arr['csv'].forEach(function(elem, index) {
+			s += elem.join(",") + "\n";
+		});
+		document.getElementById('text2').value = s;
+		clickBtn2(0);	
+	  }
+	  let sc = document.createElement("script");
+	  sc.id = "pcr2";
+	  //sc.src = "https://ojagggyo-1.herokuapp.com/pcr2.php";
+		sc.src = "https://ojagggyo-4.herokuapp.com/pcr2";
+	  document.body.appendChild(sc);
+	  document.getElementById(sc.id).remove();
+	}
+	
+	// 重症者数
+	function pcr3_read(){
+	  window["pcr3"] = function(arr){
+		let s = "";
+		arr['csv'].forEach(function(elem, index) {
+			s += elem.join(",") + "\n";
+		});
+		document.getElementById('text3').value = s;
+		clickBtn3(0);	
+	  }
+	  let sc = document.createElement("script");
+	  sc.id = "pcr3";
+	  sc.src = "https://ojagggyo-4.herokuapp.com/pcr3";
+	  document.body.appendChild(sc);
+	  document.getElementById(sc.id).remove();
+	}
+	
+	// 入院治療等を要する者の数
+	function pcr4_read(){
+	  window["pcr4"] = function(arr){
+		let s = "";
+		arr['csv'].forEach(function(elem, index) {
+			s += elem.join(",") + "\n";
+		});
+		document.getElementById('text4').value = s;
+		clickBtn4(0);	
+	  }
+	  let sc = document.createElement("script");
+	  sc.id = "pcr4";
+	  sc.src = "https://ojagggyo-4.herokuapp.com/pcr4";
+	  document.body.appendChild(sc);
+	  document.getElementById(sc.id).remove();
+	}
+	
+	window.onload = function() {
+		pcr1_read();
+		pcr2_read();
+		pcr3_read();
+		pcr4_read();
+	}
+	  
+	</script>
+
 </head>
 <body>
 <a style="font-size: xx-large">PCR陽性者数と死亡者数の比較</a><br/>
