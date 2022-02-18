@@ -169,16 +169,15 @@ window.onload = function() {
 </head>
 <body>
 <a style="font-size: xx-large">PCR陽性者数と死亡者数の比較</a><br/>
-<input type="button" value="全期間" onclick="clickBtn1(0);clickBtn2(0);clickBtn3(0);clickBtn4(0);" />
-<input type="button" value="1年間" onclick="clickBtn1(365);clickBtn2(365);clickBtn3(365);clickBtn4(365);" />
-<input type="button" value="9ヵ日間" onclick="clickBtn1(270);clickBtn2(270);clickBtn3(270);clickBtn4(270);" />
-<input type="button" value="6ヵ月間" onclick="clickBtn1(180);clickBtn2(180);clickBtn3(180);clickBtn4(180);" />
-<input type="button" value="3ヵ月間" onclick="clickBtn1(90);clickBtn2(90);clickBtn3(90);clickBtn4(90);" />
-<input type="button" value="2ヵ月間" onclick="clickBtn1(60);clickBtn2(60);clickBtn3(60);clickBtn4(60);" />
-<input type="button" value="1ヵ月間" onclick="clickBtn1(30);clickBtn2(30);clickBtn3(30);clickBtn4(30);" />
-<input type="button" value="2週間" onclick="clickBtn1(14);clickBtn2(14);clickBtn3(14);clickBtn4(14);" />
-<input type="button" value="7日間" onclick="clickBtn1(7);clickBtn2(7);clickBtn3(7);clickBtn4(7);" />
-
+<input type="button" value="全期間" onclick="clickBtn1(0);clickBtn2(0);" />
+<input type="button" value="1年間" onclick="clickBtn1(365);clickBtn2(365);" />
+<input type="button" value="9ヵ日間" onclick="clickBtn1(270);clickBtn2(270);" />
+<input type="button" value="6ヵ月間" onclick="clickBtn1(180);clickBtn2(180);" />
+<input type="button" value="3ヵ月間" onclick="clickBtn1(90);clickBtn2(90);" />
+<input type="button" value="2ヵ月間" onclick="clickBtn1(60);clickBtn2(60);" />
+<input type="button" value="1ヵ月間" onclick="clickBtn1(30);clickBtn2(30);" />
+<input type="button" value="2週間" onclick="clickBtn1(14);clickBtn2(14);" />
+<input type="button" value="7日間" onclick="clickBtn1(7);clickBtn2(7);" />
 <table border=0>
 <!-- -------------------- PCR陽性者数 START -------------------- -->
 <tr>
@@ -221,8 +220,16 @@ target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/pcr_positive_da
 <a href="https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv" 
 target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv</a>
 <br/>
-<br/>
 <a style="font-size: xx-large">重症者数と入院治療等を要する者の数の比較</a><br/>
+<input type="button" value="全期間" onclick="clickBtn3(0);clickBtn4(0);" />
+<input type="button" value="1年間" onclick="clickBtn3(365);clickBtn4(365);" />
+<input type="button" value="9ヵ日間" onclick="clickBtn3(270);clickBtn4(270);" />
+<input type="button" value="6ヵ月間" onclick="clickBtn3(180);clickBtn4(180);" />
+<input type="button" value="3ヵ月間" onclick="clickBtn3(90);clickBtn4(90);" />
+<input type="button" value="2ヵ月間" onclick="clickBtn3(60);clickBtn4(60);" />
+<input type="button" value="1ヵ月間" onclick="clickBtn3(30);clickBtn4(30);" />
+<input type="button" value="2週間" onclick="clickBtn3(14);clickBtn4(14);" />
+<input type="button" value="7日間" onclick="clickBtn3(7);clickBtn4(7);" />
 <table border=0>
 	<!-- -------------------- 重症者数 START -------------------- -->
 	<tr>
