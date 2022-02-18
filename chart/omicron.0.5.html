@@ -127,42 +127,6 @@ function pcr2_read(){
   document.body.appendChild(sc);
   document.getElementById(sc.id).remove();
 }
-
-// 重症者数
-function pcr3_read(){
-  window["pcr3"] = function(arr){
-    let s = "";
-    arr['csv'].forEach(function(elem, index) {
-    	s += elem.join(",") + "\n";
-    });
-    document.getElementById('text3').value = s;
-    clickBtn3(0);	
-  }
-  let sc = document.createElement("script");
-  sc.id = "pcr3";
-  sc.src = "https://ojagggyo-4.herokuapp.com/pcr3";
-  document.body.appendChild(sc);
-  document.getElementById(sc.id).remove();
-}
-
-// 入院治療等を要する者の数
-function pcr4_read(){
-  window["pcr4"] = function(arr){
-    let s = "";
-    arr['csv'].forEach(function(elem, index) {
-    	s += elem.join(",") + "\n";
-    });
-    document.getElementById('text4').value = s;
-    clickBtn4(0);	
-  }
-  let sc = document.createElement("script");
-  sc.id = "pcr4";
-  sc.src = "https://ojagggyo-4.herokuapp.com/pcr4";
-  document.body.appendChild(sc);
-  document.getElementById(sc.id).remove();
-}
-
-
   
 </script>
 
