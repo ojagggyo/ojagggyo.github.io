@@ -82,7 +82,7 @@ function clickBtn3(days) {
 let myChart4;
 function clickBtn4(days) {
 	if(myChart4 != null){myChart4.destroy();}
-    myChart4 = clickBtn('累計', days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
+    myChart4 = clickBtn('', days, myChart4, 'myChart4', 'text4', '入院治療等を要する者の数', '#FEB2D0');
 }
 
 </script>
@@ -253,7 +253,6 @@ target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv
 	<tr>
 	<td style="vertical-align: top;">
     入院治療等を要する者の数データを入力してください。<br/>
-	<span>例）日付,累計値<br/></span>
 	<textarea id="text4" rows="20" cols="20"></textarea>
 	<br/>
 	</td>
