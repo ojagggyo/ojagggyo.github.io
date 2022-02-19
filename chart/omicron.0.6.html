@@ -77,7 +77,7 @@ function clickBtn2(days) {
 let myChart3;
 function clickBtn3(days) {
 	if(myChart3 != null){myChart3.destroy();}
-    myChart3 = clickBtn('', days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
+    myChart3 = clickBtn('累計', days, myChart3, 'myChart3', 'text3', '重症者数', '#7BC8F6');
 }
 
 let myChart4;
@@ -202,8 +202,7 @@ window.onload = function() {
 <tr>
 <td style="vertical-align: top;">
 死亡者数データを入力してください。<br/>
-<span>例）<br/>
-日付,累計値<br/></span>
+<span>例）日付,累計値<br/></span>
 <textarea id="text2" rows="20" cols="20"></textarea>
 <br/>
 </td>
@@ -254,8 +253,7 @@ target="_blank">https://toyokeizai.net/sp/visual/tko/covid19/csv/death_total.csv
 	<tr>
 	<td style="vertical-align: top;">
     入院治療等を要する者の数データを入力してください。<br/>
-	<span>例）<br/>
-	日付,累計値<br/></span>
+	<span>例）日付,累計値<br/></span>
 	<textarea id="text4" rows="20" cols="20"></textarea>
 	<br/>
 	</td>
