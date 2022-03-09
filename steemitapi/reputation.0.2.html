@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>reputation</title>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <script src="https://ojagggyo.github.io/steemitapi/myutil.js"></script>
+        
+        <script>            
+            function log10(str) {
+                const leadingDigits = parseInt(str.substring(0, 4));
+                const log = Math.log(leadingDigits) / Math.LN10 + 0.00000001;
+                const n = str.length - 1;
+                return n + (log - parseInt(log));
+            }
+            
+            function repLog10(str) {
+                let rep = String(str);
+                const neg = rep.charAt(0) === '-';
+                rep = neg ? rep.substring(1) : rep;
+                let out = log10(rep);
+                if (isNaN(out)) out = 0;
+                out = Math.max(out - 9, 0); // @ -9, $0.50 earned is approx magnitude 1
+                out = (neg ? -1 : 1) * out;
+                out = out * 9 + 25; // 9 points per magnitude. center at 25  
+                return out;
+            };
+ 
+            window.onload = function() {
+                username = getUserName();
+                $("#username").text(username);
+                getAccountsAsync(username).then(result => {
+                    console.log(result);
+                    reputation = repLog10(result.reputation);          
+                    var text = "Reputationは " + (reputation).toFixed(4) + " です。";
+                    $("#text").text(text);
+                    $("#RealReputation").text(reputation);
+                }).catch(err => {
+                    $("#text").text("エラー");
+                    $('#text').css('color','red');
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            こんにちは、<h1 id="username" style="display:inline;"></h1> さん
+        </div>
+        <h1 id="text"></h1>
+        <a id="RealReputation"></a>
+    </body>
+</html>
