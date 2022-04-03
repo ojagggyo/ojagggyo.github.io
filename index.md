@@ -54,10 +54,11 @@ STEEMベースのトークンを売買する取引所。[🚀](https://steem-eng
 
 |Date|Title|
 |---|---|
-|6/5|[REMOVE THE AUTH TO MY APP](https://steemit.com/mymadness/@steem-supporter/remove-the-auth-to-my-app)|
-|4/25|[5월 JCAR 구독신청 받습니다.](https://steemit.com/hive-117185/@jcarvoting/5-jcar)|
-|3/26|[[JJM공지] 파워다운 완료, 배분 예정](https://steemit.com/jjm/@virus707/5ydqxl-jjm)|
-|3/22|[(중요) 4월 고속소각 접수 및 minigame 서비스 종료 계획](https://steemit.com/mini/@minigame/4-minigame)|
+|2022/3/22|[[공지] UPVU 2.0 출시 및 주요 변경사항 사전 안내](https://steemit.com/hive-101145/@upvu/upvu-2-0)|
+|2021/6/5|[REMOVE THE AUTH TO MY APP](https://steemit.com/mymadness/@steem-supporter/remove-the-auth-to-my-app)|
+|2021/4/25|[5월 JCAR 구독신청 받습니다.](https://steemit.com/hive-117185/@jcarvoting/5-jcar)|
+|2021/3/26|[[JJM공지] 파워다운 완료, 배분 예정](https://steemit.com/jjm/@virus707/5ydqxl-jjm)|
+|2021/3/22|[(중요) 4월 고속소각 접수 및 minigame 서비스 종료 계획](https://steemit.com/mini/@minigame/4-minigame)|
 
 # Link
 
