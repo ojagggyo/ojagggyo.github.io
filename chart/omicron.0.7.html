@@ -114,7 +114,7 @@ function pcr2_read(){
     arr['csv'].forEach(function(elem, index) {
     	s += elem.join(",") + "\n";
     });
-    document.getElementById('text2').value = s;
+    document.getElementById('text2').value = s.slice(0, -1);
     clickBtn2(0);	
   }
   let sc = document.createElement("script");
@@ -132,7 +132,7 @@ function pcr3_read(){
 		arr['csv'].forEach(function(elem, index) {
 			s += elem.join(",") + "\n";
 		});
-		document.getElementById('text3').value = s;
+		document.getElementById('text3').value = s.slice(0, -1);
 		clickBtn3(0);	
 	  }
 	  let sc = document.createElement("script");
@@ -149,7 +149,7 @@ function pcr4_read(){
 		arr['csv'].forEach(function(elem, index) {
 			s += elem.join(",") + "\n";
 		});
-		document.getElementById('text4').value = s;
+		document.getElementById('text4').value = s.slice(0, -1);
 		clickBtn4(0);	
 	  }
 	  let sc = document.createElement("script");
