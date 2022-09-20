@@ -1,0 +1,69 @@
+a {
+	text-decoration: none;
+}
+
+.gray {
+	color: gray;
+}
+
+.right {
+	float: right;
+}
+
+.marker {
+   /*background: linear-gradient(transparent 60%, #ff6 60%);/*yellow*/
+   background: linear-gradient(transparent 60%, #6f6 60%);/*green*/
+   /*background: linear-gradient(transparent 60%, #6cf 60%);/*blue*/
+   /*background: linear-gradient(transparent 60%, #f6c 60%);/*pink*/
+}
+
+/* ---------- identicon ---------- */
+canvas.small {
+  margin: 2px 2px -7px 2px;
+  float: left;
+}
+canvas.large {
+  margin: 2px 2px 2px 2px;
+  float: left;
+}
+
+div.small {
+	margin: 2px 2px 2px 28px;
+}
+div.large {
+	margin: 2px 2px 2px 52px;
+}
+
+span.small{
+  vertical-align: top;
+}
+span.large{
+  vertical-align: top;
+}
+
+/* ---------- progress ---------- */
+#effectivepowerdetail {
+  color: gray;
+}
+
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+}
+::-webkit-progress-bar {
+	/*background-color: lightglay;*/
+	background-color: whitesmoke;
+}
+#effectivepower::-webkit-progress-value {
+  background-color: orange;
+}
+#votingpower::-webkit-progress-value {
+  background-color: #217ab7;
+}
+#downvotepower::-webkit-progress-value {
+  background-color: #5bc0de;
+}
+#resourcecredits::-webkit-progress-value {
+  background-color: #5eb85e;
+}
