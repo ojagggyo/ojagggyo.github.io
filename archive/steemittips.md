@@ -8,9 +8,7 @@ title: steemit知識
 
 使い方などが改善されてきているため、過去に投稿した記事の内容が古くなっている場合があります。
 
-## 初心者向けヒント tips for newbie
-
-|||
+||初心者向けヒント tips for newbie|
 |--|---|
 |2022/10/5|[[初心者向けヒント] 7日を過ぎた記事にはUPVOTEしないのだ！](https://steemit.com/hive-161179/@yasu/7-upvote)|
 |2022/10/4|[[初心者向けヒント] steemitのログインはSteem Keychainが便利なのだ！](https://steemit.com/hive-161179/@yasu/steemit-steem-keychain)|
