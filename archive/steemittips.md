@@ -4,9 +4,7 @@ title: steemit知識
 
 [ホーム](../) [Steemitサインアップ](./steemitsignup.html) [Steemit知識](./steemittips.html) [散策フォトギャラリー](./photogarally.html) [Python学習](./python.html) [Javascript学習](./javascript.html) [windows知識](./windowstips.html) [hikorea知識](./hikorea.html) [covid19知識](./covid19tips.html) [drivers知識](./driverslicense.html)
 
-# steemit知識
-
-使い方などが改善されてきているため、過去に投稿した記事の内容が古くなっている場合があります。
+# 初心者向けヒント tips for newbie
 
 ||初心者向けヒント tips for newbie|
 |--|---|
@@ -15,6 +13,9 @@ title: steemit知識
 |2022/10/2|[[初心者向けヒント] steemitのログインは難しくないのだ！](https://steemit.com/hive-161179/@yasu/79agpj-steemit)|
 |2022/10/1|[[初心者向けヒント] VotingPowerを意識してUPVOTEするのだ！](https://steemit.com/hive-161179/@yasu/votingpower-upvote)|
 
+# steemit知識
+
+使い方などが改善されてきているため、過去に投稿した記事の内容が古くなっている場合があります。
 
 ## 2021
 
