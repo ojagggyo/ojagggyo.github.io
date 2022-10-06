@@ -22,28 +22,22 @@ function makeTable(records){
 	console.log(records);
 
 	csv.length = 0
-	//csv.push('日付,価格\n'); 
-	//console.log('日付,価格');
-	for(var i=records.length-1;i>=0;i=i-1){
+	csv.push ('日付,価格\n'); 
+
+	//for(var i=records.length-1;i>=0;i=i-1){
+	for(var i=0;i<records.length;i=i+1){
 
 		let exchange_rate = records[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
 		let publisher = records[i][1].op[1].publisher;
 		let timestamp = formatDate(new Date(records[i][1].timestamp + "z"));
 
-		//console.log(timestamp+","+exchange_rate);
 		csv.push (timestamp + "," + exchange_rate);
-		//日付,PCR 検査陽性者数(単日)
-		//2020/1/16,1.0
-		//2020/1/17,0.0
 
 	}
-	//document.getElementById("text").innerHTML = feedPriceCSV;
-	//return feedPriceCSV;
-	csv.reverse();
-	csv.unshift ('日付,価格\n'); 
+	//csv.reverse();
+	//csv.unshift ('日付,価格\n'); 
 
-	//records.length
-	document.getElementById("price").innerHTML = records[0][1].op[1].exchange_rate.base.slice(0, -4);
+	document.getElementById("price").innerHTML = records[records.length-1][1].op[1].exchange_rate.base.slice(0, -4);
 	
 	//チャート
 	if(myChart1 != null){myChart1.destroy();}
