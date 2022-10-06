@@ -21,39 +21,9 @@ steem.api.setOptions({url: 'https://api.steemit.com'})
 
 
 // ---------- userlink ----------
-function setUsername(username){
-    let nameList = getUsernames(); 
-    let index = nameList.indexOf( username );
-    if(index >= 0){
-        nameList.splice(index, 1);  
-    }
-    nameList.push(username);
-    document.cookie = "usernames=" + encodeURIComponent(nameList.join(",")) + ";max-age=86400";//60*60*24秒   
-}
-    
-function getUsernames(){
-    cookies = document.cookie;
-    let lines = cookies.split(';');
-    for(var line of lines){
-        let elementList = line.split('=');
-        let key = elementList[0];
-        if( key != 'usernames'){continue;}
-        let csv = decodeURIComponent(elementList[1]);        
-        return csv.split(',');
-    }
-    return [];
-}
 
-function userlink(){
-  let nameList = getUsernames();
-  let s = "";
-  let name = "";
-  while(name = nameList.pop()){
-  	s = s + "<a href=javascript:clickUserLink('" + name + "'); class=darkgray>" + name + "</a> ";
-  }
-  console.log(s);
-  document.getElementById("userlink").innerHTML = s;
-}
+
+
 
 	
 // ---------- ----------	
@@ -109,109 +79,7 @@ function makeLine(record){
 			+ '</a>' 
 			+ ' (' + weight/100 + '%)';
 	}
-	else if(record[1].op[0] == 'curation_reward'){
-		const curator = record[1].op[1].curator;
-		const comment_author = record[1].op[1].comment_author;
-		const comment_permlink = record[1].op[1].comment_permlink;
-		const reward = record[1].op[1].reward;		
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + curator + '></canvas>';
-		body = curator + ' curation reward' + emoji_curation_reward 
-			+ ' ' + vestToSteem(reward).toFixed(3) + ' SP' 
-			+ ' for <a href=https://steemit.com/@' + comment_author + '/' + comment_permlink + '>' 
-			+ ellipsis('@' + comment_author + '/' + comment_permlink) + '</a>' ;
-	}
-	else if(record[1].op[0] == 'comment_benefactor_reward'){
-		const benefactor = record[1].op[1].benefactor;
-		const author = record[1].op[1].author;
-		const permlink = record[1].op[1].permlink;
-		const sbd_payout = record[1].op[1].sbd_payout;
-		const steem_payout = record[1].op[1].steem_payout;
-		const vesting_payout = record[1].op[1].vesting_payout;
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + benefactor + '></canvas>';
-		body = benefactor + ' comment benefactor reward' + emoji_comment_benefactor_reward
-			+ ' ' + sbd_payout + ' and ' + vestToSteem(vesting_payout).toFixed(3) + ' SP'
-			+ ' for <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
-			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
-	}
-	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author == ''){
-		const author = record[1].op[1].author;
-		const permlink = record[1].op[1].permlink;
-		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
-		body = author + ' authored a post' + emoji_authored + ' <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
-			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
-		indenticon_type = 'large';
-	}
-	else if(record[1].op[0] == 'comment' && record[1].op[1].parent_author != ''){
-		const author = record[1].op[1].author;
-		const permlink = record[1].op[1].permlink;
-		const parent_author = record[1].op[1].parent_author;
-		const parent_permlink = record[1].op[1].parent_permlink;
-		//https://steemit.com/hive-161179/@yasu/5ffedu
-		identicon =  '<canvas class=large id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + author + '></canvas>';
-		body = author 
-			+ ' replied to' 
-			+ emoji_replied 
-			+ ' <a href=https://steemit.com/' 
-			+ '@' + parent_author + '/' + parent_permlink + '#' + '@' + author + '/' + permlink 
-			+ '>' 
-			+ ellipsis('@' + parent_author + '/' + parent_permlink)
-			+ '</a>' ;
-		indenticon_type = 'large';
-	}
-	else if(record[1].op[0] == 'author_reward'){
-		const author = record[1].op[1].author;
-		const permlink = record[1].op[1].permlink;
-		const sbd_payout = record[1].op[1].sbd_payout;
-		const steem_payout = record[1].op[1].steem_payout;
-		const vesting_payout = record[1].op[1].vesting_payout;
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + author + '></canvas>';
-		body = author 
-			+ '  author reward' + emoji_author_reward 
-			+ ' ' + sbd_payout + ' and ' + vestToSteem(vesting_payout).toFixed(3) + ' SP'
-			+ ' for <a href=https://steemit.com/@' + author + '/' + permlink + '>' 
-			+ ellipsis('@' + author + '/' + permlink) + '</a>' ;
-	}
-	else if(record[1].op[0] == 'transfer'){
-		const from = record[1].op[1].from;
-		const to = record[1].op[1].to;
-		const amount = record[1].op[1].amount;
-		const memo = record[1].op[1].memo;
-		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + from + '></canvas>';
-		body = from 
-			+ '  transfer' + emoji_transfer 
-			+ ' ' + amount + ' to ' + to
-			+ ' ' + memo;
-		indenticon_type = 'large';
-	} 
-	else if(record[1].op[0] == 'claim_reward_balance'){
-		const account = record[1].op[1].account;
-		const reward_steem = record[1].op[1].reward_steem;
-		const reward_sbd = record[1].op[1].reward_sbd;
-		const reward_vests = record[1].op[1].reward_vests;
-		identicon = '<canvas class=small id=' + record[0] + ' width=24 height=24 data-jdenticon-value=' + account + '></canvas>';
-		body = account + ' claim reward' + emoji_claim_reward_balance
-			+ ' ' + reward_sbd + ' and ' + vestToSteem(reward_vests).toFixed(3) + ' SP'
-	} 
-	else if(record[1].op[0] == 'delegate_vesting_shares'){
-		//{"delegator":"deimage","delegatee":"japansteemit","vesting_shares":"368173.275664 VESTS"}
-		//deimage delegate 200.002 SP to japansteemit
-		const delegator = record[1].op[1].delegator;
-		const delegatee = record[1].op[1].delegatee;
-		const vesting_shares = record[1].op[1].vesting_shares;
-		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + delegator + '></canvas>';
-		const v = parseFloat(vesting_shares);
-		body = delegator
-			+ (v > 0 ? ' delegate' : ' undelegate')
-			+ (v > 0 ? emoji_delegate_vesting_shares : emoji_undelegate_vesting_shares)
-			+ (v > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' : '')
-			+ ' to ' + delegatee;
-		indenticon_type = 'large';
-	} 
-	else
-	{
-		identicon =  '<canvas class=small width=24 height=24></canvas>';
-		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
-	}
+
 	return {identicon: identicon, body: body, time: time, type: indenticon_type};
 }
 		
@@ -247,26 +115,6 @@ let krwtrx;
 let krwbtc;
 let krweth;
 async function aaa(days){
-	globalProperties = await steem.api.getDynamicGlobalPropertiesAsync();
-	krwsteem = await getPrice('KRW-STEEM');
-	krwsbd = await getPrice('KRW-SBD');
-	krwtrx = await getPrice('KRW-TRX');
-	krwbtc = await getPrice('KRW-BTC');
-	krweth = await getPrice('KRW-ETH');
-	document.getElementById('price').innerHTML = 
-		'<a class=right>STEEM ' + (krwsteem == 0 ? "---" : krwsteem) + ' won</a>' 
-		+ '<br/><a class=right>SBD ' + (krwsbd == 0 ? "---" : krwsbd) + ' won</a>'
-		+ '<br/><a class="right gray">TRX ' + (krwtrx == 0 ? "---" : krwtrx) + ' won</a>'
-		+ '<br/><a class="right gray">BTC ' + (krwbtc == 0 ? "---" : krwbtc/1000000) + 'M won</a>'
-		+ '<br/><a class="right gray">ETH ' + (krweth == 0 ? "---" : krweth/1000000) + 'M won</a>';
-	//
-	let username = document.getElementById("username").value;
-	effectivepower(username);
-  	votingpower(username);
-	reputation(username, "reputation");
-	age(username);
-	setUsername(username);
-	userlink();
 	
 	//
 	let out = [];
@@ -311,56 +159,8 @@ async function aaa(days){
 				});
 			}
 			
-			
-			//donation
-			if(getReward_donation(ret[i])){
-				['donation'].forEach(function(op){
-					if(total_donation_count[op] === void 0){
-					}else{						
-						let s = steemAmountFormat(total_donation_steem[op], total_donation_sbd[op], total_donation_sp[op])
-							+ krwAmountFormat(0, total_donation_sbd[op], total_donation_sp[op], krwsteem, krwsbd)
-							+ '<br/>'
-						document.getElementById(op).innerHTML = s;
-					}
-				});
-			}
-			
-			//power up/down
-			if(getReward_powerupdown(ret[i])){
-				['power_up', 'power_down'].forEach(function(op){
-					if(total_powerupdown_count[op] === void 0){
-					}else{						
-						let s = 
-						    (op == "power_up" ? "Power up: " : "Power down: ")
-							+ steemAmountFormat(total_powerupdown_steem[op], 0, total_powerupdown_sp[op])
-							+ krwAmountFormat(total_powerupdown_steem[op], 0, total_powerupdown_sp[op], krwsteem, krwsbd)
-							+ '<br/>'
-						document.getElementById(op).innerHTML = s;
-					}
-				});
-			}
-			
-			
-			
-			if(getTransferAmount(ret[i])){
-				['transfer_in', 'transfer_out'].forEach(function(op){
-					if(total_transfer_count[op] === void 0){
-					}else{						
-						let s = 
-						    (op == "transfer_in" ? "Incoming: " : "Outgoing: ")
-							+ steemAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0)
-							+ krwAmountFormat(total_transfer_steem[op], total_transfer_sbd[op], 0, krwsteem, krwsbd)
-							+ '<br/>'
-						document.getElementById(op).innerHTML = s;
-					}
-				});
-			}
-			
+	
 			let timestamp = new Date(ret[i][1].timestamp + "z");
-
-			
-			//let timestamp = new Date(ret[i][1].timestamp);
-			//timestamp.setHours(timestamp.getHours() + 9);
 			
 			let termDay = (now - timestamp) / 86400000;
 
@@ -374,98 +174,20 @@ async function aaa(days){
 	return out;
 };
 
-function clickUserLink(username){
-	document.getElementById("username").value = username;
-	clickBtn(1);
-}
 	
-function clickAppLink(appname){
-	username = document.getElementById("username").value;
-	//location.href = appname + username;
-	
-	var a = document.createElement('a');
-	a.href = appname + username;
-	a.target = '_blank';
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-}
 
 window.onload = function() {
-	let username = getUserName();
-	if(username == ''){
-		let userList = getUsernames();
-		if(userList.length == 0) return;
-		username = userList.pop();
-	}
-	document.getElementById("username").value = username;
+
 	clickBtn(1);
 };
 	
 </script>
-<style>
-.lightgray {
-	color: lightgray;
-}
-.darkgray {
-	color: darkgray;
-}
-//.lightgray:hover {
-//	text-decoration: none;
-//	color: gray;
-//}
-.darkgray:hover {
-	text-decoration: none;
-	color: red;
-}
-td  {
-	padding: 4px;
-}
-</style>
-<script>
-function showTooltip(e) {
-let tooltip = document.getElementById("tooltip");
-let username = e.target.getAttribute('data-username');
-	
-	
-tooltip.style.top = e.pageY + 10 + 'px';
-tooltip.style.left = e.pageX + 10 + 'px';
-let s = "<div style='background-color: white; padding: 10px; width: 300;box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;'>"
-	+ "<image src=https://steemitimages.com/u/" + username + "/avatar style='float: left; margin: 4px;'/>"
-	+ "<a style='font-size: xx-large; margin: 4px;'>" + username + "</a>"
-	+ "<br/>"
-	+ "<a id=tooltip_about style='margin: 4px;'></a>"
-	+ "<table style='background-color: white;clear: left;'>"
-	+ "<tr><td>Reputation</td><td><a id=tooltip_rep></a></td></tr>"
-	+ "<tr><td>Effective Power</td><td><a id=tooltip_ep1></a> <a id=tooltip_ep2></a></td></tr>"
-	+ "<tr><td>Voting Power</td><td><a id=tooltip_vp></a></td></tr>"
-	+ "</table>"
-	+ "</div>" 
-tooltip.innerHTML = s;
-tooltip.style.display = "block";
-reputation(username, "tooltip_rep");
-effectivepower(username, "tooltip_ep1", "tooltip_ep2");
-votingpower(username, "tooltip_vp");
-postingJsonMetadataAbout(username, "tooltip_about");
-}
-function moveTooltip(e) {
-}
-function hideTooltip(e) {
-var tooltip = document.getElementById("tooltip");
-tooltip.style.display = "none";
-}
-</script>
+
 </head>
+
 <body>
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
-	<!--<image src="favicon_getaccounthistory.ico">-->
-	<a style="font-size: xx-large">Account History</a>
-	| <a href="./getblog.0.11.html" class=darkgray>Blog</a>
-	| <a href="javascript:clickAppLink('https://steemit.com/@')" class=darkgray>steemit</a>
-	| <a href="javascript:clickAppLink('https://steemworld.org/@')" class=darkgray>steemworld</a>
-	| <a href="javascript:clickAppLink('https://steemscan.com/account/')" class=darkgray>steemscan</a>    
-	| <br/>
-	<div class=right id=price></div>
+
 	<form action="javascript:clickBtn(1);">
 	<table>
 	<tr>
@@ -480,41 +202,6 @@ tooltip.style.display = "none";
 	</td>
 	</tr>
 	</table>
-	<a id="userlink"></a><br/>
-	<br/><b>Power</b><br/>
-	Effective Power <b><a id=effectivepowervalue></a></b>
-	<a id=effectivepowerdetail></a><br/>
-	<progress id=effectivepower></progress><br/>
-	Voting Power <b><a id=votingpowervalue></a></b><br/>
-	<progress id=votingpower max=100></progress><br/>
-	
-	<br/><b>Reputation </b><a id="reputation"></a> <b>Age </b><a id="age"></a><br/>
-		
-	<br/><b>Period</b><br/>
-	<a id="progress"></a><br/>
-		
-	<br/><b>Reward</b><br/>
-	<a id="author_reward"></a>
-	<a id="curation_reward"></a>
-	<a id="comment_benefactor_reward"></a>
-
-	<br/><b>Transfer</b><br/>
-	<a id="transfer_in"></a>
-	<a id="transfer_out"></a>
-
-	<br/><b>Power up</b><br/>
-	<a id="power_up"></a>
-	<a id="power_down"></a>
-		
-	<br/><b>Donation</b><br/>
-	<a id="donation"></a>	
-
-		<!--
-	<div style="width: 100%;"><canvas id="cvs" style="height:16px;background-color: gray;"></canvas></div>
-		-->
-	<!--<hr color="#888" />-->
-	<br/><b>History</b><br/>
-	<span id="text"></span>
 	</form>
 </body>
 </html>
