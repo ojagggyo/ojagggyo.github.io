@@ -3,11 +3,10 @@
 <head>
 <title>Steem Price</title>
 <meta charset="utf-8">
-<link rel="icon" href="favicon_getaccounthistory.ico" id="favicon">
-<link rel="stylesheet" type="text/css" href="./feedprice.css">
+<link rel="icon" href="favicon_steemprice.ico" id="favicon">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-<script src="./feedprice.js"></script>
+<script src="./steemprice.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 steem.api.setOptions({url: 'https://api.steemit.com'})
@@ -24,7 +23,6 @@ function makeTable(records){
 	csv.length = 0
 	csv.push ('日付,価格\n'); 
 
-	//for(var i=records.length-1;i>=0;i=i-1){
 	for(var i=0;i<records.length;i=i+1){
 
 		let exchange_rate = records[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
@@ -34,8 +32,6 @@ function makeTable(records){
 		csv.push (timestamp + "," + exchange_rate);
 
 	}
-	//csv.reverse();
-	//csv.unshift ('日付,価格\n'); 
 
 	document.getElementById("price").innerHTML = records[records.length-1][1].op[1].exchange_rate.base.slice(0, -4);
 	
@@ -57,14 +53,14 @@ async function aaa(days){
 	let firstValue = -1;
   	let firstTimestamp = new Date();
 	let now = new Date();
-	//while (lastlength == limit && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
+
 	while (firstValue != 0 && now.getTime() - firstTimestamp.getTime() <= (86400000 * days)){
 		//limitより小さいfirstValueでエラーになる問題の対応。
 		if(firstValue != -1 && firstValue < limit) {
 			limit = firstValue;
 		}
 		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
-		//console.log(ret);		
+
 		firstValue = ret[0][0];
     		firstTimestamp = new Date(ret[0][1].timestamp);
 		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
@@ -115,11 +111,8 @@ async function aaa(days){
 let username;
 window.onload = function() {
 	console.log("window.onload");
-
 	username = document.getElementById("username").value;
-	//document.getElementById("username").value = username;
 	clickBtn(1);
-
 	clickBtn1(0);
 };
 	

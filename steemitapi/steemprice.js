@@ -20,12 +20,7 @@ function clickBtn(days){
 }
 
 
-//feed proce
-//let total_count = {};
-//let total_sbd_payout = {};
-//let total_steem_payout = {};
-//let total_vesting_payout = {};
-//let total_sp_payout = {};
+
 function getReward_feedprice(record){
 	const username = document.getElementById("username").value
 	let sbd_payout = 0;
