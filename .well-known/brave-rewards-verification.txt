@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: ojagggyo.github.io
+Token: 331962698e9d849b53b2620fa49f8ee8175655a41bf8fdc9606c152ba3e6ea4a
