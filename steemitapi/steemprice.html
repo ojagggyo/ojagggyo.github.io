@@ -13,6 +13,19 @@ steem.api.setOptions({url: 'https://api.steemit.com'})
 	
 let username;
 window.onload = function() {
+	
+	let url = new URL(window.location.href);
+	let params = url.searchParams;
+	let api = params.get('api');
+	console.log(api);
+	if(api){
+		console.log(api);
+		//client = null;
+		//client = new dsteem.Client(api);
+		steem = null;
+		steem.api.setOptions({url: api});
+	}
+	
 	username = getUserName();
 	if(username == ''){
 		username = document.getElementById("username").value;
