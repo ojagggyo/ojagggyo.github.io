@@ -22,7 +22,7 @@ window.onload = function() {
 		console.log(api);
 		//client = new dsteem.Client(api);
 		//steem.api.setOptions({url: api});
-		steem.api.setOptions(JSON.parse('{"url":' + api + '}'));
+		steem.api.setOptions(JSON.parse('{"url": "' + api + '"}'));
 	}
 	
 	username = getUserName();
