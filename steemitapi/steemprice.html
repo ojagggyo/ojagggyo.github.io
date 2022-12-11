@@ -20,10 +20,9 @@ window.onload = function() {
 	console.log(api);
 	if(api){
 		console.log(api);
-		//client = null;
 		//client = new dsteem.Client(api);
-		steem = null;
-		steem.api.setOptions({url: api});
+		//steem.api.setOptions({url: api});
+		steem.api.setOptions(JSON.parse('{"url":' + api + '}'));
 	}
 	
 	username = getUserName();
