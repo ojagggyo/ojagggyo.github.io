@@ -1,4 +1,15 @@
 function getUserName(){
+	
+	let url = new URL(window.location.href);
+	let params = url.searchParams;
+	let api = params.get('api');
+	console.log(api);
+	if(api){
+		console.log(api);
+		client = null;
+		client = new dsteem.Client(api);
+	}
+	
 	let hash = window.location.hash;// #username
 	if (hash == null || hash.trim().length == 0){
 		return "";
