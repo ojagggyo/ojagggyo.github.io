@@ -88,7 +88,8 @@ function makeTable(records){
 	document.getElementById("text").innerHTML = html;
 }
 
-steem.api.setOptions({url: 'https://api.steemit.com'})
+//steem.api.setOptions({url: 'https://api.steemit.com'})
+steem.api.setOptions({url: 'https://api.steememory.com'})
 _author = "";
 _permlink = "";
 _discussions = [];
