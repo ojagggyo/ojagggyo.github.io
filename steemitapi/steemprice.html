@@ -20,8 +20,6 @@ window.onload = function() {
 	console.log(api);
 	if(api){
 		console.log(api);
-		//client = new dsteem.Client(api);
-		//steem.api.setOptions({url: api});
 		steem.api.setOptions(JSON.parse('{"url": "' + api + '"}'));
 	}
 	
@@ -48,12 +46,12 @@ window.onload = function() {
 	<tr>
 	<td>
 	<input type="hidden" id="username" size="20" value="yasu.witness">
-	<input type="button" value="表示(1日)" onclick="clickBtn(1)" />
-	<input type="button" value="(3日)" onclick="clickBtn(3)" />
-	<input type="button" value="(7日)" onclick="clickBtn(7)" />
-	<input type="button" value="(30日)" onclick="clickBtn(30)" />
-	<input type="button" value="(60日)" onclick="clickBtn(60)" />
-	<input type="button" value="(365日)" onclick="clickBtn(365)" />
+	<input type="button" value="Show" onclick="clickBtn(1)" />
+	<input type="button" value="(3days" onclick="clickBtn(3)" />
+	<input type="button" value="(7days)" onclick="clickBtn(7)" />
+	<input type="button" value="(30days)" onclick="clickBtn(30)" />
+	<input type="button" value="(60days)" onclick="clickBtn(60)" />
+	<!-- <input type="button" value="(365日)" onclick="clickBtn(365)" /> -->
 	</td>
 	</tr>
 	</table>
