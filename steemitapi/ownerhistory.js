@@ -6,7 +6,8 @@ function ConvertDate(datetime){
     return time.toLocaleString().slice(0,-3);//右から3文字カット
 }
 
-steem.api.setOptions({url: 'https://api.steemit.com'});    
+//steem.api.setOptions({url: 'https://api.steemit.com'});
+steem.api.setOptions({url: 'https://api.steememory.com'});
 
 async function getAccountInfo(usernames){
   let data = [];
