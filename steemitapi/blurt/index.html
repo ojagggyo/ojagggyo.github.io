@@ -40,7 +40,7 @@ async function aaa(){
 	ret.splice(0,ret.length/2);
 	
 	if(ret.length == 0){
-		document.getElementById("progress").innerText = ' データなし';	
+		document.getElementById("progress").innerText = 'No data';	
 		return [];
 	}
 	
@@ -88,7 +88,7 @@ async function aaa(){
 			} catch(e) {
  				console.log( e.message );
 				if(--retry == 0) {
-					document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total + " 未取得データあり";
+					document.getElementById("progress").innerText = ' ' + blogs.length + ' / ' + total + " Can't get some data";
 					return blogs;
 				}
 				await _sleep(300);
