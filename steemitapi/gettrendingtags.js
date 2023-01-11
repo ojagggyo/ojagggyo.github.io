@@ -1,4 +1,5 @@
-client = steem.api.setOptions({url: 'https://api.steemit.com'})
+//client = steem.api.setOptions({url: 'https://api.steemit.com'})
+client = steem.api.setOptions({url: 'https://api.steememory.com'})
 	
 async function aaa(){
 	let tags = [];
