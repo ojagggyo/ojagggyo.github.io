@@ -4,7 +4,7 @@ async function aaa(){
 	let tags = [];
 	let limit = 10;
 	let lastTag = "";
-	while (limit == 10 && tags.length < 50){
+	while (limit == 10 && tags.length < 500){
 		let ret = await steem.api.getTrendingTagsAsync(lastTag, limit);
 		console.log(ret);
 		limit = ret.length;
