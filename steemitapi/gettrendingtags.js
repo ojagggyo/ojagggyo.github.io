@@ -29,7 +29,7 @@ aaa().then(result => {
 	for(var i=0;i<result.length;i=i+1){
 		html = html + '<tr>';
 		html = html + '<td align=right>' + (i+1) + '</td>';
-		html = html + '<td><a href=' + 'https://steemit.com/trending/' + result[i].name + ' target=_blank>' + result[i].name+ '</a></td>';
+		html = html + '<td><a href=' + 'https://steemit.com/created/' + result[i].name + ' target=_blank>' + result[i].name+ '</a></td>';
 		html = html + '<td align=right>' + result[i].top_posts + '</td>';
 		html = html + '<td align=right>' + result[i].comments + '</td>';
 		html = html + '<td align=right>' + result[i].total_payouts + '</td>';
