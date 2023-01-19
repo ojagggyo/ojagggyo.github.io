@@ -25,7 +25,7 @@ let myChart1;
 let csv = [];
 function makeTable(records){
 	csv.length = 0
-	csv.push ('日付,価格\n'); 
+	//csv.push ('日付,価格\n'); 
 	for(var i=0;i<records.length;i=i+1){
 		let exchange_rate = records[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
 		let publisher = records[i][1].op[1].publisher;
