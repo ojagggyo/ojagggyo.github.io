@@ -68,7 +68,7 @@ async function aaa(days){
 				//continue;
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
-				ret.length = i;
+				ret.length = i + 1 ;
 				break;
 			}
 
