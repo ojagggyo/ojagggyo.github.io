@@ -64,10 +64,12 @@ async function aaa(days){
 		
 		for(var i=ret.length-1;i>=0;i=i-1){
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
-				ret.splice(i,1);
-				continue;
+				//ret.splice(i,1);
+				//continue;
 				//ret.splice(0, i + 1);//残りの要素を削除
 				//break;//すべて処理済
+				ret.length = i;
+				break;
 			}
 
 			if(ret[i][1].op[0] != "feed_publish"){ 
