@@ -127,6 +127,9 @@ function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
 			backgroundColor: color,
 			borderColor: color,
 			data: datas,
+			fill: true,                           // ★　線とＸ軸で囲まれた範囲の描画 true する, false しない 
+                	backgroundColor: "rgba(51, 221, 204, 0.2)", // ★　その範囲の色 fill: false のとき不要
+                	tension: 0.2,                         // ★　グラフの線、０ 直線,  ＞０ 曲線
 		}]
 	};
 	// === include 'setup' then 'config' above ===
