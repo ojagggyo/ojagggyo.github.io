@@ -37,7 +37,9 @@ function makeTable(records){
 	//チャート
 	if(myChart1 != null){myChart1.destroy();}
 	let days = 0;
-	myChart1 = clickChartBtn('', days, myChart1, 'myChart1', csv, 'STEEM価格', 'rgb(51, 221, 204)');
+	myChart1 = clickChartBtn('', days, myChart1, 'myChart1', csv, 'STEEM価格', 'rgb(51, 221, 20)');
+	
+	
 }
   
 
@@ -128,7 +130,7 @@ function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
 			borderColor: color,
 			data: datas,
 			fill: true,                           // ★　線とＸ軸で囲まれた範囲の描画 true する, false しない 
-                	backgroundColor: "rgba(51, 221, 204, 0.2)", // ★　その範囲の色 fill: false のとき不要
+                	backgroundColor: 'rgba(' + color.replace(/rgb|\(|\)/g, '') + ', 0.2)', // ★　その範囲の色 fill: false のとき不要
                 	tension: 0.2,                         // ★　グラフの線、０ 直線,  ＞０ 曲線
 		}]
 	};
