@@ -37,7 +37,7 @@ function makeTable(records){
 	//チャート
 	if(myChart1 != null){myChart1.destroy();}
 	let days = 0;
-	myChart1 = clickChartBtn('', days, myChart1, 'myChart1', csv, 'STEEM価格', 'rgb(51, 221, 20)');
+	myChart1 = clickChartBtn('', days, myChart1, 'myChart1', csv, 'STEEM価格', 'rgb(51, 221, 204)');
 	
 	
 }
