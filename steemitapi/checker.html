@@ -60,6 +60,9 @@
                     let steemPrice = parseFloat(result.base.replace(" SBD"));
                     $("#steemPrice").text("$" + steemPrice);
                     console.log("***getSteemPrice*** $" + steemPrice);
+                    console.log('result.base: ' + result.base);
+                    
+                    
                 });
             }
             async function getFullPowerSBD() {
