@@ -72,8 +72,7 @@
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
                 steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
                 
-                
-                steemPrice = 0.23;
+                              
                 
                 
                 let accounts = await steem.api.getAccountsAsync([username]);
