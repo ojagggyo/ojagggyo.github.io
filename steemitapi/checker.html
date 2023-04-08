@@ -71,6 +71,11 @@
                 let username = $("#text_username").val();
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
                 steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                
+                
+                steemPrice = 0.23;
+                
+                
                 let accounts = await steem.api.getAccountsAsync([username]);
                 if(accounts.length == 0) {return;}
                 let item = accounts[0];
