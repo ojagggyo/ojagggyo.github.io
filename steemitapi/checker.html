@@ -167,8 +167,8 @@
                     console.log('fund.recent_claims: ' + fund.recent_claims);
                     
                     let id = result[i].voter;
-                    //let sbd = steemPrice * result[i].rshares * (parseFloat(fund.reward_balance.replace(" STEEM","")) /fund.recent_claims);
-                    let sbd = result[i].rshares / steemPrice / (parseFloat(fund.reward_balance.replace(" STEEM","")) /fund.recent_claims);
+                    let sbd = steemPrice * result[i].rshares * (parseFloat(fund.reward_balance.replace(" STEEM","")) /fund.recent_claims);
+
                     
                     
                     
