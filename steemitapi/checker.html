@@ -69,9 +69,15 @@
                 $("#userSP").text("");
                 $("#votingSBD").text("");
                 let username = $("#text_username").val();
-                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
                 
+                
+                //let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
+                //steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                let price = await steem.api.getCurrentMedianHistoryPriceAsync();
+                var base = price.base.split(' ')[0]
+                var quote = price.quote.split(' ')[0]
+                // SBD / STEEM의 가격 비율
+                var steemPrice = base /quote;
                               
                 
                 
@@ -93,9 +99,7 @@
                 let rshare = power * voting;
                 let fund = await steem.api.getRewardFundAsync('post');
                 let sbd = rshare * (parseFloat(fund.reward_balance.replace(" STEEM","")) / fund.recent_claims) * steemPrice;
-                //console.log('fund.reward_balance.replace(" STEEM",""): ' + fund.reward_balance.replace(" STEEM",""));
-                //console.log('fund.recent_claims: ' + fund.recent_claims);
-                //console.log('steemPrice: ' + steemPrice);
+
                 
                 
                 $("#userSP").text(sp.toFixed(2) + " SP");
@@ -151,7 +155,7 @@
                 var base = price.base.split(' ')[0]
                 var quote = price.quote.split(' ')[0]
                 // SBD / STEEM의 가격 비율
-                var steemPrice = base /quote 
+                var steemPrice = base /quote; 
                 
                 
                 let fund = await steem.api.getRewardFundAsync('post');
