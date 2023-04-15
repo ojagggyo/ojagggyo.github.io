@@ -146,8 +146,14 @@
             async function getVoting(orderby){
                 let link = $("#selectPerm").val();
                 username = $("#text_username").val();
-                let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                
+                let price = await steem.api.getCurrentMedianHistoryPriceAsync();
+                var base = price.base.split(' ')[0]
+                var quote = price.quote.split(' ')[0]
+                // SBD / STEEM의 가격 비율
+                var steemPrice = base /quote 
+                
+                
                 let fund = await steem.api.getRewardFundAsync('post');
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
                 replies = replies.map(function(item, index){
