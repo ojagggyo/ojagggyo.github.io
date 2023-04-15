@@ -1,0 +1,1 @@
+[[https://steemit.com/kr/@anpigon/vote-value-javascripthttps://steemit.com/kr/@anpigon/vote-value-javascript](https://steemit.com/kr/@anpigon/vote-value-javascript)](https://steemit.com/kr/@anpigon/vote-value-javascript)
