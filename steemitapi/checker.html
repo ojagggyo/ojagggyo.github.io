@@ -174,8 +174,8 @@
 
                     
                     
-                    let k = (parseFloat(fund.reward_balance.replace(" STEEM","")) /fund.recent_claims);
-                    let sbd = result[i].rshares * k / steemPrice  ;
+                    let k = (parseFloat(fund.reward_balance.replace(" STEEM","")) /fund.recent_claims / steemPrice );
+                    let sbd = result[i].rshares * k ;
                     
                     
                     
