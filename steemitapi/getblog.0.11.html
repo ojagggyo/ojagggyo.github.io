@@ -197,12 +197,12 @@ const COLORS = ['#e8edf0', '#98e9a8', '#40c463', '#30a14e', '#216e39'];
 		//const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		const rect = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 		
-		rect.setAttribute('x', x);
-		rect.setAttribute('y', y);	
+		//rect.setAttribute('x', x);
+		//rect.setAttribute('y', y);	
 		//rect.setAttribute('width', width);
 		//rect.setAttribute('height', height);
-		rect.setAttribute('cx', width);
-		rect.setAttribute('cy', height);
+		rect.setAttribute('cx', x);
+		rect.setAttribute('cy', y);
 		rect.setAttribute('r', width);
 		
 		rect.setAttribute('fill', color);
