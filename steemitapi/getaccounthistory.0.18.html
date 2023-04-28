@@ -311,11 +311,14 @@ async function aaa(days){
 			}
 			
 			if(getReward(ret[i])){
-				['author_reward', 'curation_reward', 'comment_benefactor_reward'].forEach(function(op){
+				['author_reward', 'curation_reward', 'comment_benefactor_reward', 'producer_reward'].forEach(function(op){
 					if(total_count[op] === void 0){
 					}else{						
 						let s = 
-						    (op == "author_reward" ? "Author: " : (op == "curation_reward" ? "Curation: " : "Benefactor: "))
+						    (op == "author_reward" ? "Author: " : 
+						     (op == "curation_reward" ? "Curation: " : 
+						      (op == "comment_benefactor_reward" ? "Benefactor: " : 
+						       "Producer: ")))
 							+ steemAmountFormat(total_steem_payout[op], total_sbd_payout[op], total_sp_payout[op])
 							+ krwAmountFormat(0, total_sbd_payout[op], total_sp_payout[op], krwsteem, krwsbd)
 							+ '<br/>'
