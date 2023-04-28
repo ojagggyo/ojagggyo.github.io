@@ -294,7 +294,7 @@ function getReward(record){
 	}else if(op == "producer_reward"){
 		sbd_payout = 0;
 		steem_payout = 0;
-		vesting_payout = parseFloat(record[1].op[1].vesting_payout);
+		vesting_payout = parseFloat(record[1].op[1].vesting_shares);
 	}else {
 		return false;
 	}
