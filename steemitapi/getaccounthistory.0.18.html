@@ -206,6 +206,19 @@ function makeLine(record){
 			+ (v > 0 ? ' ' + vestToSteem(vesting_shares).toFixed(3) + ' SP' : '')
 			+ ' to ' + delegatee;
 		indenticon_type = 'large';
+	}
+	else if(record[1].op[0] == 'producer_reward'){
+		//{"producer":"yasu.witness","vesting_shares":"2330.621878 VESTS"} 
+		//yasu.witness producer reward: 1.318 SP
+		const producer = record[1].op[1].producer;
+		const vesting_shares = record[1].op[1].vesting_shares;
+		identicon = '<canvas class=small id=' + record[0] + ' width=48 height=48 data-jdenticon-value=' + producer + '></canvas>';
+		const v = parseFloat(vesting_shares);
+		body = producer
+			+ ' producer reward'
+			+ emoji_author_reward
+			+ vestToSteem(vesting_shares).toFixed(3) + ' SP';
+		indenticon_type = 'large';
 	} 
 	else
 	{
