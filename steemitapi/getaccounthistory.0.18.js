@@ -278,7 +278,7 @@ function getReward(record){
 	let steem_payout = 0;
 	let vesting_payout = 0;
 	let op = record[1].op[0];
-	/*
+	
 	if(op == "comment_benefactor_reward" && record[1].op[1].benefactor == username){
 		sbd_payout = parseFloat(record[1].op[1].sbd_payout);
 		steem_payout = parseFloat(record[1].op[1].steem_payout);
@@ -297,8 +297,7 @@ function getReward(record){
 		vesting_payout = parseFloat(record[1].op[1].vesting_payout);
 	}else {
 		return false;
-	}*/
-	return false;
+	}
 	
 	/* 不要？
 	//vest Steem変換
