@@ -325,6 +325,10 @@ async function aaa(days){
 				else if(op == "feed_publish"){
 					ret.splice(i,1);
 					continue;
+				} 
+				else if(op == "claim_account"){
+					ret.splice(i,1);
+					continue;
 				}
 			}
 			
@@ -546,7 +550,7 @@ tooltip.style.display = "none";
 	<br/><b>Donation</b><br/>
 	<a id="donation"></a>	
 		
-	<br/><b>History</b> <input type="checkbox" id="account_update2" checked>account_update2 custom_json feed_publishを除く<br/>
+	<br/><b>History</b> <input type="checkbox" id="account_update2" checked>account_update2 custom_json feed_publish claim_accountを除く<br/>
 	<span id="text"></span>
 	</form>
 </body>
