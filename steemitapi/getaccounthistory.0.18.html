@@ -312,10 +312,23 @@ async function aaa(days){
 				ret.splice(i,1);
 				continue;
 			}
-			if(account_update2 && ret[i][1].op[0] == "account_update2"){
-				ret.splice(i,1);
-				continue;
+			if(account_update2){
+				const op = ret[i][1].op[0];
+				if(op == "account_update2"){
+					ret.splice(i,1);
+					continue;
+				}
+				else if(op == "custom_json"){
+					ret.splice(i,1);
+					continue;
+				}  
+				else if(op == "feed_publish"){
+					ret.splice(i,1);
+					continue;
+				}
 			}
+			
+			
 			
 			if(getReward(ret[i])){
 				['author_reward', 'curation_reward', 'comment_benefactor_reward', 'producer_reward'].forEach(function(op){
