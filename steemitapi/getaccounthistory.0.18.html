@@ -86,6 +86,7 @@ function makeLine(record){
 	let time = donokuraimae(record[1].timestamp);
 	if(record[1].op[0] == 'vote'){
 		const username = document.getElementById("username").value;
+		const account_update2 = document.getElementById("account_update2").checked;
 		const voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
@@ -219,7 +220,10 @@ function makeLine(record){
 			+ emoji_author_reward
 			+ vestToSteem(vesting_shares).toFixed(3) + ' SP';
 		indenticon_type = 'large';
-	} 
+	}
+	else if(record[1].op[0] == 'account_update2' && account_update2){
+		//何もしない
+	}
 	else
 	{
 		identicon =  '<canvas class=small width=24 height=24></canvas>';
@@ -281,6 +285,7 @@ async function aaa(days){
 	setUsername(username);
 	userlink();
 	
+
 	//
 	let out = [];
 	let limit = 100;
@@ -525,12 +530,8 @@ tooltip.style.display = "none";
 		
 	<br/><b>Donation</b><br/>
 	<a id="donation"></a>	
-
-		<!--
-	<div style="width: 100%;"><canvas id="cvs" style="height:16px;background-color: gray;"></canvas></div>
-		-->
-	<!--<hr color="#888" />-->
-	<br/><b>History</b><br/>
+		
+	<br/><b>History</b><input type="checkbox" id="aaa" name="account_update2" checked>account_update2を除く<br/>
 	<span id="text"></span>
 	</form>
 </body>
