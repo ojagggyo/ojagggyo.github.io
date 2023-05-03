@@ -86,7 +86,6 @@ function makeLine(record){
 	let time = donokuraimae(record[1].timestamp);
 	if(record[1].op[0] == 'vote'){
 		const username = document.getElementById("username").value;
-		const account_update2 = document.getElementById("account_update2").checked;
 		const voter = record[1].op[1].voter;
 		const author = record[1].op[1].author;
 		const permlink = record[1].op[1].permlink;
@@ -221,9 +220,9 @@ function makeLine(record){
 			+ vestToSteem(vesting_shares).toFixed(3) + ' SP';
 		indenticon_type = 'large';
 	}
-	else if(record[1].op[0] == 'account_update2' && account_update2){
-		//何もしない
-	}
+	//else if(record[1].op[0] == 'account_update2' && account_update2){
+	//	//何もしない
+	//}
 	else
 	{
 		identicon =  '<canvas class=small width=24 height=24></canvas>';
@@ -278,6 +277,7 @@ async function aaa(days){
 		+ '<br/><a class="right gray">ETH ' + (krweth == 0 ? "---" : krweth/1000000) + 'M won</a>';
 	//
 	let username = document.getElementById("username").value;
+	const account_update2 = document.getElementById("account_update2").checked;
 	effectivepower(username);
   	votingpower(username);
 	reputation(username, "reputation");
@@ -311,8 +311,10 @@ async function aaa(days){
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
-				//ret.splice(0, i + 1);//残りの要素を削除
-				//break;//すべて処理済
+			}
+			if(account_update2 && ret[i][1].op[0] == "account_update2"){
+				ret.splice(i,1);
+				continue;
 			}
 			
 			if(getReward(ret[i])){
