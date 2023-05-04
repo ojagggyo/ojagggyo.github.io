@@ -226,16 +226,15 @@ function makeLine(record){
 		body = record[1].op[0] + ' ' + JSON.stringify(record[1].op[1]);
 	}
 	
-	//visible
-	let visible = true;
+	let op = "";
 	if(record[1].op[0] == 'account_update2' ||
 	   record[1].op[0] == 'custom_json' ||
 	   record[1].op[0] == 'feed_publish' ||
 	   record[1].op[0] == 'claim_account'  )  {
-		visible = false;
+		op = "other";
 	}
 	
-	return {identicon: identicon, body: body, time: time, type: indenticon_type, visible: visible};
+	return {identicon: identicon, body: body, time: time, type: indenticon_type, op: op};
 }
 		
 function makeTable(records){
@@ -245,6 +244,9 @@ function makeTable(records){
 	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
+		if(history_hide && line.op = "other"){
+			continue;
+		}
 		html = html + '<tr style="background-color: #ffffff;">'
 			+ '<td>' 
 			+ line.identicon 
@@ -256,6 +258,7 @@ function makeTable(records){
 			+ '</div>'
 			+ '</td>'
 			+ '</tr>';
+
 	}
 	html = html + '</table>';
 	console.log(html);
