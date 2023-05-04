@@ -536,10 +536,7 @@ function clickBtn(days){
 }
 
 var result_copy;
-function clickUpvote(){
-	document.getElementById("text").innerHTML = "";	
-	makeTable(result_copy);
-}
+
 
 function inputChange(event){
     jdenticon.update("#identicon", document.getElementById("username").value);
