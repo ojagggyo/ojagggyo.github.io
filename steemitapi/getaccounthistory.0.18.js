@@ -536,7 +536,7 @@ function clickBtn(days){
 }
 
 var result_copy;
-function clickUpvote(days){
+function clickUpvote(){
 	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
 }
