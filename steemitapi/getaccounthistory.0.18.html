@@ -240,6 +240,8 @@ function makeLine(record){
 		record[1].op[0] == 'comment_benefactor_reward' ||
 		record[1].op[0] == 'producer_reward' ){	
 		op = "reward";
+	}else if(record[1].op[0] == 'transfer' ){
+		op = "transfer";
 	}
 	
 	return {identicon: identicon, body: body, time: time, type: indenticon_type, op: op};
@@ -259,6 +261,9 @@ function makeTable(records){
 			continue;
 		}
 		if(history_reward && line.op != "reward"){
+			continue;
+		}
+		if(history_transfer && line.op != "transfer"){
 			continue;
 		}
 		html = html + '<tr style="background-color: #ffffff;">'
@@ -438,6 +443,7 @@ function clickAppLink(appname){
 let history_hide;
 let history_upvote;
 let history_reward;
+let history_transfer;
 function checkbox(){
 	history_hide = document.getElementById("history_hide").checked;
 	document.getElementById("text").innerHTML = "";	
@@ -447,7 +453,9 @@ function clickUpvote(){
 	history_upvote = document.getElementById("history_upvote").checked;
 	if(history_upvote){
 		history_reward = false;
+		history_transfer = false;
 		document.getElementById("history_reward").checked = false;
+		document.getElementById("history_transfer").checked = false;
 	}	
 	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
@@ -456,12 +464,25 @@ function clickReward(){
 	history_reward = document.getElementById("history_reward").checked;
 	if(history_reward){
 		history_upvote = false;
+		history_transfer = false;
 		document.getElementById("history_upvote").checked = false;
+		document.getElementById("history_transfer").checked = false;
 	}
 	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
 }
-	
+function clickTransfer(){
+	history_transfer = document.getElementById("history_transfer").checked;
+	if(history_transfer){
+		history_upvote = false;
+		history_reward = false;
+		document.getElementById("history_upvote").checked = false;
+		document.getElementById("history_reward").checked = false;
+	}
+	document.getElementById("text").innerHTML = "";	
+	makeTable(result_copy);
+}
+
 window.onload = function() {
 	let username = getUserName();
 	if(username == ''){
@@ -583,7 +604,8 @@ tooltip.style.display = "none";
 		
 	<br/><b>History</b> <br/>
 		<input type="checkbox" id="history_upvote" onclick="clickUpvote();">only upvote<br/>
-		<input type="checkbox" id="history_reward" onclick="clickReward();">only reward<br/>		
+		<input type="checkbox" id="history_reward" onclick="clickReward();">only reward<br/>
+		<input type="checkbox" id="history_transfer" onclick="clickTransfer();">only transfer<br/>
 		<input type="checkbox" id="history_hide" onchange="checkbox();">hide (account_update2, custom_json, feed_publish, claim_account) <br/>
 	<span id="text"></span>
 	</form>
