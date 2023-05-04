@@ -244,7 +244,7 @@ function makeTable(records){
 	html = '<table border=0 cellpadding=0 style="background-color: #f1f1f1;">';
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
-		if(history_hide && line.op = "other"){
+		if(history_hide && line.op == "other"){
 			continue;
 		}
 		html = html + '<tr style="background-color: #ffffff;">'
