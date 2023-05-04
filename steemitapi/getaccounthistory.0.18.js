@@ -527,11 +527,17 @@ function clickBtn(days){
 
 	aaa(days).then(result => {
 		makeTable(result);
+		result_copy = result;
 	}).catch(err => {
 		document.getElementById("text").innerText = err;
 		console.log(err);
 		alert(err);
 	});
+}
+
+var result_copy;
+function clickUpvote(days){
+	makeTable(result_copy);
 }
 
 function inputChange(event){
