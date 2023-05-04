@@ -232,6 +232,8 @@ function makeLine(record){
 	   record[1].op[0] == 'feed_publish' ||
 	   record[1].op[0] == 'claim_account'  )  {
 		op = "other";
+	}else if(record[1].op[0] == 'vote' )
+		op = "vote";
 	}
 	
 	return {identicon: identicon, body: body, time: time, type: indenticon_type, op: op};
@@ -245,6 +247,9 @@ function makeTable(records){
 	for(var i=records.length-1;i>=0;i=i-1){
 		const line = makeLine(records[i]);
 		if(history_hide && line.op == "other"){
+			continue;
+		}
+		if(history_upvote && line.op != "vote"){
 			continue;
 		}
 		html = html + '<tr style="background-color: #ffffff;">'
@@ -444,13 +449,14 @@ function clickAppLink(appname){
 }
 
 let history_hide;
+let history_upvote;
 function checkbox(){
 	history_hide = document.getElementById("history_hide").checked;
 	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
 }
-
 function clickUpvote(){
+	history_upvote = document.getElementById("history_upvote").checked;
 	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
 }
@@ -576,7 +582,7 @@ tooltip.style.display = "none";
 	<a id="donation"></a>	
 		
 	<br/><b>History</b> <input type="checkbox" id="history_hide" onchange="checkbox();">Hide (account_update2, custom_json, feed_publish, claim_account) 
-		<input type="button" value="only Upvote" onclick="clickUpvote()" /><br/>
+		<input type="checkbox" id="history_upvote" onclick="clickUpvote();">Only upvote<br/>
 	<span id="text"></span>
 	</form>
 </body>
