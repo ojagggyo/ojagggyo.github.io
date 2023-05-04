@@ -443,6 +443,12 @@ function clickAppLink(appname){
 let history_hide;
 function checkbox(){
 	history_hide = document.getElementById("history_hide").checked;
+	document.getElementById("text").innerHTML = "";	
+	makeTable(result_copy);
+}
+
+function clickUpvote(){
+	document.getElementById("text").innerHTML = "";	
 	makeTable(result_copy);
 }
 
