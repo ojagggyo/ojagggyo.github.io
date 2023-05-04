@@ -437,7 +437,7 @@ function clickAppLink(appname){
 
 let history_hide;
 let history_upvote;
-let history_reward;
+let ;
 function checkbox(){
 	history_hide = document.getElementById("history_hide").checked;
 	document.getElementById("text").innerHTML = "";	
@@ -446,6 +446,7 @@ function checkbox(){
 function clickUpvote(){
 	history_upvote = document.getElementById("history_upvote").checked;
 	if(history_upvote){
+		history_reward = false;
 		document.getElementById("history_reward").checked = false;
 	}	
 	document.getElementById("text").innerHTML = "";	
@@ -454,6 +455,7 @@ function clickUpvote(){
 function clickReward(){
 	history_reward = document.getElementById("history_reward").checked;
 	if(history_reward){
+		history_upvote = false;
 		document.getElementById("history_upvote").checked = false;
 	}
 	document.getElementById("text").innerHTML = "";	
