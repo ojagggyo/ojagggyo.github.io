@@ -546,6 +546,10 @@ function hideTooltip(e) {
 var tooltip = document.getElementById("tooltip");
 tooltip.style.display = "none";
 }
+	
+function clickComment(e) {
+	  console.log(e.target.id)
+}
 </script>
 </head>
 <body>
@@ -605,7 +609,8 @@ tooltip.style.display = "none";
 	<br/><b>History</b> <br/>
 		<input type="checkbox" id="history_upvote" onclick="clickUpvote();">only upvote
 		<input type="checkbox" id="history_reward" onclick="clickReward();">only reward
-		<input type="checkbox" id="history_transfer" onclick="clickTransfer();">only transfer<br/>
+		<input type="checkbox" id="history_transfer" onclick="clickTransfer();">only transfer
+		<input type="checkbox" id="history_transfer" onclick="clickComment();">only post<br/>
 		<input type="checkbox" id="history_hide" onchange="checkbox();" checked>hide (account_update2, custom_json, feed_publish, claim_account) <br/>
 	<span id="text"></span>
 	</form>
