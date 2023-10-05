@@ -142,8 +142,8 @@
                 //let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
                 //steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
                 //steemPrice = parseFloat(steemPrice.base.replace(" SBD")) / parseFloat(steemPrice.quote.replace(" SBD"));//2023.10.05
-                let result = await steem.api.getFeedHistoryAsync();//2023.10.05
-                let steemPrice = parseFloat(result.price_history[83].base.replace(" SBD"));//2023.10.05
+                let result1 = await steem.api.getFeedHistoryAsync();//2023.10.05
+                let steemPrice = parseFloat(result1.price_history[83].base.replace(" SBD"));//2023.10.05
                 let fund = await steem.api.getRewardFundAsync('post');
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
                 replies = replies.map(function(item, index){
