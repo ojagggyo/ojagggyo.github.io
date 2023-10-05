@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <script src="https://github.com/steemit/steem-js/releases/download/v0.6.4/steem.min.js"></script> 
+        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script> 
         <title>Follower Checker</title>
 
         <script>
@@ -66,7 +66,8 @@
                 $("#votingSBD").text("");
                 let username = $("#text_username").val();
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                //steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                steemPrice = parseFloat(steemPrice.base.replace(" SBD")) / steemPrice = parseFloat(steemPrice.quote.replace(" STEEM"));//2023.10.05
                 let accounts = await steem.api.getAccountsAsync([username]);
                 if(accounts.length == 0) {return;}
                 let item = accounts[0];
@@ -135,7 +136,8 @@
                 let link = $("#selectPerm").val();
                 username = $("#text_username").val();
                 let steemPrice = await steem.api.getCurrentMedianHistoryPriceAsync();
-                steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                //steemPrice = parseFloat(steemPrice.base.replace(" SBD"));
+                steemPrice = parseFloat(steemPrice.base.replace(" SBD")) / parseFloat(steemPrice.quote.replace(" SBD"));
                 let fund = await steem.api.getRewardFundAsync('post');
                 let replies = await steem.api.getContentRepliesWithAsync({author:username, permlink:link});
                 replies = replies.map(function(item, index){
