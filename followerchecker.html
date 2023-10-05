@@ -56,8 +56,10 @@
                 });
             }
             function getSteemPrice() {
-                steem.api.getCurrentMedianHistoryPrice(function(err, result) {
-                    let steemPrice = parseFloat(result.base.replace(" SBD"));
+                //steem.api.getCurrentMedianHistoryPrice(function(err, result) {
+                //    let steemPrice = parseFloat(result.base.replace(" SBD"));
+                steem.api.getFeedHistory(function(err, result) {//2023.10.05
+                    let steemPrice = parseFloat(result.price_history[83].base.replace(" SBD"));//2023.10.05
                     $("#steemPrice").text("$" + steemPrice);
                 });
             }
