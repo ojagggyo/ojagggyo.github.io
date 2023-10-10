@@ -22,7 +22,7 @@
                 previous_count = previous_count === null ? 0 : previous_count;
                 $("#text_username").val(storage_username);
                 $("#past_sub").text("number of followers: " + previous_count);
-                steem.api.setOptions({url: 'https://api.steemit.com'});
+                steem.api.setOptions({url: 'https://api.steememory.com'});
                 getAccountCount();
                 getSteemPrice();
                 getVotingPowerPercent();
