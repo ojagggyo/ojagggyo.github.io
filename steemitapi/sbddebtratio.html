@@ -11,13 +11,13 @@
             steem.api.setOptions({url: 'https://api.steemit.com'});
 
             async function getDynamicGlobalProperties(){
-                let result = await steem.api.getDynamicGlobalProperties();
+                let result = await steem.api.getDynamicGlobalPropertiesAsync();
                 console.log(getDynamicGlobalProperties,result);
                 return result;
             }
 
             async function getCurrentMedianHistoryPrice(){
-                let result = await steem.api.getCurrentMedianHistoryPrice();
+                let result = await steem.api.getCurrentMedianHistoryPriceAsync();
                 console.log(getCurrentMedianHistoryPrice,result);
                 return result;
             }
