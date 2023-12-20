@@ -12,13 +12,15 @@
 
             async function getDynamicGlobalProperties(){
                 let result = await steem.api.getDynamicGlobalProperties();
-                console.log(getDynamicGlobalProperties,result);
+                console.log('getDynamicGlobalProperties');
+                console.log(result);
                 return result;
             }
 
             async function getCurrentMedianHistoryPrice(){
                 let result = await steem.api.getCurrentMedianHistoryPrice();
-                console.log(getCurrentMedianHistoryPrice,result);
+                console.log('getCurrentMedianHistoryPrice');
+                console.log(result);
                 return result;
             }
           
