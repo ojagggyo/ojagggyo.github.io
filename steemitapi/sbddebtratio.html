@@ -10,14 +10,14 @@
 
             steem.api.setOptions({url: 'https://api.steemit.com'});
 
-            async function getDynamicGlobalProperties(){
+            async function getDynamicGlobalPropertiesxxx(){
                 let result = steem.api.getDynamicGlobalProperties();
                 console.log('getDynamicGlobalProperties');
                 console.log(result);
                 return result;
             }
 
-            async function getCurrentMedianHistoryPrice(){
+            async function getCurrentMedianHistoryPricexxx(){
                 let result = steem.api.getCurrentMedianHistoryPrice();
                 console.log('getCurrentMedianHistoryPrice');
                 console.log(result);
@@ -25,10 +25,10 @@
             }
           
             async function main(){
-                let a = await getDynamicGlobalProperties();
+                let a = await getDynamicGlobalPropertiesxxx();
                 let current_sbd_supply = Number.parseFloat(a.current_sbd_supply);
                 let virtual_supply = Number.parseFloat(a.virtual_supply);
-                let b = await getCurrentMedianHistoryPrice();
+                let b = await getCurrentMedianHistoryPricexxx();
                 let steem_price = b.base.amount / b.quote.amount;
                 return current_sbd_supply * 100 / (virtual_supply * steem_price);
             }
