@@ -25,12 +25,12 @@
             }
           
             async function main(){
-                let a = getDynamicGlobalPropertiesxxx();
+                let a = await getDynamicGlobalPropertiesxxx();
                 let current_sbd_supply = parseFloat(a.current_sbd_supply);
                 console.log(current_sbd_supply);
                 let virtual_supply = parseFloat(a.virtual_supply);
                 console.log(virtual_supply);
-                let b = getCurrentMedianHistoryPricexxx();
+                let b = await getCurrentMedianHistoryPricexxx();
                 let base = parseFloat(b.base);
                 let quote = parseFloat(b.quote);
                 let steem_price = base / quote;
