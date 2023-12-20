@@ -28,13 +28,16 @@
                 let a = await getDynamicGlobalPropertiesxxx();
                 let current_sbd_supply = parseFloat(a.current_sbd_supply);
                 console.log(current_sbd_supply);
+                $("#text").text(current_sbd_supply);
                 let virtual_supply = parseFloat(a.virtual_supply);
                 console.log(virtual_supply);
+                $("#text").text(virtual_supply);
                 let b = await getCurrentMedianHistoryPricexxx();
                 let base = parseFloat(b.base);
                 let quote = parseFloat(b.quote);
                 let steem_price = base / quote;
                 console.log(steem_price);
+                $("#text").text(steem_price);
                 $("#text").text(current_sbd_supply * 100 / (virtual_supply * steem_price));
             }
 
@@ -44,6 +47,9 @@
         </script>
     </head>
     <body>
+        <h1 id="current_sbd_supply"></h1>
+        <h1 id="virtual_supply"></h1>
+        <h1 id="steem_price"></h1>
         <h1 id="text"></h1>
     </body>
 </html>
