@@ -9,30 +9,26 @@
         <script>            
 
             steem.api.setOptions({url: 'https://api.steememory.com'});
-
+/*
             async function getDynamicGlobalPropertiesxxx(){
                 let result = await steem.api.getDynamicGlobalPropertiesAsync();
-                console.log('getDynamicGlobalProperties');
-                console.log(result);
                 return result;
             }
 
             async function getCurrentMedianHistoryPricexxx(){
                 let result = await steem.api.getCurrentMedianHistoryPriceAsync();
-                console.log('getCurrentMedianHistoryPrice');
-                console.log(result);
                 return result;
             }
-          
+  */        
             async function main(){
-                let a = await getDynamicGlobalPropertiesxxx();
+                let a = await steem.api.getDynamicGlobalPropertiesAsync();//getDynamicGlobalPropertiesxxx();
                 let current_sbd_supply = parseFloat(a.current_sbd_supply);
                 console.log(current_sbd_supply);
                 $("#current_sbd_supply").text(current_sbd_supply);
                 let virtual_supply = parseFloat(a.virtual_supply);
                 console.log(virtual_supply);
                 $("#virtual_supply").text(virtual_supply);
-                let b = await getCurrentMedianHistoryPricexxx();
+                let b = await steem.api.getCurrentMedianHistoryPriceAsync();//getCurrentMedianHistoryPricexxx();
                 let base = parseFloat(b.base);
                 let quote = parseFloat(b.quote);
                 let steem_price = base / quote;
