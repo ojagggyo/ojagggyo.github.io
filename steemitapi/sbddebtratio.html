@@ -5,54 +5,34 @@
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-        <script src="https://ojagggyo.github.io/steemitapi/myutil.js"></script>
         
         <script>            
-            module.exports.get_dynamic_global_properties = async () => {
-                return new Promise((resolve, reject) => {
-                    (async() => {
-                    client.database.getDynamicGlobalProperties().then(
-                        function(result) {        
-                            resolve(result)
-                        },
-                        function(error) {
-                            reject(error)
-                        }
-                    )
-                    })();
-                });
-            };
-            
-            getCurrentMedianHistoryPrice = async () => {
-                return new Promise((resolve, reject) => {
-                    (async() => {
-                        client.database.getCurrentMedianHistoryPrice().then(
-                            function(result) {
-                                console.log('getCurrentMedianHistoryPrice',result)
-                                resolve(result)
-                            },
-                            function(error) {
-                                reject(error)
-                            }
-                        )
-                    })();
-                });
-            };
 
+            steem.api.setOptions({url: 'https://api.steemit.com'});
+
+            async function getDynamicGlobalProperties(){
+                let result = await steem.api.getDynamicGlobalProperties();
+                console.log(getDynamicGlobalProperties,result);
+                return result;
+            }
+
+            async function getCurrentMedianHistoryPrice(){
+                let result = await steem.api.getCurrentMedianHistoryPrice();
+                console.log(getCurrentMedianHistoryPrice,result);
+                return result;
+            }
           
+            async function main(){
+                let a = await get_dynamic_global_properties();
+                let current_sbd_supply = Number.parseFloat(a.current_sbd_supply);
+                let virtual_supply = Number.parseFloat(a.virtual_supply);
+                let b = await getCurrentMedianHistoryPrice();
+                let steem_price = b.base.amount / b.quote.amount;
+                return current_sbd_supply * 100 / (virtual_supply * steem_price);
+            }
+
             window.onload = function() {
-              
-                username = getUserName();
-                $("#username").text(username);
-                getAccountsAsync(username).then(result => {
-                    console.log(result);
-                    reputation = repLog10(result.reputation);          
-                    var text = "Reputationは " + (reputation).toFixed(4) + " です。";
-                    $("#text").text(text);
-                }).catch(err => {
-                    $("#text").text("エラー");
-                    $('#text').css('color','red');
-                });
+                $("#text").text(main());                
             };
         </script>
     </head>
