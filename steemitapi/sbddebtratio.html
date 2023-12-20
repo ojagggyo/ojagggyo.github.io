@@ -27,11 +27,14 @@
             async function main(){
                 let a = getDynamicGlobalPropertiesxxx();
                 let current_sbd_supply = Number.parseFloat(a.current_sbd_supply);
+                console.log(current_sbd_supply);
                 let virtual_supply = Number.parseFloat(a.virtual_supply);
+                console.log(virtual_supply);
                 let b = getCurrentMedianHistoryPricexxx();
                 let base = Number.parseFloat(b.base);
                 let quote = Number.parseFloat(b.quote);
                 let steem_price = base / quote;
+                console.log(steem_price);
                 $("#text").text(current_sbd_supply * 100 / (virtual_supply * steem_price));
             }
 
