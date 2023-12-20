@@ -23,7 +23,7 @@
             }
           
             async function main(){
-                let a = await get_dynamic_global_properties();
+                let a = await getDynamicGlobalProperties();
                 let current_sbd_supply = Number.parseFloat(a.current_sbd_supply);
                 let virtual_supply = Number.parseFloat(a.virtual_supply);
                 let b = await getCurrentMedianHistoryPrice();
