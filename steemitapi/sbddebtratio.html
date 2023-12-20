@@ -4,7 +4,8 @@
         <title>SBD Debt Ratio</title>
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+        <!--<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
         
         <script>            
             steem.api.setOptions({url: 'https://api.steememory.com'});
@@ -21,8 +22,8 @@
                 let quote = parseFloat(b.quote);
                 let steem_price = base / quote;
                 console.log(steem_price);
-                $("#steem_price").text(steem_price);
-                $("#text").text(current_sbd_supply * 100 / (virtual_supply * steem_price));
+                $("#steem_price").text('$'+steem_price);
+                $("#text").text(current_sbd_supply * 100 / (virtual_supply * steem_price)+'%');
             }
             window.onload = function() {
                 setInterval(function () {
