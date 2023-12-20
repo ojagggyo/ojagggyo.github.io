@@ -11,7 +11,7 @@
             steem.api.setOptions({url: 'https://api.steemit.com'});
 
             async function getDynamicGlobalPropertiesxxx(){
-                let result = steem.api.getDynamicGlobalProperties();
+                let result = await steem.api.getCurrentMedianHistoryPriceAsync();
                 console.log('getDynamicGlobalProperties');
                 console.log(result);
                 return result;
