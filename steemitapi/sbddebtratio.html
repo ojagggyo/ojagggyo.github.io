@@ -18,7 +18,7 @@
             }
 
             async function getCurrentMedianHistoryPricexxx(){
-                let result = steem.api.getCurrentMedianHistoryPriceAsync();
+                let result = await steem.api.getCurrentMedianHistoryPriceAsync();
                 console.log('getCurrentMedianHistoryPrice');
                 console.log(result);
                 return result;
