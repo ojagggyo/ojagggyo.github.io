@@ -44,7 +44,6 @@ progress {
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
                 $("#text").text(sbddebtratio +'%');
 		console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);	    
-                //$("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
 	        document.querySelector("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
             }
             window.onload = function() {
@@ -60,7 +59,9 @@ progress {
 <tr><td class=right><h1>virtual_supply: </h1></td><td><h1 id="virtual_supply" /></td></tr>
 <tr><td class=right><h1>steem_price: </h1></td><td><h1 id="steem_price" /></td></tr>
 <tr><td class=right><h1>SBD Debt Ratio: </h1></td><td><h1 id="text" /></td></tr>
+<tr><td colspan=2><progress id=sbd_print_rates max=100 value=10></progress></td></tr>
+
 </table>
-<progress id=sbd_print_rates max=100 value=10></progress><br/>
+
     </body>
 </html>
