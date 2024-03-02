@@ -19,7 +19,7 @@ progress {
 ::-webkit-progress-bar {
 	background-color: whitesmoke;
 }
-#sbddebtratio::-webkit-progress-value {
+#sbd_print_rates::-webkit-progress-value {
   background-color: #00a2e8;//#217ab7;
 }
         </style>
@@ -43,10 +43,10 @@ progress {
 
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
                 $("#text").text(sbddebtratio +'%');
-		    console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);
-		    console.log('progress2', $("#sbddebtratio"));
+		console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);
+		console.log('progress2', $("#sbd_print_rates"));
 		    
-                $("#sbddebtratio").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
+                $("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
             }
             window.onload = function() {
                 setInterval(function () {
@@ -62,6 +62,6 @@ progress {
 <tr><td class=right><h1>steem_price: </h1></td><td><h1 id="steem_price" /></td></tr>
 <tr><td class=right><h1>SBD Debt Ratio: </h1></td><td><h1 id="text" /></td></tr>
 </table>
-<progress id=sbddebtratio max=100 value=10></progress><br/>
+<progress id=sbd_print_rates max=100 value=10></progress><br/>
     </body>
 </html>
