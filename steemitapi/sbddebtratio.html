@@ -9,7 +9,7 @@
         <style type="text/css">
             .right {
                 text-align: right;
-                width: 50%
+                width: 50%;
             }
 progress {
   -webkit-appearance: none;
@@ -20,7 +20,7 @@ progress {
 	background-color: whitesmoke;
 }
 #sbd_print_rates::-webkit-progress-value {
-  background-color: #00a2e8;//#217ab7;
+  background-color: #00a2e8;
 }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
@@ -42,8 +42,7 @@ progress {
                 $("#steem_price").text('$'+steem_price);
 
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
-                $("#text").text(sbddebtratio +'%');
-		console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);	    
+                $("#text").text(sbddebtratio +'%');   
 	        document.querySelector("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
             }
             window.onload = function() {
@@ -60,7 +59,6 @@ progress {
 <tr><td class=right><h1>steem_price: </h1></td><td><h1 id="steem_price" /></td></tr>
 <tr><td class=right><h1>SBD Debt Ratio: </h1></td><td><h1 id="text" /></td></tr>
 <tr><td colspan=2><progress id=sbd_print_rates max=100></progress></td></tr>
-
 </table>
 
     </body>
