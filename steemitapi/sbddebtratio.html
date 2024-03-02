@@ -43,12 +43,10 @@ progress {
 
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
                 $("#text").text(sbddebtratio +'%');
-		console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);
-		console.log('progress2', $("#sbd_print_rates"));
-	    console.log('progress3', $("#steem_price"));
+		console.log('progress', (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100);	    
+                //$("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
 
-		    
-                $("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
+		    $("#sbd_print_rates").value = 90;
             }
             window.onload = function() {
                 setInterval(function () {
