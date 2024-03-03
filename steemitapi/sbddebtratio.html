@@ -44,7 +44,7 @@ progress {
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
                 $("#text").text(sbddebtratio +'%');
 		let sbd_print_rates = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100
-		$("#sbd_print_rates").text(sbd_print_rates +'%');
+		$("#sbd_print_rates").text(sbd_print_rates.toFix(0) +'%');
 	        document.querySelector("#progress").value = sbd_print_rates;
             }
             window.onload = function() {
