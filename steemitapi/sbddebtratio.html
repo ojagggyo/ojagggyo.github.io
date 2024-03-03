@@ -46,6 +46,7 @@ progress {
 		let sbd_print_rates = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100
 		$("#sbd_print_rates").text(sbd_print_rates.toFixed(1) +'%');
 	        document.querySelector("#progress").value = sbd_print_rates;
+		document.querySelector("#progress").text = sbd_print_rates.toFixed(1) +'%';
             }
             window.onload = function() {
                 setInterval(function () {
