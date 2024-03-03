@@ -19,7 +19,7 @@ progress {
 ::-webkit-progress-bar {
 	background-color: whitesmoke;
 }
-#sbd_print_rates::-webkit-progress-value {
+#progress::-webkit-progress-value {
   background-color: #00a2e8;
 }
         </style>
@@ -42,8 +42,10 @@ progress {
                 $("#steem_price").text('$'+steem_price);
 
                 let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
-                $("#text").text(sbddebtratio +'%');   
-	        document.querySelector("#sbd_print_rates").value = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100;
+                $("#text").text(sbddebtratio +'%');
+		let sbd_print_rates = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100
+		$("#sbd_print_rates").text(sbd_print_rates +'%');
+	        document.querySelector("#progress").value = sbd_print_rates;
             }
             window.onload = function() {
                 setInterval(function () {
@@ -58,7 +60,7 @@ progress {
 <tr><td width=0%><h1>virtual_supply: </h1></td><td width=100%><h1 id="virtual_supply" /></td></tr>
 <tr><td width=0%><h1>steem_price: </h1></td><td width=100%><h1 id="steem_price" /></td></tr>
 <tr><td width=0%><h1>SBD Debt Ratio: </h1></td><td width=100%><h1 id="text" /></td></tr>
-<tr><td width=0%><h1>SBD Print Rates</h1></td><td width=100%><progress id=sbd_print_rates max=100></progress></td></tr>
+<tr><td width=0%><h1>SBD Print Rates</h1></td><td width=100%><a id=sbd_print_rates></a><progress id=progress max=100></progress></td></tr>
 </table>
 
     </body>
