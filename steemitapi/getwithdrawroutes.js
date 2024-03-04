@@ -14,8 +14,8 @@ async function aaa(usernames,withdrawRouteType){
 	 	}
 	  }else{
 		  	let item = {};
-			item['from_account'] = (withdrawRoute == 0) ? Typeusernames[i] : "なし";
-			item['to_account'] = (withdrawRoute == 1) ? Typeusernames[i] : "なし";
+			item['from_account'] = (withdrawRoute == 0) ? usernames[i] : "なし";
+			item['to_account'] = (withdrawRoute == 1) ? usernames[i] : "なし";
 			item['percent'] = "";
 			item['auto_vest'] = "";
 			items.push(item);
