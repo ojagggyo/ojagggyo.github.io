@@ -140,7 +140,13 @@ function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
 	const config = {
 		type: 'line',
 		data: data,
-		options: {}
+		options: {
+	           scales: {
+        	      y: {
+                	min: 0.0,
+                	//max: 0.38,
+              		}
+            	},
 	};
 	
 	return new Chart(document.getElementById(chart_id), config);
