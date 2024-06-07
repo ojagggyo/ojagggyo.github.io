@@ -141,12 +141,13 @@ function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
 		type: 'line',
 		data: data,
 		options: {
-	           scales: {
-        	      y: {
-                	min: 0.0,
-                	//max: 0.38,
-              		}
-            	},
+	           	scales: {
+        	      		y: {
+                			min: 0.0,
+                			//max: 0.38,
+              			}
+            		},
+		},
 	};
 	
 	return new Chart(document.getElementById(chart_id), config);
