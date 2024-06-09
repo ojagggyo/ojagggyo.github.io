@@ -1,64 +1,32 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>SBD Debt Ratio</title>
-        <meta charset="utf-8">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-            crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <style type="text/css">
-            .right {
-                text-align: right;
-                width: 50%;
-            }
+<head>
+<title>SBD Debt Ratio</title>
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style type="text/css">
+.right {
+text-align: right;
+width: 50%;
+}
 progress {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 2rem;
+-webkit-appearance: none;
+width: 100%;
+height: 2rem;
 }
 ::-webkit-progress-bar {
-	background-color: whitesmoke;
+background-color: whitesmoke;
 }
 #progress::-webkit-progress-value {
-  background-color: #00a2e8;
+background-color: #00a2e8;
 }
-        </style>
-        <script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
-        <script>
-            steem.api.setOptions({url: 'https://api.steememory.com'});
-            async function main(){
-                let a = await steem.api.getDynamicGlobalPropertiesAsync();
-                let current_sbd_supply = parseFloat(a.current_sbd_supply);
-                console.log(current_sbd_supply);
-                $("#current_sbd_supply").text(current_sbd_supply);
-                let virtual_supply = parseFloat(a.virtual_supply);
-                console.log(virtual_supply);
-                $("#virtual_supply").text(virtual_supply);
-                let b = await steem.api.getCurrentMedianHistoryPriceAsync();
-                let base = parseFloat(b.base);
-                let quote = parseFloat(b.quote);
-                let steem_price = base / quote;
-                console.log(steem_price);
-                $("#steem_price").text('$'+steem_price);
-
-                let sbddebtratio = current_sbd_supply * 100 / (virtual_supply * steem_price);
-                $("#text").text(sbddebtratio +'%');
-		let sbd_print_rates = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100
-		$("#sbd_print_rates").text(sbd_print_rates.toFixed(1) +'%');
-	        document.querySelector("#progress").value = sbd_print_rates;
-
-
-	    }
-            window.onload = function() {
-                setInterval(function () {
-                    main();
-                }, 3000);
-            };
-        </script>
-	    
-    </head>
-    <body>
+</style>    
+</head>
+<body>
 <table width=100%>
 <tr><td width=0%><b>current_sbd_supply: </b></td><td width=100% colspan=2><b id="current_sbd_supply" /></td></tr>
 <tr><td width=0%><b>virtual_supply: </b></td><td width=100% colspan=2><b id="virtual_supply" /></td></tr>
