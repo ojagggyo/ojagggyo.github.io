@@ -34,7 +34,7 @@ data: data,
 
 	async function main()
 	{
-labels.push(Date.now().toLocaleTimeString());
+labels.push(Date(Date.now()).toTimeString());
 datas.push('100');
 		myChart.update();
 	}
