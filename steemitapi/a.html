@@ -17,8 +17,8 @@ const data = {
 labels: labels,
 datasets: [{
 	label: 'title',
-	backgroundColor: 'red',
-	borderColor: 'black',
+         backgroundColor: 'rgb(221, 51, 204)',
+          borderColor: 'rgb(221, 51, 204)',
 	data: datas,
 	fill: true, 
 }]
@@ -32,10 +32,15 @@ data: data,
 
 </head>
 
-<body>
-<canvas id="myChart1"></canvas>
-<script>
-let myChart1 = new Chart(document.getElementById("myChart1"), config);
-</script>		
-</body>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    </script>
+  </body>
 </html>
