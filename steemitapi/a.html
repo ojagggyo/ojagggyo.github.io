@@ -8,8 +8,39 @@
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-window.onload = function() {
+function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
+	let labels = [];
+	let datas = [];
+		
+	labels = labels.push("2024/06/08");
+	labels = labels.push("123");
 	
+	//
+	const data = {
+		labels: labels,
+		datasets: [{
+			label: title,
+			backgroundColor: color,
+			borderColor: color,
+			data: datas,
+			fill: true,                           // ★　線とＸ軸で囲まれた範囲の描画 true する, false しない 
+                	backgroundColor: 'rgba(' + color.replace(/rgb|\(|\)/g, '') + ', 0.2)', // ★　その範囲の色 fill: false のとき不要
+                	tension: 0.2,                         // ★　グラフの線、０ 直線,  ＞０ 曲線
+			//borderWidth: 1, //線の太さ
+			pointRadius: 0, //点のサイズ
+		}]
+	};
+	// === include 'setup' then 'config' above ===
+	const config = {
+		type: 'line',
+		data: data,
+	};
+	
+	return new Chart(document.getElementById("myChart1"), config);
+}  
+	
+window.onload = function() {
+	clickChartBtn();
 };
 	
 </script>
