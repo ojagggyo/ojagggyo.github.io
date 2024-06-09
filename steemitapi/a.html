@@ -31,6 +31,14 @@ const config = {
 type: 'line',
 data: data,
 };
+
+	async function main()
+	{
+labels.push('2024/06/10');
+datas.push('100');
+		myChart.update();
+	}
+
 </script>
 
 </head>
@@ -40,15 +48,14 @@ data: data,
       <canvas id="myChart"></canvas>
     </div>
     <script>
-      var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-      );
+      var myChart = new Chart(document.getElementById('myChart'),config);
+	    
+      window.onload = function() {
+                setInterval(function () {
+                    main();
+	}, 3000);
+      };
     </script>
-<script>
-  labels.push('2024/06/10');
-datas.push('120');
-myChart.update();
- </script>
+  
   </body>
 </html>
