@@ -8,8 +8,9 @@
 <script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-function clickChartBtn() {
-	let labels = [];
+	
+window.onload = function() {
+		let labels = [];
 	let datas = [];
 		
 	labels.push('2024/06/08'
@@ -32,11 +33,7 @@ function clickChartBtn() {
 		data: data,
 	};
 	
-	return new Chart(document.getElementById("myChart1"), config);
-}  
-	
-window.onload = function() {
-	clickChartBtn();
+	let myChart1 = new Chart(document.getElementById("myChart1"), config);
 };
 	
 </script>
