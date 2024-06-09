@@ -50,7 +50,7 @@ progress {
 
 
 		//チャート更新
-		labels.push(new Date().toTimeString());
+		labels.push(new Date().toLocaleString());
 		datas.push(sbd_print_rates.toFixed(1) );
 		myChart.update();
 	    }
