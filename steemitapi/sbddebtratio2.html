@@ -6,6 +6,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
             crossorigin="anonymous"></script>
+	
         <style type="text/css">
             .right {
                 text-align: right;
@@ -46,13 +47,43 @@ progress {
 		let sbd_print_rates = (sbddebtratio > 10) ? 0 : (sbddebtratio < 9) ? 100 : (10 - sbddebtratio) * 100
 		$("#sbd_print_rates").text(sbd_print_rates.toFixed(1) +'%');
 	        document.querySelector("#progress").value = sbd_print_rates;
-            }
+
+
+		//チャート更新
+		labels.push(new Date().toTimeString());
+		datas.push(sbddebtratio);
+		myChart.update();
+	    }
             window.onload = function() {
                 setInterval(function () {
                     main();
                 }, 3000);
             };
         </script>
+
+	    //チャート用
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+let labels = [];
+let datas = [];
+const data = {
+labels: labels,
+datasets: [{
+	label: 'title',
+         backgroundColor: 'rgb(221, 51, 204)',
+          borderColor: 'rgb(221, 51, 204)',
+	data: datas,
+	fill: true, 
+}]
+};
+// === include 'setup' then 'config' above ===
+const config = {
+type: 'line',
+data: data,
+};
+</script>
+	    
+	    
     </head>
     <body>
 <table width=100%>
@@ -62,6 +93,12 @@ progress {
 <tr><td width=0%><h1>SBD Debt Ratio: </h1></td><td width=100% colspan=2><h1 id="text" /></td></tr>
 <tr><td width=0%><h1>SBD Print Rates</h1></td><td width=100%><progress id=progress max=100></progress></td><td><h1 id=sbd_print_rates></a></td></tr>
 </table>
-
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      var myChart = new Chart(document.getElementById('myChart'),config);
+    </script>
     </body>
 </html>
+
