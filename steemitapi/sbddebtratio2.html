@@ -51,7 +51,7 @@ progress {
 
 		//チャート更新
 		labels.push(new Date().toTimeString());
-		datas.push(sbddebtratio);
+		datas.push(sbd_print_rates.toFixed(1) );
 		myChart.update();
 	    }
             window.onload = function() {
