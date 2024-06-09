@@ -37,7 +37,7 @@ const data = {
 labels: labels,
 datasets: [{
     label: 'SBD Print Rates',
-        backgroundColor: 'rgb(221, 51, 204)',
+        backgroundColor: 'rgba(221, 51, 204, 0.2)',
         borderColor: 'rgb(221, 51, 204)',
     data: datas,
     fill: true, 
