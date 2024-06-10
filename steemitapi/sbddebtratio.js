@@ -21,14 +21,14 @@ async function main(){
     document.querySelector("#progress").value = sbd_print_rates;
     //チャート更新
     labels.push(new Date().toLocaleString());
-    datas.push(sbd_print_rates.toFixed(1) );
+    datas.push(sbddebtratio.toFixed(6) );
     myChart.update();
 }
 
 window.onload = function() {
     setInterval(function () {
         main();
-    }, 3000);
+    }, 5000);
 };
 
 let labels = [];
@@ -36,7 +36,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: 'SBD Print Rates',
+    label: 'SBD Debt Ratio',
         backgroundColor: 'rgb(221, 51, 204)',
         borderColor: 'rgb(221, 51, 204)',
     data: datas,
@@ -46,13 +46,6 @@ datasets: [{
 };
 // === include 'setup' then 'config' above ===
 const config = {
-type: 'line',
-data: data,
-          options: {
-            scales: {
-              y: {
-                suggestedMin: 0.0,
-              }
-            },
-          },
+    type: 'line',
+    data: data,
 };
