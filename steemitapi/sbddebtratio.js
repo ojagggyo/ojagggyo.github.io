@@ -48,4 +48,11 @@ datasets: [{
 const config = {
 type: 'line',
 data: data,
+          options: {
+            scales: {
+              y: {
+                suggestedMin: 0.0,
+              }
+            },
+          },
 };
