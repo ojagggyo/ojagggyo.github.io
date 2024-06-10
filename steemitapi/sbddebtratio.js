@@ -21,7 +21,7 @@ async function main(){
     document.querySelector("#progress").value = sbd_print_rates;
     //チャート更新
     labels.push(new Date().toLocaleString());
-    datas.push(sbddebtratio.toFixed(6) );
+    datas.push(sbddebtratio.toFixed(9) );
     myChart.update();
 }
 
