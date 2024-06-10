@@ -28,7 +28,7 @@ async function main(){
 window.onload = function() {
     setInterval(function () {
         main();
-    }, 5000);
+    }, 10*1000);
 };
 
 let labels = [];
