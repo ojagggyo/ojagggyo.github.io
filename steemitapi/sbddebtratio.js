@@ -26,6 +26,7 @@ async function main(){
 }
 
 window.onload = function() {
+    main();
     setInterval(function () {
         main();
     }, 10*1000);
