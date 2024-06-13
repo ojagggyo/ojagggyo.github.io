@@ -1,47 +1,4 @@
-function getUserName(){
-	
-	let hash = window.location.hash;// #username
-	if (hash == null || hash.trim().length == 0){
-		return "";
-	}
-	hash = hash.substr(1);//#を取る
-	hash = decodeURI(hash).trim();//デコード、トリム]
-	return hash;
-  }
-
-
-function formatDate(dt) {
-	//var y = dt.getFullYear();
-	var m = ('00' + (dt.getMonth()+1)).slice(-2);
-	var d = ('00' + dt.getDate()).slice(-2);
-	var h = ('00' + dt.getHours()).slice(-2);
-	var minute = ('00' + dt.getMinutes()).slice(-2);
-	//return (y + '-' + m + '-' + d + ' ' + h + ':' + minute);
-	return (m + '-' + d + ' ' + h + ':' + minute);
-  }
-
-
-let myChart1;
-let csv = [];
-function makeTable(records){
-	csv.length = 0
-	//csv.push ('日付,価格\n'); 
-	for(var i=0;i<records.length;i=i+1){
-		let exchange_rate = records[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
-		let publisher = records[i][1].op[1].publisher;
-		let timestamp = formatDate(new Date(records[i][1].timestamp + "z"));
-		csv.push (timestamp + "," + exchange_rate);
-	}
-	document.getElementById("price").innerHTML = records[records.length-1][1].op[1].exchange_rate.base.slice(0, -4);
-	
-	//チャート
-	if(myChart1 != null){myChart1.destroy();}
-	let days = 0;
-	myChart1 = clickChartBtn('', days, myChart1, 'myChart1', csv, 'STEEM価格', 'rgb(51, 221, 204)');
-	
-	
-}
-  
+steem.api.setOptions({url: 'https://api.steememory.com'});
 
 async function aaa(days){
 	let out = [];
@@ -59,7 +16,7 @@ async function aaa(days){
 		let ret = await steem.api.getAccountHistoryAsync(username, firstValue, limit);
 
 		firstValue = ret[0][0];
-			firstTimestamp = new Date(ret[0][1].timestamp);
+		firstTimestamp = new Date(ret[0][1].timestamp);
 		firstTimestamp.setHours(firstTimestamp.getHours() + 9);
 		ret.shift();
 		lastlength = ret.length;
@@ -68,71 +25,39 @@ async function aaa(days){
 			if(now.getTime() - (new Date(ret[i][1].timestamp).getTime() + 3600000 * 9) > (86400000 * days)){
 				ret.splice(i,1);
 				continue;
-				//ret.splice(0, i + 1);//残りの要素を削除
-				//break;//すべて処理済
-
 			}
-
 			if(ret[i][1].op[0] != "feed_publish"){ 
 				ret.splice(i,1);
 				continue;
-			}		
+			}
 
-			let timestamp = new Date(ret[i][1].timestamp + "z");
-			let termDay = (now - timestamp) / 86400000;
-			document.getElementById("progress").innerText = timestamp.toLocaleString() + ' to now' + ' (' + termDay.toFixed(3) + ' days)';
+			    //チャート更新
+			    labels.push(new Date().toLocaleString());
+			    datas.push(sbddebtratio.toFixed(9) );
+			    myChart.update();
 		}
-		out = ret.concat(out);
 	}
-	return out;
 };
 
+window.onload = function() {
+	aaa(30);
+};
 
-function clickBtn(days){
-	document.getElementById("progress").innerText = "";
-	document.getElementById("text").innerText = "";
-
-	aaa(days).then(result => {
-		makeTable(result);
-	}).catch(err => {
-		document.getElementById("text").innerText = err;
-		console.log(err);
-		alert(err);
-	});
-}
-
-//-------------------------------------------------------------------------------
-
-function clickChartBtn(type, days, myChart, chart_id,  csv, title, color) {
-	const data = {
-		labels: labels,
-		datasets: [{
-			label: title,
-			backgroundColor: color,
-			borderColor: color,
-			data: datas,
-			fill: true,                           // ★　線とＸ軸で囲まれた範囲の描画 true する, false しない 
-                	backgroundColor: 'rgba(' + color.replace(/rgb|\(|\)/g, '') + ', 0.2)', // ★　その範囲の色 fill: false のとき不要
-                	tension: 0.2,                         // ★　グラフの線、０ 直線,  ＞０ 曲線
-			//borderWidth: 1, //線の太さ
-			pointRadius: 0, //点のサイズ
-		}]
-	};
-	// === include 'setup' then 'config' above ===
-	const config = {
-		type: 'line',
-		data: data,
-		options: {
-	           	scales: {
-        	      		y: {
-                			min: 0.0,
-                			//max: 0.38,
-              			}
-            		},
-		},
-	};
-	
-	return new Chart(document.getElementById(chart_id), config);
-}  
-
-
+let labels = [];
+let datas = [];
+const data = {
+labels: labels,
+datasets: [{
+    label: 'SBD Debt Ratio',
+        backgroundColor: 'rgb(221, 51, 204)',
+        borderColor: 'rgb(221, 51, 204)',
+    data: datas,
+    fill: true, 
+    backgroundColor: 'rgba(221, 51, 204, 0.2)',
+}]
+};
+// === include 'setup' then 'config' above ===
+const config = {
+    type: 'line',
+    data: data,
+};
