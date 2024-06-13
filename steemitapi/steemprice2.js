@@ -34,7 +34,8 @@ async function aaa(days){
 
 			    //チャート更新
 			    labels.push(new Date().toLocaleString());
-			    datas.push(sbddebtratio.toFixed(9) );
+			    //datas.push(sbddebtratio.toFixed(9) );
+			datas.push(10.5 );
 			    myChart.update();
 		}
 	}
