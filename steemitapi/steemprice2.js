@@ -49,7 +49,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: 'SBD Debt Ratio',
+    label: 'Steem price',
         backgroundColor: 'rgb(221, 51, 204)',
         borderColor: 'rgb(221, 51, 204)',
     data: datas,
