@@ -33,7 +33,7 @@ async function aaa(days){
 			}
 
 			let exchange_rate = ret[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
-			let  = new Date(ret[i][1].toLocaleString());
+			let day = new Date(ret[i][1].toLocaleString());
 			
 			    //チャート更新
 			    labels.push(day);
