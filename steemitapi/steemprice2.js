@@ -56,8 +56,8 @@ datasets: [{
         backgroundColor: 'rgb(221, 51, 204)',
         borderColor: 'rgb(221, 51, 204)',
     data: datas,
-    fill: true, 
-    backgroundColor: 'rgba(221, 51, 204, 0.2)',
+    //fill: true, 
+    //backgroundColor: 'rgba(221, 51, 204, 0.2)',
 }]
 };
 // === include 'setup' then 'config' above ===
