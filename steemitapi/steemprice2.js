@@ -39,6 +39,7 @@ async function aaa(days){
 			    labels.push(day);
 			    datas.push(exchange_rate);
 			    myChart.update();
+			sleep(300);
 		}
 	}
 };
