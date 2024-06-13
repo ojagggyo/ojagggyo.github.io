@@ -1,43 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Steem Price</title>
+<title>SBD Debt Ratio</title>
 <meta charset="utf-8">
-<link rel="icon" href="favicon_steemprice.ico" id="favicon">
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
-<script src="./steemprice.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-</script>
-
+<script src="./sbddebtratio.js"></script>
+ 
 </head>
-
 <body>
-<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
-
-	<a style="font-size: xx-large">Steem Price</a> <a id="price" style="font-size: xx-large"></a>
-
-	<form action="javascript:clickBtn(1);">
-	<table>
-	<tr>
-	<td>
-	<input type="hidden" id="username" size="20" value="yasu.witness">
-	<input type="button" value="Show" onclick="clickBtn(1)" />
-	<input type="button" value="3days" onclick="clickBtn(3)" />
-	<input type="button" value="7days" onclick="clickBtn(7)" />
-	<input type="button" value="30days" onclick="clickBtn(30)" />
-	<input type="button" value="60days" onclick="clickBtn(60)" />
-	<input type="button" value="365days" onclick="clickBtn(365)" />
-	</td>
-	</tr>
-	</table>
-
-	<a id="progress"></a><br/>
-	<span id="text"></span>
-
-	<canvas id="myChart1"></canvas>
-
-	</form>
+<div>
+<canvas id="myChart"></canvas>
+</div>
+<script>
+var myChart = new Chart(document.getElementById('myChart'),config);
+</script>
 </body>
 </html>
