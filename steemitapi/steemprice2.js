@@ -32,10 +32,10 @@ async function aaa(days){
 				continue;
 			}
 
+			let exchange_rate = ret[i][1].op[1].exchange_rate.base.slice(0, -4);;//0.229 SBD
 			    //チャート更新
 			    labels.push(new Date().toLocaleString());
-			    //datas.push(sbddebtratio.toFixed(9) );
-			datas.push(10.5 );
+			    datas.push(exchange_rate);
 			    myChart.update();
 		}
 	}
