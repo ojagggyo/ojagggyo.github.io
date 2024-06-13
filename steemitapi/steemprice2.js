@@ -36,8 +36,8 @@ async function aaa(days){
 			let day = new Date(ret[i][1].timestamp).toLocaleString();
 			
 			    //チャート更新
-			    labels.push(day);
-			    datas.push(exchange_rate);
+			    labels.unshift(day);
+			    datas.unshift(exchange_rate);
 			    myChart.update();
 			sleep(300);
 		}
