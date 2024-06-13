@@ -1,4 +1,5 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
+let username ='yasu.witness';
 
 async function aaa(days){
 	let out = [];
