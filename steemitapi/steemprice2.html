@@ -9,30 +9,6 @@
 <script src="./steemprice.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-steem.api.setOptions({url: 'https://api.steememory.com'})
-	
-//let username;
-let username ='yasu.witness';
-window.onload = function() {
-	
-	let url = new URL(window.location.href);
-	let params = url.searchParams;
-	let api = params.get('api');
-	console.log(api);
-	if(api){
-		console.log(api);
-		steem.api.setOptions(JSON.parse('{"url": "' + api + '"}'));
-	}
-	
-	username = getUserName();
-	if(username == ''){
-		username = document.getElementById("username").value;
-	}
-	document.getElementById("username").value = username;
-	clickBtn(1);
-	//clickBtn1(0);
-};
-	
 </script>
 
 </head>
