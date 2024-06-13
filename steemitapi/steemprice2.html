@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Steem Price</title>
+<meta charset="utf-8">
+<link rel="icon" href="favicon_steemprice.ico" id="favicon">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://github.com/steemit/steem-js/releases/download/v0.7.7/steem.min.js"></script>
+<script src="./steemprice.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+steem.api.setOptions({url: 'https://api.steememory.com'})
+	
+//let username;
+let username ='yasu.witness';
+window.onload = function() {
+	
+	let url = new URL(window.location.href);
+	let params = url.searchParams;
+	let api = params.get('api');
+	console.log(api);
+	if(api){
+		console.log(api);
+		steem.api.setOptions(JSON.parse('{"url": "' + api + '"}'));
+	}
+	
+	username = getUserName();
+	if(username == ''){
+		username = document.getElementById("username").value;
+	}
+	document.getElementById("username").value = username;
+	clickBtn(1);
+	//clickBtn1(0);
+};
+	
+</script>
+
+</head>
+
+<body>
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
+
+	<a style="font-size: xx-large">Steem Price</a> <a id="price" style="font-size: xx-large"></a>
+
+	<form action="javascript:clickBtn(1);">
+	<table>
+	<tr>
+	<td>
+	<input type="hidden" id="username" size="20" value="yasu.witness">
+	<input type="button" value="Show" onclick="clickBtn(1)" />
+	<input type="button" value="3days" onclick="clickBtn(3)" />
+	<input type="button" value="7days" onclick="clickBtn(7)" />
+	<input type="button" value="30days" onclick="clickBtn(30)" />
+	<input type="button" value="60days" onclick="clickBtn(60)" />
+	<input type="button" value="365days" onclick="clickBtn(365)" />
+	</td>
+	</tr>
+	</table>
+
+	<a id="progress"></a><br/>
+	<span id="text"></span>
+
+	<canvas id="myChart1"></canvas>
+
+	</form>
+</body>
+</html>
