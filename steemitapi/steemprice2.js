@@ -1,6 +1,8 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
 let username ='yasu.witness';
 
+const sleep = (time) => new Promise((r) => setTimeout(r, time));//timeはミリ秒
+
 async function aaa(days){
 	let out = [];
 	let limit = 100;
@@ -39,7 +41,7 @@ async function aaa(days){
 			    labels.unshift(day);
 			    datas.unshift(exchange_rate);
 			    myChart.update();
-			sleep(300);
+			await sleep(300);
 		}
 	}
 };
