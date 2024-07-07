@@ -1,5 +1,5 @@
-//steem.api.setOptions({url: 'https://api.steememory.com'});
-steem.api.setOptions({url: 'https://api.steemit.com'});
+steem.api.setOptions({url: 'https://api.steememory.com'});
+//steem.api.setOptions({url: 'https://api.steemit.com'});
 
 async function main(){
     let a = await steem.api.getDynamicGlobalPropertiesAsync();
