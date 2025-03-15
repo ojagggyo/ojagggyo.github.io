@@ -2,7 +2,7 @@ steem.api.setOptions({url: 'https://api.steememory.com'});
 
 async function main(){
     let witness = await steem.api.getWitnessByAccountAsync("yasu.witness");
-    console.log(witness;
+    console.log(witness);
     let blockNum = witness.last_confirmed_block_num;
     console.log(blockNum);
     
@@ -11,9 +11,9 @@ async function main(){
     //timestamp = block.timestamp;
     //console.log(timestamp);
 
-    let block = await steem.api.getBlockHeaderAsync(blockNum);
-    console.log(block);
-    let timestamp = block.timestamp;
+    let blockHeader = await steem.api.getBlockHeaderAsync(blockNum);
+    console.log(blockHeader);
+    let timestamp = blockHeader.timestamp;
     console.log(timestamp);
 
     diff =  (new Date() - new Date(timestamp+"Z")) / 1000 / 3600;
@@ -36,7 +36,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: 'Block Age',
+    label: 'Block Age '+blockNum,
         backgroundColor: 'rgb(51, 221, 204)',
         borderColor: 'rgb(51, 221, 204)',
     data: datas,
