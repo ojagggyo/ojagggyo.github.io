@@ -7,7 +7,7 @@ async function main(){
     });
 */
     
-    let a = await steem.api.getWitnessByAccount("yasu.witness");
+    let a = await steem.api.getWitnessByAccountAsync("yasu.witness");
 
         console.log(a);
 /*
