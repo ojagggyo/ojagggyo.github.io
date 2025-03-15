@@ -15,7 +15,7 @@ async function main(){
 
    let c=  steem.api.getBlockAsync(blockNum);
 console.log(c);
-
+    console.log(c.fulfillmentValue.timestamp);
 
     
 /*
