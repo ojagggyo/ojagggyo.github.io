@@ -17,7 +17,7 @@ async function main(){
 console.log(c);
     console.log(c.timestamp);
 
-    let d = await steem.api.getBlockHeader(blockNum);
+    let d = await steem.api.getBlockHeaderAsync(blockNum);
     console.log(d);
     
 /*
