@@ -11,6 +11,7 @@ async function main(){
     let b = a.result.witnesses[0].last_confirmed_block_num";
     
         console.log(a);
+    console.log(b);
 /*
 document.querySelector("#progress").value = sbd_print_rates;
 
