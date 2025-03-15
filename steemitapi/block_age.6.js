@@ -15,7 +15,7 @@ async function main(){
 
    let c=  await steem.api.getBlockAsync(blockNum);
 console.log(c);
-    console.log(c.fulfillmentValue.timestamp);
+    console.log(c.timestamp);
 
     let d = await steem.api.getBlockHeader(blockNum);
     console.log(d);
