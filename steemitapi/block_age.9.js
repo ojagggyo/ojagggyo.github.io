@@ -36,7 +36,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: 'SBD Debt Ratio',
+    label: 'Block Age',
         backgroundColor: 'rgb(51, 221, 204)',
         borderColor: 'rgb(51, 221, 204)',
     data: datas,
