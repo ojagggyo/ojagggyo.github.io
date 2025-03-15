@@ -8,7 +8,8 @@ async function main(){
 */
     
     let a = await steem.api.getWitnessByAccountAsync("yasu.witness");
-
+    let b = a.result.witnesses[0].last_confirmed_block_num";
+    
         console.log(a);
 /*
 document.querySelector("#progress").value = sbd_print_rates;
