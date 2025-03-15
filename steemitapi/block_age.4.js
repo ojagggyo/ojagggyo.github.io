@@ -9,9 +9,12 @@ async function main(){
     
     let a = await steem.api.getWitnessByAccountAsync("yasu.witness");
         console.log(a);
-    let b = a.last_confirmed_block_num;
-   console.log(b);
+    let blockNum = a.last_confirmed_block_num;
+   console.log(blockNum);
 
+
+   let c=  steem.api.getBlockAsync(blockNum);
+console.log(c);
 
 
     
