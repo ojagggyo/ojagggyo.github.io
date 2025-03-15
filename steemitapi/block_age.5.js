@@ -13,10 +13,12 @@ async function main(){
    console.log(blockNum);
 
 
-   let c=  steem.api.getBlockAsync(blockNum);
+   let c=  await steem.api.getBlockAsync(blockNum);
 console.log(c);
     console.log(c.fulfillmentValue.timestamp);
 
+    let d = await steem.api.getBlockHeader(blockNum);
+    console.log(d);
     
 /*
 document.querySelector("#progress").value = sbd_print_rates;
