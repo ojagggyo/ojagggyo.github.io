@@ -13,20 +13,22 @@ async function main(){
    console.log(blockNum);
 
 
-   let c=  await steem.api.getBlockAsync(blockNum);
+   let c =  await steem.api.getBlockAsync(blockNum);
 console.log(c);
-    console.log(c.timestamp);
+    timestamp = c.timestamp;
+    console.log(timestamp);
 
-    let d = await steem.api.getBlockHeaderAsync(blockNum);
-    console.log(d);
-    
+    //let d = await steem.api.getBlockHeaderAsync(blockNum);
+    //console.log(d);
+
+    diff =  (new Date() - new Date(timestamp)) / 1000 / 60;
 /*
 document.querySelector("#progress").value = sbd_print_rates;
 
 */
     //チャート更新
     labels.push(new Date().toLocaleString());
-    datas.push("111" );
+    datas.push(diff);
     myChart.update();
 }
 
