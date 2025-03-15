@@ -21,7 +21,7 @@ console.log(c);
     //let d = await steem.api.getBlockHeaderAsync(blockNum);
     //console.log(d);
 
-    diff =  (new Date() - new Date(timestamp)) / 1000 / 60;
+    diff =  (new Date() - new Date(timestamp+"Z")) / 1000 / 3600;
 /*
 document.querySelector("#progress").value = sbd_print_rates;
 
