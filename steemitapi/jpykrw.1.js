@@ -8,17 +8,15 @@ async function main(){
     
     fetch("https://steememory.com/rate/?source=JPY&target=KRW", requestOptions)
       .then(
-          (response) => 
-      {
-          //response.text()
-          //チャート更新
-          labels.push(new Date().toLocaleString());
-          datas.push(response.text());
-          myChart.update();
-      }
-      )
+          (response) => response.text())
       .then(
-          (result) => console.log(result)
+          (result) => {
+              console.log(result);
+              //チャート更新
+             labels.push(new Date().toLocaleString());
+             datas.push(result);
+             myChart.update();
+      }
       )
       .catch((error) => console.error(error));
 }
