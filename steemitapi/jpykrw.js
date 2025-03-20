@@ -10,10 +10,10 @@ async function main(){
       .then(
           (response) => 
       {
-          response.text()
+          //response.text()
           //チャート更新
           labels.push(new Date().toLocaleString());
-          datas.push(diff);
+          datas.push(response.text());
           myChart.update();
       }
       )
