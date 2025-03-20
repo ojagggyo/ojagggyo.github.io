@@ -22,10 +22,11 @@ async function main(){
 }
 
 window.onload = function() {
+    let span = new URL(window.location.href).searchParams.get('span') ?? 3;
     main();
     setInterval(function () {
         main();
-    }, 3*60*1000);//3分ごと
+    }, span * 60 * 1000);
 };
 
 let labels = [];
