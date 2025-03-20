@@ -25,7 +25,7 @@ window.onload = function() {
     main();
     setInterval(function () {
         main();
-    }, 60*1000);
+    }, 3*60*1000);//3分ごと
 };
 
 let labels = [];
