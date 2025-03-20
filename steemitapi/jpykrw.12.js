@@ -25,7 +25,7 @@ window.onload = function() {
     main();
     setInterval(function () {
         main();
-    }, 10*1000);
+    }, 60*1000);
 };
 
 let labels = [];
