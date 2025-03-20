@@ -23,6 +23,7 @@ async function main(){
 
 window.onload = function() {
     let span = new URL(window.location.href).searchParams.get('span') ?? 3;
+    console.log(span);
     main();
     setInterval(function () {
         main();
