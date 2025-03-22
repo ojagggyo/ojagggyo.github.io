@@ -26,8 +26,8 @@ async function main_0(){
               console.log(objData.length);
 
             for (var i = 0; i < objData.length; i++) {
-                let time = objData.time[i];
-                let rate = objData.rate[i];
+                let time = objData[i].time;
+                let rate = objData[i].rate;
                 console.log(time);
                  console.log(rate);
                 labels.push(new Date(item.time).toLocaleString());
