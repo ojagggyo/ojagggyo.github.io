@@ -23,7 +23,7 @@ async function main_0(){
             // JavaScriptオブジェクトへ変換
             let objData = JSON.parse(result);
             console.log(objData);
-              
+          /*    
             for (var item in objData) {
                 let time = item.time;
                 let rate = item.rate;
@@ -33,12 +33,16 @@ async function main_0(){
 
                 labels.push(new Date(item.time).toLocaleString());
                 datas.push(item.rate);
-            }
+            }*/
 
-            /*for (var i = 0; i < objData.length; i++) {
+            for (var i = 0; i < objData.length; i++) {
                 let time = objData.time[i];
                 let rate = objData.rate[i];
-            }*/
+                console.log(time);
+                 console.log(rate);
+                labels.push(new Date(item.time).toLocaleString());
+                datas.push(item.rate);
+            }
             myChart.update();
       }
       )
