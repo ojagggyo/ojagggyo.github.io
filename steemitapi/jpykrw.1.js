@@ -17,11 +17,11 @@ async function main_0(){
           (response) => response.text())
       .then(
           (result) => {
-              console.log(jsonData);
+              console.log(result);
               //チャート更新
             // JSONへ変換
             // JavaScriptオブジェクトへ変換
-            let objData = JSON.parse(jsonData);
+            let objData = JSON.parse(result);
             console.log(objData);
               
             for (var item in objData) {
