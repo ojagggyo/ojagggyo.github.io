@@ -12,7 +12,7 @@ async function main_0(){
     //.toISOString()
     //toLocaleDateString();
     
-    fetch("https://api.wise.com/v1/rates?source=JPY&target=KRW&from=" + from.toLocaleDateString().replaceAll("/","-") + "&to=" + to.toLocaleDateString().replaceAll("/","-") + "&group=minute", requestOptions)
+    fetch("https://steememory.com/rate/?source=JPY&target=KRW&from=" + from.toLocaleDateString().replaceAll("/","-") + "&to=" + to.toLocaleDateString().replaceAll("/","-") + "&group=minute", requestOptions)
       .then(
           (response) => response.text())
       .then(
