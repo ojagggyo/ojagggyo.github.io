@@ -23,17 +23,7 @@ async function main_0(){
             // JavaScriptオブジェクトへ変換
             let objData = JSON.parse(result);
             console.log(objData);
-          /*    
-            for (var item in objData) {
-                let time = item.time;
-                let rate = item.rate;
-
-                 console.log(time);
-                 console.log(rate);
-
-                labels.push(new Date(item.time).toLocaleString());
-                datas.push(item.rate);
-            }*/
+              console.log(objData.length);
 
             for (var i = 0; i < objData.length; i++) {
                 let time = objData.time[i];
