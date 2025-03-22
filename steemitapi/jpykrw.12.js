@@ -30,7 +30,7 @@ async function main_0(){
                 let rate = objData[i].rate;
                 console.log(time);
                  console.log(rate);
-                labels.push(new Date(item).toLocaleString());
+                labels.push(new Date(time).toLocaleString());
                 datas.push(rate);
             }
             myChart.update();
