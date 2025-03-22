@@ -25,7 +25,7 @@ async function main_0(){
             console.log(objData);
               console.log(objData.length);
 
-            for (var i = objData.length - 1; 0 =< i; i--) {
+            for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
                 console.log(time);
