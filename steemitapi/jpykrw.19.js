@@ -34,8 +34,8 @@ async function main_0(span){
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
-                console.log(time);
-                console.log(rate);
+                //console.log(time);
+                //console.log(rate);
                 labels.push(new Date(time).toLocaleString().slice(5,-3));
                 datas.push(rate);
             }
