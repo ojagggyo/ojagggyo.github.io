@@ -76,6 +76,9 @@ window.onload = function() {
     setInterval(function () {
         main(source, target);
     }, interval * 60 * 1000);
+
+
+    myChart.defaults.plugins.title = source + target + ' rate (' + span + ')';
 };
 
 let labels = [];
@@ -83,7 +86,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: source + target + ' rate (' + span + ')',
+    label: 'rate',
         backgroundColor: 'rgb(204, 51, 221)',
         borderColor: 'rgb(204, 51, 221)',
     data: datas,
