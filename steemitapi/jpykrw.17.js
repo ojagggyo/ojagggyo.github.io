@@ -1,16 +1,22 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
 
-async function main_0(){
+async function main_0(span){
     const requestOptions = {
       method: "GET",
       redirect: "follow"
     };
 
+    let group = '';
     let to  = new Date();
     let from  = new Date();
-    from.setMinutes(from.getMinutes() - 24 * 60);
+    if (span = 'day'){
+        from.setMinutes(from.getMinutes() - 24 * 60);//1日
+        group = 'minute';
+    } else if (group = 'week'){
+        from.setMinutes(from.getDate() - 7);//7日
+        group = 'day';
+    }
    
-    //fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString().replaceAll("/","-") + "&to=" + to.toISOString().replaceAll("/","-") + "&group=minute", requestOptions)
     fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=minute", requestOptions)
       .then(
           (response) => response.text())
@@ -57,12 +63,14 @@ async function main(){
 }
 
 window.onload = function() {
-    let span = new URL(window.location.href).searchParams.get('span') ?? 3;
-    console.log(span);
-    main_0();
+    let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week month
+    let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
+    //let group = new URL(window.location.href).searchParams.get('group') ?? 'minute';
+    //console.log(span);
+    main_0(span);
     setInterval(function () {
         main();
-    }, span * 60 * 1000);
+    }, interval * 60 * 1000);
 };
 
 let labels = [];
