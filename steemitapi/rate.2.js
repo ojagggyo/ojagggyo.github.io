@@ -26,7 +26,7 @@ async function main_0(source, target, span, group){
             group = group ?? 'day';
             break;            
         case 'year':
-            from.setYear(from.getYear() - 1);//1年
+            from.setFullYear(from.getFullYear() - 1);//1年
             group = grou ?? 'day';
             break;            
     }
