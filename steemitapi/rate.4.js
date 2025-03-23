@@ -17,6 +17,10 @@ async function main_0(source, target, span, group){
             from.setDate(from.getDate() - 1);//1日
             group = group ?? 'hour';
             break;
+        case '3days':
+            from.setDate(from.getDate() - 3);//1日
+            group = group ?? 'hour';
+            break;
         case 'week':
             from.setDate(from.getDate() - 7);//1週間
             group = group ?? 'hour';
@@ -24,11 +28,19 @@ async function main_0(source, target, span, group){
         case 'month':
             from.setMonth(from.getMonth() - 1);//1ヶ月
             group = group ?? 'day';
-            break;            
+            break;
+        case '3months':
+            from.setMonth(from.getMonth() - 3);//1ヶ月
+            group = group ?? 'day';
+            break;
         case 'year':
             from.setFullYear(from.getFullYear() - 1);//1年
             group = group ?? 'day';
-            break;            
+            break;
+        case '3years':
+            from.setFullYear(from.getFullYear() - 3);//1年
+            group = group ?? 'day';
+            break;
     }
     console.log('from=', from);
     console.log('group=', group);
