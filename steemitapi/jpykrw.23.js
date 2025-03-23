@@ -13,7 +13,7 @@ async function main_0(span){
     let from  = new Date();
     if (span == 'day'){
         from.setDate(from.getDate() - 1);//1日
-        group = 'minute';
+        group = 'hour';
     } else if (span == 'week'){
         from.setDate(from.getDate() - 7);//7日
         group = 'hour';
