@@ -1,6 +1,6 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
 
-async function main_0(source, target, span){
+async function main_0(source, target, span, group){
     console.log('source=', source);
     console.log('target=', target);
     console.log('span=', span);
@@ -10,18 +10,25 @@ async function main_0(source, target, span){
       redirect: "follow"
     };
 
-    let group = '';
     let to  = new Date();
     let from  = new Date();
-    if (span == 'day'){
-        from.setDate(from.getDate() - 1);//1日
-        group = 'hour';
-    } else if (span == 'week'){
-        from.setDate(from.getDate() - 7);//7日
-        group = 'hour';
-    } else if (span == 'month'){
-        from.setDate(from.getDate() - 30);//30日
-        group = 'day';
+    switch(span){
+        case 'day':
+            from.setDate(from.getDate() - 1);//1日
+            group = group ?? 'hour';
+            break;
+        case 'week':
+            from.setDate(from.getDate() - 7);//1週間
+            group = group ?? 'hour';
+            break;
+        case 'month':
+            from.setMonth(from.getMonth() - 1);//1ヶ月
+            group = group ?? 'day';
+            break;            
+        case 'year':
+            from.setYear(from.getYear() - 1);//1年
+            group = grou ?? 'day';
+            break;            
     }
     console.log('from=', from);
     console.log('group=', group);
@@ -70,15 +77,14 @@ async function main(source, target){
 window.onload = function() {
     let source = new URL(window.location.href).searchParams.get('source') ?? 'JPY';
     let target = new URL(window.location.href).searchParams.get('target') ?? 'KRW';
-    let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week month
+    let group = new URL(window.location.href).searchParams.get('group');
+    let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week or month
     let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
-    main_0(source, target, span);
+    main_0(source, target, span, group);
     setInterval(function () {
         main(source, target);
     }, interval * 60 * 1000);
 
-
-    //myChart.defaults.plugins.title.text = source + target + ' rate (' + span + ')';
     myChart.data.datasets[0].label = source + target + ' rate (' + span + ')';
     myChart.update();
 };
