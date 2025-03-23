@@ -78,7 +78,7 @@ window.onload = function() {
     }, interval * 60 * 1000);
 
 
-    myChart.defaults.plugins.title = source + target + ' rate (' + span + ')';
+    myChart.defaults.plugins.title.text = source + target + ' rate (' + span + ')';
     myChart.update();
 };
 
