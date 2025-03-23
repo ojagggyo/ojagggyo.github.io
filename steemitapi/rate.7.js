@@ -53,7 +53,7 @@ async function main_0(source, target, span, group){
             //console.log(result);
             //チャート更新
             let objData = JSON.parse(result);
-            int before_year = 0;
+            let before_year = 0;
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
