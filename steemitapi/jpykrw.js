@@ -17,6 +17,9 @@ async function main_0(span){
     } else if (span == 'week'){
         from.setDate(from.getDate() - 7);//7日
         group = 'hour';
+    } else if (span == 'month'){
+        from.setDate(from.getDate() - 30);//30日
+        group = 'day';
     }
     console.log('from=',from);
     console.log('group=',group);
@@ -29,13 +32,9 @@ async function main_0(span){
             //console.log(result);
             //チャート更新
             let objData = JSON.parse(result);
-            //console.log(objData);
-            //console.log(objData.length);
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
-                //console.log(time);
-                //console.log(rate);
                 labels.push(new Date(time).toLocaleString().slice(5,-3));
                 datas.push(rate);
             }
@@ -69,8 +68,6 @@ async function main(){
 window.onload = function() {
     let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week month
     let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
-    //let group = new URL(window.location.href).searchParams.get('group') ?? 'minute';
-    //console.log(span);
     main_0(span);
     setInterval(function () {
         main();
