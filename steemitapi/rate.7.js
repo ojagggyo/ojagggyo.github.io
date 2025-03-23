@@ -53,18 +53,18 @@ async function main_0(source, target, span, group){
             //console.log(result);
             //チャート更新
             let objData = JSON.parse(result);
-            let before_year = 0;
+            //let before_year = 0;
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
                 let timeDate = new Date(time);
                 let label = '';
-                if (timeDate.getFullYear() == before_year){
-                    label = timeDate.toLocaleString().slice(5,-3);
-                }else{
+                //if (timeDate.getFullYear() == before_year){
+                //    label = timeDate.toLocaleString().slice(5,-3);
+                //}else{
                     label = timeDate.toLocaleString().slice(0,-3);
-                    before_year = timeDate.getFullYear();
-                }
+                //    before_year = timeDate.getFullYear();
+                //}
                 labels.push(label);
                 datas.push(rate);
             }
