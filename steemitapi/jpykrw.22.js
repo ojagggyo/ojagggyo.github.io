@@ -12,11 +12,11 @@ async function main_0(span){
     let to  = new Date();
     let from  = new Date();
     if (span == 'day'){
-        from.setMinutes(from.getMinutes() - 24 * 60);//1日
+        from.setDate(from.getDate() - 1);//1日
         group = 'minute';
     } else if (span == 'week'){
-        from.setMinutes(from.getDate() - 7);//7日
-        group = 'day';
+        from.setDate(from.getDate() - 7);//7日
+        group = 'hour';
     }
     console.log('from=',from);
     console.log('group=',group);
