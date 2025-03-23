@@ -27,7 +27,7 @@ async function main_0(source, target, span, group){
             break;            
         case 'year':
             from.setFullYear(from.getFullYear() - 1);//1年
-            group = grou ?? 'day';
+            group = group ?? 'day';
             break;            
     }
     console.log('from=', from);
