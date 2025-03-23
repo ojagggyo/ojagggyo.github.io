@@ -79,6 +79,7 @@ window.onload = function() {
 
 
     myChart.defaults.plugins.title = source + target + ' rate (' + span + ')';
+    myChart.update();
 };
 
 let labels = [];
