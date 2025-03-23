@@ -1,7 +1,9 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
 
-async function main_0(span){
-    console.log('span=',span);
+async function main_0(source, target, span){
+    console.log('source=', source);
+    console.log('target=', target);
+    console.log('span=', span);
     
     const requestOptions = {
       method: "GET",
@@ -21,10 +23,10 @@ async function main_0(span){
         from.setDate(from.getDate() - 30);//30日
         group = 'day';
     }
-    console.log('from=',from);
-    console.log('group=',group);
+    console.log('from=', from);
+    console.log('group=', group);
    
-    fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=" + group, requestOptions)
+    fetch("https://steememory.com/rate2/?source=" + source + "&target=" + target + "&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=" + group, requestOptions)
       .then(
           (response) => response.text())
       .then(
@@ -66,9 +68,11 @@ async function main(){
 }
 
 window.onload = function() {
+    let source = new URL(window.location.href).searchParams.get('source') ?? 'JPY';
+    let target = new URL(window.location.href).searchParams.get('target') ?? 'KRW';
     let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week month
     let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
-    main_0(span);
+    main_0(source, target, span);
     setInterval(function () {
         main();
     }, interval * 60 * 1000);
