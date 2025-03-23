@@ -57,14 +57,13 @@ async function main_0(source, target, span, group){
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
-                let timeDate = Date(time);
-                let year = timeDate.getYear();
+                let timeDate = new Date(time);
                 let label = '';
-                if (year == before_year){
+                if (timeDate.getFullYear() == before_year){
                     label = timeDate.toLocaleString().slice(5,-3);
                 }else{
                     label = timeDate.toLocaleString().slice(0,-3);
-                    before_year = timeDate.getYear();
+                    before_year = timeDate.getFullYear();
                 }
                 labels.push(label);
                 datas.push(rate);
