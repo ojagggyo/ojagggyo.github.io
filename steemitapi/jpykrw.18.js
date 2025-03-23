@@ -1,6 +1,8 @@
 steem.api.setOptions({url: 'https://api.steememory.com'});
 
 async function main_0(span){
+    console.log('span=',span);
+    
     const requestOptions = {
       method: "GET",
       redirect: "follow"
@@ -16,8 +18,10 @@ async function main_0(span){
         from.setMinutes(from.getDate() - 7);//7日
         group = 'day';
     }
+    console.log('from=',from);
+    console.log('group=',group);
    
-    fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=minute", requestOptions)
+    fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=" + group, requestOptions)
       .then(
           (response) => response.text())
       .then(
