@@ -83,7 +83,7 @@ let datas = [];
 const data = {
 labels: labels,
 datasets: [{
-    label: 'JPYKRW rate',
+    label: source + target + ' rate (' + span + ')',
         backgroundColor: 'rgb(204, 51, 221)',
         borderColor: 'rgb(204, 51, 221)',
     data: datas,
