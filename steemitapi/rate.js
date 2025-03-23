@@ -46,13 +46,13 @@ async function main_0(source, target, span){
       .catch((error) => console.error(error));
 }
 
-async function main(){
+async function main(source, target){
     const requestOptions = {
       method: "GET",
       redirect: "follow"
     };
     
-    fetch("https://steememory.com/rate/?source=JPY&target=KRW", requestOptions)
+    fetch("https://steememory.com/rate/?source=" + source + "&target=" + target, requestOptions)
       .then(
           (response) => response.text())
       .then(
@@ -74,7 +74,7 @@ window.onload = function() {
     let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
     main_0(source, target, span);
     setInterval(function () {
-        main();
+        main(source, target);
     }, interval * 60 * 1000);
 };
 
