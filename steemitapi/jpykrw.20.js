@@ -14,7 +14,7 @@ async function main_0(span){
     if (span = 'day'){
         from.setMinutes(from.getMinutes() - 24 * 60);//1日
         group = 'minute';
-    } else if (group = 'week'){
+    } else if (span = 'week'){
         from.setMinutes(from.getDate() - 7);//7日
         group = 'day';
     }
