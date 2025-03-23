@@ -9,32 +9,28 @@ async function main_0(){
     let to  = new Date();
     let from  = new Date();
     from.setMinutes(from.getMinutes() - 24 * 60);
-    //.toISOString()
-    //toLocaleDateString();
-    
-    fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString().replaceAll("/","-") + "&to=" + to.toISOString().replaceAll("/","-") + "&group=minute", requestOptions)
+   
+    //fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString().replaceAll("/","-") + "&to=" + to.toISOString().replaceAll("/","-") + "&group=minute", requestOptions)
+    fetch("https://steememory.com/rate2/?source=JPY&target=KRW&from=" + from.toISOString() + "&to=" + to.toISOString() + "&group=minute", requestOptions)
       .then(
           (response) => response.text())
       .then(
           (result) => {
-              console.log(result);
-              //チャート更新
-            // JSONへ変換
-            // JavaScriptオブジェクトへ変換
+            //console.log(result);
+            //チャート更新
             let objData = JSON.parse(result);
-            console.log(objData);
-              console.log(objData.length);
-
+            //console.log(objData);
+            //console.log(objData.length);
             for (var i = objData.length - 1; 0 <= i; i--) {
                 let time = objData[i].time;
                 let rate = objData[i].rate;
                 console.log(time);
-                 console.log(rate);
-                labels.push(new Date(time).toLocaleString());
+                console.log(rate);
+                labels.push(new Date(time).toLocaleString().slice(0,-3));
                 datas.push(rate);
             }
             myChart.update();
-      }
+          }
       )
       .catch((error) => console.error(error));
 }
@@ -64,7 +60,6 @@ window.onload = function() {
     let span = new URL(window.location.href).searchParams.get('span') ?? 3;
     console.log(span);
     main_0();
-    //main();
     setInterval(function () {
         main();
     }, span * 60 * 1000);
@@ -76,11 +71,11 @@ const data = {
 labels: labels,
 datasets: [{
     label: 'JPYKRW rate',
-        backgroundColor: 'rgb(51, 221, 204)',
-        borderColor: 'rgb(51, 221, 204)',
+        backgroundColor: 'rgb(204, 51, 221)',
+        borderColor: 'rgb(204, 51, 221)',
     data: datas,
     fill: true, 
-    backgroundColor: 'rgba(51, 221, 204, 0.2)',
+    backgroundColor: 'rgba(204, 51, 221, 0.2)',
 }]
 };
 // === include 'setup' then 'config' above ===
