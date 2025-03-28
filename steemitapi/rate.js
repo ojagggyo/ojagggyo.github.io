@@ -27,11 +27,11 @@ async function main_0(source, target, span, group){
             break;
         case 'month':
             from.setMonth(from.getMonth() - 1);//1ヶ月
-            group = group ?? 'day';
+            group = group ?? 'hour';
             break;
         case '3months':
-            from.setMonth(from.getMonth() - 3);//1ヶ月
-            group = group ?? 'day';
+            from.setMonth(from.getMonth() - 3);//3ヶ月
+            group = group ?? 'hour';
             break;
         case 'year':
             from.setFullYear(from.getFullYear() - 1);//1年
