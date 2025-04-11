@@ -35,11 +35,11 @@ async function main_0(source, target, span, group){
             break;
         case 'year':
             from.setFullYear(from.getFullYear() - 1);//1年
-            group = group ?? 'day';
+            group = group ?? 'hour';
             break;
         case '3years':
-            from.setFullYear(from.getFullYear() - 3);//1年
-            group = group ?? 'day';
+            from.setFullYear(from.getFullYear() - 3);//3年
+            group = group ?? 'hour';
             break;
     }
     console.log('from=', from);
