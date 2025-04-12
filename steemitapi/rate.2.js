@@ -131,9 +131,9 @@ const config = {
         responsive: true,
         scales: {
           y: {
-            border: {
-              display: false
-            },
+            //border: {
+            //  display: false
+            //},
             grid: {
               color: function(context) {
                 if (context.tick.value == 10) {
