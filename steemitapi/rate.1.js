@@ -127,4 +127,23 @@ datasets: [{
 const config = {
     type: 'line',
     data: data,
+    options: {
+        responsive: true,
+        scales: {
+          y: {
+            border: {
+              display: false
+            },
+            grid: {
+              color: function(context) {
+                if (context.tick.value == 10) {
+                  return '#FF0000';
+                } else {
+                  return '#000000';
+                }
+              },
+            },
+          }
+        }
+    },
 };
