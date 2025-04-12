@@ -127,7 +127,7 @@ const config = {
           y: {
             grid: {
               color: function(context) {
-                if (context.tick.value == 10) {
+                if (context.tick.value > 9.999 && context.tick.value < 10.001) {
                   return '#FF0000';
                 }
                 return 'rgba(0, 0, 0, 0.1)';//default color
