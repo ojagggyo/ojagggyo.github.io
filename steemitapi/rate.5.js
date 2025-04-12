@@ -136,7 +136,7 @@ const config = {
                 if (context.tick.value == 10) {
                   return '#FF0000';
                 } else {
-                  return Chart.defaults.scale.gridLines.color;
+                  return Chart.defaults.global.defaultColor;
                 }
               },
             },
