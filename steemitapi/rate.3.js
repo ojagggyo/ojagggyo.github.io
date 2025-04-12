@@ -128,12 +128,9 @@ const config = {
     type: 'line',
     data: data,
     options: {
-        responsive: true,
+        //responsive: true,
         scales: {
           y: {
-            //border: {
-            //  display: false
-            //},
             grid: {
               color: function(context) {
                 if (context.tick.value == 10) {
