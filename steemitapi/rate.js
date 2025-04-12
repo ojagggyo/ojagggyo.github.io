@@ -58,13 +58,7 @@ async function main_0(source, target, span, group){
                 let time = objData[i].time;
                 let rate = objData[i].rate;
                 let timeDate = new Date(time);
-                let label = '';
-                //if (timeDate.getFullYear() == before_year){
-                //    label = timeDate.toLocaleString().slice(5,-3);
-                //}else{
-                    label = timeDate.toLocaleString().slice(0,-3);
-                //    before_year = timeDate.getFullYear();
-                //}
+                let label = timeDate.toLocaleString().slice(0,-3);
                 labels.push(label);
                 datas.push(rate);
             }
@@ -135,9 +129,8 @@ const config = {
               color: function(context) {
                 if (context.tick.value == 10) {
                   return '#FF0000';
-                } else {
-                  return 'rgba(0, 0, 0, 0.1)';
                 }
+                return 'rgba(0, 0, 0, 0.1)';//default color
               },
             },
           }
