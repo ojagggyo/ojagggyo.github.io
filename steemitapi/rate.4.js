@@ -128,7 +128,7 @@ const config = {
     type: 'line',
     data: data,
     options: {
-        //responsive: true,
+        responsive: true,
         scales: {
           y: {
             grid: {
@@ -136,7 +136,7 @@ const config = {
                 if (context.tick.value == 10) {
                   return '#FF0000';
                 } else {
-                  return '#000000';
+                  return Chart.defaults.scale.gridLines.color;
                 }
               },
             },
