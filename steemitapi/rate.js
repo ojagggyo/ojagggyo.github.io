@@ -127,16 +127,18 @@ const config = {
           y: {
             grid: {
               color: function(context) {
-                if (context.tick.value > 9.999 && context.tick.value < 10.001) {
-                  return '#FF0000';
-                }
-                return 'rgba(0, 0, 0, 0.1)';//default color
+                return (context.tick.value > 9.999 && context.tick.value < 10.001) '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
+                //if (context.tick.value > 9.999 && context.tick.value < 10.001) {
+                //  return '#FF0000';
+                //}
+                //return 'rgba(0, 0, 0, 0.1)';//default color
               },
               lineWidth: function(context) {
-                if (context.tick.value > 9.999 && context.tick.value < 10.001) {
-                  return 4;
-                }
-                return 1;
+                return (context.tick.value > 9.999 && context.tick.value < 10.001) 4 : 1;
+                //if (context.tick.value > 9.999 && context.tick.value < 10.001) {
+                //  return 4;
+                //}
+                //return 1;
               },
             },
           }
