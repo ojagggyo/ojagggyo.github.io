@@ -132,6 +132,12 @@ const config = {
                 }
                 return 'rgba(0, 0, 0, 0.1)';//default color
               },
+              lineWidth: function(context) {
+                if (context.tick.value > 9.999 && context.tick.value < 10.001) {
+                  return 4;
+                }
+                return 1;
+              },
             },
           }
         }
