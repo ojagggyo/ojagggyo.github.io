@@ -128,13 +128,13 @@ const config = {
             grid: {
               color: function(context) {
                 return (context.tick.value > 9.999 && context.tick.value < 10.001 || 
-                        context.tick.value > 144.1 && context.tick.value < 145.9 ||
-                        context.tick.value > 1441 && context.tick.value < 1459) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
+                        context.tick.value > 144.6 && context.tick.value < 145.4 ||
+                        context.tick.value > 1446 && context.tick.value < 1454) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
               },
               lineWidth: function(context) {
                 return (context.tick.value > 9.999 && context.tick.value < 10.001 ||
-                        context.tick.value > 144.1 && context.tick.value < 145.9 ||
-                        context.tick.value > 1441 && context.tick.value < 1459) ? 4 : 1;
+                        context.tick.value > 144.6 && context.tick.value < 145.4 ||
+                        context.tick.value > 1446 && context.tick.value < 1454) ? 4 : 1;
               },
             },
           }
