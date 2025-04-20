@@ -127,14 +127,14 @@ const config = {
           y: {
             grid: {
               color: function(context) {
-                return (context.tick.value > 9.999 && context.tick.value < 10.001 || 
-                        context.tick.value > 144.6 && context.tick.value < 145.4 ||
-                        context.tick.value > 1446 && context.tick.value < 1454) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
+                return (context.tick.value > 10 - 0.001 && context.tick.value < 10 + 0.001 || 
+                        context.tick.value > 145 - 0.4 && context.tick.value < 145 + 0.4 ||
+                        context.tick.value > 1450 - 4 && context.tick.value < 1450 + 4) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
               },
               lineWidth: function(context) {
-                return (context.tick.value > 9.999 && context.tick.value < 10.001 ||
-                        context.tick.value > 144.6 && context.tick.value < 145.4 ||
-                        context.tick.value > 1446 && context.tick.value < 1454) ? 4 : 1;
+                return (context.tick.value > 10 - 0.001 && context.tick.value < 10 + 0.001 ||
+                        context.tick.value > 145 - 0.4 && context.tick.value < 145 + 0.4 ||
+                        context.tick.value > 1450 - 4 && context.tick.value < 1450 + 4) ? 2 : 1;
               },
             },
           }
