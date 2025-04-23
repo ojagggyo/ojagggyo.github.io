@@ -129,12 +129,12 @@ const config = {
               color: function(context) {
                 return (context.tick.value > 10 - 0.001 && context.tick.value < 10 + 0.001 || 
                         context.tick.value > 142 - 0.4 && context.tick.value < 142 + 0.4 ||
-                        context.tick.value > 1420 - 4 && context.tick.value < 1420 + 4) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
+                        context.tick.value > 1420 - 1.9 && context.tick.value < 1420 + 1.9) ? '#FF0000' : 'rgba(0, 0, 0, 0.1)';//default color
               },
               lineWidth: function(context) {
                 return (context.tick.value > 10 - 0.001 && context.tick.value < 10 + 0.001 ||
                         context.tick.value > 142 - 0.4 && context.tick.value < 142 + 0.4 ||
-                        context.tick.value > 1420 - 4 && context.tick.value < 1420 + 4) ? 2 : 1;
+                        context.tick.value > 1420 - 1.9 && context.tick.value < 1420 + 1.9) ? 2 : 1;
               },
             },
           }
