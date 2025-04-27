@@ -12,9 +12,20 @@ crossorigin="anonymous"></script>
 <script src="./span.js"></script>
 <script>
 window.onload = function() {
-  const span = new URL(window.location.href).searchParams.get('span') ?? "day";
-  //addA();
-}
+    let source = new URL(window.location.href).searchParams.get('source') ?? 'JPY';
+    let target = new URL(window.location.href).searchParams.get('target') ?? 'KRW';
+    let group = new URL(window.location.href).searchParams.get('group');
+    let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week or month
+    let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
+    main_0(source, target, span, group);
+    setInterval(function () {
+        main(source, target);
+    }, interval * 60 * 1000);
+
+    myChart.data.datasets[0].label = source + target + ' rate (' + span + ')';
+    myChart.update();
+    addA();
+};
 </script>
 </head>
 <body>
