@@ -89,20 +89,7 @@ async function main(source, target){
       .catch((error) => console.error(error));
 }
 
-window.onload = function() {
-    let source = new URL(window.location.href).searchParams.get('source') ?? 'JPY';
-    let target = new URL(window.location.href).searchParams.get('target') ?? 'KRW';
-    let group = new URL(window.location.href).searchParams.get('group');
-    let span = new URL(window.location.href).searchParams.get('span') ?? 'day';//week or month
-    let interval = new URL(window.location.href).searchParams.get('interval') ?? 3;
-    main_0(source, target, span, group);
-    setInterval(function () {
-        main(source, target);
-    }, interval * 60 * 1000);
 
-    myChart.data.datasets[0].label = source + target + ' rate (' + span + ')';
-    myChart.update();
-};
 
 let labels = [];
 let datas = [];
