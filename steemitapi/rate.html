@@ -12,7 +12,7 @@ crossorigin="anonymous"></script>
 <script src="./span.js"></script>
 <script>
 window.onload = function() {
-  const week = new URL(window.location.href).searchParams.get('span') ?? "day";
+  const span = new URL(window.location.href).searchParams.get('span') ?? "day";
   addA();
 }
 </script>
