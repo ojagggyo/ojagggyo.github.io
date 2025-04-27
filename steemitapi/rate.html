@@ -9,8 +9,12 @@ crossorigin="anonymous"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/steem/dist/steem.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./rate.2.js"></script>
-<style type="text/css">
-</style>    
+<script src="./span.js"></script>
+<script>
+  window.onload = function() {
+  const week = new URL(window.location.href).searchParams.get('span') ?? "day";
+  addA();
+}
 </head>
 <body>
 <div>
