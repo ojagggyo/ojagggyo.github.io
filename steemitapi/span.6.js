@@ -14,6 +14,8 @@ function addA(source,target){
 
   let root = document.documentElement; //htmlのルート要素を取得
  let style = window.getComputedStyle(root).getPropertyValue('font-family');
+   let size = window.getComputedStyle(root).getPropertyValue('font-size');
  alert(style);
+  alert(size);
    root.style.fontFamily = 'monospace';
 }
