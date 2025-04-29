@@ -10,7 +10,7 @@ function addA(source,target){
   let a = document.createElement('a');
   a.text = 'within ';
   document.body.prepend(a);  
-a.style.fontFamily = 'Roboto';
+a.style.fontFamily = 'Meiryo';
 
   
   //let root = document.documentElement; //htmlのルート要素を取得
