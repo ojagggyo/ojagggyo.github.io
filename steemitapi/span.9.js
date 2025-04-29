@@ -10,12 +10,13 @@ function addA(source,target){
   let a = document.createElement('a');
   a.text = 'within ';
   document.body.prepend(a);  
+a.style.fontFamily = 'Roboto';
 
-
-  let root = document.documentElement; //htmlのルート要素を取得
- let style = window.getComputedStyle(root).getPropertyValue('font-family');
-   let size = window.getComputedStyle(root).getPropertyValue('font-size');
- alert(style);
-  alert(size);
-   root.style.fontFamily = '"Lato';
+  
+  //let root = document.documentElement; //htmlのルート要素を取得
+ //let style = window.getComputedStyle(root).getPropertyValue('font-family');
+   //let size = window.getComputedStyle(root).getPropertyValue('font-size');
+ //alert(style);
+  //alert(size);
+   //root.style.fontFamily = '"Lato';
 }
