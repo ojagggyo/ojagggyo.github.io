@@ -10,4 +10,9 @@ function addA(source,target){
   let a = document.createElement('a');
   a.text = 'within ';
   document.body.prepend(a);  
+
+
+  let root = document.documentElement; //htmlのルート要素を取得
+ let style = window.getComputedStyle(root).getPropertyValue('font-family');
+ alert(style);
 }
