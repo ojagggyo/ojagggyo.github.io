@@ -17,5 +17,5 @@ function addA(source,target){
    let size = window.getComputedStyle(root).getPropertyValue('font-size');
  alert(style);
   alert(size);
-   root.style.fontFamily = 'monospace';
+   root.style.fontFamily = 'inherit';
 }
