@@ -1,6 +1,6 @@
 function addA(source,target){
-  var texts = [ '[1 day]', '[1 week]', '[1 month]', '[3 months]', '[1 year]', '[3 years]' ].reverse();
-  var hrefs = [ '?span=day', '?span=week', '?span=month', '?span=3months', '?span=year', '?span=3years' ].reverse();
+  var texts = [ '[1 day]', '[3 day]', '[1 week]', '[1 month]', '[3 months]', '[1 year]', '[3 years]' ].reverse();
+  var hrefs = [ '?span=day', '?span=3days', '?span=week', '?span=month', '?span=3months', '?span=year', '?span=3years' ].reverse();
   texts.forEach(function( elem, index ) {
     let a = document.createElement('a');
     a.text = texts[index];
