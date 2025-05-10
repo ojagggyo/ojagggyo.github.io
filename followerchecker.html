@@ -17,7 +17,8 @@
             let defaultHtml = '<div style="height:150px; padding-top:55px;padding-bottom:55px;"><button type="button" class="btn btn-success" style="margin:3px;">followers: 0</button><button type="button" class="btn btn-warning" style="margin:3px;">unfollowers: 0</button></div>';
            
             window.onload = function() {
-                storage_username = localStorage.getItem("username");
+                //storage_username = localStorage.getItem("username");
+                storage_username = new URL(window.location.href).searchParams.get('username') ?? localStorage.getItem("username");
                 let previous_count = localStorage.getItem("follower_count");
                 previous_count = previous_count === null ? 0 : previous_count;
                 $("#text_username").val(storage_username);
