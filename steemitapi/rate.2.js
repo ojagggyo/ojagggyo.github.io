@@ -25,6 +25,10 @@ async function main_0(source, target, span, group){
             from.setDate(from.getDate() - 7);//1週間
             group = group ?? 'hour';
             break;
+        case '2weeks':
+            from.setDate(from.getDate() - 14);//2週間
+            group = group ?? 'hour';
+            break;
         case 'month':
             from.setMonth(from.getMonth() - 1);//1ヶ月
             group = group ?? 'hour';
